@@ -1,5 +1,5 @@
-# MyBikeTrip, le projet
-MikeBikeTrip est un projet de plateforme web de blogging spécialisé dans le voyage à vélo.   
+# MyBicycleAdventure, le projet
+MyBicycleAdventure est un projet de plateforme web de blogging spécialisé dans le voyage à vélo.   
 
 L'objectif est d'offrir une plateforme web simple et accessible pour les voyageurs désireux de partager leur(s) expérience(s)voyage(s) à vélo avec leurs proches, famille ou bien même au plus grand monde.
 
@@ -20,4 +20,5 @@ L'objectif est d'offrir une plateforme web simple et accessible pour les voyageu
 ## Annexe
 
 ### Glossaire 
-- **Aventurier** : Un **aventurier** est un utilisateur de la plateforme souhaitant partager du contenu (ses voyages à vélo). Il est l'utilisateur type du site.
+- **Aventurier** `adventurer` : Un aventurier est un utilisateur de la plateforme souhaitant partager ses voyages à vélo. Il est l'utilisateur type du site.
+- **Aventure** `adventure` : Une aventure représente un voyage complet.
