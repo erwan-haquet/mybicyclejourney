@@ -78,9 +78,9 @@ Se rendre sur [http://[::]:8081/](http://[::]:8081/), avec pour informations de 
 ```
 Système :        PostgreSQL
 Serveur :        postgres
-Utilisateur :    postgres
-Mot de passe :   ${POSTGRES_ROOT_PASSWORD} # cf .env
-Base de donnée : ${POSTGRES_DB_NAME}       # cf .env
+Utilisateur :    ${POSTGRES_USER}     # cf .env
+Mot de passe :   ${POSTGRES_PASSWORD} # cf .env
+Base de donnée : ${POSTGRES_DB_NAME}  # cf .env
 ```
 
 
