@@ -1,4 +1,4 @@
-# My Bicycle Journey, le projet 🚴🚴🚲
+# My Bicycle Journey, le projet 🚴
 My Bicycle Journey est un projet de plateforme web de blogging spécialisé dans le voyage à vélo.   
 
 Pour en savoir plus sur le projet, rendez-vous sur [My Bicycle Journey - le projet](https://github.com/erwan-haquet/mybicyclejourney/wiki/My-Bicycle-Journey) !
@@ -38,10 +38,15 @@ $ docker compose build
 Lancer tous les services :
 
 ```bash
-$ docker-compose up
+$ docker compose up
 ```
 
 L'application est désormais accessible via [http://[::]:8080/](http://[::]:8080/).
+
+Pour accéder à la console php :   
+```bash
+$ ./scripts/run.sh console
+```
 
 ## À savoir
 
