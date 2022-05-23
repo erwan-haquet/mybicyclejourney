@@ -1,0 +1,53 @@
+# Inspired by https://www.twilio.com/blog/get-started-docker-symfony
+
+version: '3.9'
+
+networks:
+  default: # network used by all containers in this project
+    driver: bridge
+
+services:
+  php:
+    build:
+      context: './docker/${APP_ENV}/php'
+      args:
+        gituseremail: $GIT_USER_EMAIL
+        gitusername: $GIT_USER_NAME
+    ports:
+      - '9000:9000'
+    volumes:
+      - './:/var/www'
+    depends_on:
+      - postgres
+
+  nginx:
+    image: 'nginx:${NGINX_VERSION}'
+    ports:
+      - '8080:80'
+    volumes:
+      - "./:/var/www"
+      - "./docker/${APP_ENV}/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+    depends_on:
+      - php
+      - postgres
+
+  postgres:
+    image: 'postgres:${POSTGRES_VERSION}'
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: $POSTGRES_ROOT_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB_NAME
+    ports:
+      - '5432:5432'
+    labels:
+      com.symfony.server.service-prefix: 'DATABASE'
+
+  adminer:
+    image: 'adminer'
+    restart: always
+    ports:
+      - '8081:8080'
+
+volumes:
+  postgres:
+    driver: local
