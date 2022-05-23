@@ -27,11 +27,25 @@ Générer votre fichier `.env.local` et modifier le fichier avec vos information
 $ cp .env .env.local
 ```
 
-Build les conteneurs docker :
+Build les conteneurs docker et lancer les conteneurs une première fois :
 
 ```bash
 $ docker compose build 
+$ docker compose up 
 ```
+
+Connecter vous au conteneur php :   
+```bash
+$ ./scripts/run.sh console
+```
+
+Installer les dépendances :
+```bash
+$ composer install 
+$ yarn install
+```
+
+And voila !
 
 ### Lancement du project
 
@@ -43,9 +57,15 @@ $ docker compose up
 
 L'application est désormais accessible via [http://[::]:8080/](http://[::]:8080/).
 
-Pour accéder à la console php :   
+La console php est accessible via :   
 ```bash
 $ ./scripts/run.sh console
+```
+
+Pour la gestion des assets, se connecter à la console puis :    
+```bash 
+docker@id:/var/www$ yarn encore dev # Pour compiler les assets
+docker@id:/var/www$ yarn encore dev --watch # Pour watch et compiler les assets
 ```
 
 ## À savoir

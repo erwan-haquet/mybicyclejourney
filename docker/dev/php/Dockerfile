@@ -20,5 +20,12 @@ RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 RUN git config --global user.email ${gituseremail} \
     && git config --global user.name ${gitusername}
 
+## Install npm & yarn for assets management
+RUN curl https://deb.nodesource.com/setup_18.x | bash
+RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt update && apt install -y nodejs yarn
+
+## Create a new user to prevent root access privilege on console access
 RUN useradd -ms /bin/bash docker
 USER docker
