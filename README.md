@@ -1,5 +1,5 @@
 # My Bicycle Journey, le projet 🚴🚴🚲
-My Bicycle Journey est un projet de plateforme web de blogging spécialisé dans le voyage à vélo.   
+My Bicycle Journey est un projet de plateforme web de blogging spécialisé dans le voyage à vélo. 
 
 Pour en savoir plus sur le projet, rendez-vous sur [My Bicycle Journey - le projet](https://github.com/erwan-haquet/mybicyclejourney/wiki/My-Bicycle-Journey) !
 
