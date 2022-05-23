@@ -1,7 +1,7 @@
-controllers:
-    resource: ../src/Controller/
-    type: annotation
-
 kernel:
     resource: ../src/Kernel.php
+    type: annotation
+
+content_management_controllers:
+    resource: ../src/ContentManagement/Ui/Web/Controller/
     type: annotation
