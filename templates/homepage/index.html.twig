@@ -1,5 +1,91 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+    <div>
+        <div class="home-image-wrapper">
+            <div class="home-image-inner">
+                <img alt="Background image"
+                     src="{{ asset('build/images/home_banner.webp') }}"
+                     class="home-image"
+                     srcset="{{ asset('build/images/home_banner.webp') }} 1x,{{ asset('build/images/home_banner.webp') }} 2x,">
+            </div>
+        </div>
+    </div>
 
+    <div class="container">
+        <section class="header-section row">
+            <h1 class="headline col">
+                Partage tes plus belles aventures à vélo <br>
+                <small>Avec ta famille, tes amis, collègues, et même Brad Pitt (pourquoi pas ?).</small>
+            </h1>
+        </section>
+
+        <section class="teaser-section row justify-content-md-center">
+            <div class="card col-sm-8">
+                <div class="card-body">
+                    <p class="card-text teaser-text">
+                        MyBicycleJourney est tout nouveau et nous avons encore besoin d'un peu de temps avant de te proposer un super service. Tu souhaites être informé des avancées ? Alors inscris-toi et on te tient au courant !
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+        .home-image-wrapper {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 1.5rem;
+            z-index: -1;
+            position: absolute;
+        }
+
+        .home-image-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .home-image {
+            width: 100%;
+            height: 45rem;
+            object-fit: cover;
+            position: absolute;
+            filter: brightness(70%);
+        }
+
+        .header-section {
+            margin-top: 4rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .headline {
+            font-weight: bold;
+            display: inline-block;
+            padding: 0 1rem;
+            color: #ffffff;
+        }
+
+        .headline small {
+            font-size: 1.2rem;
+        }
+
+        .teaser-section {
+            margin-top: 3rem;
+        }
+
+        .teaser-text {
+            font-size: 1em;
+            text-align: justify;
+        }
+    </style>
 {% endblock %}
