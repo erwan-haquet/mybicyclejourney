@@ -1,7 +1,9 @@
-@import "colors";
-@import "typography";
-
 body {
   color: $text-color;
-  background-color: $lightgray;
+  background-color: $background;
+  font-family: $font-family-text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-title;
 }
