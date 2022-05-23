@@ -1,0 +1,27 @@
+version: '3.9'
+
+networks:
+  default: # network used by all containers in this project
+    driver: bridge
+
+services:
+  postgres:
+    image: 'postgres:${POSTGRES_VERSION:-14.3}'
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: $POSTGRES_ROOT_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB_NAME
+    ports:
+      - '5432:5432'
+    labels:
+      com.symfony.server.service-prefix: 'DATABASE'
+
+  adminer:
+    image: 'adminer'
+    restart: always
+    ports:
+      - '8080:8080'
+
+volumes:
+  postgres:
+    driver: local

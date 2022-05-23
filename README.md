@@ -1,24 +1,56 @@
 # My Bicycle Journey, le projet
 My Bicycle Journey est un projet de plateforme web de blogging spécialisé dans le voyage à vélo.   
 
-L'objectif est d'offrir une plateforme web simple et accessible pour les voyageurs désireux de partager leur(s) expérience(s)voyage(s) à vélo avec leurs proches, famille ou bien même au plus grand monde.
+Pour en savoir plus sur le projet, rendez-vous sur [My Bicycle Journey - le projet](https://github.com/erwan-haquet/mybicyclejourney/wiki/My-Bicycle-Journey)
 
-### Les objectifs 
-- Partager ma propre expérience de voyage à vélo
-- Offrir une plateforme de blogging hyper spécialisé accessible au plus grand monde
-- Créer des connexions entre les voyageurs
-- Promouvoir le voyage à vélo
-- Créer un side project open source
+## Quick start
 
-### Les key features
-- Un WYSIWYG facile d'utilisation et complet pour la rédaction des aventures
-- Un CMS ergonomique permettant au travers d'un formulaire à la fois complet et intuitif de renseigner une aventure complète
-- Une page de visualisation d'une aventure au goût du jour et bien stylisée
-- Un système d'import de tracé via un fichier `.gpx`.
+#### Pré-requis
+
+Pour pouvoir lancer le projet, il est nécessaire d'avoir installé les dépendences suivantes :
+
+- [Docker engine](https://docs.docker.com/engine/installation/)
+- [Docker compose](https://docs.docker.com/compose/install/)
+
+#### Installation du project
+
+Cloner le projet
+
+```bash
+$ git clone git@github.com:erwan-haquet/mybicyclejourney.git mybicyclejourney
+$ cd mybicyclejourney
+```
+
+générer un fichier `.env.local`
+
+```bash
+$ cp .env .env.local
+```
+
+Setup les conteneurs docker
+
+```bash
+$ docker compose build 
+```
+
+#### Lancement du project
+
+Lancer tous les services
+
+```bash
+$ docker-compose up
+```
+
+#### Accéder à l'adminer postgres
+
+Se rendre sur [http://[::]:8080/](http://[::]:8080/)
+
+```
+Système :        PostgreSQL
+Serveur :        postgres
+Utilisateur :    postgres
+Mot de passe :   ${POSTGRES_ROOT_PASSWORD} # cf .env
+Base de donnée : ${POSTGRES_DB_NAME}       # cf .env
+```
 
 
-## Annexe
-
-### Glossaire 
-- **Aventurier** `adventurer` : Un aventurier est un utilisateur de la plateforme souhaitant partager ses voyages à vélo. Il est l'utilisateur type du site.
-- **Périple** `journey` : Un périple représente un voyage complet.
