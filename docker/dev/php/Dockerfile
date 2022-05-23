@@ -19,3 +19,6 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 RUN git config --global user.email ${gituseremail} \
     && git config --global user.name ${gitusername}
+
+RUN useradd -ms /bin/bash docker
+USER docker
