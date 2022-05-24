@@ -3,12 +3,14 @@
 namespace App\Marketing\Domain\Launch\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Early birds are people who registered early on the "under construction" website.
  * They registered to be kept in touch and received early communications.
  *
  * @ORM\Entity
+ * @UniqueEntity("email")
  * @ORM\Table(name="marketing_early_bird")
  */
 class EarlyBird
@@ -21,7 +23,7 @@ class EarlyBird
     private ?int $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      */
     private string $email;
 

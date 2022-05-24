@@ -13,8 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 class RegisterEarlyBird extends Command
 {
     /**
-     * @Assert\NotBlank(message="On ne pourra pas t'envoyer d'email sans adresse :(")
-     * @Assert\Email(message="On ne pourra pas t'envoyer d'email sur cette adresse :(")
+     * @Assert\NotBlank(message="On ne pourra pas t'envoyer d'email sans ton adresse :/")
+     * @Assert\Email(message="On ne pourra pas t'envoyer d'email sur cette adresse :/")
      */
     public ?string $email = null;
 
