@@ -125,6 +125,9 @@
     "symfony/doctrine-bridge": {
         "version": "v6.0.8"
     },
+    "symfony/doctrine-messenger": {
+        "version": "v6.0.8"
+    },
     "symfony/dotenv": {
         "version": "v6.0.5"
     },

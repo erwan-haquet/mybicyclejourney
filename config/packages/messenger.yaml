@@ -44,15 +44,6 @@ framework:
             Library\CQRS\Query\QueryInterface: sync
             Library\CQRS\Event\EventInterface: async
 
-services:
-    _instanceof:
-        Library\CQRS\Command\CommandHandlerInterface:
-            tags: ['command.bus']
-        Library\CQRS\Query\QueryHandlerInterface:
-            tags: ['query.bus']
-        Library\CQRS\Event\EventHandlerInterface:
-            tags: ['event.bus']
-
 when@test:
     framework:
         messenger:

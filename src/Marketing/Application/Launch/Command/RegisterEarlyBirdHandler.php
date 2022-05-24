@@ -15,7 +15,7 @@ class RegisterEarlyBirdHandler implements CommandHandlerInterface
         $this->repository = $repository;
     }
 
-    public function handleCreateAddress(RegisterEarlyBird $command): void
+    public function __invoke(RegisterEarlyBird $command): void
     {
         $earlyBird = new EarlyBird(
             email: $command->email,

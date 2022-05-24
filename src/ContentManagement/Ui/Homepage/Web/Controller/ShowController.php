@@ -21,6 +21,7 @@ class ShowController extends AbstractController
         $command = new RegisterEarlyBird();
         $form = $this->createForm(RegisterEarlyBirdType::class, $command);
 
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $commandBus->dispatch($command);
             $this->addFlash('success', 'Te voila désormais early bird 🐦');
