@@ -13,6 +13,8 @@
         {% endblock %}
     </head>
     <body>
+        {% include 'shared/_flash_messages.html.twig' %}
+
         {% block navbar %}{% include 'shared/_navbar.html.twig' %}{% endblock %}
 
         {% block body %}{% endblock %}
