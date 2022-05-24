@@ -1,6 +1,7 @@
+@use "charter";
+
 .navbar-light .navbar-brand {
-  font-family: $font-family-title;
-  color: $text-color;
+  font-family: charter.$font-family-brand;
 }
 
 .navbar-light {

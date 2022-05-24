@@ -1,9 +1,18 @@
+@use "charter";
+
+html {
+  font-size: 14px;
+}
+
 body {
-  color: $text-color;
-  background-color: $body-bg;
-  font-family: $font-family-text;
+  font-family: charter.$font-family-text;
+}
+
+p {
+  font-family: charter.$font-family-text;
+  line-height: 1.50rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-family-title;
+  font-family: charter.$font-family-title;
 }

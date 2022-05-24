@@ -1,14 +1,10 @@
 // The graphic charter definition
 
-/*> COLORS */
-$text-color: #1d2025;
-$body-bg: #f9f9f9;
-/*< COLORS */
-
 /*> FONT */
 // Font families
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
-
-$font-family-text: 'Source Sans Pro', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600&family=Raleway:wght@300;400;600;700&display=swap');
+$font-family-brand: "Source Code Pro", Menlo, Monaco, Consolas;
 $font-family-title: "Source Code Pro", Menlo, Monaco, Consolas;
+$font-family-text: 'Raleway', sans-serif;
 /*< FONT */
+
