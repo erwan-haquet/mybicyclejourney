@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    _instanceof:
+        Library\CQRS\Command\CommandHandlerInterface:
+            tags: [{ name: messenger.message_handler, bus: command.bus }]
+        Library\CQRS\Query\QueryHandlerInterface:
+            tags: [{ name: messenger.message_handler, bus: query.bus }]
+        Library\CQRS\Event\EventHandlerInterface:
+            tags: [{ name: messenger.message_handler, bus: event.bus }]
+
+    Library\CQRS\:
+        resource: './'
+

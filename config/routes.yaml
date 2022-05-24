@@ -2,6 +2,6 @@ kernel:
     resource: ../src/Kernel.php
     type: annotation
 
-content_management_controllers:
-    resource: ../src/ContentManagement/Ui/Web/Controller/
+content_management_homepage_controllers:
+    resource: ../src/ContentManagement/Ui/Homepage/Web/Controller/
     type: annotation
