@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Marketing\Domain\Model;
+namespace App\Marketing\Domain\Launch\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Early birds are people who registered early on the "under construction" website.
- * They registered to receive communication.
+ * They registered to be kept in touch and received early communications.
  *
  * @ORM\Entity
  * @ORM\Table(name="marketing_early_bird")
