@@ -1,0 +1,94 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+.home-image-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 1.5rem;
+  z-index: -1;
+  position: absolute;
+}
+
+.home-image-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.home-image {
+  width: 100%;
+  height: 50rem;
+  object-fit: cover;
+  position: absolute;
+}
+
+.header-section {
+  margin-top: 3rem;
+  padding: 1rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.headline {
+  font-weight: bold;
+  display: inline-block;
+  font-size: 3rem;
+}
+
+.subheadline {
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+.stay-tuned-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stay-tuned-title {
+  margin-bottom: 1.5rem;
+}
+
+.stay-tuned-text {
+  text-align: justify;
+  margin-bottom: 2rem;
+}
+
+.open-source-text {
+  text-align: justify;
+}
+
+@include media-breakpoint-between(md, lg) {
+  .home-image {
+    height: 60rem;
+  }
+  .headline {
+    font-size: 2.5rem;
+  }
+  .header-section {
+    margin-top: 2rem;
+  }
+  .stay-tuned-section {
+    margin-top: 0;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .headline {
+    font-size: 1.7rem;
+  }
+  .header-section {
+    margin-top: 2rem;
+  }
+  .subheadline {
+    font-size: 1.2rem;
+  }
+  .stay-tuned-section {
+    margin-top: 1rem;
+  }
+}

@@ -4,6 +4,7 @@ namespace App\ContentManagement\Ui\Homepage\Web\Controller;
 
 use App\ContentManagement\Ui\Homepage\Web\Form\RegisterEarlyBirdType;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
+use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,9 +24,13 @@ class ShowController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $commandBus->dispatch($command);
-            $this->addFlash('success', 'Cool, te voila désormais early bird 🐦');
-            return $this->redirectToRoute('homepage');
+            try {
+                $commandBus->dispatch($command);
+                $this->addFlash('success', 'Cool, tu fais désormais parti des early birds 🐦');
+                return $this->redirectToRoute('homepage');
+            } catch (EmailIsAlreadyRegistered) {
+                $this->addFlash('success', 'Ton email est déjà enregistré, mais promis on ne t\'oublie pas 👊');
+            }
         }
 
         return $this->render('homepage/index.html.twig', [

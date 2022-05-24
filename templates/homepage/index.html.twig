@@ -1,124 +1,86 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('page/homepage') }}
+{% endblock %}
+
 {% block body %}
     <div>
         <div class="home-image-wrapper">
             <div class="home-image-inner">
                 <img alt="Background image"
-                     src="{{ asset('build/images/home_banner.webp') }}"
+                     src="{{ asset('build/images/homepage_banner.jpg') }}"
                      class="home-image"
-                     srcset="{{ asset('build/images/home_banner.webp') }} 1x,{{ asset('build/images/home_banner.webp') }} 2x,">
+                     srcset="{{ asset('build/images/homepage_banner.jpg') }} 1x,{{ asset('build/images/homepage_banner.jpg') }} 2x,">
             </div>
         </div>
     </div>
 
     <div class="container">
         <section class="header-section row">
-            <h1 class="headline col">
-                Partage tes plus belles aventures à vélo <br>
-                <small>Avec ta famille, tes amis, collègues, et même Brad Pitt (pourquoi pas ?).</small>
+            <h1 class="headline">
+                Partage tes plus belles aventures à vélo
             </h1>
+            <h3 class="subheadline">
+                <small>Avec ta famille, tes amis, collègues, et pourquoi pas Brad Pitt ?</small>
+            </h3>
         </section>
 
         <section class="stay-tuned-section row justify-content-md-center">
-            <div class="card col-sm-8">
+            <div class="card p-3 col-xs-12">
                 <div class="card-body">
-                    <h5 class="card-title">L'aventure commence ici, pour nous aussi !</h5>
+                    <h5 class="card-title stay-tuned-title">L'aventure commence ici, pour nous aussi !</h5>
                     <p class="card-text stay-tuned-text">
-                        MyBicycleJourney est tout nouveau et nous avons encore besoin d'un peu de temps avant de te
+                        MyBicycleJourney est tout nouveau et nous avons besoin d'un peu de temps avant de te
                         proposer un super service.
-                        Si tu souhaites être informé des avancées, tu peux t'inscrire ici et on te tient au courant.
-                        Il nous faut juste ton petit nom et un email (promis on le garde pour nous).
+                        Si tu souhaites être informé des avancées, tu peux t'inscrire ici et on te tiendra au courant dès qu'il y a du nouveau.
+                        Il nous faut juste ton petit nom et un email (promis on le garde pour nous) :
                     </p>
 
-                    {{ form_start(form) }}
-                    {{ form_errors(form) }}
+                    <div class="stay-tuned-form">
+                        {{ form_start(form) }}
+                        {{ form_errors(form) }}
 
-                    <div class="row">
-                        <div class="col-4">
-                            {{ form_row(form.name, {
-                                label: 'Ton prénom',
-                                attr: { placeholder: 'Hey moi c\'est Erwan 👋' },
-                            }) }}
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                {{ form_row(form.name, {
+                                    label: 'Ton prénom',
+                                    attr: { placeholder: 'Hey moi c\'est Erwan' },
+                                }) }}
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                {{ form_row(form.email, {
+                                    label: 'Email',
+                                    attr: { placeholder: '(s\'il fonctionne c\'est mieux)' },
+                                }) }}
+                            </div>
+                            <div class="col-lg-4 flex-column d-flex">
+                                <div class="form-label text-white d-none d-lg-block">// Fix top margin</div>
+                                {{ form_row(form.save, {
+                                    label: 'Tiens moi au courant 🤙',
+                                    row_attr: { class: 'mb-3' },
+                                    attr: { class: 'btn-primary w-100 bold fw-bold' },
+                                }) }}
+                            </div>
                         </div>
-                        <div class="col-4">
-                            {{ form_row(form.email, {
-                                label: 'et ton email',
-                                attr: { placeholder: '(s\'il fonctionne c\'est mieux)' },
-                            }) }}
-                        </div>
-                        <div class="col-4 flex-column d-flex">
-                            {{ form_row(form.save, {
-                                label: 'OK, tiens moi au courant !',
-                                row_attr: { class: 'mt-auto mb-3' },
-                                attr: { class: 'btn-primary w-100' },
-                            }) }}
-                        </div>
+                        {{ form_end(form) }}
                     </div>
-                    {{ form_end(form) }}
+
+                    <hr class="mb-4">
+
+                    <div class="open-source-text">
+                        <p class="card-text">
+                            Ah oui et aussi, MyBicycleJourney est <b>un projet open source</b> et <b>collaboratif</b>, tu souhaites participer ?
+                        </p>
+
+                        <ul class="open-source-list">
+                            <li>👩🏻‍💻 <u>Tu es un(e) pro</u> : on se retrouve sur le <a href="https://github.com/erwan-haquet/mybicyclejourney">le Github du projet</a>, tu y trouveras tout le nécessaire pour contribuer.</li>
+                            <li>🤷‍♂️<u>Tu ne sais pas où commencer</u> : le projet t'intéresses et tu voudrais y contribuer, mais tu ne sais pas par où commencer ? Pas de soucis, prenons le temps d'en discuter ensemble autour d'un café. Envoie-moi un email à <a href="mailto:erwan@mybicyclejourney.com">erwan@mybicyclejourney.com</a> et on trouvera sans aucun doute ce qu'il te faut.</li>
+                        </ul>
+                    </div>
                 </div>
-
-
             </div>
         </section>
     </div>
-
-{% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
-
-    <style>
-        .home-image-wrapper {
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            padding-bottom: 1.5rem;
-            z-index: -1;
-            position: absolute;
-        }
-
-        .home-image-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .home-image {
-            width: 100%;
-            height: 45rem;
-            object-fit: cover;
-            position: absolute;
-            filter: brightness(70%);
-        }
-
-        .header-section {
-            margin-top: 4rem;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .headline {
-            font-weight: bold;
-            display: inline-block;
-            padding: 0 1rem;
-            color: #ffffff;
-        }
-
-        .headline small {
-            font-size: 1.2rem;
-        }
-
-        .stay-tuned-section {
-            margin-top: 2rem;
-        }
-
-        .stay-tuned-text {
-            font-size: 1rem;
-            line-height: 1.45rem;
-            text-align: justify;
-        }
-    </style>
 {% endblock %}
