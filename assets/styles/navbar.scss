@@ -1,3 +1,8 @@
 .navbar-light .navbar-brand {
+  font-family: $font-family-title;
   color: $text-color;
+}
+
+.navbar-light {
+  padding: 0.5rem 1rem;
 }
