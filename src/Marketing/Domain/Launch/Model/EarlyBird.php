@@ -28,18 +28,12 @@ class EarlyBird
     /**
      * @ORM\Column(type="string")
      */
-    private string $firstName;
+    private string $name;
 
-    /**
-     * @ORM\Column(type="string")
-     */
-    private string $lastName;
-
-    public function __construct(string $email, string $firstName, string $lastName)
+    public function __construct(string $email, string $name)
     {
         $this->email = $email;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
+        $this->name = $name;
     }
 
     public function getId(): ?int
@@ -52,13 +46,8 @@ class EarlyBird
         return $this->email;
     }
 
-    public function getFirstName(): string
+    public function getName(): string
     {
-        return $this->firstName;
-    }
-
-    public function getLastName(): string
-    {
-        return $this->lastName;
+        return $this->name;
     }
 }

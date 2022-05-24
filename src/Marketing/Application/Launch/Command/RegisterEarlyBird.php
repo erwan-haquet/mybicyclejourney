@@ -18,7 +18,8 @@ class RegisterEarlyBird extends Command
      */
     public ?string $email = null;
 
-    public ?string $firstName = null;
-
-    public ?string $lastName = null;
+    /**
+     * @Assert\NotBlank
+     */
+    public ?string $name = null;
 }
