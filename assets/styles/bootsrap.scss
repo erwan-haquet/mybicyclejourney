@@ -1,0 +1,23 @@
+@use 'charter';
+
+/*> COLORS */
+$body-bg: #f9f9f9;
+$body-color: #1d2025;
+
+$white: #ffffff;
+$theme-colors: (
+  "light": #d4d7e1,
+  "dark": #091328,
+  "primary": #203561,
+  "secondary": #e11c56,
+  "info": #456ba9,
+  "success": #119757,
+  "warning": #dfc713,
+  "danger": #eb1807,
+);
+/*< COLORS */
+
+
+
+@import "~bootstrap/scss/bootstrap";
+
