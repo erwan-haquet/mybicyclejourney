@@ -10,11 +10,11 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            Marketing:
+            MarketingLaunch:
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Marketing/Domain/Model'
-                prefix: 'App\Marketing\Domain'
-                alias: Marketing
+                dir: '%kernel.project_dir%/src/Marketing/Domain/Launch/Model'
+                prefix: 'App\Marketing\Domain\Launch'
+                alias: MarketingLaunch
 
 when@test:
     doctrine:

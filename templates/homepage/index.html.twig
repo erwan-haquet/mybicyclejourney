@@ -23,11 +23,42 @@
         <section class="stay-tuned-section row justify-content-md-center">
             <div class="card col-sm-8">
                 <div class="card-body">
+                    <h5 class="card-title">L'aventure commence ici, pour nous aussi !</h5>
                     <p class="card-text stay-tuned-text">
-                        MyBicycleJourney est tout nouveau et nous avons encore besoin d'un peu de temps avant de te proposer un super service.
-                        Tu souhaites être informé des avancées ? Alors inscris-toi et on te tient au courant !
+                        MyBicycleJourney est tout nouveau et nous avons encore besoin d'un peu de temps avant de te
+                        proposer un super service.
+                        Si tu souhaites être informé des avancées, tu peux t'inscrire ici et on te tient au courant.
+                        Il nous faut juste ton petit nom et un email (promis on le garde pour nous).
                     </p>
+
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    <div class="row">
+                        <div class="col-4">
+                            {{ form_row(form.name, {
+                                label: 'Ton prénom',
+                                attr: { placeholder: 'Hey moi c\'est Erwan 👋' },
+                            }) }}
+                        </div>
+                        <div class="col-4">
+                            {{ form_row(form.email, {
+                                label: 'et ton email',
+                                attr: { placeholder: '(s\'il fonctionne c\'est mieux)' },
+                            }) }}
+                        </div>
+                        <div class="col-4 flex-column d-flex">
+                            {{ form_row(form.save, {
+                                label: 'OK, tiens moi au courant !',
+                                row_attr: { class: 'mt-auto mb-3' },
+                                attr: { class: 'btn-primary w-100' },
+                            }) }}
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
                 </div>
+
+
             </div>
         </section>
     </div>
