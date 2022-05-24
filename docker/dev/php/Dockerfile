@@ -12,6 +12,10 @@ RUN apt update \
     && docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
+# install xdebug
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
+
 WORKDIR /var/www
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -26,6 +30,8 @@ RUN curl https://deb.nodesource.com/setup_18.x | bash
 RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt update && apt install -y nodejs yarn
+
+ADD files /
 
 ## Create a new user to prevent root access privilege on console access
 RUN useradd -ms /bin/bash docker

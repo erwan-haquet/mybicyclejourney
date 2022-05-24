@@ -1,4 +1,4 @@
-# My Bicycle Journey, le projet 🚴
+# My Bicycle Journey 🚴
 My Bicycle Journey est un projet de plateforme web de blogging spécialisé dans le voyage à vélo.   
 
 Pour en savoir plus sur le projet, rendez-vous sur [My Bicycle Journey - le projet](https://github.com/erwan-haquet/mybicyclejourney/wiki/My-Bicycle-Journey) !
@@ -27,7 +27,7 @@ Générer votre fichier `.env.local` et modifier le fichier avec vos information
 $ cp .env .env.local
 ```
 
-Build les conteneurs docker et lancer les conteneurs une première fois :
+Construire les conteneurs docker et les lancer une première fois :
 
 ```bash
 $ docker compose build 
@@ -39,7 +39,7 @@ Connecter vous au conteneur php :
 $ ./scripts/run.sh console
 ```
 
-Installer les dépendances :
+Puis installer les dépendances :
 ```bash
 $ composer install 
 $ yarn install
@@ -62,10 +62,10 @@ La console php est accessible via :
 $ ./scripts/run.sh console
 ```
 
-Pour la gestion des assets, se connecter à la console puis :    
+Pour la gestion des assets,  depuis la console php :    
 ```bash 
-docker@id:/var/www$ yarn encore dev # Pour compiler les assets
-docker@id:/var/www$ yarn encore dev --watch # Pour watch et compiler les assets
+$ yarn encore dev # Pour compiler les assets
+$ yarn encore dev --watch # Pour watch et compiler les assets
 ```
 
 ## À savoir
