@@ -24,7 +24,7 @@ class ShowController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $commandBus->dispatch($command);
-            $this->addFlash('success', 'Te voila désormais early bird 🐦');
+            $this->addFlash('success', 'Cool, te voila désormais early bird 🐦');
         }
 
         return $this->render('homepage/index.html.twig', [
