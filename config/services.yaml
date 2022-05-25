@@ -24,3 +24,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+
+    App\Supporting\Infrastructure\Email\SymfonyMailer:
+        arguments:
+            $dkimPk: '%env(DKIM_PRIVATE_KEY)%'
+            $dkimDomain: '%env(DKIM_DOMAIN)%'
+            $dkimSelector: '%env(DKIM_SELECTOR)%'
+            $sender: '%env(MAILER_SENDER)%'
