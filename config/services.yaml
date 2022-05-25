@@ -28,7 +28,7 @@ services:
 
     App\Supporting\Infrastructure\Email\SymfonyMailer:
         arguments:
-            $dkimPk: '%env(DKIM_PRIVATE_KEY)%'
-            $dkimDomain: '%env(DKIM_DOMAIN)%'
-            $dkimSelector: '%env(DKIM_SELECTOR)%'
-            $sender: '%env(MAILER_SENDER)%'
+            $dkimPk: '%env(default::DKIM_PRIVATE_KEY)%'
+            $dkimDomain: '%env(default::DKIM_DOMAIN)%'
+            $dkimSelector: '%env(default::DKIM_SELECTOR)%'
+            $sender: '%env(string:MAILER_SENDER)%'
