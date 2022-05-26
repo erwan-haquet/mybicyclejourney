@@ -8,3 +8,21 @@ $font-family-title: "Roboto", Menlo, Monaco, Consolas;
 $font-family-text: 'Raleway', sans-serif;
 /*< FONT */
 
+/*> COLORS */
+$body-bg: #f9f9f9;
+$body-color: #393c42;
+
+$white: #ffffff;
+$theme-colors: (
+    "light": #d4d7e1,
+    "dark": #091328,
+    "primary": #203561,
+    "secondary": #e11c56,
+    "info": #456ba9,
+    "success": #198754,
+    "warning": #dfc713,
+    "danger": #eb1807,
+);
+/*< COLORS */
+
+$card-border-radius: 0;
