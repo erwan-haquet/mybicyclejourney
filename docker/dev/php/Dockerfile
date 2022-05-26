@@ -4,9 +4,9 @@ ARG gituseremail
 ARG gitusername
 
 RUN apt update \
-    && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev libpq-dev zip \
+    && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev libpq-dev libxslt1-dev zip \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install intl opcache pdo pdo_pgsql pgsql \
+    && docker-php-ext-install intl opcache pdo pdo_pgsql pgsql xsl \
     && pecl install apcu \
     && docker-php-ext-enable apcu \
     && docker-php-ext-configure zip \
