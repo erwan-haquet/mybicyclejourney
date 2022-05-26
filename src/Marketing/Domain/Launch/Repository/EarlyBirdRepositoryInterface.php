@@ -12,5 +12,10 @@ interface EarlyBirdRepositoryInterface
      *
      * @throws EmailIsAlreadyRegistered
      */
-    public function add(EarlyBird $earlyBird);
+    public function add(EarlyBird $earlyBird): void;
+
+    /**
+     * Finds an early bird by its id.
+     */
+    public function findById(int $id): ?EarlyBird;
 }

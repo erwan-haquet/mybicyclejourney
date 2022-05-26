@@ -33,7 +33,7 @@ class ShowController extends AbstractController
             }
         }
 
-        return $this->render('homepage/index.html.twig', [
+        return $this->render('web/homepage/index.html.twig', [
             'form' => $form->createView()
         ]);
     }

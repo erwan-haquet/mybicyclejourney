@@ -36,12 +36,17 @@ class SymfonyMailer implements MailerInterface
             ->from($this->sender)
             ->to(...$email->to())
             ->cc(...$email->cc())
-            ->subject($email->subject())
-            ->text($email->text());
+            ->subject($email->subject());
 
-        if ($html = $email->html()) {
-            $message->html($html);
-        }
+        /**
+         * Fixme: multipart email is not compatible with DKIM signature at this moment.
+         *         This should be fixes in later Symfony Mailer version.
+         *
+         * @see https://github.com/symfony/symfony/issues/39354
+         */
+        $message = $email->html()
+            ? $message->html($email->html())
+            : $message->text($email->text());
 
         foreach ($email->attachments() as $attachment) {
             $message->attachFromPath(

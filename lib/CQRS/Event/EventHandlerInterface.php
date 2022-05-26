@@ -2,6 +2,8 @@
 
 namespace Library\CQRS\Event;
 
-interface EventHandlerInterface
+use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
+
+interface EventHandlerInterface extends MessageHandlerInterface
 {
 }
