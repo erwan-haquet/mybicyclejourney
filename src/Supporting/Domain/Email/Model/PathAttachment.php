@@ -2,7 +2,7 @@
 
 namespace App\Supporting\Domain\Email\Model;
 
-class Attachment
+class PathAttachment
 {
     private string $path;
     private string $name;
@@ -15,6 +15,9 @@ class Attachment
         $this->contentType = $contentType;
     }
 
+    /**
+     * Name of the file, including extension.
+     */
     public function getName(): ?string
     {
         return $this->name;

@@ -20,7 +20,7 @@ class Email
     private array $cc;
 
     /**
-     * @var Attachment[]
+     * @var PathAttachment[]
      */
     private array $attachments;
 
@@ -75,18 +75,24 @@ class Email
     }
 
     /**
-     * @return Attachment[]
+     * @return PathAttachment[]
      */
     public function attachments(): array
     {
         return $this->attachments;
     }
 
+    /**
+     * Text content.
+     */
     public function text(): string
     {
         return $this->text;
     }
 
+    /**
+     * Html content.
+     */
     public function html(): ?string
     {
         return $this->html;
