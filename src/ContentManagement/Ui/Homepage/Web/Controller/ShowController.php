@@ -26,7 +26,7 @@ class ShowController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $commandBus->dispatch($command);
-                $this->addFlash('success', 'Cool, tu fais désormais parti des early birds 🐦');
+                $this->addFlash('success', 'Cool, tu fais désormais partie des early birds 🐦');
                 return $this->redirectToRoute('homepage');
             } catch (EmailIsAlreadyRegistered) {
                 $this->addFlash('success', 'Ton email est déjà enregistré, mais promis on ne t\'oublie pas 👊');
