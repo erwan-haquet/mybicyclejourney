@@ -18,6 +18,3 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
-
-# DKIM private key
-dkim.private.key

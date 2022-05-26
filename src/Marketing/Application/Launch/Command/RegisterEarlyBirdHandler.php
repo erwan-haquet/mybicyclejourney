@@ -11,7 +11,7 @@ class RegisterEarlyBirdHandler implements CommandHandlerInterface
 {
     private EarlyBirdRepositoryInterface $repository;
 
-    public function __construct(EarlyBirdRepositoryInterface $repository,)
+    public function __construct(EarlyBirdRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }

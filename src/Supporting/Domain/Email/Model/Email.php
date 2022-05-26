@@ -2,6 +2,8 @@
 
 namespace App\Supporting\Domain\Email\Model;
 
+use Library\Assert\Assert;
+
 /**
  * An immutable email value object.
  */
@@ -38,12 +40,18 @@ class Email
     )
     {
         $this->subject = $subject;
-        $this->attachments = $attachments;
+
         $this->text = $text;
         $this->html = $html;
 
+        Assert::allIsInstanceOf($attachments, PathAttachment::class);
+        $this->attachments = $attachments;
+
         $this->to = is_array($to) ? $to : [$to];
+        Assert::allString($this->to, PathAttachment::class);
+
         $this->cc = is_array($cc) ? $cc : [$cc];
+        Assert::allString($this->cc, PathAttachment::class);
     }
 
     /**
