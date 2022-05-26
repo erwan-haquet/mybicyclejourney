@@ -62,10 +62,15 @@ La console php est accessible via :
 $ ./scripts/run.sh console
 ```
 
-Pour la gestion des assets,  depuis la console php :    
+Compiler les assets, depuis la console php :    
 ```bash 
 $ yarn encore dev # Pour compiler les assets
 $ yarn encore dev --watch # Pour watch et compiler les assets
+```
+
+Lancer le worker messenger, depuis la console php :
+```bash 
+$ bin/console messenger:consume async
 ```
 
 ## À savoir

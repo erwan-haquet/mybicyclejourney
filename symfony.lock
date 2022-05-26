@@ -1,4 +1,7 @@
 {
+    "dflydev/dot-access-data": {
+        "version": "v3.0.1"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -74,14 +77,29 @@
     "doctrine/sql-formatter": {
         "version": "1.1.2"
     },
+    "egulias/email-validator": {
+        "version": "3.1.2"
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.12"
     },
     "laminas/laminas-code": {
         "version": "4.5.1"
     },
+    "league/commonmark": {
+        "version": "2.3.1"
+    },
+    "league/config": {
+        "version": "v1.1.1"
+    },
     "monolog/monolog": {
         "version": "2.6.0"
+    },
+    "nette/schema": {
+        "version": "v1.2.2"
+    },
+    "nette/utils": {
+        "version": "v3.2.7"
     },
     "psr/cache": {
         "version": "3.0.0"
@@ -189,6 +207,18 @@
     "symfony/http-kernel": {
         "version": "v6.0.8"
     },
+    "symfony/mailer": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "4.3",
+            "ref": "97a61eabb351d7f6cb7702039bcfe07fe9d7e03c"
+        },
+        "files": [
+            "config/packages/mailer.yaml"
+        ]
+    },
     "symfony/messenger": {
         "version": "6.0",
         "recipe": {
@@ -200,6 +230,9 @@
         "files": [
             "config/packages/messenger.yaml"
         ]
+    },
+    "symfony/mime": {
+        "version": "v6.0.8"
     },
     "symfony/monolog-bridge": {
         "version": "v6.0.3"
@@ -223,6 +256,9 @@
         "version": "v1.25.0"
     },
     "symfony/polyfill-intl-icu": {
+        "version": "v1.25.0"
+    },
+    "symfony/polyfill-intl-idn": {
         "version": "v1.25.0"
     },
     "symfony/polyfill-intl-normalizer": {
@@ -327,7 +363,16 @@
     "symfony/yaml": {
         "version": "v6.0.3"
     },
+    "twig/extra-bundle": {
+        "version": "v3.4.0"
+    },
+    "twig/markdown-extra": {
+        "version": "v3.4.0"
+    },
     "twig/twig": {
         "version": "v3.4.1"
+    },
+    "webmozart/assert": {
+        "version": "1.10.0"
     }
 }
