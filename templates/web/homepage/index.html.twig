@@ -23,61 +23,47 @@
                 Partage tes plus belles aventures à vélo
             </h1>
             <h3 class="subheadline">
-                <small>Avec ta famille, tes amis, collègues, et pourquoi pas Brad Pitt ?</small>
+                Avec ta famille, tes amis, collègues, et même Brad Pitt pourquoi pas ?
             </h3>
         </section>
 
-        <section class="stay-tuned-section row justify-content-md-center">
-            <div class="card p-3 col-xs-12">
-                <div class="card-body">
-                    <h5 class="card-title stay-tuned-title">L'aventure commence ici, pour nous aussi !</h5>
-                    <p class="card-text stay-tuned-text">
-                        MyBicycleJourney est tout nouveau et nous avons besoin d'un peu de temps avant de te
-                        proposer un super service.
-                        Si tu souhaites être informé des avancées, tu peux t'inscrire ici et on te tiendra au courant dès qu'il y a du nouveau.
-                        Il nous faut juste ton petit nom et un email (promis on le garde pour nous) :
+        <div class="cta-wrapper text-center">
+            <a href="https://github.com/erwan-haquet/mybicyclejourney" 
+               class="cta-button btn-secondary btn-lg btn fw-bold">
+                Découvrir le projet
+            </a>
+        </div>
+
+        <section class="stay-tuned-section row justify-content-center">
+            <div class="stay-tuned-card card p-3 col-12 col-lg-6">
+                <div class="card-body row">
+                    <h4 class="card-title stay-tuned-title">L'aventure commence ici... pour nous aussi !</h4>
+
+                    <p class="card-text stay-tuned-text col-12 col-xl-6">
+                        MyBicycleJourney est tout nouveau et nous ne sommes pas tout à fait prêt à prendre la route.
+                        <br><br>
+                        En attendant, si tu souhaites être informé des avancées tu peux t'inscrire ici et tu seras
+                        averti dès qu'il y a du nouveau.
                     </p>
 
-                    <div class="stay-tuned-form">
+                    <div class="stay-tuned-form col-12 col-xl-6">
                         {{ form_start(form) }}
                         {{ form_errors(form) }}
-
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                {{ form_row(form.name, {
-                                    label: 'Ton prénom',
-                                    attr: { placeholder: 'Hey moi c\'est Erwan' },
-                                }) }}
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                {{ form_row(form.email, {
-                                    label: 'Email',
-                                    attr: { placeholder: '(s\'il fonctionne c\'est mieux)' },
-                                }) }}
-                            </div>
-                            <div class="col-lg-4 flex-column d-flex">
-                                <div class="form-label text-white d-none d-lg-block">// Fix top margin</div>
-                                {{ form_row(form.save, {
-                                    label: 'Tiens moi au courant 🤙',
-                                    row_attr: { class: 'mb-3' },
-                                    attr: { class: 'btn-primary w-100 bold fw-bold' },
-                                }) }}
-                            </div>
+                        {{ form_row(form.name, {
+                            label: "Prénom",
+                            row_attr: {class: 'form-floating mb-3'}
+                        }) }}
+                        {{ form_row(form.email, {
+                            label: "Email",
+                            row_attr: {class: 'form-floating mb-3'}
+                        }) }}
+                        <div class="justify-content-md-center">
+                            {{ form_row(form.save, {
+                                label: 'Tiens moi au courant 🤙',
+                                attr: { class: 'btn-primary btn-lg w-100' },
+                            }) }}
                         </div>
                         {{ form_end(form) }}
-                    </div>
-
-                    <hr class="mb-4">
-
-                    <div class="open-source-text">
-                        <p class="card-text">
-                            Ah oui et aussi, MyBicycleJourney est <b>un projet open source</b> et <b>collaboratif</b>, tu souhaites participer ?
-                        </p>
-
-                        <ul class="open-source-list">
-                            <li>👩🏻‍💻 <u>Tu es un(e) pro</u> : on se retrouve sur le <a href="https://github.com/erwan-haquet/mybicyclejourney">le Github du projet</a>, tu y trouveras tout le nécessaire pour contribuer.</li>
-                            <li>🤷‍♂️<u>Tu ne sais pas où commencer</u> : le projet t'intéresses et tu voudrais y contribuer, mais tu ne sais pas par où commencer ? Pas de soucis, prenons le temps d'en discuter ensemble autour d'un café. Envoie-moi un email à <a href="mailto:erwan@mybicyclejourney.com">erwan@mybicyclejourney.com</a> et on trouvera sans aucun doute ce qu'il te faut.</li>
-                        </ul>
                     </div>
                 </div>
             </div>
