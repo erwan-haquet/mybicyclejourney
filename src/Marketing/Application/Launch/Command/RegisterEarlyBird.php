@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Register a new early bird.
+ *
  * @see EarlyBird
  */
 class RegisterEarlyBird extends Command

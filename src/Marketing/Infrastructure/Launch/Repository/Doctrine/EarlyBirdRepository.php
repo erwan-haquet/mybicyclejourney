@@ -15,7 +15,7 @@ class EarlyBirdRepository extends ServiceEntityRepository implements EarlyBirdRe
         parent::__construct($registry, EarlyBird::class);
     }
 
-    public function add(EarlyBird $earlyBird)
+    public function add(EarlyBird $earlyBird): void
     {
         if ($this->findBy(['email' => $earlyBird->getEmail()])) {
             throw new EmailIsAlreadyRegistered();
@@ -24,5 +24,10 @@ class EarlyBirdRepository extends ServiceEntityRepository implements EarlyBirdRe
         $manager = $this->getEntityManager();
         $manager->persist($earlyBird);
         $manager->flush();
+    }
+
+    public function findById(int $id): ?EarlyBird
+    {
+        return $this->find($id);
     }
 }
