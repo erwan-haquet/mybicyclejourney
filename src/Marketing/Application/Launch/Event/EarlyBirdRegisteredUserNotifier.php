@@ -29,20 +29,20 @@ class EarlyBirdRegisteredUserNotifier implements EventHandlerInterface
 
     public function __invoke(EarlyBirdRegistered $event): void
     {
-//        $earlyBird = $this->repository->findById($event->getEarlyBirdId());
-//        Assert::notNull($earlyBird, sprintf('No early bird found for id: %s', $earlyBird->getId()));
-//
-//        $context = [
-//            'name' => $earlyBird->getName()
-//        ];
-//
-//        $email = new Email(
-//            subject: 'Welcome to My Bicycle Journey - Merci de nous suivre :)',
-//            to: $earlyBird->getEmail(),
-//            text: $this->twig->render('email/marketing/launch/early_bird_welcome.txt.twig', $context),
-//            html: $this->twig->render('email/marketing/launch/early_bird_welcome.markdown.twig', $context)
-//        );
-//
-//        $this->mailer->send($email);
+        $earlyBird = $this->repository->findById($event->getEarlyBirdId());
+        Assert::notNull($earlyBird, sprintf('No early bird found for id: %s', $earlyBird->getId()));
+
+        $context = [
+            'name' => $earlyBird->getName()
+        ];
+
+        $email = new Email(
+            subject: 'Welcome to My Bicycle Journey - Merci de nous suivre :)',
+            to: $earlyBird->getEmail(),
+            text: $this->twig->render('email/marketing/launch/early_bird_welcome.txt.twig', $context),
+            html: $this->twig->render('email/marketing/launch/early_bird_welcome.markdown.twig', $context)
+        );
+
+        $this->mailer->send($email);
     }
 }
