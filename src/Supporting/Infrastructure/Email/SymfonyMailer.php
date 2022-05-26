@@ -26,8 +26,7 @@ class SymfonyMailer implements MailerInterface
         $this->sender = $sender;
 
         if (null !== $dkimPk) {
-            $pkPath = sprintf('file://../%s', $dkimPk);
-            $this->dkimSigner = new DkimSigner($pkPath, $dkimDomain, $dkimSelector);
+            $this->dkimSigner = new DkimSigner($dkimPk, $dkimDomain, $dkimSelector);
         }
     }
 
