@@ -4,8 +4,15 @@
 
 {% block body %}
     <div id="the-project">
+        <img alt="Banner image"
+             src="{{ asset('build/images/the-project/banner.jpg') }}"
+             class="banner"
+             srcset="{{ asset('build/images/the-project/banner.jpg') }} 1x, {{ asset('build/images/the-project/banner.jpg') }} 2x">
+       
+
         <div class="container base-container">
-            <h1 class="title">My Bicycle Journey - Le projet</h1>
+
+            <h1 class="title">Le projet</h1>
 
             <section class="row section justify-content-center">
                 <div class="col-md-8">
