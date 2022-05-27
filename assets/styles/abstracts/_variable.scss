@@ -1,0 +1,49 @@
+// Defines the variables of the graphic charter
+
+/*> FONT */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Code+Pro:wght@300;400;500;600&family=Raleway:wght@300;400;600;700&display=swap');
+
+$font-family-brand: "Source Code Pro", Menlo, Monaco, Consolas;
+$font-family-title: "Roboto", Menlo, Monaco, Consolas;
+$font-family-text: 'Raleway', sans-serif;
+/*< FONT */
+
+/*> COLORS */
+$body-bg: #f9f9f9;
+$body-color: #393c42;
+
+$light-color: #d4d7e1;
+$dark-color: #091328;
+$primary-color: #203561;
+$secondary-color: #e11c56;
+$info-color: #456ba9;
+$success-color: #198754;
+$warning-color: #dfc713;
+$danger-color: #eb1807;
+/*< COLORS */
+
+/*> TYPOGRAPHY */
+$font-family-base: $font-family-text !default;
+
+/*< TYPOGRAPHY */
+
+/*> COLORS */
+$body-bg: $body-bg;
+$body-color: $body-color;
+
+$white: #ffffff;
+$theme-colors: (
+        "light": $light-color,
+        "dark": $dark-color,
+        "primary": $primary-color,
+        "secondary": $secondary-color,
+        "info": $info-color,
+        "success": $success-color,
+        "warning": $warning-color,
+        "danger": $danger-color,
+);
+/*< COLORS */
+
+/*> CARD */
+$card-border-radius: 0;
+/*< CARD */

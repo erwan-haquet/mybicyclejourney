@@ -3,5 +3,5 @@ kernel:
     type: annotation
 
 content_management_homepage_controllers:
-    resource: ../src/ContentManagement/Ui/Homepage/Web/Controller/
+    resource: ../src/ContentManagement/Ui/Pages/Web/Controller/
     type: annotation

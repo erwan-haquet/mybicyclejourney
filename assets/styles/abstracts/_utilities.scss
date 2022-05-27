@@ -1,0 +1,13 @@
+// A collection of utility classes.
+
+.text-highlight {
+  background-color: rgb(255, 214, 99);
+  color: darken($body-color, 20%);
+}
+
+.btn-xl {
+  padding: 0.8rem 1.25rem!important;
+  font-size: 1.25rem!important;
+  border-radius: 0.3rem!important;
+}
+
