@@ -1,10 +1,21 @@
-@import "../charter";
+@use "../charter";
 
 .base-container {
   padding-bottom: 5rem;
   padding-top: 4rem;
 }
 
+.title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.subtitle {
+  margin-bottom: 1.5rem;
+}
+
 .section {
   text-align: justify;
+  margin-bottom: 3rem;
 }
+

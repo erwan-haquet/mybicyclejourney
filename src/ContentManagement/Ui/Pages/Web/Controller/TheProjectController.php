@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 #[Route(
     path: ['en' => '/the-project', 'fr' => '/le-projet'], 
-    name: 'homepage'
+    name: 'the_project'
 )]
 class TheProjectController extends AbstractController
 {
