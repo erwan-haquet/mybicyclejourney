@@ -1,0 +1,26 @@
+// Overrides the default Boostrap variables
+
+/*> TYPOGRAPHY */
+$font-family-base: $font-family-text !default;
+/*< TYPOGRAPHY */
+
+/*> COLORS */
+$body-bg: $body-bg;
+$body-color: $body-color;
+
+$white: #ffffff;
+$theme-colors: (
+        "light": $light-color,
+        "dark": $dark-color,
+        "primary": $primary-color,
+        "secondary": $secondary-color,
+        "info": $info-color,
+        "success": $success-color,
+        "warning": $warning-color,
+        "danger": $danger-color,
+);
+/*< COLORS */
+
+/*> CARD */
+$card-border-radius: 0;
+/*< CARD */

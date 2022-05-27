@@ -1,5 +1,18 @@
-@import "common";
-@import "navbar";
-@import "charter";
+/**
+ * Entry point for sass files
+ * 
+ * Architecture and guideline is based on https://sass-guidelin.es/
+ */
+
+@import "abstracts/variable";
+@import "abstracts/utilities";
+
+@import "base/bootstrap";
 
 @import "~bootstrap/scss/bootstrap";
+
+@import "layout/common";
+@import "layout/navbar";
+
+@import "pages/homepage";
+@import "pages/the-project";
