@@ -1,0 +1,117 @@
+{% extends "web/base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('pages/the-project') }}
+{% endblock %}
+
+{% block title %}Le projet - My Bicycle Journey{% endblock %}
+
+{% block body %}
+    <div class="container base-container">
+        <h1 class="text-center mb-5">Le projet</h1>
+
+        <section class="row section justify-content-center mb-4">
+            <div class="col-md-8">
+                <h3 class="mb-3">My Bicycle What ?</h3>
+                <p>
+                    My Bicycle Journey, ou bien "mon périple à vélo" si tu préfères, a pour objectif de proposer à tous
+                    les voyageurs à vélo un outil pour partager leurs incroyables aventures avec le plus grand nombre et
+                    le plus facilement possible.
+                    Plus besoin de connaissance technique pour créer son blog, tout l'univers de MBJ est tourné vers
+                    cette idée que tu pourras retranscrire ton périple de manière simple et adaptée.
+                    <br>
+                    <br>
+                    Que tu sois un adepte de vélo tourisme à la cool ou bien de bikepacking à fond la caisse, nous
+                    partageons tous cette même envie de découvrir de nouveaux paysages sur notre biclou.
+                </p>
+            </div>
+        </section>
+
+        <section class="row section justify-content-center mb-4">
+            <div class="col-md-8">
+                <h3 class="mb-3">Ça va ressembler à quoi ?</h3>
+                <p>
+                    On a dit simple ? Alors faisons simple, après avoir créé ton profil d'aventurier en deux clics, tu
+                    pourras sans plus attendre nous raconter ton premier super périple.
+                    <br>
+                    <br>
+                    Facile : 1 page = 1 aventure, un petit nom pour attirer l'attention des badauds, une photo pour nous
+                    en mettre plein la vue et une description pour faire parler ta plume.
+                    Une fois le périple créé, tu pourras déjà le publier et le partager pour teaser tes proches.
+                    <br>
+                    <br>
+                    Ensuite il faudra agrémenter cette aventure d'étapes... "Une étape ? Mais ça correspond à quoi une
+                    étape ?" et bien à toi de
+                    voir, pour certains, ce sera une journée sur la route, pour d'autres un point de d'arrivée atteint,
+                    bref, c'est toi qui décides.
+                    <br>
+                    Pour créer une étape, tu devras définir un point de départ et un point d'arrivée, si tu avais
+                    programmé ton GPS, alors pourquoi ne pas également importé le .gpx ? Puis une petite description de
+                    la
+                    balade et quelques photos pour agrémenter le tout et nous donner envie de suivre ta trace.
+                    <br>
+                    <br>
+                    And voilà ! simple.. efficace..
+                </p>
+            </div>
+        </section>
+
+        <section class="row section justify-content-center mb-4">
+            <div class="col-md-8">
+                <h3 class="mb-3">Let it shine 🤩</h3>
+                <p>
+                    Une fois ton aventure publiée, tu n'as plus qu'à laisser la magie opérer.
+                    <br>
+                    <br>
+                    On s'occupe de te faire une page super chouette que tu pourras partager avec ta famille, tes amis,
+                    tes collègues, les autres voyageurs du site et puis qui d'autre encore... À toi de décider !
+                    <br>
+                    <br>
+                    Une seule page pour ton périple, une page jolie et optimisée pour être partagée sur les réseaux
+                    sociaux.
+                    Si tu as ajouté ton tracé GPS, on pourra également afficher une carte avec ton parcours et y placer
+                    les photos que tu as prises.
+                </p>
+            </div>
+        </section>
+
+        <section class="row section justify-content-center mb-4">
+            <div class="col-md-8">
+                <h3 class="mb-3">C'est pour quand ?</h3>
+                <p>
+                    Ca ne tiens qu'à toi, enfin pas tout à fait, mais tu peux nous aider et t'investir dans le projet !
+                    <br>
+                    <br>
+                    MBJ c'est un projet open source et collaboratif.
+                    <br>
+                    <br>
+                    Open source, si tu n'es pas encore familier avec le terme, ça veux dire que le code de l'application
+                    est libre, accessible sur <a href="https://github.com/erwan-haquet/mybicyclejourney">Github -
+                        MyBicycleProject</a> et que tout le monde peux y contribuer.
+                    <br>
+                    <br>
+                    Tout le monde, oui oui même toi ! C'est pas sorcier, alors si :
+                <ul>
+                    <li><b>Tu n'as pas de connaissance technique 🤷</b> : le code, c'est du mandarin pour toi, mais tu
+                        as tout de même envie d'apporter ta pierre à l'édifice. Pas de problème, on va trouver quelque
+                        chose pour toi. Tu parles couramment le néerlandais ? Tu embarques ton Canon 600D à chacune de
+                        tes sorties ? Ton groupe de voyageurs à des idées pour améliorer l'outil ? ... Bref il y a
+                        forcément quelque chose que tu peux faire ! Je te proposes de le découvrir ensemble en m'envoyant
+                        un premier mail sur <a href="mailto:erwan@mybicyclejourney.com">erwan@mybicyclejourney.com</a>.
+                    </li>
+                    <li><b>Tu es un codeur pro 👩🏻‍💻</b> : "github", "symfony" et "docker" ça ne te fait pas peur ! Tu
+                        veux
+                        contribuer à un
+                        projet qui te correspond ou bien développer tes compétences en collaborant sur un projet Symfony
+                        6
+                        avec une architecture actuelle (CQRS, Architecture Hexagonal) et des challenges techniques
+                        intéressants (ex : gestion de fichier `gpx`, internationalisation, user experience first...).
+                        Peux-importe la raison, si tu veux nous rejoindre rendez-vou sur le
+                        <a href="https://github.com/erwan-haquet/mybicyclejourney">Github de MyBicycleProject</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+{% endblock %}

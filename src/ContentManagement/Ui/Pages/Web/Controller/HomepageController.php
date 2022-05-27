@@ -1,8 +1,8 @@
 <?php
 
-namespace App\ContentManagement\Ui\Homepage\Web\Controller;
+namespace App\ContentManagement\Ui\Pages\Web\Controller;
 
-use App\ContentManagement\Ui\Homepage\Web\Form\RegisterEarlyBirdType;
+use App\ContentManagement\Ui\Pages\Web\Form\RegisterEarlyBirdType;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
 use Library\CQRS\Command\CommandBus;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/', name: 'homepage')]
-class ShowController extends AbstractController
+class HomepageController extends AbstractController
 {
     public function __invoke(
         Request    $request,
@@ -33,7 +33,7 @@ class ShowController extends AbstractController
             }
         }
 
-        return $this->render('web/homepage/index.html.twig', [
+        return $this->render('web/pages/homepage/index.html.twig', [
             'form' => $form->createView()
         ]);
     }

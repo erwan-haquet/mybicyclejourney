@@ -3,9 +3,11 @@
 /*> FONT */
 // Font families
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Code+Pro:wght@300;400;500;600&family=Raleway:wght@300;400;600;700&display=swap');
+
 $font-family-brand: "Source Code Pro", Menlo, Monaco, Consolas;
 $font-family-title: "Roboto", Menlo, Monaco, Consolas;
 $font-family-text: 'Raleway', sans-serif;
+$font-family-base: $font-family-text !default;
 /*< FONT */
 
 /*> COLORS */
@@ -14,14 +16,14 @@ $body-color: #393c42;
 
 $white: #ffffff;
 $theme-colors: (
-    "light": #d4d7e1,
-    "dark": #091328,
-    "primary": #203561,
-    "secondary": #e11c56,
-    "info": #456ba9,
-    "success": #198754,
-    "warning": #dfc713,
-    "danger": #eb1807,
+        "light": #d4d7e1,
+        "dark": #091328,
+        "primary": #203561,
+        "secondary": #e11c56,
+        "info": #456ba9,
+        "success": #198754,
+        "warning": #dfc713,
+        "danger": #eb1807,
 );
 /*< COLORS */
 
