@@ -17,8 +17,27 @@ use Symfony\Component\Routing\Annotation\Route;
 )]
 class TheProjectController extends AbstractController
 {
-    public function __invoke(): Response
+    public function __invoke(
+        Request    $request,
+        CommandBus $commandBus
+    ): Response
     {
-        return $this->render('web/pages/the_project/index.html.twig');
+        $command = new RegisterEarlyBird();
+        $form = $this->createForm(RegisterEarlyBirdType::class, $command);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            try {
+                $commandBus->dispatch($command);
+                $this->addFlash('success', 'Cool, tu fais désormais partie des early birds 🐦');
+                return $this->redirectToRoute('the_project');
+            } catch (EmailIsAlreadyRegistered) {
+                $this->addFlash('success', 'Ton email est déjà enregistré, mais promis on ne t\'oublie pas 👊');
+            }
+        }
+
+        return $this->render('web/pages/the_project/index.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }

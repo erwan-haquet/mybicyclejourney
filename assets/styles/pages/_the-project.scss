@@ -8,7 +8,6 @@
   }
 
   .base-container {
-    padding-bottom: 5rem;
     padding-top: 4rem;
   }
 
@@ -29,6 +28,11 @@
   .section {
     text-align: justify;
     margin-bottom: 3rem;
+  }
+  
+  .stay-tuned {
+    padding: 3rem;
+    background: darken($body-bg, 3%);
   }
 
   @include media-breakpoint-down(md) {
