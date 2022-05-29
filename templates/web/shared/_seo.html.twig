@@ -1,0 +1,25 @@
+{# @seo \App\ContentManagement\Domain\Seo\Model\Page #}
+
+{% block title %}
+    <title>{{ seo.title ?? 'My Bycicle Journey' }}</title>
+{% endblock %}
+
+{% block sharedMeta %}
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="fr_fr">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% endblock %}
+
+{% block metaNames %}
+    {% for meta in seo.nameMeta %}
+        {{ meta | raw }}
+    {% endfor %}
+{% endblock %}
+
+{% block openGraph %}
+    {% for meta in seo.openGraph %}
+        {{ meta | raw}}
+    {% endfor %}
+{% endblock %}
+
+

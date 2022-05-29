@@ -23,10 +23,10 @@ abstract class Meta
         $this->content = $content;
     }
     
-    public function render(): string
+    public function __toString(): string
     {
         return sprintf(
-            '<meta name="%s" content="%S">',
+            '<meta name="%s" content="%s">',
             $this->type, $this->content
         );
     }

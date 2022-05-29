@@ -20,10 +20,10 @@ abstract class Meta
         $this->content = $content;
     }
     
-    public function render(): string
+    public function __toString(): string
     {
         return sprintf(
-            '<meta property="og:%s" content="%S">',
+            '<meta property="og:%s" content="%s">',
             $this->property, $this->content
         );
     }

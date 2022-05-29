@@ -2,6 +2,10 @@
 
 namespace App\ContentManagement\Ui\Pages\Web\Controller;
 
+use App\ContentManagement\Domain\Seo\Factory\PageFactory;
+use App\ContentManagement\Domain\Seo\Model\OpenGraph;
+use App\ContentManagement\Domain\Seo\Model\MetaName;
+use App\ContentManagement\Domain\Seo\Model\Title;
 use App\ContentManagement\Ui\Pages\Web\Form\RegisterEarlyBirdType;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
@@ -11,15 +15,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route(
-    path: ['en' => '/the-project', 'fr' => '/le-projet'], 
-    name: 'the_project'
-)]
+#[Route('/le-projet', name: 'the_project')]
 class TheProjectController extends AbstractController
 {
     public function __invoke(
-        Request    $request,
-        CommandBus $commandBus
+        Request     $request,
+        CommandBus  $commandBus,
+        PageFactory $pageFactory
     ): Response
     {
         $command = new RegisterEarlyBird();
@@ -35,9 +37,20 @@ class TheProjectController extends AbstractController
                 $this->addFlash('success', 'Ton email est déjà enregistré, mais promis on ne t\'oublie pas 👊');
             }
         }
+        $seo = $pageFactory->create(
+            title: Title::new("Découvre le projet | My Bicycle Journey"),
+            nameMeta: [
+                MetaName\Description::new("Un peu plus qu'un site, MBJ c'est avant tout une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
+            ],
+            openGraph: [
+                OpenGraph\Title::new("Découvre le projet My Bicycle Journey."),
+                OpenGraph\Description::new("Un peu plus qu'un site, MBJ c'est avant tout une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
+            ]
+        );
 
         return $this->render('web/pages/the_project/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'seo' => $seo
         ]);
     }
 }

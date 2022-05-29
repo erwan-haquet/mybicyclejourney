@@ -17,16 +17,49 @@ class Page
     /**
      * @var array<MetaName\Meta>
      */
-    private array $metaNames;
+    private array $nameMeta;
 
     public function __construct(
         Title $title,
-        array $openGraphMeta,
-        array $metaNames
+        array $openGraphMeta = [],
+        array $nameMeta = []
     )
     {
         $this->title = $title;
         $this->openGraphMeta = $openGraphMeta;
-        $this->metaNames = $metaNames;
+        $this->nameMeta = $nameMeta;
+    }
+
+    public function title(): Title
+    {
+        return $this->title;
+    }
+
+    public function addOGMeta(OpenGraph\Meta $meta): self
+    {
+        $this->openGraphMeta[] = $meta;
+        return $this;
+    }
+    
+    public function addNameMeta(OpenGraph\Meta $meta): self
+    {
+        $this->openGraphMeta[] = $meta;
+        return $this;
+    }
+
+    /**
+     * @return OpenGraph\Meta[]
+     */
+    public function openGraph(): array
+    {
+        return $this->openGraphMeta;
+    }
+
+    /**
+     * @return MetaName\Meta[]
+     */
+    public function nameMeta(): array
+    {
+        return $this->nameMeta;
     }
 }
