@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{% block title %}My Bicycle Journey{% endblock %}</title>
-
-        <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">
-        <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
-
+        {% include 'web/shared/_seo.html.twig' %}
+        
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-
+        
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">
+        <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
     </head>
     <body>
         {% include 'web/shared/_flash_messages.html.twig' %}
