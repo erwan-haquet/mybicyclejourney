@@ -3,11 +3,11 @@
 namespace App\ContentManagement\Domain\Seo\Model;
 
 /**
- * Brings together all the resources required to for rendering SEO tags. 
+ * Brings together all the resources required for rendering SEO tags.
  */
 class Page
 {
-    private string $title;
+    private Title $title;
 
     /**
      * @var array<OpenGraph\Meta>
@@ -20,9 +20,9 @@ class Page
     private array $metaNames;
 
     public function __construct(
-        string $title,
-        array  $openGraphMeta,
-        array  $metaNames
+        Title $title,
+        array $openGraphMeta,
+        array $metaNames
     )
     {
         $this->title = $title;
