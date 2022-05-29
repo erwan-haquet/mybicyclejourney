@@ -11,6 +11,7 @@ use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\UrlHelper;
 use Symfony\Component\Routing\Annotation\Route;
 use App\ContentManagement\Domain\Seo\Model\OpenGraph;
 use App\ContentManagement\Domain\Seo\Model\MetaName;
@@ -21,7 +22,8 @@ class HomepageController extends AbstractController
     public function __invoke(
         Request     $request,
         CommandBus  $commandBus,
-        PageFactory $pageFactory
+        PageFactory $pageFactory,
+        UrlHelper   $urlHelper
     ): Response
     {
         $command = new RegisterEarlyBird();
@@ -46,6 +48,7 @@ class HomepageController extends AbstractController
             openGraph: [
                 OpenGraph\Title::new("Partage tes plus belles aventures à vélo, en toute simplicité."),
                 OpenGraph\Description::new("Raconte nous tes plus beaux périples à vélo, le plus simplement du monde. Tu n'as plus qu'à profiter de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches."),
+                OpenGraph\Image::new($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
             ]
         );
 
