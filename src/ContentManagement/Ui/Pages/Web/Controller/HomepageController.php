@@ -44,6 +44,7 @@ class HomepageController extends AbstractController
             title: Title::new("L'aventure commence ici ! | My Bicycle Journey"),
             nameMeta: [
                 MetaName\Description::new("Raconte nous tes plus beaux périples à vélo, le plus simplement du monde. Tu n'as plus qu'à profiter de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches."),
+                MetaName\Author::new("Erwan Haquet"),
             ],
             openGraph: [
                 OpenGraph\Title::new("Partage tes plus belles aventures à vélo, en toute simplicité."),
