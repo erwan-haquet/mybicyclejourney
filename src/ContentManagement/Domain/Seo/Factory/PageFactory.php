@@ -48,7 +48,7 @@ class PageFactory
             OpenGraph\Type::new('website'),
             OpenGraph\Locale::new('fr_fr'),
             OpenGraph\Url::new($this->request->getUri()),
-            OpenGraph\SiteName::new('www.MyBicycleJourney.com'),
+            OpenGraph\SiteName::new('My Bicycle Journey '),
         ];
     }
 }
