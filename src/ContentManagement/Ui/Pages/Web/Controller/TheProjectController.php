@@ -13,6 +13,7 @@ use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\UrlHelper;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/le-projet', name: 'the_project')]
@@ -21,7 +22,8 @@ class TheProjectController extends AbstractController
     public function __invoke(
         Request     $request,
         CommandBus  $commandBus,
-        PageFactory $pageFactory
+        PageFactory $pageFactory,
+        UrlHelper   $urlHelper
     ): Response
     {
         $command = new RegisterEarlyBird();
@@ -40,11 +42,12 @@ class TheProjectController extends AbstractController
         $seo = $pageFactory->create(
             title: Title::new("Découvre le projet | My Bicycle Journey"),
             nameMeta: [
-                MetaName\Description::new("Un peu plus qu'un site, MBJ c'est avant tout une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
+                MetaName\Description::new("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
             ],
             openGraph: [
                 OpenGraph\Title::new("Découvre le projet My Bicycle Journey."),
-                OpenGraph\Description::new("Un peu plus qu'un site, MBJ c'est avant tout une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
+                OpenGraph\Description::new("MBJ c'est peu plus qu'un site, c'est une aventure en soi. Alors qu'attends-tu pour rejoindre le projet ?"),
+                OpenGraph\Image::new($urlHelper->getAbsoluteUrl('build/images/the-project/mbj_the_project_og.jpg'))
             ]
         );
 
