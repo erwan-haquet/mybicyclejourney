@@ -43,6 +43,7 @@ class TheProjectController extends AbstractController
             title: Title::new("Découvre le projet | My Bicycle Journey"),
             nameMeta: [
                 MetaName\Description::new("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
+                MetaName\Author::new("Erwan Haquet"),
             ],
             openGraph: [
                 OpenGraph\Title::new("Découvre le projet My Bicycle Journey."),
