@@ -1,0 +1,35 @@
+// Defines the graphic charter variables.
+// 
+// Some variables are directly extended from bootstrap to simplify overriding.
+
+/*> FONT */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Code+Pro:wght@300;400;500;600&family=Raleway:wght@300;400;600;700&display=swap');
+$font-family-brand: "Source Code Pro", Menlo, Monaco, Consolas;
+
+$font-family-title: "Roboto", Menlo, Monaco, Consolas;
+$font-family-sans-serif:  "Raleway", sans-serif;
+/*< FONT */
+
+/*> COLORS */
+$body-bg:     #f9f9f9;
+$body-color:  #393c42;
+
+$light-color: #d4d7e1;
+$dark-color:  #091328;
+$primary:     #203561;
+$secondary:   #e11c56;
+$info:        #456ba9;
+$success:     #198754;
+$warning:     #dfc713;
+$danger:      #eb1807;
+
+$theme-colors: (
+        "primary":   $primary,
+        "secondary": $secondary,
+        "success":   $success,
+        "info":      $info,
+        "warning":   $warning,
+        "danger":    $danger,
+);
+/*< COLORS */
+
