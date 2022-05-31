@@ -1,0 +1,38 @@
+<div class="stay-tuned">
+    <div class="container">
+
+        <h2 class="text-center mb-4">On reste en contact ?</h2>
+        <p>Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ?
+            <br>
+            Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne
+            t'oubliera pas 😉</p>
+        <div class="form">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="row">
+                <div class="col-xl-4">
+                    {{ form_row(form.name, {
+                        label: "Prénom",
+                        row_attr: {class: 'form-floating mb-3'}
+                    }) }}
+                </div>
+                <div class="col-xl-4">
+
+                    {{ form_row(form.email, {
+                        label: "Email",
+                        row_attr: {class: 'form-floating mb-3'}
+                    }) }}
+                </div>
+                <div class="col-xl-4">
+                    <div class="justify-content-md-center">
+                        {{ form_row(form.save, {
+                            label: 'Dis moi quand c\'est prêt !',
+                            attr: { class: 'btn-secondary btn-xl fw-bold w-100' },
+                        }) }}
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
