@@ -10,3 +10,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-title;
 }
 
+mark {
+  background-color: rgb(255, 214, 99);
+  color: darken($body-color, 20%);
+}

@@ -17,8 +17,12 @@
     <body>
         {% include 'web/shared/_flash_messages.html.twig' %}
 
-        {% block navbar %}{% include 'web/shared/_navbar.html.twig' %}{% endblock %}
+        <header>
+            {% block navbar %}{% include 'web/shared/_navbar.html.twig' %}{% endblock %}
+        </header>
 
-        {% block body %}{% endblock %}
+        {% block body %}
+                {% block content %}{% endblock %}
+        {% endblock %}
     </body>
 </html>

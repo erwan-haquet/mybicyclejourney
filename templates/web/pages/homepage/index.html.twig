@@ -1,69 +1,19 @@
-{% extends "web/base.html.twig" %}
+{% extends "web/pages/layout.html.twig" %}
 
-{% block body %}
-    <div id="homepage">
-        <div>
-            <div class="home-image-wrapper">
-                <div class="home-image-inner">
-                    <img alt="Background image"
-                         src="{{ asset('build/images/homepage/mbj_homepage_banner.jpg') }}"
-                         class="home-image"
-                         srcset="{{ asset('build/images/homepage/mbj_homepage_banner.jpg') }} 1x,{{ asset('build/images/homepage/mbj_homepage_banner.jpg') }} 2x,">
-                </div>
-            </div>
-        </div>
+{% block page_contents %}
+    <main id="homepage">
+        {# Background cover image #}
+        {% include "web/pages/homepage/_background_image.html.twig" %}
 
         <div class="container">
-            <section class="header-section row">
-                <h1 class="headline">
-                    Partage tes plus belles aventures à vélo
-                </h1>
-                <h3 class="subheadline">
-                    Avec ta famille, tes amis, tes collègues, ton chien tes poules et même Brad Pitt pourquoi pas ?
-                </h3>
-            </section>
+            {# Two lines teaser #}
+            {% include "web/pages/homepage/_header.html.twig" %}
 
-            <div class="cta-wrapper text-center">
-                <a href="{{ path('the_project') }}"
-                   class="cta-button btn-secondary btn-lg btn fw-bold">
-                    Découvrir le projet
-                </a>
-            </div>
+            {# CTA to read the project #}
+            {% include "web/pages/homepage/_the_project_cta.html.twig" %}
 
-            <section class="stay-tuned-section row justify-content-center">
-                <div class="stay-tuned-card card p-3 col-12 col-lg-6">
-                    <div class="card-body row">
-                        <h4 class="card-title stay-tuned-title">L'aventure commence ici... pour nous aussi !</h4>
-
-                        <p class="card-text stay-tuned-text col-12 col-xl-6">
-                            MyBicycleJourney est tout nouveau et nous ne sommes pas tout à fait prêt à prendre la route.
-                            <br><br>
-                            En attendant, si tu souhaites être informé des avancées tu peux t'inscrire ici et tu seras
-                            averti dès qu'il y a du nouveau.
-                        </p>
-
-                        <div class="stay-tuned-form col-12 col-xl-6">
-                            {{ form_start(form) }}
-                            {{ form_errors(form) }}
-                            {{ form_row(form.name, {
-                                label: "Prénom",
-                                row_attr: {class: 'form-floating mb-3'}
-                            }) }}
-                            {{ form_row(form.email, {
-                                label: "Email",
-                                row_attr: {class: 'form-floating mb-3'}
-                            }) }}
-                            <div class="justify-content-md-center">
-                                {{ form_row(form.save, {
-                                    label: 'Tiens moi au courant 🤙',
-                                    attr: { class: 'btn-primary btn-xl fw-bold w-100' },
-                                }) }}
-                            </div>
-                            {{ form_end(form) }}
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {# Card to register as early bird #}
+            {% include "web/pages/homepage/_stay_tuned_card.html.twig" %}
         </div>
-    </div>
+    </main>
 {% endblock %}
