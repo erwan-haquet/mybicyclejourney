@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/**
+ * Entry point for sass files
+ * 
+ * Architecture is based on "The 7-1 pattern" 
+ * @see https://sass-guidelin.es/#the-7-1-pattern
+ */
+
+// 1. Configuration and helpers
+@import "abstracts";
+
+// 2. Vendors and extensions
+@import "vendors", "vendors-extensions";
+
+// 3. Base stuff
+@import "base";
+
+// 4. Layout-related sections
+@import "layout";
+
+// 5. Components
+@import "components";
+
+// 6. Page-specific styles
+@import "pages";
+
+// 7. Themes
+@import "themes";
