@@ -50,5 +50,8 @@
   .stay-tuned {
     padding: 3rem;
     background: darken($body-bg, 3%);
+    .title {
+      margin-bottom: 1.5rem;
+    }
   }
 }

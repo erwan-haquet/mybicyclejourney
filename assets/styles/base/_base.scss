@@ -2,3 +2,7 @@ mark {
   background-color: rgb(255, 214, 99);
   color: darken($body-color, 20%);
 }
+
+li:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
