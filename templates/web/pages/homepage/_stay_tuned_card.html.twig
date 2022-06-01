@@ -1,16 +1,16 @@
-<section class="stay-tuned-section row justify-content-center">
-    <div class="stay-tuned-card card p-3 col-12 col-lg-6">
+<section class="stay-tuned row justify-content-center">
+    <div class="card p-3 col-12 col-lg-6">
         <div class="card-body row">
-            <h3 class="card-title stay-tuned-title">L'aventure commence ici... pour nous aussi !</h3>
+            <h3 class="card-title title">L'aventure commence ici... pour nous aussi !</h3>
 
-            <p class="card-text stay-tuned-text col-12 col-xl-6">
+            <p class="card-text paragraph col-12 col-xl-6">
                 MyBicycleJourney est tout nouveau et nous ne sommes pas tout à fait prêt à prendre la route.
                 <br><br>
                 En attendant, si tu souhaites être informé des avancées tu peux t'inscrire ici et tu seras
                 averti dès qu'il y a du nouveau.
             </p>
 
-            <div class="stay-tuned-form col-12 col-xl-6">
+            <div class="col-12 col-xl-6">
                 {{ form_start(form) }}
                 {{ form_errors(form) }}
                 {{ form_row(form.name, {
@@ -24,7 +24,7 @@
                 <div class="justify-content-md-center">
                     {{ form_row(form.save, {
                         label: 'Tiens moi au courant 🤙',
-                        attr: { class: 'btn-primary btn-xl fw-bold w-100' },
+                        attr: { class: 'button btn-primary btn-xl w-100' },
                     }) }}
                 </div>
                 {{ form_end(form) }}
