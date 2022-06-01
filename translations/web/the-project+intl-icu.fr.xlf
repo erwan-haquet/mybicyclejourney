@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="NNtkmxd" resname="banner.title">
+        <source>banner.title</source>
+        <target>Le projet.</target>
+      </trans-unit>
+      <trans-unit id="Kr8hYwJ" resname="presentation.section1.title">
+        <source>presentation.section1.title</source>
+        <target>My Bicycle What ?</target>
+      </trans-unit>
+      <trans-unit id="iKWOjMb" resname="presentation.section1.paragraph">
+        <source>presentation.section1.paragraph</source>
+        <target><![CDATA[
+                    
+                    My Bicycle Journey, ou bien <em>"Mon périple à vélo"</em> en français
+                    dans le
+                    texte, a pour objectif de
+                    <strong>proposer à tous les voyageurs à vélo une plateforme pour partager leurs incroyables aventures
+                    avec le plus grand nombre et le plus facilement possible.</strong>
+                    Plus besoin de connaissance technique pour créer ton blog, tout l'univers de MBJ est tourné vers
+                    cette idée que tu pourras retranscrire ton périple de manière simple et adaptée.
+                    <br>
+                    <br>
+                    Que tu sois un <strong>adepte de vélo tourisme</strong> à la cool ou bien un <strong>bikepacker</strong>
+                    à fond la
+                    caisse, nous partageons tous cette même envie de découvrir de nouveaux paysages sur notre biclou 🚵
+                    
+                ]]></target>
+      </trans-unit>
+      <trans-unit id="C2xuiEq" resname="presentation.section2.title">
+        <source>presentation.section2.title</source>
+        <target>Ça va ressembler à quoi ?</target>
+      </trans-unit>
+      <trans-unit id="qE_EZ7P" resname="presentation.section2.paragraph">
+        <source>presentation.section2.paragraph</source>
+        <target><![CDATA[
+                    
+                    <strong>On a dit simple ? Alors faisons simple</strong>, après avoir créé ton profil d'aventurier en
+                    deux
+                    clics, tu pourras sans plus attendre nous raconter ton premier périple.
+                    <br>
+                    <br>
+                    <strong>1 page = 1 aventure</strong>, un petit nom pour attirer l'attention des badauds, une photo pour
+                    nous
+                    en mettre plein la vue et une description pour faire parler ta plume.
+                    À partir d'ici tu pourras déjà publier la page et la partager avec tes proches pour teaser ton
+                    trip.
+                    <br>
+                    <br>
+                    Une fois que tu auras pris la route tu auras la possibilité d'agrémenter cette aventure avec
+                    <strong>des étapes</strong>...
+                    <em>"Une étape ? Mais ça correspond à quoi une étape ?"</em>
+                    Et bien là, c'est toi qui vois, pour certains, une étape sera une journée sur la route, pour
+                    d'autres un point de d'arrivée atteint, bref c'est toi qui décides.
+                    <br>
+                    <br>
+                    Pour créer une étape, tu devras définir un point de départ et un point d'arrivée, si tu avais
+                    programmé ton GPS, alors pourquoi ne pas également importé le <code>.gpx</code> ? Puis une
+                    petite
+                    description de la balade et quelques photos pour agrémenter le tout et nous donner envie de
+                    suivre
+                    ta trace.
+                    <br>
+                    <br>
+                    <strong>And voilà ! simple.. efficace..</strong>
+                
+                ]]></target>
+      </trans-unit>
+      <trans-unit id="_bvz6T1" resname="presentation.section3.title">
+        <source>presentation.section3.title</source>
+        <target>Make it shine ✨</target>
+      </trans-unit>
+      <trans-unit id="nS9XHqd" resname="presentation.section3.paragraph">
+        <source>presentation.section3.paragraph</source>
+        <target><![CDATA[
+                    
+                    Une fois ton aventure publiée, tu n'as plus qu'à laisser la magie opérer.
+                    <br>
+                    <br>
+                    On s'occupe de te faire une page super chouette que tu pourras partager avec ta famille, tes
+                    amis,
+                    tes collègues, les autres voyageurs du site et puis qui d'autre encore... À toi de décider !
+                    <br>
+                    <br>
+                    Une <strong>seule page pour ton périple</strong>, une page <strong>jolie</strong> (enfin j'espère quelle
+                    te plaira),
+                    <strong>prête
+                        pour être partagée sur les réseaux
+                        sociaux</strong>, une page <strong>accessible</strong> pour que tout le monde puisse en profiter.
+                    <br>
+                    <br>
+                    Si tu as ajouté ton tracé GPS, on pourra également afficher <strong>une carte avec ton parcours</strong>
+                    et y
+                    placer
+                    <strong>les photos que tu as prises</strong>.
+                
+                ]]></target>
+      </trans-unit>
+      <trans-unit id="0u12Z5y" resname="presentation.section4.title">
+        <source>presentation.section4.title</source>
+        <target>C'est pour quand ?</target>
+      </trans-unit>
+      <trans-unit id="kILeDAt" resname="presentation.section4.paragraph">
+        <source>presentation.section4.paragraph</source>
+        <target><![CDATA[
+                    
+                    Ca ne tient qu'à toi, enfin pas tout à fait, mais tu peux nous aider et t'investir dans le
+                    projet !
+                    <br>
+                    <br>
+                    <strong>My Bicycle Project c'est un projet open source et collaboratif.</strong>
+                    <br>
+                    <br>
+                    Open source, si tu n'es pas encore familier avec le terme, ça veux dire que le code de
+                    l'application
+                    est libre, accessible sur <a href="https://github.com/erwan-haquet/mybicyclejourney">Github -
+                        MyBicycleProject</a> et que
+                    <mark>tout le monde peux y contribuer... oui oui même toi !</mark>
+                    <br>
+                    <br>
+                    C'est pas sorcier, alors si :
+                
+                ]]></target>
+      </trans-unit>
+      <trans-unit id="qx.RDw9" resname="presentation.section4.list_item1">
+        <source>presentation.section4.list_item1</source>
+        <target><![CDATA[
+                    
+                    <strong>Tu n'as pas de connaissance technique 🤷</strong> : le code, c'est du mandarin pour toi,
+                    mais
+                    tu
+                    as tout de même envie d'apporter ta pierre à l'édifice. Pas de problème, on va trouver
+                    quelque
+                    chose pour toi. Tu parles couramment le néerlandais ? Tu embarques ton Canon 600D à chacune
+                    de
+                    tes sorties ? Ton groupe de voyageurs à des idées pour améliorer l'outil ? ... Bref il y a
+                    forcément quelque chose que tu peux faire ! Je te propose de le découvrir ensemble en
+                    m'envoyant
+                    un premier mail sur <a
+                    href="mailto:erwan@mybicyclejourney.com">erwan@mybicyclejourney.com</a>.
+                
+                ]]></target>
+      </trans-unit>
+      <trans-unit id="2VsFN4E" resname="presentation.section4.list_item2">
+        <source>presentation.section4.list_item2</source>
+        <target><![CDATA[
+                    
+                    <strong>Tu es un codeur pro 👩🏻‍💻</strong> : "github", "symfony" et "docker" ça ne te fait pas
+                    peur
+                    ! Tu
+                    veux
+                    contribuer à un
+                    projet qui te correspond ou bien développer tes compétences en collaborant sur un projet
+                    Symfony
+                    6
+                    avec une architecture actuelle (CQRS, Architecture Hexagonal) et des challenges techniques
+                    intéressants (ex : gestion de fichier <code>.gpx</code>, internationalisation, user
+                    experience
+                    first...).
+                    Peut-importe la raison, si tu veux nous rejoindre rendez-vou sur le
+                    <a href="https://github.com/erwan-haquet/mybicyclejourney">Github de MyBicycleProject</a>
+                
+                ]]></target>
+      </trans-unit>
+      <trans-unit id="P5d8RLI" resname="stay_tuned.title">
+        <source>stay_tuned.title</source>
+        <target>On reste en contact ?</target>
+      </trans-unit>
+      <trans-unit id="Z96KFts" resname="stay_tuned.paragraph">
+        <source>stay_tuned.paragraph</source>
+        <target><![CDATA[
+                    
+                    Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ?
+                    <br>
+                    Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne
+                    t'oubliera pas 😉
+                    
+                ]]></target>
+      </trans-unit>
+      <trans-unit id="SS9y9cV" resname="stay_tuned.register">
+        <source>stay_tuned.register</source>
+        <target>Dis moi quand c'est prêt !</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
