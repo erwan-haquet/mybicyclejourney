@@ -7,6 +7,8 @@
         "php": ">=8.0.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-intl": "*",
+        "ext-xml": "*",
         "doctrine/doctrine-bundle": "~2.6",
         "doctrine/doctrine-migrations-bundle": "~3.2",
         "doctrine/orm": "~2.12",
