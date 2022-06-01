@@ -5,9 +5,10 @@
          srcset="{{ asset('build/images/the-project/mbj_the_project_banner.jpg') }} 1x, 
              {{ asset('build/images/the-project/mbj_the_project_banner.jpg') }} 2x
 ">
-
     <div class="container">
-        <h1 class="title">Le projet.</h1>
+        <h1 class="title">
+            {{ "banner.title"|trans([], 'the-project')|raw }}
+        </h1>
     </div>
 </div>
 

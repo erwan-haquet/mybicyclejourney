@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="QoCJXjL" resname="header.title">
+        <source>header.title</source>
+        <target>Partage tes plus belles aventures à vélo, en toute simplicité</target>
+      </trans-unit>
+      <trans-unit id="j17uVTq" resname="header.hook">
+        <source>header.hook</source>
+        <target>Avec ta famille, tes amis, tes collègues, ton chien tes poules et même Brad Pitt pourquoi pas
+                    ?
+                </target>
+      </trans-unit>
+      <trans-unit id="P5d8RLI" resname="stay_tuned.title">
+        <source>stay_tuned.title</source>
+        <target>L'aventure commence ici... pour nous aussi !</target>
+      </trans-unit>
+      <trans-unit id="Z96KFts" resname="stay_tuned.paragraph">
+        <source>stay_tuned.paragraph</source>
+        <target><![CDATA[MyBicycleJourney est tout nouveau et nous ne sommes pas tout à fait prêt à prendre la route.
+                    <br><br>
+                    En attendant, si tu souhaites être informé des avancées tu peux t'inscrire ici et tu seras
+                    averti dès qu'il y a du nouveau.
+                ]]></target>
+      </trans-unit>
+      <trans-unit id="SS9y9cV" resname="stay_tuned.register">
+        <source>stay_tuned.register</source>
+        <target>Tiens moi au courant 🤙</target>
+      </trans-unit>
+      <trans-unit id="9P4kmcF" resname="the_project.discover">
+        <source>the_project.discover</source>
+        <target>Découvrir le projet</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
