@@ -1,100 +1,127 @@
 #homepage {
-  .home-image-wrapper {
+  // HERO BACKGROUND
+  .hero-background {
     overflow: hidden;
     width: 100%;
     height: calc(100vh - 49px);
     padding-bottom: 1.5rem;
     z-index: -1;
     position: absolute;
+
+    .inner {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 49px);
+      z-index: 0;
+      overflow: hidden;
+
+      .image {
+        width: 100%;
+        height: calc(100vh - 49px);
+        object-fit: cover;
+        position: absolute;
+      }
+    }
   }
 
-  .home-image-inner {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 49px);
-    z-index: 0;
-    overflow: hidden;
-  }
-
-  .home-image {
-    width: 100%;
-    height: calc(100vh - 49px);
-    object-fit: cover;
-    position: absolute;
-  }
-
-  .header-section {
+  // HEADER
+  .header {
     padding-top: 3rem;
     margin-bottom: 4rem;
     text-align: center;
     color: #ffffff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
 
-  .headline {
-    font-weight: bold;
-    display: inline-block;
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-  }
+    .title {
+      font-weight: bold;
+      display: inline-block;
+      font-size: 2.9rem;
+      margin-bottom: 1rem;
+    }
 
-  .subheadline {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-
-  .cta-wrapper {
-    margin-bottom: 5rem;
-  }
-
-  .cta-button {
-    padding: 1.5rem 3rem;
-    box-shadow: 0 4px 16px 0 rgb(0 0 0 / 0.3);
-  }
-
-  .stay-tuned-card {
-    box-shadow: 0 4px 16px 0 rgb(0 0 0 / 0.3);
-  }
-
-  .stay-tuned-title {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  .stay-tuned-text {
-    font-size: .9em;
-    text-align: justify;
-    border-right: 1px solid $gray-400;
-    padding-right: 2rem;
-  }
-
-  .open-source-text {
-    text-align: justify;
+    .hook {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
   }
 
   @include media-breakpoint-down(xl) {
-    .header-section, .cta-wrapper, .stay-tuned-text {
+    .header {
       margin-bottom: 3rem;
-    }
-    .stay-tuned-text {
-      border: none;
     }
   }
 
-
-  @include media-breakpoint-between(md, lg) {
-    .headline {
-      font-size: 2.5rem;
+  @include media-breakpoint-between(md, xl) {
+    .header {
+      .title {
+        font-size: 2.5rem;
+      }
     }
   }
 
   @include media-breakpoint-down(md) {
-    .headline {
-      font-size: 1.9rem;
+    .header {
+      .title {
+        font-size: 1.9rem;
+      }
+
+      .hook {
+        font-size: 1.1rem;
+      }
     }
-    .subheadline {
-      font-size: 1.1rem;
+  }
+
+
+  // CALL TO ACTION
+  .the-project {
+    margin-bottom: 5rem;
+    text-align: center;
+
+    .button {
+      padding: 1.5rem 3rem;
+      box-shadow: 0 4px 16px 0 rgb(0 0 0 / 0.3);
+      font-weight: bold;
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .the-project {
+      margin-bottom: 3rem;
+    }
+  }
+
+  // STAY TUNED
+  .stay-tuned {
+    .card {
+      box-shadow: 0 4px 16px 0 rgb(0 0 0 / 0.3);
+
+      .title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .paragraph {
+        font-size: .9em;
+        text-align: justify;
+        border-right: 1px solid $gray-400;
+        padding-right: 2rem;
+      }
+
+      form {
+        .button {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .stay-tuned-text {
+      margin-bottom: 3rem;
+    }
+    .stay-tuned-text {
+      border: none;
     }
   }
 }

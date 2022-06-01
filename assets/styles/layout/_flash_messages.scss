@@ -1,0 +1,23 @@
+.flash-messages {
+  z-index: 1100;
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+
+  .message {
+    align-items: center;
+    color: $white;
+    border: 0;
+
+    .body {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    button {
+      margin: auto;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+}
