@@ -1,13 +1,17 @@
-<div id="toast-container" class="toast-container position-fixed bottom-0 start-0 p-3" style="z-index:1100">
+<div class="flash-messages toast-container">
     {% for label, messages in app.flashes %}
         {% for message in messages %}
-            <div class="toast align-items-center text-white bg-{{ label }} border-0"
-                 role="alert" aria-live="assertive" aria-atomic="true" {{ stimulus_controller('toast') }}>
+            <div class="message toast bg-{{ label }}"
+                 role="alert"
+                 aria-live="assertive"
+                 aria-atomic="true" {{ stimulus_controller('toast') }}
+            >
                 <div class="d-flex">
-                    <div class="toast-body fw-bold" style="font-size: 1rem">
+                    <div class="toast-body body">
                         {{ message }}
                     </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                    <button type="button"
+                            class="btn-close btn-close-white"
                             data-bs-dismiss="toast" aria-label="Close">
                     </button>
                 </div>
