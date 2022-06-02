@@ -3,23 +3,18 @@
 ## Guideline
 
 #### Message keys
-Message key are based on 3 important levels, for example `pages.homepage.hero_title` will be decomposed in :
-- `page`: the *category*, is the root parameter to identify the context of translation. *Categories* are limited in number and their meanings are all listed below.
-- `homepage`: the *group*, encompass a collection of translations and bring further context.
-- `hero_title`: the
+Message keys are based on 2 (and optionnaly 3) levels :
+- `category` : the root parameter, identify the global context. `Categories` are limited in number and their meanings are all listed below.
+- `group` : *Optionnal*, depending on the `category`, give further context.
+- `TBD` : the last parameter, it should describe the meaning of the message as much as possible. It MUST NOT be multi level.
 
-| Message key                          | Description                                                                                       |
-|--------------------------------------|---------------------------------------------------------------------------------------------------|
-| label.foo                            | For form form labels.                                                                             |
-| flash.foo                            | For flash messages.                                                                               |
-| error.foo                            | For error messages.                                                                               |
-| help.foo                             | For help text used with forms.                                                                    |
-| foo.heading                          | For a heading.                                                                                    |
-| foo.paragraph0                       | For the first paragraph after a heading.                                                          |
-| foo.paragraph1                       | For the second paragraph after a heading.                                                         |
-| foo.paragraph2 .html                 | A third paragraph where HTML is allowed inside the translation.                                   |
-| foo                                  | For any common strings like “Show all”, “Next”, “Yes” etc.                                        |
-| vendor.bundle.controller.action. foo | For any non-reusable translation.                                                                 |
+##### Categories
+- `general` : [2 level key], used for global translations.
+- `pages` : [3 level key], used for static pages where `group` is the page name.
+- `form` : [3 level key], (*label*, *placeholder*, *help*...), used for generic form translation. 
+
+##### Group
+`Group`s MUST respect their category rules.
 
 #### Format
 We are using `yaml` as translation file format.
