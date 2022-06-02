@@ -2,7 +2,7 @@
 
 ## Guideline
 We are using a 3 levels [keyword messages](https://symfony.com/doc/current/translation.html#using-real-or-keyword-messages) architecture to uniquely identify our translations.
-Translations are write in yaml, using [`icu format`](https://unicode-org.github.io/icu/userguide/format_parse/messages/] with one unique version per langage and the given file naming structure `messages+intl-icu.{locale}.yaml`.
+Translations are write in yaml, using [`icu format`](https://unicode-org.github.io/icu/userguide/format_parse/messages/) with one unique version per langage and the given file naming structure `messages+intl-icu.{locale}.yaml`.
 
 ### Message keys
  
