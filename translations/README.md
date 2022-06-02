@@ -18,12 +18,12 @@
 | vendor.bundle.controller.action. foo | For any non-reusable translation.                                                                 |
 
 #### Format
-We are using XLIFF format.
+We are using `yaml` as translation file format.
 
 
 ## Usage
-To generate your translation files : 
+Extract new translations : 
 ```bash
 # Example for French translations
-$ php bin/console translation:extract --force fr
+$ php bin/console translation:extract --force --format=yaml --sort=asc --as-tree=5 fr
 ```
