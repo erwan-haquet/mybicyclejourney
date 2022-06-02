@@ -1,10 +1,8 @@
 <div class="stay-tuned">
     <div class="container">
-        <h2 class="text-center title">
-            {{ "stay_tuned.title"|trans([], 'the-project') }}
-        </h2>
-        <p>{{ "stay_tuned.paragraph"|trans([], 'the-project')|raw }}</p>
-        
+        <h2 class="text-center title">{{ "pages.the_project.stay_tuned.title"|trans }}</h2>
+        <p>{{ "pages.the_project.stay_tuned.paragraph"|trans|raw }}</p>
+
         <div class="form">
             {{ form_start(form) }}
             {{ form_errors(form) }}
@@ -25,8 +23,7 @@
                 <div class="col-xl-4">
                     <div class="justify-content-md-center">
                         {{ form_row(form.save, {
-                            label: "stay_tuned.register",
-                            translation_domain: "the-project",
+                            label: "pages.the_project.stay_tuned.register",
                             attr: { class: 'button btn-secondary btn-xl fw-bold w-100' },
                         }) }}
                     </div>
