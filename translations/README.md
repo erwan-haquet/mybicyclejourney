@@ -2,7 +2,7 @@
 
 ## Guideline
 ### General purpose
-Each domain have it own namespace at root level : `templates/{domain}/*`.
+Each domain have it own namespace at root level : `templates/{domain}/*`.   
 Translations are write in yaml, using [`icu format`](https://unicode-org.github.io/icu/userguide/format_parse/messages/) with one unique file per locale `messages+intl-icu.{locale}.yaml`.     
 We are using a 3 levels [keyword messages](https://symfony.com/doc/current/translation.html#using-real-or-keyword-messages) structure `level1.level2.level3`.  
 
