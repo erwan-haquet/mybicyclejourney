@@ -16,5 +16,5 @@ Translations are write in yaml, using [`icu format`](https://unicode-org.github.
 Extract new translations : 
 ```bash
 # Example for French translations
-$ php bin/console translation:extract --force --format=yaml --sort=asc --as-tree=5 fr
+$ php bin/console translation:extract --force --format=yaml --sort=asc --as-tree=3 fr
 ```
