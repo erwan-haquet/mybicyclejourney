@@ -13,6 +13,34 @@
         <source>label.email</source>
         <target>Email</target>
       </trans-unit>
+      <trans-unit id="3kNR1mS" resname="pages.homepage.stay_tuned.title">
+        <source>pages.homepage.stay_tuned.title</source>
+        <target>L'aventure commence ici... pour nous aussi !</target>
+      </trans-unit>
+      <trans-unit id="Hz3Bdjt" resname="pages.homepage.stay_tuned.paragraph">
+        <source>pages.homepage.stay_tuned.paragraph</source>
+        <target><![CDATA[MyBicycleJourney est tout nouveau et nous ne sommes pas tout à fait prêt à prendre la route.
+                    <br><br>
+                    En attendant, si tu souhaites être informé des avancées tu peux t'inscrire ici et tu seras
+                    averti dès qu'il y a du nouveau.
+                ]]></target>
+      </trans-unit>
+      <trans-unit id="NAvm31y" resname="pages.homepage.the_project.discover">
+        <source>pages.homepage.the_project.discover</source>
+        <target>Découvrir le projet</target>
+      </trans-unit>
+      <trans-unit id="SS9y9cV" resname="pages.homepage.stay_tuned.register">
+        <source>pages.homepage.stay_tuned.register</source>
+        <target><![CDATA[Tiens moi au courant 🤙]]></target>
+      </trans-unit>
+      <trans-unit id="IwJYki6" resname="pages.homepage.header.title">
+        <source>pages.homepage.header.title</source>
+        <target>Partage tes plus belles aventures à vélo, en toute simplicité</target>
+      </trans-unit>
+      <trans-unit id="a2GCT1Q" resname="pages.homepage.header.hook">
+        <source>pages.homepage.header.hook</source>
+        <target>Avec ta famille, tes amis, tes collègues, ton chien tes poules et même Brad Pitt pourquoi pas ?</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

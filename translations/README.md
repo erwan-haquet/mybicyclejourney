@@ -24,6 +24,6 @@ We are using XLIFF format.
 ## Usage
 To generate your translation files : 
 ```bash
-$ php bin/console translation:extract --force {locale}
+# Example for French translations
+$ php bin/console translation:extract --force fr
 ```
-
