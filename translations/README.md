@@ -1,11 +1,13 @@
 # Translation documentation
 
 ## Guideline
-We are using a 3 levels [keyword messages](https://symfony.com/doc/current/translation.html#using-real-or-keyword-messages) architecture to uniquely identify our translations.
-Translations are write in yaml, using [`icu format`](https://unicode-org.github.io/icu/userguide/format_parse/messages/) with one unique version per langage and the given file naming structure `messages+intl-icu.{locale}.yaml`.
+We are using a 3 levels [keyword messages](https://symfony.com/doc/current/translation.html#using-real-or-keyword-messages) architecture.   
+Translations are write in yaml, using [`icu format`](https://unicode-org.github.io/icu/userguide/format_parse/messages/) with one unique *message* file per locale.   
+Each translated locale have is own file `messages+intl-icu.{locale}.yaml`.
 
 ### Message keys
-- `context` : identify the global context. must remain limited in number and be descriptives in their meanings. they are all listed below.
+To guarantee a good maintenability and meanfull keys, keys must respect those given structure : 
+- `context` : identify the global context. must remain limited in number and be descriptives in their meanings. list below :
   - `general` : [2 levels], used for global translations. eg: `general.ok`, `general.hello`.
   - `pages` : [3 levels], used for static pages where `group` is the page name. eg: `pages.homepage.welcome_message`.
   - `form` : [3 levels], (*label*, *placeholder*, *help*...), used for generic form translation. eg: `form.label.first_name`, `form.help.first_name`.
