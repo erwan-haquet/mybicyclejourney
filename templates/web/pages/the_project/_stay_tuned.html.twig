@@ -1,7 +1,7 @@
 <div class="stay-tuned">
     <div class="container">
-        <h2 class="text-center title">{{ "pages.the_project.stay_tuned.title"|trans }}</h2>
-        <p>{{ "pages.the_project.stay_tuned.paragraph"|trans|raw }}</p>
+        <h2 class="text-center title">{{ "pages.the_project.stay_tuned_title"|trans }}</h2>
+        <p>{{ "pages.the_project.stay_tuned_paragraph"|trans|raw }}</p>
 
         <div class="form">
             {{ form_start(form) }}
@@ -9,21 +9,21 @@
             <div class="row">
                 <div class="col-xl-4">
                     {{ form_row(form.name, {
-                        label: "label.first_name",
+                        label: "form.label.first_name",
                         row_attr: {class: 'form-floating mb-3'}
                     }) }}
                 </div>
                 <div class="col-xl-4">
 
                     {{ form_row(form.email, {
-                        label: "label.email",
+                        label: "form.label.email",
                         row_attr: {class: 'form-floating mb-3'}
                     }) }}
                 </div>
                 <div class="col-xl-4">
                     <div class="justify-content-md-center">
                         {{ form_row(form.save, {
-                            label: "pages.the_project.stay_tuned.register",
+                            label: "marketing.early_bird.register",
                             attr: { class: 'button btn-secondary btn-xl fw-bold w-100' },
                         }) }}
                     </div>

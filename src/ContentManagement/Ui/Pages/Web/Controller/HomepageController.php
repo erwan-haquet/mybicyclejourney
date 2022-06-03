@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\UrlHelper;
 use Symfony\Component\Routing\Annotation\Route;
 use App\ContentManagement\Domain\Seo\Model\OpenGraph;
 use App\ContentManagement\Domain\Seo\Model\MetaName;
+use Symfony\Component\Translation\TranslatableMessage;
 
 #[Route('/', name: 'homepage')]
 class HomepageController extends AbstractController
@@ -28,15 +29,15 @@ class HomepageController extends AbstractController
     {
         $command = new RegisterEarlyBird();
         $form = $this->createForm(RegisterEarlyBirdType::class, $command);
-
+        
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $commandBus->dispatch($command);
-                $this->addFlash('success', 'Cool, tu fais désormais partie des early birds 🐦');
+                $this->addFlash('success', new TranslatableMessage('marketing.early_bird.registered_with_success'));
                 return $this->redirectToRoute('homepage');
             } catch (EmailIsAlreadyRegistered) {
-                $this->addFlash('success', 'Ton email est déjà enregistré, mais promis on ne t\'oublie pas 👊');
+                $this->addFlash('success', new TranslatableMessage('marketing.early_bird.email_is_already_used'));
             }
         }
 
