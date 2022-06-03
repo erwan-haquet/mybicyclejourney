@@ -1,10 +1,10 @@
 <section class="stay-tuned row justify-content-center">
     <div class="card p-3 col-12 col-lg-6">
         <div class="card-body row">
-            <h3 class="card-title title">{{ "stay_tuned.title"|trans([], 'homepage') }}</h3>
+            <h3 class="card-title title">{{ "pages.homepage.stay_tuned.title"|trans }}</h3>
 
             <p class="card-text paragraph col-12 col-xl-6">
-                {{ "stay_tuned.paragraph"|trans([], 'homepage')|raw }}
+                {{ "pages.homepage.stay_tuned.paragraph"|trans|raw }}
             </p>
 
             <div class="col-12 col-xl-6">
@@ -20,8 +20,7 @@
                 }) }}
                 <div class="justify-content-md-center">
                     {{ form_row(form.save, {
-                        label: "stay_tuned.register",
-                        translation_domain: "homepage",
+                        label: "pages.homepage.stay_tuned.register",
                         attr: { class: 'button btn-primary btn-xl w-100' },
                     }) }}
                 </div>
