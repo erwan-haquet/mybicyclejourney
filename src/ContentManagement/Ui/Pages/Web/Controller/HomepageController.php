@@ -17,7 +17,7 @@ use App\ContentManagement\Domain\Seo\Model\OpenGraph;
 use App\ContentManagement\Domain\Seo\Model\MetaName;
 use Symfony\Component\Translation\TranslatableMessage;
 
-#[Route('/{_locale<%app.supported_locales%>}/', name: 'homepage')]
+#[Route('/', name: 'homepage')]
 class HomepageController extends AbstractController
 {
     public function __invoke(
@@ -29,7 +29,7 @@ class HomepageController extends AbstractController
     {
         $command = new RegisterEarlyBird();
         $form = $this->createForm(RegisterEarlyBirdType::class, $command);
-        
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             try {
