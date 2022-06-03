@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\UrlHelper;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
 
-#[Route('/le-projet', name: 'the_project')]
+#[Route('/{_locale<%app.supported_locales%>}/le-projet', name: 'the_project')]
 class TheProjectController extends AbstractController
 {
     public function __invoke(
