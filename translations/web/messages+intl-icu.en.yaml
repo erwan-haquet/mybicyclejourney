@@ -14,3 +14,6 @@ pages:
         stay_tuned_title: "The story just begin... for us too !"
         stay_tuned_paragraph: "MyBicycleJourney is brand new and we are not quite ready to hit the road.<br><br>In the meantime, if you want to be informed of progress, you can register here and you will be notified notified as soon as there is something new."
         discover_the_project: "Discover the project"
+    the_project:
+        banner_title: 'The project.'
+        main_presentation_title: 'My Bicycle What ?'
