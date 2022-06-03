@@ -11,6 +11,6 @@ class NoLocaleRedirectController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return $this->redirectToRoute('homepage', ['_locale' => 'en']);
+        return $this->redirectToRoute('homepage', ['_locale' => 'fr']);
     }
 }
