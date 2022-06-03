@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\UrlHelper;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Translation\TranslatableMessage;
 
 #[Route('/le-projet', name: 'the_project')]
 class TheProjectController extends AbstractController
@@ -33,10 +34,10 @@ class TheProjectController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $commandBus->dispatch($command);
-                $this->addFlash('success', 'Cool, tu fais désormais partie des early birds 🐦');
+                $this->addFlash('success', new TranslatableMessage('marketing.early_bird.registered_with_success'));
                 return $this->redirectToRoute('the_project');
             } catch (EmailIsAlreadyRegistered) {
-                $this->addFlash('success', 'Ton email est déjà enregistré, mais promis on ne t\'oublie pas 👊');
+                $this->addFlash('success', new TranslatableMessage('marketing.early_bird.email_is_already_used'));
             }
         }
         $seo = $pageFactory->create(
