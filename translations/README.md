@@ -1,29 +1,36 @@
-# Translation documentation
+# Translation guideline 
 
-## Guideline
+## Documentation 
+Translation can be really time-consuming if no rules are given, therefore this guideline will
+help you to know how to structure and organize the way you are dealing with translations in the project. 
 
-#### Message keys
-| Message key                          | Description                                                                                       |
-|--------------------------------------|---------------------------------------------------------------------------------------------------|
-| label. foo                           | For form form labels.                                                                             |
-| flash. foo                           | For flash messages.                                                                               |
-| error. foo                           | For error messages.                                                                               |
-| help. foo                            | For help text used with forms.                                                                    |
-| foo .heading                         | For a heading.                                                                                    |
-| foo .paragraph0                      | For the first paragraph after a heading.                                                          |
-| foo .paragraph1                      | For the second paragraph after a heading.                                                         |
-| foo.paragraph2 .html                 | A third paragraph where HTML is allowed inside the translation.                                   |
-| _foo                                 | Starting with underscore means the the translated string should start with a lowercase character. |
-| foo                                  | For any common strings like “Show all”, “Next”, “Yes” etc.                                        |
-| vendor.bundle.controller.action. foo | For any non-reusable translation.                                                                 |
+### General purpose 
+- Translations are written in yaml, using the `.yaml` file extension
+- Translations are formatted in [`ICU`](https://unicode-org.github.io/icu/userguide/format_parse/messages/) 
+- Each translation is identified by a unique message key (see below)
+- Each locale have its own file
+- Every translation for a given locale is written in one `messages+intl-icu.{locale}.yaml` file.
 
-#### Format
-We are using XLIFF format.
+#### Domains
+The first level is called `domain`. It is used to split UI concerns :
+- `web` : for the [web application](https://wwww.mybicycleproject.com).
+- `email` : for email communications.
 
+Domains are represented by namespaces directly in the root translation directory : `templates/{domain}/{translation_files}`.
+
+#### Message key
+We are using a 3 levels [keyword messages](https://symfony.com/doc/current/translation.html#using-real-or-keyword-messages) structure `level1.level2.level3`.
+To guarantee a good maintainability and meaningful keys, they must respect the following 3 level `category.group.description` structure : 
+- `category` : identify the global context, must remain limited in number and be descriptives in their meanings :
+  - **general** : [2 level], used for global translations. eg: `general.ok`, `general.hello`.
+  - **pages** : [3 levels], used for static pages where `group` is the page name. eg: `pages.homepage.welcome_message`.
+  - **form** : [3 levels], (*label*, *placeholder*, *help*...), used for generic form translation. eg: `form.label.first_name`, `form.help.first_name`.
+- `group` : (*optionnal*) is tightly coupled to the `context` and should help to regroup translations.
+- `description` : the last parameter key, it should describe the meaning of the message as much as possible. It MUST NOT be multi level.
 
 ## Usage
-To generate your translation files : 
+To extract new translations : 
 ```bash
-$ php bin/console translation:extract --force {locale}
+# Example for French translations
+$ php bin/console translation:extract --force --format=yaml --sort=asc --as-tree=3 fr
 ```
-
