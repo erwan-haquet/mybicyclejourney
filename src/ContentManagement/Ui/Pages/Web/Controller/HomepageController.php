@@ -17,7 +17,7 @@ use App\ContentManagement\Domain\Seo\Model\OpenGraph;
 use App\ContentManagement\Domain\Seo\Model\MetaName;
 use Symfony\Component\Translation\TranslatableMessage;
 
-#[Route('/', name: 'homepage')]
+#[Route('/{_locale<%app.supported_locales%>}/', name: 'homepage')]
 class HomepageController extends AbstractController
 {
     public function __invoke(
