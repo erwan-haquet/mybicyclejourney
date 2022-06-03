@@ -14,6 +14,9 @@
         "stimulus": "^3.0.1",
         "webpack-notifier": "^1.6.0"
     },
+    "engines": {
+        "node": "18.x"
+    },
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
