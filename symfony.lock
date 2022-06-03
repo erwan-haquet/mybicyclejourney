@@ -213,6 +213,9 @@
     "symfony/http-kernel": {
         "version": "v6.0.8"
     },
+    "symfony/intl": {
+        "version": "v6.0.8"
+    },
     "symfony/mailer": {
         "version": "6.0",
         "recipe": {
@@ -419,7 +422,13 @@
     "twig/inky-extra": {
         "version": "v3.4.0"
     },
+    "twig/intl-extra": {
+        "version": "v3.4.0"
+    },
     "twig/markdown-extra": {
+        "version": "v3.4.0"
+    },
+    "twig/string-extra": {
         "version": "v3.4.0"
     },
     "twig/twig": {

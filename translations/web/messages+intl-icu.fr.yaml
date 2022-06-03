@@ -1,7 +1,7 @@
 form:
     label:
-        first_name: Prénom
-        email: Email
+        first_name: 'Prénom'
+        email: 'Email'
 pages:
     homepage:
         hero_baseline: 'Partage tes plus belles aventures à vélo, en toute simplicité'
@@ -26,3 +26,4 @@ marketing:
         register: 'Tiens moi au courant 🤙'
         registered_with_success: 'Cool, tu fais désormais partie des early birds 🐦'
         email_is_already_used: 'Ton email est déjà enregistré, mais promis on ne t''oublie pas 👊'
+    

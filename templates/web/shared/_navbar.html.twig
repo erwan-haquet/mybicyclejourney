@@ -1,5 +1,26 @@
-<nav class="navbar navbar-light bg-white">
+<nav class="navbar navbar-expand-md navbar-light bg-white">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="{{ path('homepage') }}">🚴 My Bicycle Journey</a>
+        <a class="navbar-brand fw-bold" href="{{ path('homepage') }}">
+            🚴 My Bicycle Journey
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarToggler" aria-controls="navbarToggler"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mb-2 mb-md-0 w-100">
+                <li class="nav-item dropdown ms-auto me-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown-language" role="button"
+                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ app.request.locale|locale_name(app.request.locale)|u.title }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-language">
+                        <li><a class="dropdown-item" href="{{ path('homepage', {_locale: 'en'}) }}">English</a></li>
+                        <li><a class="dropdown-item" href="{{ path('homepage', {_locale: 'fr'}) }}">Français</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
