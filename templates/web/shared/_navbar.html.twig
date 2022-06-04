@@ -27,12 +27,14 @@
             {{ app.request.locale|locale_name(app.request.locale)|u.title }}
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-language">
-            {% for locale in locales if locale != app.request.locale %}
-                <li>
-                    <a class="dropdown-item" href="{{ path(route, params|merge({ _locale: locale })) }}">
-                        {{ locale|locale_name(app.request.locale)|u.title }}
-                    </a>
-                </li>
+            {% for locale in locales %}
+                {% if locale != app.request.locale %}
+                    <li>
+                        <a class="dropdown-item" href="{{ path(route, params|merge({ _locale: locale })) }}">
+                            {{ locale|locale_name(app.request.locale)|u.title }}
+                        </a>
+                    </li>
+                {% endif %}
             {% endfor %}
         </ul>
     </li>
