@@ -2,13 +2,13 @@
 
 namespace App\ContentManagement\Ui\Pages\Web\Controller;
 
-use App\ContentManagement\Domain\Seo\Factory\PageFactory;
-use App\ContentManagement\Domain\Seo\Model\OpenGraph;
-use App\ContentManagement\Domain\Seo\Model\MetaName;
-use App\ContentManagement\Domain\Seo\Model\Title;
-use App\ContentManagement\Ui\Pages\Web\Form\RegisterEarlyBirdType;
+use App\ContentManagement\Domain\Website\Factory\PageFactory;
+use App\ContentManagement\Domain\Website\Model\Page\Meta;
+use App\ContentManagement\Domain\Website\Model\Page\Path;
+use App\ContentManagement\Domain\Website\Model\Page\Title;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
+use App\Marketing\Ui\Launch\Web\Form\RegisterEarlyBirdType;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,22 +43,22 @@ class TheProjectController extends AbstractController
                 $this->addFlash('success', new TranslatableMessage('marketing.early_bird.email_is_already_used'));
             }
         }
-        $seo = $pageFactory->create(
-            title: Title::new("Découvre le projet | My Bicycle Journey"),
-            nameMeta: [
-                MetaName\Description::new("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
-                MetaName\Author::new("Erwan Haquet"),
-            ],
-            openGraph: [
-                OpenGraph\Title::new("Découvre le projet My Bicycle Journey."),
-                OpenGraph\Description::new("MBJ c'est peu plus qu'un site, c'est une aventure en soi. Alors qu'attends-tu pour rejoindre le projet ?"),
-                OpenGraph\Image::new($urlHelper->getAbsoluteUrl('build/images/the-project/mbj_the_project_og.jpg'))
+
+        $page = $pageFactory->create(
+            title: Title::new("L'aventure commence ici ! | My Bicycle Journey"),
+            path: Path::new($request->getUri()),
+            metas: [
+                Meta\Name\Description::new("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
+                Meta\Name\Author::new("Erwan Haquet"),
+                Meta\OpenGraph\Title::new("Découvre le projet My Bicycle Journey."),
+                Meta\OpenGraph\Description::new("MBJ c'est peu plus qu'un site, c'est une aventure en soi. Alors qu'attends-tu pour rejoindre le projet ?"),
+                Meta\OpenGraph\Image::new($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
             ]
         );
 
         return $this->render('web/pages/the_project/index.html.twig', [
             'form' => $form->createView(),
-            'seo' => $seo
+            'page' => $page
         ]);
     }
 }

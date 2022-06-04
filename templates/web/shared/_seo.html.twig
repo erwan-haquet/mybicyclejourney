@@ -1,21 +1,9 @@
-{# @seo seo \App\ContentManagement\Domain\Seo\Model\Page #}
+{# @var page \App\ContentManagement\Domain\Website\Model\Page\Page #}
 
 {% block title %}
-    <title>{{ seo.title ?? 'My Bycicle Journey' }}</title>
+    <title>{{ page.title ?? 'My Bycicle Journey' }}</title>
 {% endblock %}
 
-{% block sharedMeta %}
-
-{% endblock %}
-
-{% block metaNames %}
-    {% for meta in seo.nameMeta %}
-        {{ meta | raw }}
-    {% endfor %}
-{% endblock %}
-
-{% block openGraph %}
-    {% for meta in seo.openGraph %}
-        {{ meta | raw}}
-    {% endfor %}
+{% block metaData %}
+    {% for meta in page.metas %}{{ meta.render | raw }}{% endfor %}
 {% endblock %}
