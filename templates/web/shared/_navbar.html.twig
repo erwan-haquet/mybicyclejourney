@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white">
     <div class="container-fluid">
         <a class="navbar-brand fw-bold" href="{{ path('homepage') }}">🚴 My Bicycle Journey</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarToggler" aria-controls="navbarToggler"
-                aria-expanded="false" aria-label="Toggle navigation">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav mb-2 mb-md-0 w-100">
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav w-100">
                 {{ _self.locale_selector() }}
             </ul>
         </div>
+
     </div>
 </nav>
 
@@ -18,8 +20,8 @@
     {% set route = app.request.attributes.get('_route') %}
     {% set route_params = app.request.attributes.get('_route_params') %}
     {% set params = route_params|merge(app.request.query.all) %}
-    
-    <li class="nav-item dropdown ms-auto">
+
+    <li class="nav-item dropdown ms-md-auto">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown-language" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ app.request.locale|locale_name(app.request.locale)|u.title }}
@@ -34,4 +36,5 @@
             {% endfor %}
         </ul>
     </li>
+
 {% endmacro %}
