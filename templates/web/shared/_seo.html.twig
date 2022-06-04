@@ -1,4 +1,4 @@
-{# @seo \App\ContentManagement\Domain\Seo\Model\Page #}
+{# @seo seo \App\ContentManagement\Domain\Seo\Model\Page #}
 
 {% block title %}
     <title>{{ seo.title ?? 'My Bycicle Journey' }}</title>
@@ -19,21 +19,3 @@
         {{ meta | raw}}
     {% endfor %}
 {% endblock %}
-
-{% block thirdPartyTracker %}
-    <!-- Start of Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VCNLDDCX8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-2VCNLDDCX8');
-    </script>
-    <!-- End of Global site tag -->
-
-    <!--  Start of Facebook app configuration -->
-    <meta property="fb:app_id" content="113869198637480">
-    <!-- End of Facebook app configuration -->
-{% endblock %}
-
