@@ -1,4 +1,4 @@
-{# @seo \App\ContentManagement\Domain\Seo\Model\Page #}
+{# @seo seo \App\ContentManagement\Domain\Seo\Model\Page #}
 
 {% block title %}
     <title>{{ seo.title ?? 'My Bycicle Journey' }}</title>
@@ -35,5 +35,18 @@
     <!--  Start of Facebook app configuration -->
     <meta property="fb:app_id" content="113869198637480">
     <!-- End of Facebook app configuration -->
+
+    <!--  Start of Facebook app configuration -->
+    <script>
+        window.axeptioSettings = {
+            clientId: "629b39e5950311599ea7e917",
+        };
+
+        (function(d, s) {
+            var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+            e.async = true; e.src = "//static.axept.io/sdk.js";
+            t.parentNode.insertBefore(e, t);
+        })(document, "script");
+    </script>
 {% endblock %}
 
