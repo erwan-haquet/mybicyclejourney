@@ -8,7 +8,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\OpenGraph;
  */
 class SiteName extends OpenGraph
 {
-    private const PROPERTY = 'site_name';
+    public const PROPERTY = 'site_name';
 
     public static function new(string $content): SiteName
     {

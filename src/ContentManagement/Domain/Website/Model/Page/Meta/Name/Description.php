@@ -8,7 +8,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\Name;
  */
 class Description extends MetaName 
 {
-    private const PROPERTY = 'description';
+    public const NAME = 'description';
 
     /**
      * The recommended meta description length is 920 pixels
@@ -16,6 +16,6 @@ class Description extends MetaName
      */
     public static function new(string $content): Description
     {
-        return new self(self::PROPERTY, $content);
+        return new self(self::NAME, $content);
     }
 }

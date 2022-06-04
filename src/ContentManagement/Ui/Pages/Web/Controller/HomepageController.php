@@ -3,9 +3,11 @@
 namespace App\ContentManagement\Ui\Pages\Web\Controller;
 
 use App\ContentManagement\Domain\Website\Factory\PageFactory;
+use App\ContentManagement\Domain\Website\Model\Page\PageId;
 use App\ContentManagement\Domain\Website\Model\Page\Path;
 use App\ContentManagement\Domain\Website\Model\Page\Title;
 use App\ContentManagement\Domain\Website\Model\Page\Type;
+use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
 use App\Marketing\Ui\Launch\Web\Form\RegisterEarlyBirdType;
@@ -22,10 +24,11 @@ use App\ContentManagement\Domain\Website\Model\Page\Meta;
 class HomepageController extends AbstractController
 {
     public function __invoke(
-        Request     $request,
-        CommandBus  $commandBus,
-        PageFactory $pageFactory,
-        UrlHelper   $urlHelper
+        Request                 $request,
+        CommandBus              $commandBus,
+        PageFactory             $pageFactory,
+        PageRepositoryInterface $pageRepository,
+        UrlHelper               $urlHelper
     ): Response
     {
         $command = new RegisterEarlyBird();
@@ -42,19 +45,25 @@ class HomepageController extends AbstractController
             }
         }
 
-        $page = $pageFactory->create(
-            title: Title::new("Découvre le projet | My Bicycle Journey"),
-            type: Type::Static,
-            path: Path::new($request->getUri()),
-            parent: null,
-            metas: new Meta\Collection([
-                Meta\Name\Description::new("Raconte nous tes plus beaux périples à vélo, le plus simplement du monde. Tu n'as plus qu'à profiter de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches."),
-                Meta\Name\Author::new("Erwan Haquet"),
-                Meta\OpenGraph\Title::new("Partage tes plus belles aventures à vélo, en toute simplicité."),
-                Meta\OpenGraph\Description::new("Profite de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches. Raconte nous tes plus beaux périples à vélo, le plus simplement du monde."),
-                Meta\OpenGraph\Image::new($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
-            ])
-        );
+        $page = $pageRepository->findById(PageId::fromString('c11faa79-e6d9-4eef-8362-1569a201cccc'));
+
+        $page->metas();
+        
+//
+//        $page = $pageFactory->create(
+//            title: Title::new("Découvre le projet | My Bicycle Journey"),
+//            type: Type::Static,
+//            path: Path::new($request->getPathInfo()),
+//            parent: null,
+//            metas: new Meta\Collection([
+//                Meta\Name\Description::new("Raconte nous tes plus beaux périples à vélo, le plus simplement du monde. Tu n'as plus qu'à profiter de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches."),
+//                Meta\Name\Author::new("Erwan Haquet"),
+//                Meta\OpenGraph\Title::new("Partage tes plus belles aventures à vélo, en toute simplicité."),
+//                Meta\OpenGraph\Description::new("Profite de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches. Raconte nous tes plus beaux périples à vélo, le plus simplement du monde."),
+//                Meta\OpenGraph\Image::new($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
+//            ])
+//        );
+
 
         return $this->render('web/pages/homepage/index.html.twig', [
             'form' => $form->createView(),

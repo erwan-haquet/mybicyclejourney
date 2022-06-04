@@ -10,13 +10,13 @@ use Library\Assert\Assert;
  */
 class Robots extends MetaName
 {
-    private const PROPERTY = 'robots';
+    public const NAME = 'robots';
 
     public static function new(array $values): Robots
     {
         Assert::allIsAnyOf($values, self::availableValues());
 
-        return new self(self::PROPERTY, implode(', ', $values));
+        return new self(self::NAME, implode(', ', $values));
     }
 
     private static function availableValues(): array

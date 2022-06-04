@@ -7,10 +7,10 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\Name;
  */
 class Keywords extends MetaName
 {
-    private const PROPERTY = 'keywords';
+    public const NAME = 'keywords';
 
-    public static function new(iterable $values): Keywords
+    public static function new(array $values): Keywords
     {
-        return new self(self::PROPERTY, implode(', ', $values));
+        return new self(self::NAME, implode(', ', $values));
     }
 }

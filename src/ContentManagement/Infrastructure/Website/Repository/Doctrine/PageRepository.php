@@ -5,7 +5,6 @@ namespace App\ContentManagement\Infrastructure\Website\Repository\Doctrine;
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use App\ContentManagement\Domain\Website\Model\Page\PageId;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
-use App\Marketing\Domain\Launch\Model\EarlyBird;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Uid\Uuid;
@@ -14,7 +13,7 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, EarlyBird::class);
+        parent::__construct($registry, Page::class);
     }
 
     public function add(Page $page): void
@@ -26,7 +25,7 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
 
     public function findById(PageId $id): ?Page
     {
-        return $this->find($id);
+        return $this->find($id->toString());
     }
 
     public function nextIdentity(): PageId

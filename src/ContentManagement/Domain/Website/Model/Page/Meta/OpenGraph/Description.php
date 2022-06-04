@@ -7,7 +7,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\OpenGraph;
  */
 class Description extends OpenGraph
 {
-    private const PROPERTY = 'description';
+    public const PROPERTY = 'description';
 
     /**
      * SEO experts recommend that you do not go beyond the limit of 200 characters.

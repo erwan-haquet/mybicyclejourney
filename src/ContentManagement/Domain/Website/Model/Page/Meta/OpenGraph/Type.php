@@ -10,7 +10,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\OpenGraph;
  */
 class Type extends OpenGraph
 {
-    private const PROPERTY = 'type';
+    public const PROPERTY = 'type';
 
     public static function new(string $content): Type
     {

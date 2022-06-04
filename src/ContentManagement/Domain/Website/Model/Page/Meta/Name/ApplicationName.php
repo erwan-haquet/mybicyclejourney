@@ -7,10 +7,10 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\Name;
  */
 class ApplicationName extends MetaName
 {
-    private const PROPERTY = 'application-name';
+    public const NAME = 'application-name';
 
     public static function new(string $content): ApplicationName
     {
-        return new self(self::PROPERTY, $content);
+        return new self(self::NAME, $content);
     }
 }

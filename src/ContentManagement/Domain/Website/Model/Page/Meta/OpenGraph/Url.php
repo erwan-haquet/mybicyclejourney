@@ -8,7 +8,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\OpenGraph;
  */
 class Url extends OpenGraph
 {
-    private const PROPERTY = 'url';
+    public const PROPERTY = 'url';
 
     public static function new(string $content): Url
     {

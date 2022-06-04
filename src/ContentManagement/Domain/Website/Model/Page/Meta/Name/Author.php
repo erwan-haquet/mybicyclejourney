@@ -7,10 +7,10 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\Name;
  */
 class Author extends MetaName 
 {
-    private const PROPERTY = 'author';
+    public const NAME = 'author';
 
     public static function new(string $content): Author
     {
-        return new self(self::PROPERTY, $content);
+        return new self(self::NAME, $content);
     }
 }

@@ -8,7 +8,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta;
 interface MetaInterface
 {
     /**
-     * The metadata tag to render in html.
+     * Render the tag to display in html <head>.
      * 
      * eg: '<meta name="description" content="A super cool website for bikers">'
      */

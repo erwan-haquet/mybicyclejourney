@@ -48,7 +48,7 @@ class TheProjectController extends AbstractController
         $page = $pageFactory->create(
             title: Title::new("L'aventure commence ici ! | My Bicycle Journey"),
             type: Type::Static,
-            path: Path::new($request->getUri()),
+            path: Path::new($request->getPathInfo()),
             parent: null,
             metas: new Meta\Collection([
                 Meta\Name\Description::new("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),

@@ -49,4 +49,9 @@ class Collection implements IteratorAggregate
     {
         return new ArrayIterator($this->metas);
     }
+    
+    public function toArray(): array
+    {
+        return $this->metas;
+    }
 }

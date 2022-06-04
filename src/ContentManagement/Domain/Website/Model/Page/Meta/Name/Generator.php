@@ -7,10 +7,10 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\Name;
  */
 class Generator extends MetaName
 {
-    private const PROPERTY = 'generator';
+    public const NAME = 'generator';
 
     public static function new(string $content): Generator
     {
-        return new self(self::PROPERTY, $content);
+        return new self(self::NAME, $content);
     }
 }

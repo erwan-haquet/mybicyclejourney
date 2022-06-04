@@ -10,10 +10,10 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\Name;
  */
 class Viewport extends MetaName
 {
-    private const PROPERTY = 'viewport';
+    public const NAME = 'viewport';
 
     public static function new(string $content): Viewport
     {
-        return new self(self::PROPERTY, $content);
+        return new self(self::NAME, $content);
     }
 }

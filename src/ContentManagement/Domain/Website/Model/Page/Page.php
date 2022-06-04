@@ -17,10 +17,10 @@ class Page
     #[ORM\Id]
     #[ORM\Column(type: 'uuid')]
     private string $id;
-    
+
     #[ORM\Column(type: 'string', enumType: Type::class)]
     private Type $type;
-    
+
     #[ORM\Embedded(class: Title::class)]
     private Title $title;
 
@@ -42,7 +42,8 @@ class Page
     #[ORM\Embedded(class: Seo::class)]
     private Seo $seo;
 
-    private Meta\Collection $metas;
+    #[ORM\Column(type: 'json')]
+    private array $metas;
 
     public function __construct(
         PageId          $id,
@@ -62,7 +63,7 @@ class Page
         $this->parent = $parent;
 
         $this->seo = $seo;
-        $this->metas = $metas;
+        $this->metas = $metas->toArray();
 
         $this->createdAt = new DateTimeImmutable();
         $this->updatedAt = new DateTimeImmutable();
@@ -115,6 +116,6 @@ class Page
 
     public function metas(): Meta\Collection
     {
-        return $this->metas;
+        return new Meta\Collection($this->metas);
     }
 }

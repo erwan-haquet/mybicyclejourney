@@ -8,7 +8,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\OpenGraph;
  */
 class Locale extends OpenGraph
 {
-    private const PROPERTY = 'locale';
+    public const PROPERTY = 'locale';
 
     public static function new(string $content): Locale
     {

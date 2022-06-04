@@ -7,7 +7,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\OpenGraph;
  */
 class Image extends OpenGraph
 {
-    private const PROPERTY = 'image';
+    public const PROPERTY = 'image';
 
     /**
      * Image recommandation is 1200x630px with a maximum of 1MB.

@@ -9,13 +9,13 @@ use Library\Assert\Assert;
  */
 class Referrer extends MetaName
 {
-    private const PROPERTY = 'referrer';
-    
+    public const NAME = 'referrer';
+
     public static function new(string $content): Referrer
     {
         Assert::oneOf($content, self::availableValues());
 
-        return new self(self::PROPERTY, $content);
+        return new self(self::NAME, $content);
     }
 
     private static function availableValues(): array

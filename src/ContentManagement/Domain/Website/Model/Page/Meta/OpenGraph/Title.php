@@ -7,7 +7,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page\Meta\OpenGraph;
  */
 class Title extends OpenGraph
 {
-    private const PROPERTY = 'title';
+    public const PROPERTY = 'title';
 
     public static function new(string $content): Title
     {

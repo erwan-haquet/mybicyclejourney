@@ -3,6 +3,8 @@
 namespace App\ContentManagement\Domain\Website\Model\Page\Meta\Name;
 
 use App\ContentManagement\Domain\Website\Model\Page\Meta\MetaInterface;
+use JetBrains\PhpStorm\ArrayShape;
+use JsonSerializable;
 
 /**
  * The basic meta tag, used on every website to indicate primary information.
@@ -14,14 +16,14 @@ use App\ContentManagement\Domain\Website\Model\Page\Meta\MetaInterface;
  * @see https://developer.mozilla.org/en/docs/Web/HTML/Element/meta#attr-name
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
  */
-abstract class MetaName implements MetaInterface
+abstract class MetaName implements MetaInterface, JsonSerializable
 {
-    private string $type;
-    private string $content;
+    protected string $name;
+    protected string $content;
 
-    public function __construct(string $type, string $content)
+    public function __construct(string $name, string $content)
     {
-        $this->type = $type;
+        $this->name = $name;
         $this->content = $content;
     }
 
@@ -29,7 +31,17 @@ abstract class MetaName implements MetaInterface
     {
         return sprintf(
             '<meta name="%s" content="%s">',
-            $this->type, $this->content
+            $this->name, $this->content
         );
+    }
+
+    #[ArrayShape(['type' => "string", 'name' => "string", 'content' => "string"])]
+    public function jsonSerialize(): array
+    {
+        return [
+            'type' => 'meta_name',
+            'name' => $this->name,
+            'content' => $this->content
+        ];
     }
 }
