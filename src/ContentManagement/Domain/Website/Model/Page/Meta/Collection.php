@@ -8,15 +8,15 @@ use ArrayIterator;
 use Traversable;
 
 /**
- * Regroups all the metadata for a unique page
- * and guarantee the html meta structure to be valid.
+ * Regroups all the metadata for a unique page and guarantee the html meta
+ * structure to be valid (avoid non-valid multiple definition of same meta...).
  */
 class Collection implements IteratorAggregate
 {
     /**
      * @var array|MetaInterface[]
      */
-    private array $metas;
+    private array $metas = [];
 
     public function __construct(array $metas = [])
     {
@@ -38,6 +38,8 @@ class Collection implements IteratorAggregate
      */
     public function merge(iterable $metas): self
     {
+        Assert::allIsInstanceOf($metas, MetaInterface::class);
+
         foreach ($metas as $meta) {
             $this->add($meta);
         }
@@ -48,10 +50,5 @@ class Collection implements IteratorAggregate
     public function getIterator(): Traversable
     {
         return new ArrayIterator($this->metas);
-    }
-    
-    public function toArray(): array
-    {
-        return $this->metas;
     }
 }

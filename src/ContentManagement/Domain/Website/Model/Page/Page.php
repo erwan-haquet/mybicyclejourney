@@ -42,8 +42,8 @@ class Page
     #[ORM\Embedded(class: Seo::class)]
     private Seo $seo;
 
-    #[ORM\Column(type: 'json')]
-    private array $metas;
+    // TODO: create a custom doctrine type
+    private Meta\Collection $metas;
 
     public function __construct(
         PageId          $id,
@@ -63,7 +63,7 @@ class Page
         $this->parent = $parent;
 
         $this->seo = $seo;
-        $this->metas = $metas->toArray();
+        $this->metas = $metas;
 
         $this->createdAt = new DateTimeImmutable();
         $this->updatedAt = new DateTimeImmutable();
@@ -116,6 +116,6 @@ class Page
 
     public function metas(): Meta\Collection
     {
-        return new Meta\Collection($this->metas);
+        return $this->metas;
     }
 }
