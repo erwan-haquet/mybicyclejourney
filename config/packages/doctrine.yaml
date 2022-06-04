@@ -15,6 +15,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Marketing/Domain/Launch/Model'
                 prefix: 'App\Marketing\Domain\Launch'
                 alias: MarketingLaunch
+            ContentManagementWebsite:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/ContentManagement/Domain/Website/Model'
+                prefix: 'App\ContentManagement\Domain\Website'
+                alias: ContentManagementWebsite
 
 when@test:
     doctrine:

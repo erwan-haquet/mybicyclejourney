@@ -2,18 +2,11 @@
 
 namespace App\Supporting\Domain\Entity\Model;
 
-use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
 use Library\Assert\Assert;
 
-/**
- * @ORM\Embeddable
- */
 abstract class Uuid implements JsonSerializable
 {
-    /**
-     * @ORM\Column(type="uuid")
-     */
     protected string $value;
 
     final protected function __construct(string $id)

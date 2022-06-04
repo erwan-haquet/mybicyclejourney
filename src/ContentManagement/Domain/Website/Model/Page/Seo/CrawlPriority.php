@@ -3,6 +3,7 @@
 namespace App\ContentManagement\Domain\Website\Model\Page\Seo;
 
 use Library\Assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A value between 0.1 and 1 to indicate to the crawler how the page should
@@ -11,34 +12,23 @@ use Library\Assert\Assert;
  *
  * @see https://seodesignchicago.com/seo-blog/6-sitemap-best-practices/#1_-_Prioritize_Your_Web_Pages
  */
+#[ORM\Embeddable]
 class CrawlPriority
 {
-    private float $value;
+    /**
+     * Value is stored as integer to prevent float approximation.
+     */
+    #[ORM\Column(type: 'integer')]
+    private int $value;
 
     public function __construct(float $value)
     {
         Assert::range($value, 0.1, 1);
-        
-        $this->value = $value;
+        $this->value = $value * 100;
     }
-
-    /**
-     * Instantiate from a percentage.
-     */
-    public static function new(int $percent): CrawlPriority
-    {
-        Assert::range($percent, 1, 100);
-
-        return new self($percent / 100);
-    }
-
+    
     public function value(): float
     {
-        return $this->value;
-    }
-
-    public function __toString(): string
-    {
-        return $this->value;
+        return $this->value / 100;
     }
 }

@@ -6,6 +6,7 @@ use App\ContentManagement\Domain\Website\Factory\PageFactory;
 use App\ContentManagement\Domain\Website\Model\Page\Meta;
 use App\ContentManagement\Domain\Website\Model\Page\Path;
 use App\ContentManagement\Domain\Website\Model\Page\Title;
+use App\ContentManagement\Domain\Website\Model\Page\Type;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
 use App\Marketing\Ui\Launch\Web\Form\RegisterEarlyBirdType;
@@ -46,14 +47,16 @@ class TheProjectController extends AbstractController
 
         $page = $pageFactory->create(
             title: Title::new("L'aventure commence ici ! | My Bicycle Journey"),
+            type: Type::Static,
             path: Path::new($request->getUri()),
-            metas: [
+            parent: null,
+            metas: new Meta\Collection([
                 Meta\Name\Description::new("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
                 Meta\Name\Author::new("Erwan Haquet"),
                 Meta\OpenGraph\Title::new("Découvre le projet My Bicycle Journey."),
                 Meta\OpenGraph\Description::new("MBJ c'est peu plus qu'un site, c'est une aventure en soi. Alors qu'attends-tu pour rejoindre le projet ?"),
                 Meta\OpenGraph\Image::new($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
-            ]
+            ])
         );
 
         return $this->render('web/pages/the_project/index.html.twig', [

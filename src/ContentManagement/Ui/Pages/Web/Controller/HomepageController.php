@@ -5,6 +5,7 @@ namespace App\ContentManagement\Ui\Pages\Web\Controller;
 use App\ContentManagement\Domain\Website\Factory\PageFactory;
 use App\ContentManagement\Domain\Website\Model\Page\Path;
 use App\ContentManagement\Domain\Website\Model\Page\Title;
+use App\ContentManagement\Domain\Website\Model\Page\Type;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
 use App\Marketing\Ui\Launch\Web\Form\RegisterEarlyBirdType;
@@ -42,15 +43,17 @@ class HomepageController extends AbstractController
         }
 
         $page = $pageFactory->create(
-            title: Title::new("L'aventure commence ici ! | My Bicycle Journey"),
+            title: Title::new("Découvre le projet | My Bicycle Journey"),
+            type: Type::Static,
             path: Path::new($request->getUri()),
-            metas: [
+            parent: null,
+            metas: new Meta\Collection([
                 Meta\Name\Description::new("Raconte nous tes plus beaux périples à vélo, le plus simplement du monde. Tu n'as plus qu'à profiter de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches."),
                 Meta\Name\Author::new("Erwan Haquet"),
                 Meta\OpenGraph\Title::new("Partage tes plus belles aventures à vélo, en toute simplicité."),
                 Meta\OpenGraph\Description::new("Profite de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches. Raconte nous tes plus beaux périples à vélo, le plus simplement du monde."),
                 Meta\OpenGraph\Image::new($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
-            ]
+            ])
         );
 
         return $this->render('web/pages/homepage/index.html.twig', [

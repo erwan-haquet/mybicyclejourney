@@ -33,6 +33,18 @@ class Collection implements IteratorAggregate
         return $this;
     }
 
+    /**
+     * Merge given metas into current ones.
+     */
+    public function merge(iterable $metas): self
+    {
+        foreach ($metas as $meta) {
+            $this->add($meta);
+        }
+
+        return $this;
+    }
+
     public function getIterator(): Traversable
     {
         return new ArrayIterator($this->metas);

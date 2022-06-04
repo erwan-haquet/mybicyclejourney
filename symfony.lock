@@ -288,6 +288,9 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.25.0"
     },
+    "symfony/polyfill-uuid": {
+        "version": "v1.26.0"
+    },
     "symfony/property-access": {
         "version": "v6.0.8"
     },
@@ -353,6 +356,9 @@
             "config/packages/twig.yaml",
             "templates/base.html.twig"
         ]
+    },
+    "symfony/uid": {
+        "version": "v6.1.0"
     },
     "symfony/validator": {
         "version": "6.0",

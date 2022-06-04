@@ -2,11 +2,15 @@
 
 namespace App\ContentManagement\Domain\Website\Model\Page;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * The relative url path to the page.
  */
+#[ORM\Embeddable]
 class Path
 {
+    #[ORM\Column(type: 'string')]
     private string $value;
 
     public function __construct(string $value)
