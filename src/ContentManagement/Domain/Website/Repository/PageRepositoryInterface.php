@@ -4,7 +4,6 @@ namespace App\ContentManagement\Domain\Website\Repository;
 
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use App\ContentManagement\Domain\Website\Model\Page\PageId;
-use App\ContentManagement\Domain\Website\Model\Page\Path;
 
 interface PageRepositoryInterface
 {
@@ -21,7 +20,7 @@ interface PageRepositoryInterface
     /**
      * Finds a page by its relative path.
      */
-    public function findByPath(Path $path): ?Page;
+    public function findByPath(string $path): ?Page;
 
     /**
      * Generates a new id.

@@ -3,14 +3,11 @@
 namespace App\ContentManagement\Ui\Pages\Web\Controller;
 
 use App\ContentManagement\Domain\Website\Factory\PageFactory;
-use App\ContentManagement\Domain\Website\Model\Page\PageId;
-use App\ContentManagement\Domain\Website\Model\Page\Path;
-use App\ContentManagement\Domain\Website\Model\Page\Title;
-use App\ContentManagement\Domain\Website\Model\Page\Type;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
 use App\Marketing\Ui\Launch\Web\Form\RegisterEarlyBirdType;
+use Doctrine\ORM\EntityManagerInterface;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +15,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\UrlHelper;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
-use App\ContentManagement\Domain\Website\Model\Page\Meta;
 
 #[Route('/', name: 'homepage')]
 class HomepageController extends AbstractController
@@ -28,6 +24,7 @@ class HomepageController extends AbstractController
         CommandBus              $commandBus,
         PageFactory             $pageFactory,
         PageRepositoryInterface $pageRepository,
+        EntityManagerInterface  $entityManager,
         UrlHelper               $urlHelper
     ): Response
     {
@@ -46,10 +43,15 @@ class HomepageController extends AbstractController
         }
 
 //        $page = $pageFactory->create(
-//            title: Title::new("Découvre le projet | My Bicycle Journey"),
-//            type: Type::Static,
-//            path: Path::new($request->getPathInfo()),
+//            type: Page\Type::Static,
+//            title: Page\Title::new("Découvre le projet | My Bicycle Journey"),
+//            locale: Locale::new($request->getLocale()),
 //            parent: null,
+//            route: new Page\Route(
+//                name: 'homepage',
+//                path: $request->getPathInfo(),
+//                url: $request->getUri(), 
+//            ),
 //            metas: [
 //                new Meta\Name\Description("Raconte nous tes plus beaux périples à vélo, le plus simplement du monde. Tu n'as plus qu'à profiter de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches."),
 //                new Meta\Name\Author("Erwan Haquet"),
@@ -60,11 +62,9 @@ class HomepageController extends AbstractController
 //        );
 //        $pageRepository->add($page);
 
-        $page = $pageRepository->findByPath(Path::new($request->getPathInfo()));
-
         return $this->render('web/pages/homepage/index.html.twig', [
             'form' => $form->createView(),
-            'page' => $page
+            'page' => $pageRepository->findByPath($request->getPathInfo())
         ]);
     }
 }

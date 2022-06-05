@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220605070125 extends AbstractMigration
+final class Version20220605115711 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,8 +20,7 @@ final class Version20220605070125 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SEQUENCE content_management_website_page_meta_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE content_management_website_page (id UUID NOT NULL, parent_id UUID DEFAULT NULL, type VARCHAR(255) NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, title_value VARCHAR(255) NOT NULL, path_value VARCHAR(255) NOT NULL, seo_should_index BOOLEAN NOT NULL, seo_crawl_priority_value INT NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE content_management_website_page (id UUID NOT NULL, parent_id UUID DEFAULT NULL, type VARCHAR(255) NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, locale_language VARCHAR(255) NOT NULL, locale_country VARCHAR(255) DEFAULT NULL, title_value VARCHAR(255) NOT NULL, route_name VARCHAR(255) NOT NULL, route_path VARCHAR(255) NOT NULL, route_url VARCHAR(255) NOT NULL, seo_should_index BOOLEAN NOT NULL, seo_crawl_priority_value INT NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_D1838317727ACA70 ON content_management_website_page (parent_id)');
         $this->addSql('COMMENT ON COLUMN content_management_website_page.id IS \'(DC2Type:uuid)\'');
         $this->addSql('COMMENT ON COLUMN content_management_website_page.parent_id IS \'(DC2Type:uuid)\'');
@@ -39,7 +38,6 @@ final class Version20220605070125 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE content_management_website_page DROP CONSTRAINT FK_D1838317727ACA70');
         $this->addSql('ALTER TABLE content_management_website_page_meta DROP CONSTRAINT FK_DCAB67EEC4663E4');
-        $this->addSql('DROP SEQUENCE content_management_website_page_meta_id_seq CASCADE');
         $this->addSql('DROP TABLE content_management_website_page');
         $this->addSql('DROP TABLE content_management_website_page_meta');
     }

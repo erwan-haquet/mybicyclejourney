@@ -4,11 +4,12 @@ namespace App\ContentManagement\Domain\Website\Factory;
 
 use App\ContentManagement\Domain\Website\Model\Page\Meta;
 use App\ContentManagement\Domain\Website\Model\Page\Page;
-use App\ContentManagement\Domain\Website\Model\Page\Path;
+use App\ContentManagement\Domain\Website\Model\Page\Route;
 use App\ContentManagement\Domain\Website\Model\Page\Seo\Seo;
 use App\ContentManagement\Domain\Website\Model\Page\Title;
 use App\ContentManagement\Domain\Website\Model\Page\Type;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
+use App\Supporting\Domain\I18n\Model\Locale;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -30,26 +31,26 @@ class PageFactory
      * Creates a new page with default configuration properties.
      */
     public function create(
-        Title $title,
-        Type  $type,
-        Path  $path,
-        ?Page $parent,
-        Seo   $seo = new Seo,
-        array $metas = []
+        Type   $type,
+        Title  $title,
+        Locale $locale,
+        ?Page  $parent,
+        Route  $route,
+        Seo    $seo = new Seo,
+        array  $metas = []
     ): Page
     {
         $page = new Page(
             id: $this->repository->nextIdentity(),
+            locale: $locale,
             title: $title,
             type: $type,
-            path: $path,
+            route: $route,
             parent: $parent,
             seo: $seo,
         );
 
-        foreach ($this->defaultMetas() as $defaultMeta) {
-            $page->addMeta($defaultMeta);
-        }
+        $page = $this->buildDefaultMetas($page);
 
         foreach ($metas as $meta) {
             $page->addMeta($meta);
@@ -58,17 +59,15 @@ class PageFactory
         return $page;
     }
 
-    /**
-     * @return Meta\Meta[]
-     */
-    private function defaultMetas(): array
+    private function buildDefaultMetas(Page $page): Page
     {
-        return [
-            new Meta\OpenGraph\Locale('fr_fr'),
-            new Meta\OpenGraph\Type('website'),
-            new Meta\OpenGraph\Url($this->request->getUri()),
-            new Meta\OpenGraph\SiteName('My Bicycle Journey '),
-            new Meta\Name\Viewport('width=device-width, initial-scale=1, shrink-to-fit=no'),
-        ];
+        $page
+            ->addMeta(new Meta\OpenGraph\Type('website'))
+            ->addMeta(new Meta\OpenGraph\SiteName('My Bicycle Journey'))
+            ->addMeta(new Meta\Name\Viewport('width=device-width, initial-scale=1, shrink-to-fit=no'))
+            ->addMeta(new Meta\OpenGraph\Url($page->url()))
+            ->addMeta(new Meta\OpenGraph\Locale((string)$page->locale()));
+
+        return $page;
     }
 }

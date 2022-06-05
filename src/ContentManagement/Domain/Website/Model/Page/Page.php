@@ -4,6 +4,7 @@ namespace App\ContentManagement\Domain\Website\Model\Page;
 
 use App\ContentManagement\Domain\Website\Model\Page\Meta\Meta;
 use App\ContentManagement\Domain\Website\Model\Page\Seo\Seo;
+use App\Supporting\Domain\I18n\Model\Locale;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -20,14 +21,17 @@ class Page
     #[ORM\Column(type: 'uuid')]
     private string $id;
 
+    #[ORM\Embedded(class: Locale::class)]
+    private Locale $locale;
+
     #[ORM\Column(type: 'string', enumType: Type::class)]
     private Type $type;
 
     #[ORM\Embedded(class: Title::class)]
     private Title $title;
 
-    #[ORM\Embedded(class: Path::class)]
-    private Path $path;
+    #[ORM\Embedded(class: Route::class)]
+    private Route $route;
 
     #[ORM\ManyToOne(targetEntity: Page::class, inversedBy: "children")]
     private ?Page $parent;
@@ -49,18 +53,20 @@ class Page
 
     public function __construct(
         PageId $id,
+        Locale $locale,
         Title  $title,
         Type   $type,
-        Path   $path,
+        Route  $route,
         ?Page  $parent,
         Seo    $seo,
     )
     {
         $this->id = $id->toString();
 
+        $this->locale = $locale;
         $this->title = $title;
         $this->type = $type;
-        $this->path = $path;
+        $this->route = $route;
         $this->parent = $parent;
         $this->seo = $seo;
 
@@ -79,9 +85,14 @@ class Page
         return $this->title;
     }
 
-    public function path(): Path
+    public function path(): string
     {
-        return $this->path;
+        return $this->route->path();
+    }
+
+    public function url(): string
+    {
+        return $this->route->url();
     }
 
     public function type(): Type
@@ -112,6 +123,11 @@ class Page
     public function seo(): Seo
     {
         return $this->seo;
+    }
+
+    public function locale(): Locale
+    {
+        return $this->locale;
     }
 
     /**
