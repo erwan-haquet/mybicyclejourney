@@ -8,28 +8,21 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Early birds are people who registered early on the "under construction" website.
  * They registered to be kept in touch and received early communications.
- *
- * @ORM\Entity
- * @UniqueEntity("email")
- * @ORM\Table(name="marketing_early_bird")
  */
+#[ORM\Entity]
+#[UniqueEntity("email")]
+#[ORM\Table(name: "marketing_early_bird")]
 class EarlyBird
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: "integer")]
     private ?int $id;
 
-    /**
-     * @ORM\Column(type="string", unique=true)
-     */
+    #[ORM\Column(type: "string", unique: true)]
     private string $email;
 
-    /**
-     * @ORM\Column(type="string")
-     */
+    #[ORM\Column(type: "string")]
     private string $name;
 
     public function __construct(string $email, string $name)

@@ -6,5 +6,5 @@ content_management_homepage_controllers:
     resource: ../src/ContentManagement/Ui/Pages/Web/Controller/
     type: annotation
     prefix:
-        en: '' # don't prefix URLs for English, the default locale
-        fr: '/fr'
+        en_US: '' # don't prefix URLs for English, the default locale
+        fr_FR: '/fr_FR'
