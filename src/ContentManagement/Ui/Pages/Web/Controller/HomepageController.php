@@ -44,7 +44,7 @@ class HomepageController extends AbstractController
 
         return $this->render('web/pages/homepage/index.html.twig', [
             'form' => $form->createView(),
-            'page' => $pageRepository->findByPath('')
+            'page' => $pageRepository->findByPath($request->getPathInfo())
         ]);
     }
 }
