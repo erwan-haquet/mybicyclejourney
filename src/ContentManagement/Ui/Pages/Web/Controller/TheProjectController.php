@@ -7,6 +7,7 @@ use App\ContentManagement\Domain\Website\Model\Page\Meta;
 use App\ContentManagement\Domain\Website\Model\Page\Path;
 use App\ContentManagement\Domain\Website\Model\Page\Title;
 use App\ContentManagement\Domain\Website\Model\Page\Type;
+use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
 use App\Marketing\Ui\Launch\Web\Form\RegisterEarlyBirdType;
@@ -25,10 +26,11 @@ use Symfony\Component\Translation\TranslatableMessage;
 class TheProjectController extends AbstractController
 {
     public function __invoke(
-        Request     $request,
-        CommandBus  $commandBus,
-        PageFactory $pageFactory,
-        UrlHelper   $urlHelper
+        Request                 $request,
+        CommandBus              $commandBus,
+        PageFactory             $pageFactory,
+        UrlHelper               $urlHelper,
+        PageRepositoryInterface $pageRepository,
     ): Response
     {
         $command = new RegisterEarlyBird();
@@ -45,20 +47,23 @@ class TheProjectController extends AbstractController
             }
         }
 
-        $page = $pageFactory->create(
-            title: Title::new("L'aventure commence ici ! | My Bicycle Journey"),
-            type: Type::Static,
-            path: Path::new($request->getPathInfo()),
-            parent: null,
-            metas: new Meta\Collection([
-                new Meta\Name\Description("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
-                new Meta\Name\Author("Erwan Haquet"),
-                new Meta\OpenGraph\Title("Découvre le projet My Bicycle Journey."),
-                new Meta\OpenGraph\Description("MBJ c'est peu plus qu'un site, c'est une aventure en soi. Alors qu'attends-tu pour rejoindre le projet ?"),
-                new Meta\OpenGraph\Image($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
-            ])
-        );
-
+//        $page = $pageFactory->create(
+//            title: Title::new("L'aventure commence ici ! | My Bicycle Journey"),
+//            type: Type::Static,
+//            path: Path::new($request->getPathInfo()),
+//            parent: null,
+//            metas: [
+//                new Meta\Name\Description("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
+//                new Meta\Name\Author("Erwan Haquet"),
+//                new Meta\OpenGraph\Title("Découvre le projet My Bicycle Journey."),
+//                new Meta\OpenGraph\Description("MBJ c'est peu plus qu'un site, c'est une aventure en soi. Alors qu'attends-tu pour rejoindre le projet ?"),
+//                new Meta\OpenGraph\Image($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
+//            ]
+//        );
+//        $pageRepository->add($page);
+        
+        $page = $pageRepository->findByPath(Path::new($request->getPathInfo()));
+        
         return $this->render('web/pages/the_project/index.html.twig', [
             'form' => $form->createView(),
             'page' => $page

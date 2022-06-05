@@ -50,4 +50,10 @@ abstract class Meta
      * eg: '<meta name="description" content="A super cool website for bikers">'
      */
     public abstract function render(): string;
+    
+    public function assignTo(Page $page): self
+    {
+        $this->page = $page;
+        return $this;
+    }
 }

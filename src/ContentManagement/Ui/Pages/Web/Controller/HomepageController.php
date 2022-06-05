@@ -50,16 +50,17 @@ class HomepageController extends AbstractController
 //            type: Type::Static,
 //            path: Path::new($request->getPathInfo()),
 //            parent: null,
-//            metas: new Meta\Collection([
+//            metas: [
 //                new Meta\Name\Description("Raconte nous tes plus beaux périples à vélo, le plus simplement du monde. Tu n'as plus qu'à profiter de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches."),
 //                new Meta\Name\Author("Erwan Haquet"),
 //                new Meta\OpenGraph\Title("Partage tes plus belles aventures à vélo, en toute simplicité."),
 //                new Meta\OpenGraph\Description("Profite de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches. Raconte nous tes plus beaux périples à vélo, le plus simplement du monde."),
 //                new Meta\OpenGraph\Image($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
-//            ])
+//            ]
 //        );
+//        $pageRepository->add($page);
 
-        $page = $pageRepository->findById(PageId::fromString('35189497-5f48-4726-b505-228ba1b0ce19'));
+        $page = $pageRepository->findByPath(Path::new($request->getPathInfo()));
 
         return $this->render('web/pages/homepage/index.html.twig', [
             'form' => $form->createView(),

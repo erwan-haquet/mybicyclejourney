@@ -4,6 +4,7 @@ namespace App\ContentManagement\Infrastructure\Website\Repository\Doctrine;
 
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use App\ContentManagement\Domain\Website\Model\Page\PageId;
+use App\ContentManagement\Domain\Website\Model\Page\Path;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -26,6 +27,13 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
     public function findById(PageId $id): ?Page
     {
         return $this->find($id->toString());
+    }
+
+    public function findByPath(Path $path): ?Page
+    {
+        return $this->findOneBy([
+            'path.value' => (string)$path
+        ]);
     }
 
     public function nextIdentity(): PageId

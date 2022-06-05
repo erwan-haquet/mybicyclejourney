@@ -30,23 +30,32 @@ class PageFactory
      * Creates a new page with default configuration properties.
      */
     public function create(
-        Title           $title,
-        Type            $type,
-        Path            $path,
-        ?Page           $parent,
-        Seo             $seo = new Seo,
-        Meta\Collection $metas = new Meta\Collection
+        Title $title,
+        Type  $type,
+        Path  $path,
+        ?Page $parent,
+        Seo   $seo = new Seo,
+        array $metas = []
     ): Page
     {
-        return new Page(
+        $page = new Page(
             id: $this->repository->nextIdentity(),
             title: $title,
             type: $type,
             path: $path,
             parent: $parent,
             seo: $seo,
-            metas: $metas->merge($this->defaultMetas()),
         );
+
+        foreach ($this->defaultMetas() as $defaultMeta) {
+            $page->addMeta($defaultMeta);
+        }
+
+        foreach ($metas as $meta) {
+            $page->addMeta($meta);
+        }
+
+        return $page;
     }
 
     /**

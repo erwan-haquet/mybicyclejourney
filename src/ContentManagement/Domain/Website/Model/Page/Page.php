@@ -3,7 +3,6 @@
 namespace App\ContentManagement\Domain\Website\Model\Page;
 
 use App\ContentManagement\Domain\Website\Model\Page\Meta\Meta;
-use App\ContentManagement\Domain\Website\Model\Page\Meta\Collection as MetaCollection;
 use App\ContentManagement\Domain\Website\Model\Page\Seo\Seo;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -49,13 +48,12 @@ class Page
     private Collection $metas;
 
     public function __construct(
-        PageId         $id,
-        Title          $title,
-        Type           $type,
-        Path           $path,
-        ?Page          $parent,
-        Seo            $seo,
-        MetaCollection $metas
+        PageId $id,
+        Title  $title,
+        Type   $type,
+        Path   $path,
+        ?Page  $parent,
+        Seo    $seo,
     )
     {
         $this->id = $id->toString();
@@ -64,11 +62,9 @@ class Page
         $this->type = $type;
         $this->path = $path;
         $this->parent = $parent;
-
         $this->seo = $seo;
 
-        $this->metas = new ArrayCollection($metas->toArray());
-
+        $this->metas = new ArrayCollection();
         $this->createdAt = new DateTimeImmutable();
         $this->updatedAt = new DateTimeImmutable();
     }
@@ -118,8 +114,19 @@ class Page
         return $this->seo;
     }
 
+    /**
+     * @return Meta[]
+     */
     public function metas(): array
     {
         return $this->metas->toArray();
+    }
+
+    public function addMeta(Meta $meta): self
+    {
+        $meta->assignTo($this);
+        $this->metas->add($meta);
+
+        return $this;
     }
 }

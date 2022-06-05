@@ -1,9 +1,0 @@
-{# @var page \App\ContentManagement\Domain\Website\Model\Page\Page #}
-
-{% block title %}
-    <title>{{ page.title ?? 'My Bycicle Journey' }}</title>
-{% endblock %}
-
-{% block metaData %}
-    {% for meta in page.metas %}{{ meta.render | raw }}{% endfor %}
-{% endblock %}
