@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
     <head>
-        {% include 'web/shared/_seo.html.twig' %}
-        {% include 'web/shared/_third_party_scripts.html.twig' %}
-        
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% block title %}<title>{{ page.title ?? 'My Bicycle Journey' }}</title>{% endblock %}
+
+        {% block metaData %}
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            
+            {% if page is not null %}
+                {% for meta in page.metas %}{{ meta.render | raw }}{% endfor %}
+            {% endif %}
+        {% endblock %}
 
         <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">
         <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
@@ -17,6 +23,8 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        {% include 'web/shared/_third_party_scripts.html.twig' %}
     </head>
     <body>
         {% include 'web/shared/_flash_messages.html.twig' %}
