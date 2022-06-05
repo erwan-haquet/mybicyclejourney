@@ -20,7 +20,6 @@ use Doctrine\ORM\Mapping as ORM;
     "name_keywords" => Name\Keywords::class,
     "name_referrer" => Name\Referrer::class,
     "name_robots" => Name\Robots::class,
-    "name_viewport" => Name\Viewport::class,
     "og_description" => OpenGraph\Description::class,
     "og_image" => OpenGraph\Image::class,
     "og_locale" => OpenGraph\Locale::class,
