@@ -14,20 +14,20 @@ use Traversable;
 class Collection implements IteratorAggregate
 {
     /**
-     * @var array|MetaInterface[]
+     * @var array|Meta[]
      */
     private array $metas = [];
 
     public function __construct(array $metas = [])
     {
-        Assert::allIsInstanceOf($metas, MetaInterface::class);
+        Assert::allIsInstanceOf($metas, Meta::class);
 
         foreach ($metas as $meta) {
             $this->add($meta);
         }
     }
 
-    public function add(MetaInterface $meta): self
+    public function add(Meta $meta): self
     {
         $this->metas[] = $meta;
         return $this;
@@ -38,7 +38,7 @@ class Collection implements IteratorAggregate
      */
     public function merge(iterable $metas): self
     {
-        Assert::allIsInstanceOf($metas, MetaInterface::class);
+        Assert::allIsInstanceOf($metas, Meta::class);
 
         foreach ($metas as $meta) {
             $this->add($meta);
@@ -50,5 +50,10 @@ class Collection implements IteratorAggregate
     public function getIterator(): Traversable
     {
         return new ArrayIterator($this->metas);
+    }
+    
+    public function toArray(): array
+    {
+        return $this->metas;
     }
 }

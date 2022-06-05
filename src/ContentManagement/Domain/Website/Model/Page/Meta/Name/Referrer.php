@@ -3,21 +3,33 @@
 namespace App\ContentManagement\Domain\Website\Model\Page\Meta\Name;
 
 use Library\Assert\Assert;
+use App\ContentManagement\Domain\Website\Model\Page\Meta\Meta;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Controls the HTTP Referer header of requests sent from the document.
  */
-class Referrer extends MetaName
+#[ORM\Entity]
+class Referrer extends Meta
 {
-    public const NAME = 'referrer';
-
-    public static function new(string $content): Referrer
+    #[ORM\Column(name: "value", type: "string")]
+    private string $content;
+    
+    public function __construct(string $content)
     {
         Assert::oneOf($content, self::availableValues());
 
-        return new self(self::NAME, $content);
+        $this->content = $content;
     }
 
+    public function render(): string
+    {
+        return sprintf(
+            '<meta name="referrer" content="%s">',
+            $this->content
+        );
+    }
+    
     private static function availableValues(): array
     {
         return [
@@ -51,5 +63,10 @@ class Referrer extends MetaName
             // Send the full URL (stripped of parameters) for same-origin or cross-origin requests.
             'unsafe-URL',
         ];
+    }
+
+    public function getType(): string
+    {
+        return 'name_referer';
     }
 }

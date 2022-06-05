@@ -3,22 +3,34 @@
 namespace App\ContentManagement\Domain\Website\Model\Page\Meta\Name;
 
 use Library\Assert\Assert;
+use App\ContentManagement\Domain\Website\Model\Page\Meta\Meta;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * The behavior that cooperative crawlers, or "robots", should use with the page.
  * It is a comma-separated list of the values below.
  */
-class Robots extends MetaName
+#[ORM\Entity]
+class Robots extends Meta
 {
-    public const NAME = 'robots';
+    #[ORM\Column(name: "value", type: "string")]
+    private string $content;
 
-    public static function new(array $values): Robots
+    public function __construct(array $values)
     {
         Assert::allIsAnyOf($values, self::availableValues());
 
-        return new self(self::NAME, implode(', ', $values));
+        $this->content = implode(', ', $values);
     }
 
+    public function render(): string
+    {
+        return sprintf(
+            '<meta name="robots" content="%s">',
+            $this->content
+        );
+    }
+    
     private static function availableValues(): array
     {
         return [
@@ -62,5 +74,10 @@ class Robots extends MetaName
             // Used by: Bing
             'nocache',
         ];
+    }
+
+    public function getType(): string
+    {
+        return 'name_robots';
     }
 }

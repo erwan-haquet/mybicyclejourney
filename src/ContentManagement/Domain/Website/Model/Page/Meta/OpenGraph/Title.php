@@ -2,15 +2,33 @@
 
 namespace App\ContentManagement\Domain\Website\Model\Page\Meta\OpenGraph;
 
+use App\ContentManagement\Domain\Website\Model\Page\Meta\Meta;
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * The title of your object as it should appear within the graph, e.g., "The Rock".
  */
-class Title extends OpenGraph
+#[ORM\Entity]
+class Title extends Meta
 {
-    public const PROPERTY = 'title';
+    #[ORM\Column(name: "value", type: "string")]
+    private string $content;
 
-    public static function new(string $content): Title
+    public function __construct(string $content)
     {
-        return new self(self::PROPERTY, $content);
+        $this->content = $content;
+    }
+
+    public function render(): string
+    {
+        return sprintf(
+            '<meta property="og:title" content="%s">',
+            $this->content
+        );
+    }
+
+    public function getType(): string
+    {
+        return 'og_title';
     }
 }

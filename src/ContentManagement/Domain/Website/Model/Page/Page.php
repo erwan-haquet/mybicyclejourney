@@ -2,8 +2,11 @@
 
 namespace App\ContentManagement\Domain\Website\Model\Page;
 
+use App\ContentManagement\Domain\Website\Model\Page\Meta\Meta;
+use App\ContentManagement\Domain\Website\Model\Page\Meta\Collection as MetaCollection;
 use App\ContentManagement\Domain\Website\Model\Page\Seo\Seo;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -42,17 +45,17 @@ class Page
     #[ORM\Embedded(class: Seo::class)]
     private Seo $seo;
 
-    // TODO: create a custom doctrine type
-    private Meta\Collection $metas;
+    #[ORM\OneToMany(mappedBy: "page", targetEntity: Meta::class, cascade: ["all"])]
+    private Collection $metas;
 
     public function __construct(
-        PageId          $id,
-        Title           $title,
-        Type            $type,
-        Path            $path,
-        ?Page           $parent,
-        Seo             $seo,
-        Meta\Collection $metas = new Meta\Collection
+        PageId         $id,
+        Title          $title,
+        Type           $type,
+        Path           $path,
+        ?Page          $parent,
+        Seo            $seo,
+        MetaCollection $metas
     )
     {
         $this->id = $id->toString();
@@ -63,7 +66,8 @@ class Page
         $this->parent = $parent;
 
         $this->seo = $seo;
-        $this->metas = $metas;
+
+        $this->metas = new ArrayCollection($metas->toArray());
 
         $this->createdAt = new DateTimeImmutable();
         $this->updatedAt = new DateTimeImmutable();
@@ -114,8 +118,8 @@ class Page
         return $this->seo;
     }
 
-    public function metas(): Meta\Collection
+    public function metas(): array
     {
-        return $this->metas;
+        return $this->metas->toArray();
     }
 }

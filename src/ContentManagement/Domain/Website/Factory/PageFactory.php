@@ -3,7 +3,6 @@
 namespace App\ContentManagement\Domain\Website\Factory;
 
 use App\ContentManagement\Domain\Website\Model\Page\Meta;
-use App\ContentManagement\Domain\Website\Model\Page\Meta\MetaInterface;
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use App\ContentManagement\Domain\Website\Model\Page\Path;
 use App\ContentManagement\Domain\Website\Model\Page\Seo\Seo;
@@ -51,16 +50,16 @@ class PageFactory
     }
 
     /**
-     * @return MetaInterface[]
+     * @return Meta\Meta[]
      */
     private function defaultMetas(): array
     {
         return [
-            Meta\OpenGraph\Locale::new('fr_fr'),
-            Meta\OpenGraph\Type::new('website'),
-            Meta\OpenGraph\Url::new($this->request->getUri()),
-            Meta\OpenGraph\SiteName::new('My Bicycle Journey '),
-            Meta\Name\Viewport::new('width=device-width, initial-scale=1, shrink-to-fit=no'),
+            new Meta\OpenGraph\Locale('fr_fr'),
+            new Meta\OpenGraph\Type('website'),
+            new Meta\OpenGraph\Url($this->request->getUri()),
+            new Meta\OpenGraph\SiteName('My Bicycle Journey '),
+            new Meta\Name\Viewport('width=device-width, initial-scale=1, shrink-to-fit=no'),
         ];
     }
 }

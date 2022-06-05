@@ -51,11 +51,11 @@ class TheProjectController extends AbstractController
             path: Path::new($request->getPathInfo()),
             parent: null,
             metas: new Meta\Collection([
-                Meta\Name\Description::new("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
-                Meta\Name\Author::new("Erwan Haquet"),
-                Meta\OpenGraph\Title::new("Découvre le projet My Bicycle Journey."),
-                Meta\OpenGraph\Description::new("MBJ c'est peu plus qu'un site, c'est une aventure en soi. Alors qu'attends-tu pour rejoindre le projet ?"),
-                Meta\OpenGraph\Image::new($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
+                new Meta\Name\Description("Un peu plus qu'un site, MBJ c'est une aventure en soi. Viens découvrir le projet et pourquoi pas y prendre part ?"),
+                new Meta\Name\Author("Erwan Haquet"),
+                new Meta\OpenGraph\Title("Découvre le projet My Bicycle Journey."),
+                new Meta\OpenGraph\Description("MBJ c'est peu plus qu'un site, c'est une aventure en soi. Alors qu'attends-tu pour rejoindre le projet ?"),
+                new Meta\OpenGraph\Image($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
             ])
         );
 
