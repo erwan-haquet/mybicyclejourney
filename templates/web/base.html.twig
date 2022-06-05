@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
     <head>
-        {% block title %}<title>{{ page.title }}</title>{% endblock %}
+        {% block title %}<title>{{ page.title ?? 'My Bicycle Journey' }}</title>{% endblock %}
 
         {% block metaData %}
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
-            {% for meta in page.metas %}{{ meta.render | raw }}{% endfor %}
+            {% if page is not null %}
+                {% for meta in page.metas %}{{ meta.render | raw }}{% endfor %}
+            {% endif %}
         {% endblock %}
 
         <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">

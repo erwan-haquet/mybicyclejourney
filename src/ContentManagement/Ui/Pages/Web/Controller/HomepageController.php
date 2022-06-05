@@ -42,29 +42,9 @@ class HomepageController extends AbstractController
             }
         }
 
-//        $page = $pageFactory->create(
-//            type: Page\Type::Static,
-//            title: Page\Title::new("Découvre le projet | My Bicycle Journey"),
-//            locale: Locale::new($request->getLocale()),
-//            parent: null,
-//            route: new Page\Route(
-//                name: 'homepage',
-//                path: $request->getPathInfo(),
-//                url: $request->getUri(), 
-//            ),
-//            metas: [
-//                new Meta\Name\Description("Raconte nous tes plus beaux périples à vélo, le plus simplement du monde. Tu n'as plus qu'à profiter de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches."),
-//                new Meta\Name\Author("Erwan Haquet"),
-//                new Meta\OpenGraph\Title("Partage tes plus belles aventures à vélo, en toute simplicité."),
-//                new Meta\OpenGraph\Description("Profite de la route, désormais 5 minutes au bivouac te suffiront pour envoyer des nouvelles à tes proches. Raconte nous tes plus beaux périples à vélo, le plus simplement du monde."),
-//                new Meta\OpenGraph\Image($urlHelper->getAbsoluteUrl('build/images/homepage/mbj_homepage_og.jpg'))
-//            ]
-//        );
-//        $pageRepository->add($page);
-
         return $this->render('web/pages/homepage/index.html.twig', [
             'form' => $form->createView(),
-            'page' => $pageRepository->findByPath($request->getPathInfo())
+            'page' => $pageRepository->findByPath('')
         ]);
     }
 }

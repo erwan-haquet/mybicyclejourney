@@ -64,7 +64,6 @@ class PageFactory
         $page
             ->addMeta(new Meta\OpenGraph\Type('website'))
             ->addMeta(new Meta\OpenGraph\SiteName('My Bicycle Journey'))
-            ->addMeta(new Meta\Name\Viewport('width=device-width, initial-scale=1, shrink-to-fit=no'))
             ->addMeta(new Meta\OpenGraph\Url($page->url()))
             ->addMeta(new Meta\OpenGraph\Locale((string)$page->locale()));
 
