@@ -17,12 +17,3 @@ pages:
     the_project:
         banner_title: 'The project.'
         main_presentation_title: 'My Bicycle What ?'
-        main_presentation_paragraph: __pages.the_project.main_presentation_paragraph
-        how_it_works_presentation_title: __pages.the_project.how_it_works_presentation_title
-        how_it_works_presentation_paragraph: __pages.the_project.how_it_works_presentation_paragraph
-        advantage_presentation_title: __pages.the_project.advantage_presentation_title
-        advantage_presentation_paragraph: __pages.the_project.advantage_presentation_paragraph
-        available_at_presentation_title: __pages.the_project.available_at_presentation_title
-        available_at_presentation_paragraph: __pages.the_project.available_at_presentation_paragraph
-        stay_tuned_title: __pages.the_project.stay_tuned_title
-        stay_tuned_paragraph: __pages.the_project.stay_tuned_paragraph
