@@ -3,9 +3,13 @@
 namespace App\Supporting\Domain\I18n\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use Library\Assert\Assert;
 
 /**
- * A locale context for I18.
+ * The user locale for translation / internationalization.
+ * 
+ * In this application, we are using only the language to localize.
+ * This means that country code is dropped.
  */
 #[ORM\Embeddable]
 class Locale
@@ -18,18 +22,9 @@ class Locale
     #[ORM\Column(type: 'string')]
     private string $language;
 
-    /**
-     * Country in ISO 639-1 format.
-     * eg: 'FR', 'EN'...
-     * @see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-     */
-    #[ORM\Column(type: 'string', nullable: true)]
-    private ?string $country;
-
-    public function __construct(string $language, string $country = null)
+    public function __construct(string $language)
     {
         $this->language = $language;
-        $this->country = $country;
     }
 
     /**
@@ -37,23 +32,16 @@ class Locale
      */
     public static function new(string $locale): Locale
     {
+        // If locale includes country we remove it.
         $pieces = explode("_", $locale);
         
-        // Locale does not contain county code
-        if (count($pieces) === 1) {
-            return new self($pieces[0]);
-        }
+        Assert::length($pieces[0], 2);
         
-        return new self($pieces[0], $pieces[1]);
-    }
-    
-    public static function fromString(string $language, string $country): Locale
-    {
-        return new self($language, $country);
+        return new self($pieces[0]);
     }
 
     public function __toString(): string
     {
-        return sprintf('%s_%s', $this->language, $this->country);
+        return $this->language;
     }
 }
