@@ -31,6 +31,7 @@ class RegisterEarlyBirdHandler implements CommandHandlerInterface
         $earlyBird = new EarlyBird(
             email: $command->email,
             name: $command->name,
+            locale: $command->locale,
         );
 
         $this->repository->add($earlyBird);

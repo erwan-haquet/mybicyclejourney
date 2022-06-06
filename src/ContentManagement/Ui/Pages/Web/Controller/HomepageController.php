@@ -7,6 +7,7 @@ use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
 use App\Marketing\Ui\Launch\Web\Form\RegisterEarlyBirdType;
+use App\Supporting\Domain\I18n\Model\Locale;
 use Doctrine\ORM\EntityManagerInterface;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,7 +29,9 @@ class HomepageController extends AbstractController
         UrlHelper               $urlHelper
     ): Response
     {
-        $command = new RegisterEarlyBird();
+        $command = new RegisterEarlyBird([
+            'locale' => Locale::from($request->getLocale())
+        ]);
         $form = $this->createForm(RegisterEarlyBirdType::class, $command);
 
         $form->handleRequest($request);

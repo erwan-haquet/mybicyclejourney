@@ -3,6 +3,7 @@
 namespace App\Marketing\Application\Launch\Command;
 
 use App\Marketing\Domain\Launch\Model\EarlyBird;
+use App\Supporting\Domain\I18n\Model\Locale;
 use Library\CQRS\Command\Command;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -23,4 +24,9 @@ class RegisterEarlyBird extends Command
      * @Assert\NotBlank(message="C'est plus sympa si on peut s'appeler par nos prénoms non ?")
      */
     public ?string $name = null;
+
+    /**
+     * The locale to use for welcome email.
+     */
+    public ?Locale $locale;
 }

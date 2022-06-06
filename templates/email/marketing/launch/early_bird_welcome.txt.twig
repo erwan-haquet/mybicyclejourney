@@ -1,9 +1,9 @@
-Hello {{ name }},   
+{{ "general.say_hello" | trans({'name': name}, 'email', locale) }}
 
-Cool de te savoir intéresser !   
+{{ 'marketing_launch.early_bird_welcome.good_to_see_you' | trans({}, 'email', locale) }}
 
-En attendant que ça avance, que dirais-tu d'échanger ensemble ?    
-J'aimerais bien avoir ton avis sur le projet, alors si ça te dit tu peux répondre directement à ce email ;)   
+{{ 'marketing_launch.early_bird_welcome.join_us' | trans({}, 'email', locale) }}
+{{ 'marketing_launch.early_bird_welcome.feedback_requested' | trans({}, 'email', locale) }}
+  
+{{ 'general.say_bye' | trans({}, 'email', locale) | raw }}
 
-À bientôt,   
-Erwan
