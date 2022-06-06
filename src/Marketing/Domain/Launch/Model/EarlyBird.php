@@ -2,6 +2,7 @@
 
 namespace App\Marketing\Domain\Launch\Model;
 
+use App\Supporting\Domain\I18n\Model\Locale;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -25,10 +26,14 @@ class EarlyBird
     #[ORM\Column(type: "string")]
     private string $name;
 
-    public function __construct(string $email, string $name)
+    #[ORM\Embedded(class: Locale::class)]
+    private Locale $locale;
+
+    public function __construct(string $email, string $name, ?Locale $locale)
     {
         $this->email = $email;
         $this->name = $name;
+        $this->locale = $locale ?? Locale::from('en');
     }
 
     public function getId(): ?int
@@ -44,5 +49,10 @@ class EarlyBird
     public function getName(): string
     {
         return $this->name;
+    }
+    
+    public function getLocale(): Locale
+    {
+        return $this->locale;
     }
 }

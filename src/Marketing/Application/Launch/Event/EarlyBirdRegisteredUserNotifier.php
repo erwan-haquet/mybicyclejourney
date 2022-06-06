@@ -33,14 +33,14 @@ class EarlyBirdRegisteredUserNotifier implements EventHandlerInterface
         Assert::notNull($earlyBird, sprintf('No early bird found for id: %s', $earlyBird->getId()));
 
         $context = [
-            'name' => $earlyBird->getName()
+            'name' => $earlyBird->getName(),
+            'locale' => $earlyBird->getLocale(),
         ];
 
         $email = new Email(
             subject: 'Welcome to My Bicycle Journey - Merci de nous suivre :)',
             to: $earlyBird->getEmail(),
             text: $this->twig->render('email/marketing/launch/early_bird_welcome.txt.twig', $context),
-            html: $this->twig->render('email/marketing/launch/early_bird_welcome.markdown.twig', $context)
         );
 
         $this->mailer->send($email);
