@@ -94,8 +94,8 @@
 'The image height is too small ({{ height }}px)':
     ' Minimum height expected is {{ min_height }}px':
         '': 'The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.'
-'This value should be the user''s current password':
-    '': 'This value should be the user''s current password.'
+"This value should be the user's current password":
+    '': "This value should be the user's current password."
 'This value should have exactly {{ limit }} character':
     '|This value should have exactly {{ limit }} characters':
         '': 'This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.'

@@ -1,0 +1,8 @@
+general:
+    say_hello: "Hi {name}!"
+    say_bye: "See you soon,\nErwan\nhttps://mybicyclejourney.com"
+marketing_launch:
+    early_bird_welcome:
+        good_to_see_you: "It's nice to know you're interested!"
+        join_us: "While waiting for it to progress, how about a quick talk together?"
+        feedback_requested: "I would like to have your opinion on the project, so if you like you can reply directly to this email ;)"
