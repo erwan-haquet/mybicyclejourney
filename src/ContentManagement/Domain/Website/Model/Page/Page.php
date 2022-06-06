@@ -2,11 +2,8 @@
 
 namespace App\ContentManagement\Domain\Website\Model\Page;
 
-use App\ContentManagement\Domain\Website\Model\Page\Meta\Meta;
-use App\ContentManagement\Domain\Website\Model\Page\Seo\Seo;
 use App\Supporting\Domain\I18n\Model\Locale;
 use DateTimeImmutable;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -21,14 +18,17 @@ class Page
     #[ORM\Column(type: 'uuid')]
     private string $id;
 
-    #[ORM\Embedded(class: Locale::class)]
-    private Locale $locale;
-
     #[ORM\Column(type: 'string', enumType: Type::class)]
     private Type $type;
 
-    #[ORM\Embedded(class: Title::class)]
-    private Title $title;
+    #[ORM\Column(type: 'string')]
+    private string $title;
+
+    #[ORM\Column(type: 'text')]
+    private string $description;
+
+    #[ORM\Embedded(class: Locale::class)]
+    private Locale $locale;
 
     #[ORM\Embedded(class: Route::class)]
     private Route $route;
@@ -48,29 +48,33 @@ class Page
     #[ORM\Embedded(class: Seo::class)]
     private Seo $seo;
 
-    #[ORM\OneToMany(mappedBy: "page", targetEntity: Meta::class, cascade: ["all"])]
-    private Collection $metas;
+    #[ORM\Embedded(class: Social::class)]
+    private Social $social;
 
     public function __construct(
         PageId $id,
+        string $title,
+        string $description,
         Locale $locale,
-        Title  $title,
         Type   $type,
         Route  $route,
         ?Page  $parent,
         Seo    $seo,
+        Social $social,
     )
     {
         $this->id = $id->toString();
+        $this->title = $title;
+        $this->description = $description;
 
         $this->locale = $locale;
-        $this->title = $title;
         $this->type = $type;
         $this->route = $route;
         $this->parent = $parent;
+        
         $this->seo = $seo;
+        $this->social = $social;
 
-        $this->metas = new ArrayCollection();
         $this->createdAt = new DateTimeImmutable();
         $this->updatedAt = new DateTimeImmutable();
     }
@@ -80,9 +84,14 @@ class Page
         return PageId::fromString($this->id);
     }
 
-    public function title(): Title
+    public function title(): string
     {
         return $this->title;
+    }
+
+    public function description(): string
+    {
+        return $this->description;
     }
 
     public function path(): string
@@ -124,25 +133,15 @@ class Page
     {
         return $this->seo;
     }
+    
+    public function social(): Social
+    {
+        return $this->social;
+    }
 
     public function locale(): Locale
     {
         return $this->locale;
     }
-
-    /**
-     * @return Meta[]
-     */
-    public function metas(): array
-    {
-        return $this->metas->toArray();
-    }
-
-    public function addMeta(Meta $meta): self
-    {
-        $meta->assignTo($this);
-        $this->metas->add($meta);
-
-        return $this;
-    }
+    
 }
