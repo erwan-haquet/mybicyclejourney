@@ -20,7 +20,6 @@ final class Version20220606085701 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP SEQUENCE content_management_website_page_meta_id_seq CASCADE');
         $this->addSql('DROP TABLE content_management_website_page_meta');
         $this->addSql('ALTER TABLE content_management_website_page ADD description TEXT DEFAULT \'\' NOT NULL');
         $this->addSql('ALTER TABLE content_management_website_page RENAME COLUMN title_value TO title');
@@ -30,7 +29,6 @@ final class Version20220606085701 extends AbstractMigration
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SEQUENCE content_management_website_page_meta_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE TABLE content_management_website_page_meta (id INT NOT NULL, page_id UUID DEFAULT NULL, type VARCHAR(255) NOT NULL, value VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX idx_dcab67eec4663e4 ON content_management_website_page_meta (page_id)');
         $this->addSql('COMMENT ON COLUMN content_management_website_page_meta.page_id IS \'(DC2Type:uuid)\'');
