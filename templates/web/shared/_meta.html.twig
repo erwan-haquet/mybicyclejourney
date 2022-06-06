@@ -17,15 +17,15 @@
     <meta property="og:locale" content="{{ app.request.locale }}">
 
     {% if og.title is not null %}
-        <meta property="og:title" content="{{ page.social.og.title }}">
+        <meta property="og:title" content="{{ og.title }}">
     {% endif %}
     
     {% if og.description is not null %}
-        <meta property="og:description" content="{{ page.social.og.description }}">
+        <meta property="og:description" content="{{ og.description }}">
     {% endif %}
     
     {% if og.image is not null %}
-        <meta property="og:image" content="{{ page.social.og.image }}">
+        <meta property="og:image" content="{{ og.image }}">
     {% endif %}
 
 {#    <meta property="og:locale:alternate" content="{{ page.locale.alternate }}">#}
