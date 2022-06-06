@@ -16,8 +16,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
 
 #[Route([
-    'en_US' => '/the-project',
-    'fr_FR' => '/le-projet',
+    'en' => '/the-project',
+    'fr' => '/le-projet',
 ], name: 'the_project')]
 class TheProjectController extends AbstractController
 {
