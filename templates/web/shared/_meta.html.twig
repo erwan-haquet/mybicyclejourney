@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta name="description" content="{{ page.description }}">
+    {% if page is not null %}
+        <meta name="description" content="{{ page.description }}">
 
-    {{ _self.open_graph(page.social.openGraph) }}
+        {{ _self.open_graph(page.social.openGraph) }}
+    {% endif %}
 {% endblock %}
 
 {% macro open_graph(og) %}
@@ -19,14 +21,14 @@
     {% if og.title is not null %}
         <meta property="og:title" content="{{ og.title }}">
     {% endif %}
-    
+
     {% if og.description is not null %}
         <meta property="og:description" content="{{ og.description }}">
     {% endif %}
-    
+
     {% if og.image is not null %}
         <meta property="og:image" content="{{ og.image }}">
     {% endif %}
 
-{#    <meta property="og:locale:alternate" content="{{ page.locale.alternate }}">#}
+    {#    <meta property="og:locale:alternate" content="{{ page.locale.alternate }}"> #}
 {% endmacro %}
