@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
     <head>
-        {% block title %}
-            <title>{{ page.title ?? 'My Bicycle Journey' }}</title>
+        {% block metadata %}
+            {% include 'web/shared/_metadata.html.twig' %}
         {% endblock %}
-
-        {% block meta %}
-            {% include 'web/shared/_meta.html.twig' %}
-        {% endblock %}
-
-        <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">
-        <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
-        <link rel="canonical" href="{{ app.request.uri }}" />
         
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}

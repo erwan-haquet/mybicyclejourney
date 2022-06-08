@@ -4,6 +4,7 @@ namespace App\ContentManagement\Domain\Website\Repository;
 
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use App\ContentManagement\Domain\Website\Model\Page\PageId;
+use JetBrains\PhpStorm\ArrayShape;
 
 interface PageRepositoryInterface
 {
