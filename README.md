@@ -7,10 +7,16 @@ Pour en savoir plus sur le projet, rendez-vous sur [My Bicycle Journey - le proj
 
 ### Pré-requis
 
-Pour pouvoir lancer le projet, il est nécessaire d'avoir installé les dépendences suivantes :
+Pour pouvoir lancer le projet, il est nécessaire d'avoir installé les dépendances suivantes :
 
 - [Docker engine](https://docs.docker.com/engine/installation/)
 - [Docker compose](https://docs.docker.com/compose/install/)
+
+Pour accéder au projet en local, vous aurez besoins de configurer `hosts` comme suit :
+```bash
+$ nano /etc/hosts
+$ # Ajouter la ligne `127.0.0.1 mybicyclejourney.tld`
+```
 
 ### Installation du project
 
@@ -34,6 +40,11 @@ $ docker compose build
 $ docker compose up 
 ```
 
+Générer votre un certificat SSL :
+```bash
+$ ./scripts/generate-certs.sh
+```
+
 Connecter vous au conteneur php :   
 ```bash
 $ ./scripts/run.sh console
@@ -55,7 +66,7 @@ Lancer tous les services :
 $ docker compose up
 ```
 
-L'application est désormais accessible via [http://[::]:8080/](http://[::]:8080/).
+L'application est désormais accessible via [https://mybicyclejourney.tld/](https://mybicyclejourney.tld/).
 
 La console php est accessible via :   
 ```bash
