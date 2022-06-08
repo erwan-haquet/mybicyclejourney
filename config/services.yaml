@@ -8,8 +8,8 @@ imports:
 parameters:
     locale: en
     supported_locales: [en, fr]
-    router.request_context.scheme: 'https'
-    asset.request_context.secure: true
+#    router.request_context.scheme: 'https'
+#    asset.request_context.secure: true
 
 services:
     # default configuration for services in *this* file
