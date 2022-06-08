@@ -9,7 +9,7 @@ networks:
 services:
   php:
     build:
-      context: './docker/dev/php'
+      context: './docker/${APP_ENV}/php'
       args:
         gituseremail: $GIT_USER_EMAIL
         gitusername: $GIT_USER_NAME
@@ -27,8 +27,8 @@ services:
       - '443:443'
     volumes:
       - "./:/var/www"
-      - "./docker/dev/nginx/default.conf:/etc/nginx/conf.d/default.conf"
-      - "./docker/dev/nginx/ssl:/etc/nginx/ssl"
+      - "./docker/${APP_ENV}/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+      - "./docker/${APP_ENV}/nginx/ssl:/etc/nginx/ssl"
     depends_on:
       - php
       - postgres

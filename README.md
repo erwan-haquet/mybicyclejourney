@@ -40,7 +40,7 @@ $ docker compose build
 $ docker compose up 
 ```
 
-Générer votre un certificat SSL :
+Générer un certificat SSL :
 ```bash
 $ ./scripts/generate-certs.sh
 ```
