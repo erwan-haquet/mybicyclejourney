@@ -47,8 +47,7 @@ class TheProjectController extends AbstractController
         }
 
         return $this->render('web/pages/the_project/index.html.twig', [
-            'form' => $form->createView(),
-            'page' => $pageRepository->findByPath($request->getPathInfo())
+            'form' => $form->createView()
         ]);
     }
 }

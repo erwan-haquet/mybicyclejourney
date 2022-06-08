@@ -1,0 +1,52 @@
+{# @var metadata \App\ContentManagement\Ui\Website\Web\Dto\Metadata #}
+
+{% block metadata %}
+    {% block title %}
+        <title>{{ metadata.title ?? 'My Bicycle Journey' }}</title>
+    {% endblock %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% if metadata is not null %}
+        <meta name="description" content="{{ metadata.description }}">
+
+        {% if metadata.noIndexNoFollow %}
+            <meta name="robots" content="noindex, nofollow"/>
+        {% endif %}
+
+        {% for alternate in metadata.localeAlternates %}
+            <link rel="alternate" hreflang="{{ alternate.locale }}" href="{{ alternate.url }}" />
+        {% endfor %}
+
+        {{ _self.open_graph(metadata.openGraph, metadata.localeAlternates) }}
+    {% endif %}
+
+    <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">
+    <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
+    <link rel="canonical" href="{{ app.request.uri }}"/>
+{% endblock %}
+
+{% macro open_graph(og, localeAlternates) %}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="My Bicycle Journey">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta property="og:locale" content="{{ app.request.locale }}">
+
+    {% if og.title is not null %}
+        <meta property="og:title" content="{{ og.title }}">
+    {% endif %}
+
+    {% if og.description is not null %}
+        <meta property="og:description" content="{{ og.description }}">
+    {% endif %}
+
+    {% if og.image is not null %}
+        <meta property="og:image" content="{{ og.image }}">
+    {% endif %}
+
+    {% for alternate in localeAlternates %}
+        <meta property="og:locale:alternate" content="{{ alternate.locale }}">
+    {% endfor %}
+{% endmacro %}

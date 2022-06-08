@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Brings together all the resources required to render a web page.
+ * 
+ * This model is designed for content management administration and
+ * should not include too many technical logics. 
  */
 #[ORM\Entity]
 #[ORM\Table(name: "content_management_website_page")]
@@ -30,6 +33,12 @@ class Page
     #[ORM\Embedded(class: Locale::class)]
     private Locale $locale;
 
+    #[ORM\Embedded(class: Seo::class)]
+    private Seo $seo;
+
+    #[ORM\Embedded(class: Social::class)]
+    private Social $social;
+
     #[ORM\Embedded(class: Route::class)]
     private Route $route;
 
@@ -44,12 +53,6 @@ class Page
 
     #[ORM\Column(type: 'datetime_immutable')]
     private DateTimeImmutable $updatedAt;
-
-    #[ORM\Embedded(class: Seo::class)]
-    private Seo $seo;
-
-    #[ORM\Embedded(class: Social::class)]
-    private Social $social;
 
     public function __construct(
         PageId $id,
@@ -103,6 +106,11 @@ class Page
     {
         return $this->route->url();
     }
+    
+    public function routeName(): string
+    {
+        return $this->route->name();
+    }
 
     public function type(): Type
     {
@@ -144,4 +152,8 @@ class Page
         return $this->locale;
     }
     
+    public function language(): string
+    {
+        return $this->locale->language();
+    }
 }

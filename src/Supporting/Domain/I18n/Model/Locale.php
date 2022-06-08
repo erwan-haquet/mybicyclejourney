@@ -14,11 +14,6 @@ use Library\Assert\Assert;
 #[ORM\Embeddable]
 class Locale
 {
-    /**
-     * Language in ISO 639-1 format.
-     * eg: 'fr', 'en'...
-     * @see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-     */
     #[ORM\Column(type: 'string')]
     private string $language;
 
@@ -41,6 +36,16 @@ class Locale
         return new self($pieces[0]);
     }
 
+    /**
+     * Language in ISO 639-1 format.
+     * eg: 'fr', 'en'...
+     * @see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+     */
+    public function language(): string
+    {
+        return $this->language;
+    }
+    
     public function __toString(): string
     {
         return $this->language;
