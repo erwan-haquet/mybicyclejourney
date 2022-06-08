@@ -11,7 +11,8 @@
 
         <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">
         <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
-
+        <link rel="canonical" href="{{ app.request.uri }}" />
+        
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
