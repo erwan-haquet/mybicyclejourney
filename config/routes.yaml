@@ -5,7 +5,7 @@ kernel:
 content_management_homepage_controllers:
     resource: ../src/ContentManagement/Ui/Pages/Web/Controller/
     type: annotation
-#    schemes: [https]
+    schemes: [https]
     prefix:
         en: '' # don't prefix URLs for English, the default locale
         fr: '/fr'
