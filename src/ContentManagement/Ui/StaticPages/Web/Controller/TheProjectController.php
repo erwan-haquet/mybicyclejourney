@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ContentManagement\Ui\Pages\Web\Controller;
+namespace App\ContentManagement\Ui\StaticPages\Web\Controller;
 
 use App\ContentManagement\Domain\Website\Factory\PageFactory;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
@@ -46,7 +46,7 @@ class TheProjectController extends AbstractController
             }
         }
 
-        return $this->render('web/pages/the_project/index.html.twig', [
+        return $this->render('web/static_pages/the_project/index.html.twig', [
             'form' => $form->createView()
         ]);
     }
