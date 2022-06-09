@@ -21,12 +21,7 @@
 {% macro metadata_tags(metadata) %}
     <meta name="description" content="{{ metadata.description }}">
 
-    <meta name="robots"
-          content="
-              {{ metadata.noindex ? "noindex" : "index" }}, 
-              {{ metadata.nofollow ? "nofollow" : "follow" }}
-          "
-    />
+    <meta name="robots" content="{{ metadata.noindex ? "noindex" : "index" }}, {{ metadata.nofollow ? "nofollow" : "follow" }}" />
 
     {% for alternate in metadata.localeAlternates %}
         <link rel="alternate" hreflang="{{ alternate.locale }}" href="{{ alternate.url }}"/>
