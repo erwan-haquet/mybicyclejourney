@@ -5,14 +5,6 @@
         <title>{{ metadata.title ?? 'My Bicycle Journey' }}</title>
     {% endblock %}
 
-    {{ _self.base_tags() }}
-
-    {% if metadata is defined %}
-        {{ _self.metadata_tage(metadata) }}
-    {% endif %}
-{% endblock %}
-
-{% macro base_tags() %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,15 +12,17 @@
     <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">
     <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
     <link rel="canonical" href="{{ app.request.uri }}"/>
-{% endmacro %}
+    
+    {% if metadata is defined %}
+        {{ _self.metadata_tags(metadata) }}
+    {% endif %}
+{% endblock %}
 
-{% macro metadata_tage() %}
+{% macro metadata_tags(metadata) %}
     <meta name="description" content="{{ metadata.description }}">
 
-    {% if metadata.noIndexNoFollow %}
-        <meta name="robots" content="noindex, nofollow"/>
-    {% endif %}
-
+    <meta name="robots" content="{{ metadata.noindex ? "noindex" "index" }}, {{ metadata.nofollow ? "nofollow" "follow" }}"/>
+    
     {% for alternate in metadata.localeAlternates %}
         <link rel="alternate" hreflang="{{ alternate.locale }}" href="{{ alternate.url }}"/>
     {% endfor %}

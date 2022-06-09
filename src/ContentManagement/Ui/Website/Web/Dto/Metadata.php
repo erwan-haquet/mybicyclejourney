@@ -9,21 +9,41 @@ use Library\Utils\View;
  */
 class Metadata extends View
 {
-    public string $description;
-
+    /**
+     * Page title
+     */
     public string $title;
 
     /**
-     * If set to true, the "noindex, nofollow" tag will be added.
-     * Be carefully, it means that crawlers won't index the page !
+     * Page meta description
      */
-    public bool $noIndexNoFollow = false;
+    public string $description;
+
+    /**
+     * If set to true, the "nofollow" tag will be added.
+     *
+     * @see https://clutch.co/seo-firms/resources/meta-tags-that-improve-seo#Robots
+     */
+    public bool $noIndex = false;
+
+    /**
+     * If set to true, the "nofollow" tag will be added.
+     *
+     * @see https://clutch.co/seo-firms/resources/meta-tags-that-improve-seo#Robots
+     */
+    public bool $noFollow = false;
 
     /**
      * Other available locales for current page.
+     *
      * @var LocaleAlternate[]
      */
     public array $localeAlternates = [];
 
+    /**
+     * Open graph meta.
+     *
+     * <meta property="og:x" content="x">
+     */
     public OpenGraph $openGraph;
 }
