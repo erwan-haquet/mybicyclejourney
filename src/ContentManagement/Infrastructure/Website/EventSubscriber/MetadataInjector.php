@@ -17,8 +17,9 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Twig\Environment;
 
 /**
- * This service injects page metadata into the twig globals,
- * by subscribing to the @see KernelEvents::CONTROLLER event.
+ * This service injects page metadata into the twig globals which is
+ * from now on ready to be used in the metadata shared template.
+ * @path templates/web/shared/_metadata.html.twig
  */
 class MetadataInjector implements EventSubscriberInterface
 {
@@ -47,20 +48,15 @@ class MetadataInjector implements EventSubscriberInterface
         if (!$page = $this->pageRepository->findByPath($path)) {
             // TODO: log the missing page and display a direct 
             //       link to create it via the administration
-
-            $this->logger->error(sprintf(
-                'Missing %s for path : "%s"',
-                Page::class,
-                $path
-            ));
-
+            $this->logger->error(sprintf('Missing %s for path : "%s"', Page::class, $path));
             return;
         }
 
         $metadata = new Metadata([
             'title' => $page->title(),
             'description' => $page->description(),
-            'noIndexNoFollow' => !$page->seo()->shouldIndex(),
+            'noIndex' => !$page->seo()->shouldIndex(),
+            'noFollow' => !$page->seo()->shouldIndex(),
             'localeAlternates' => $this->localeAlternates($page),
             'openGraph' => new OpenGraph([
                 'title' => $page->social()->openGraph()->title(),
@@ -73,7 +69,7 @@ class MetadataInjector implements EventSubscriberInterface
     }
 
     /**
-     * Retrieves alternate locale pages for current one.
+     * Retrieves the alternate language pages based on the current one.
      *
      * @return LocaleAlternate[]
      */

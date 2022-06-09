@@ -27,7 +27,7 @@ class Seo
      * Indicate if the page should be indexed or not by search engines.
      */
     #[ORM\Column(type: 'boolean')]
-    private bool $shouldIndex;
+    private bool $shouldIndex = true;
 
     public function __construct(
         float $crawlPriority = null,

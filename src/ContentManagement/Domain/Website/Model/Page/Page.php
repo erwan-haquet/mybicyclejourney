@@ -33,14 +33,14 @@ class Page
     #[ORM\Embedded(class: Locale::class)]
     private Locale $locale;
 
+    #[ORM\Embedded(class: Route::class)]
+    private Route $route;
+
     #[ORM\Embedded(class: Seo::class)]
     private Seo $seo;
 
     #[ORM\Embedded(class: Social::class)]
     private Social $social;
-
-    #[ORM\Embedded(class: Route::class)]
-    private Route $route;
 
     #[ORM\ManyToOne(targetEntity: Page::class, inversedBy: "children")]
     private ?Page $parent;
