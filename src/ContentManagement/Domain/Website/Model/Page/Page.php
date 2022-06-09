@@ -26,10 +26,13 @@ class Page
 
     #[ORM\Column(type: 'string')]
     private string $title;
-
+    
     #[ORM\Column(type: 'text')]
     private string $description;
 
+    #[ORM\Column(type: 'string')]
+    private string $label;
+    
     #[ORM\Embedded(class: Locale::class)]
     private Locale $locale;
 
@@ -58,6 +61,7 @@ class Page
         PageId $id,
         string $title,
         string $description,
+        string $label,
         Locale $locale,
         Type   $type,
         Route  $route,
@@ -69,6 +73,7 @@ class Page
         $this->id = $id->toString();
         $this->title = $title;
         $this->description = $description;
+        $this->label = $label;
 
         $this->locale = $locale;
         $this->type = $type;
@@ -82,19 +87,34 @@ class Page
         $this->updatedAt = new DateTimeImmutable();
     }
 
-    public function getId(): PageId
+    public function id(): PageId
     {
         return PageId::fromString($this->id);
     }
 
+    /**
+     * Title of the page, display in browser tabs.
+     */
     public function title(): string
     {
         return $this->title;
     }
 
+    /**
+     * Meta description, not visible for user but used by
+     * crawlers to understand the page activity.
+     */
     public function description(): string
     {
         return $this->description;
+    }
+
+    /**
+     * A short label to display in breadcrumbs.
+     */
+    public function label(): string
+    {
+        return $this->label;
     }
 
     public function path(): string
