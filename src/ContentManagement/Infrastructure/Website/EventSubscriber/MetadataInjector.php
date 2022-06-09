@@ -4,6 +4,7 @@ namespace App\ContentManagement\Infrastructure\Website\EventSubscriber;
 
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
+use App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs;
 use App\ContentManagement\Ui\Website\Web\Dto\LocaleAlternate;
 use App\ContentManagement\Ui\Website\Web\Dto\Metadata;
 use App\ContentManagement\Ui\Website\Web\Dto\OpenGraph;
@@ -55,9 +56,10 @@ class MetadataInjector implements EventSubscriberInterface
         $metadata = new Metadata([
             'title' => $page->title(),
             'description' => $page->description(),
-            'noIndex' => !$page->seo()->shouldIndex(),
-            'noFollow' => !$page->seo()->shouldIndex(),
+            'noindex' => !$page->seo()->shouldIndex(),
+            'nofollow' => !$page->seo()->shouldIndex(),
             'localeAlternates' => $this->localeAlternates($page),
+            'breadcrumbs' => Breadcrumbs::fromPage($page),
             'openGraph' => new OpenGraph([
                 'title' => $page->social()->openGraph()->title(),
                 'description' => $page->social()->openGraph()->description(),

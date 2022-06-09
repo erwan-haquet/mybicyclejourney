@@ -2,6 +2,7 @@
 
 namespace App\ContentManagement\Ui\Website\Web\Dto;
 
+use App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs;
 use Library\Utils\View;
 
 /**
@@ -24,14 +25,14 @@ class Metadata extends View
      *
      * @see https://clutch.co/seo-firms/resources/meta-tags-that-improve-seo#Robots
      */
-    public bool $noIndex = false;
+    public bool $noindex = false;
 
     /**
      * If set to true, the "nofollow" tag will be added.
      *
      * @see https://clutch.co/seo-firms/resources/meta-tags-that-improve-seo#Robots
      */
-    public bool $noFollow = false;
+    public bool $nofollow = false;
 
     /**
      * Other available locales for current page.
@@ -46,4 +47,6 @@ class Metadata extends View
      * <meta property="og:x" content="x">
      */
     public OpenGraph $openGraph;
+
+    public Breadcrumbs $breadcrumbs;
 }
