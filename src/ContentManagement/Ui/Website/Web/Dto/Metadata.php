@@ -17,7 +17,7 @@ class Metadata extends View
      * If set to true, the "noindex, nofollow" tag will be added.
      * Be carefully, it means that crawlers won't index the page !
      */
-    public bool $noIndexNoFollow;
+    public bool $noIndexNoFollow = false;
 
     /**
      * Other available locales for current page.

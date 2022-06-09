@@ -2,8 +2,8 @@ kernel:
     resource: ../src/Kernel.php
     type: annotation
     
-content_management_homepage_controllers:
-    resource: ../src/ContentManagement/Ui/Pages/Web/Controller/
+controllers:
+    resource: '../src/**/Controller/*Controller.php'
     type: annotation
     prefix:
         en: '' # don't prefix URLs for English, the default locale
