@@ -82,7 +82,7 @@ class Page
         $this->updatedAt = new DateTimeImmutable();
     }
 
-    public function getId(): PageId
+    public function id(): PageId
     {
         return PageId::fromString($this->id);
     }

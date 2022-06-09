@@ -35,9 +35,15 @@
   }
 
   // PRESENTATION
+  .breadcrumbs {
+    background: $white;
+    padding: 1rem 0;
+  }
+
+  // PRESENTATION
   .presentation {
     .container {
-      padding-top: 4rem;
+      padding-top: 2rem;
     }
 
     .section {

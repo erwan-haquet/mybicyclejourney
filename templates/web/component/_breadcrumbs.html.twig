@@ -1,0 +1,20 @@
+{# @var breadcrumbs \App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs #}
+
+{% macro default(breadcrumbs) %}
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {% for item in breadcrumbs.items %}
+                {% if loop.last %}
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {{ item.label }}
+                    </li>
+                {% else %}
+                    <li class="breadcrumb-item">
+                        <a href="{{ item.url }}">{{ item.label }}</a>
+                    </li>
+                {% endif %}
+
+            {% endfor %}
+        </ol>
+    </nav>
+{% endmacro %}
