@@ -39,4 +39,9 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
     {
         return PageId::fromString(Uuid::v4());
     }
+
+    public function findActives(): array
+    {
+        return $this->findAll();
+    }
 }

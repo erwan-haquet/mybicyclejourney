@@ -4,7 +4,6 @@ namespace App\ContentManagement\Domain\Website\Repository;
 
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use App\ContentManagement\Domain\Website\Model\Page\PageId;
-use JetBrains\PhpStorm\ArrayShape;
 
 interface PageRepositoryInterface
 {
@@ -22,6 +21,13 @@ interface PageRepositoryInterface
      * Finds a page by its relative path.
      */
     public function findByPath(string $path): ?Page;
+    
+    /**
+     * Finds all actives pages.
+     * 
+     * @return Page[]
+     */
+    public function findActives(): array;
 
     /**
      * Generates a new id.
