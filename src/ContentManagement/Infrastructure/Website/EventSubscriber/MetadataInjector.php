@@ -83,9 +83,7 @@ class MetadataInjector implements EventSubscriberInterface
             ->select('page.route.url AS url')
             ->addSelect('page.locale.language AS locale')
             ->where('page.route.name = :routeName')
-            ->andWhere('page.locale.language != :currentLocale')
             ->setParameter('routeName', $page->routeName())
-            ->setParameter('currentLocale', $page->language())
             ->getQuery()
             ->getArrayResult();
 
