@@ -19,7 +19,7 @@ use Twig\Environment;
 
 /**
  * This service injects page metadata into the twig globals which is
- * from now on ready to be used in the metadata shared template.
+ * from now on ready to be used globally on the templates.
  * @path templates/web/shared/_metadata.html.twig
  */
 class MetadataInjector implements EventSubscriberInterface

@@ -152,7 +152,7 @@ class Page
         return $this->createdAt;
     }
 
-    public function updateAt(): DateTimeImmutable
+    public function updatedAt(): DateTimeImmutable
     {
         return $this->updatedAt;
     }
@@ -160,6 +160,11 @@ class Page
     public function seo(): Seo
     {
         return $this->seo;
+    }
+    
+    public function crawlPriority(): float
+    {
+        return $this->seo->crawlPriority();
     }
     
     public function social(): Social

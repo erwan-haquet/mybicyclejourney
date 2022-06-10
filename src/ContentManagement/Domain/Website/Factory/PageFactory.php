@@ -26,13 +26,13 @@ class PageFactory
         Type   $type,
         string $title,
         string $description,
+        string $label,
         Locale $locale,
         ?Page  $parent,
         Route  $route,
         Seo    $seo = null,
         Social $social = null,
-    ): Page
-    {
+    ): Page {
         $seo = $seo ?? new Seo();
         $social = $social ?? new Social(
                 openGraph: new Social\OpenGraph()
@@ -42,6 +42,7 @@ class PageFactory
             id: $this->repository->nextIdentity(),
             title: $title,
             description: $description,
+            label: $label,
             locale: $locale,
             type: $type,
             route: $route,
