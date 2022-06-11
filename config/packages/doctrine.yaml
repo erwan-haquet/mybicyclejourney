@@ -25,6 +25,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Supporting/Domain/I18n/Model'
                 prefix: 'App\Supporting\Domain\I18n'
                 alias: SupportingI18n
+            account_management_user:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/AccountManagement/Domain/User/Model'
+                prefix: 'App\AccountManagement\Domain\User'
+                alias: AccountManagementUser
 
 when@test:
     doctrine:
