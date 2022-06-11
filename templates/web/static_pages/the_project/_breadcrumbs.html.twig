@@ -1,5 +1,7 @@
-{% import "web/component/_breadcrumbs.html.twig" as Breadcrumbs %}
+{% import "web/shared/_breadcrumbs.html.twig" as Breadcrumbs %}
 
-<div class="breadcrumbs">
-    {{ Breadcrumbs.row() }}
+<div id="breadcrumbs">
+    <div class="container">
+        {{ Breadcrumbs.current() }}
+    </div>
 </div>

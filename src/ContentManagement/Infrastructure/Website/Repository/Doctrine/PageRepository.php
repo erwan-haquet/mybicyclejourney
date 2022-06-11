@@ -40,6 +40,19 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
         return PageId::fromString(Uuid::v4());
     }
 
+    public function findLocaleAlternates(PageId $id): array
+    {
+        $currentPage = $this->find($id);
+
+        return $this
+            ->createQueryBuilder('page')
+            ->select('page')
+            ->where('page.route.name = :routeName')
+            ->setParameter('routeName', $currentPage->routeName())
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findActives(): array
     {
         return $this->findAll();

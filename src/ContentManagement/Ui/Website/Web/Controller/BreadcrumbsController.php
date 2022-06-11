@@ -2,47 +2,44 @@
 
 namespace App\ContentManagement\Ui\Website\Web\Controller;
 
-use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
-use App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs;
+use App\ContentManagement\Application\Website\Query\FindBreadcrumbs;
+use App\ContentManagement\Domain\Website\Exception\PageNotFound;
+use Library\CQRS\Query\QueryBus;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-/** 
- * 
+/**
+ * This controller does not expose any route, it is for internal use only.
  */
 class BreadcrumbsController extends AbstractController
 {
-    private PageRepositoryInterface $pageRepository;
-    private LoggerInterface $logger;
-
-    public function __construct(
-        PageRepositoryInterface $pageRepository,
-        LoggerInterface         $logger
-    )
-    {
-        $this->pageRepository = $pageRepository;
-        $this->logger = $logger;
-    }
-
     /**
      * Render the breadcrumbs based on the given urlencoded path.
-     * @see "web/shared/_breadcrumbs.html.twig"
      */
-    public function __invoke(string $encodedPath): Response
+    public function __invoke(
+        string          $encodedPath,
+        LoggerInterface $logger,
+        QueryBus        $queryBus
+    ): Response
     {
-        $path = urldecode($encodedPath);
-        
-        if (!$page = $this->pageRepository->findByPath($path)) {
-            $this->logger->error(sprintf(
+        $query = new FindBreadcrumbs([
+            'path' => urldecode($encodedPath)
+        ]);
+
+        try {
+            $breadcrumbs = $queryBus->query($query);
+        } catch (PageNotFound $exception) {
+            $logger->error(sprintf(
                 'Tried to render breadcrumbs for path "%s", but the Page does not exists.',
-                $path
-            ));
+                $query->path
+            ), ['exception' => $exception]);
+
             return new Response('', Response::HTTP_NO_CONTENT);
         }
 
         return $this->render('web/shared/_breadcrumbs.html.twig', [
-            'breadcrumbs' => Breadcrumbs::fromPage($page)
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 }

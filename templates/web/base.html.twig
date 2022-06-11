@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
     <head>
-        {% block metadata %}
-            {% block title %}
-                <title>{{ 'My Bicycle Journey' }}</title>
-            {% endblock %}
-            
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-            <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">
-            <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
-            <link rel="canonical" href="{{ app.request.uri }}"/>
-        {% endblock %}
+        {% block metadata %}{% endblock %}
         
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}

@@ -37,7 +37,7 @@ class HomepageController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             try {
-                $commandBus->dispatch($command);
+                $commandBus->handle($command);
                 $this->addFlash('success', new TranslatableMessage('marketing.early_bird.registered_with_success'));
                 return $this->redirectToRoute('homepage');
             } catch (EmailIsAlreadyRegistered) {

@@ -1,21 +1,26 @@
 {# @var breadcrumbs \App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs #}
 
-<div id="breadcrumbs">
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {% for item in breadcrumbs.items %}
-                    {% if loop.last %}
-                        <li class="breadcrumb-item active" aria-current="page">
-                            {{ item.label }}
-                        </li>
-                    {% else %}
-                        <li class="breadcrumb-item">
-                            <a href="{{ item.url }}">{{ item.label }}</a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-        </nav>
-    </div>
-</div>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {% for item in breadcrumbs.items %}
+            {% if loop.last %}
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ item.label }}
+                </li>
+            {% else %}
+                <li class="breadcrumb-item">
+                    <a href="{{ item.url }}">{{ item.label }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</nav>
+
+{# Render the breadcrumbs based on given page #}
+{% macro current() %}
+    {{ render(controller(
+        'App\\ContentManagement\\Ui\\Website\\Web\\Controller\\BreadcrumbsController', {
+            encodedPath: app.request.pathInfo|url_encode
+        })) }}
+{% endmacro %}
+

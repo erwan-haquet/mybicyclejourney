@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ContentManagement\Ui\Website\Web\Dto;
+namespace App\ContentManagement\Ui\Website\Web\Dto\Metadata;
 
 use Library\Utils\View;
 

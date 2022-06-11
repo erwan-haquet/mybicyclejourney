@@ -12,7 +12,7 @@ class Breadcrumbs extends View
     /**
      * Build the breadcrumbs for the given page.
      */
-    public static function fromPage(Page $page): static
+    public static function new(Page $page): static
     {
         $cursor = $page;
         $items = [];
