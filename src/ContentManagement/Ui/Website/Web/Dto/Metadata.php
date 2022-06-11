@@ -2,7 +2,6 @@
 
 namespace App\ContentManagement\Ui\Website\Web\Dto;
 
-use App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs;
 use Library\Utils\View;
 
 /**
@@ -47,6 +46,4 @@ class Metadata extends View
      * <meta property="og:x" content="x">
      */
     public OpenGraph $openGraph;
-
-    public Breadcrumbs $breadcrumbs;
 }
