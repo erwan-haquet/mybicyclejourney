@@ -3,6 +3,7 @@
 namespace App\AccountManagement\Domain\User\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -11,6 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 #[ORM\Entity]
 #[ORM\Table(name: 'account_management_user')]
+#[UniqueEntity(fields: ['email'], message: 'account_management.registration.error.email_already_exists')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -19,7 +21,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private string $email;
-    
+
     #[ORM\Column(type: 'string', length: 36, unique: true)]
     private string $username;
 
@@ -27,18 +29,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private array $roles = [];
 
     #[ORM\Column(type: 'string')]
-    private string $password;
+    private ?string $password;
+
+    #[ORM\Column(type: 'boolean')]
+    private $isVerified = false;
+
+    public static function new(
+        UserId $userId,
+        string $email,
+        string $username,
+    ): static
+    {
+        $user = new self();
+        $user->id = $userId->toString();
+        $user->email = $email;
+        $user->username = $username;
+
+        return $user;
+    }
 
     public function id(): UserId
     {
         return UserId::fromString($this->id);
     }
-    
+
     public function email(): string
     {
         return $this->email;
     }
-    
+
     public function username(): string
     {
         return $this->username;
@@ -69,9 +88,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see PasswordAuthenticatedUserInterface
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
+    }
+    
+    public function setPassword(string $encodedPassword): self
+    {
+        $this->password = $encodedPassword;
+        return $this;
     }
 
     /**
@@ -81,5 +106,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
     }
 }
