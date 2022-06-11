@@ -28,6 +28,7 @@
         "symfony/notifier": "~6.1.0",
         "symfony/proxy-manager-bridge": "~6.1.0",
         "symfony/runtime": "~6.1.0",
+        "symfony/security-bundle": "~6.1.0",
         "symfony/translation": "~6.1.0",
         "symfony/twig-bundle": "~6.1.0",
         "symfony/uid": "~6.1.0",
@@ -99,6 +100,7 @@
         }
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.43",
         "symfony/stopwatch": "~6.1.0",
         "symfony/web-profiler-bundle": "~6.1.0"
     }
