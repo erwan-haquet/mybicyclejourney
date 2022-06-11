@@ -15,25 +15,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\Column(type: 'uuid')]
-    private $id;
+    private string $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
-    private $email;
+    private string $email;
+    
+    #[ORM\Column(type: 'string', length: 36, unique: true)]
+    private string $username;
 
     #[ORM\Column(type: 'json')]
-    private $roles = [];
+    private array $roles = [];
 
     #[ORM\Column(type: 'string')]
-    private $password;
+    private string $password;
 
-    public function id(): ?int
+    public function id(): UserId
     {
-        return $this->id;
+        return UserId::fromString($this->id);
     }
-
-    public function email(): ?string
+    
+    public function email(): string
     {
         return $this->email;
+    }
+    
+    public function username(): string
+    {
+        return $this->username;
     }
 
     /**
