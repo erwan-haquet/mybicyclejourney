@@ -1,0 +1,22 @@
+sentry:
+    dsn: '%env(SENTRY_DSN)%'
+    register_error_listener: false
+    messenger:
+        enabled: true # flushes Sentry messages at the end of each message handling
+        capture_soft_fails: true # captures exceptions marked for retry too
+    options:
+        environment: '%env(SENTRY_ENV)%'
+        send_default_pii: true
+        error_types: "E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_WARNING"
+
+monolog:
+    handlers:
+        sentry:
+            type: sentry
+            level: !php/const Monolog\Logger::WARNING
+            hub_id: Sentry\State\HubInterface
+
+services:
+    Monolog\Processor\PsrLogMessageProcessor:
+        tags: { name: monolog.processor, handler: sentry }
+        

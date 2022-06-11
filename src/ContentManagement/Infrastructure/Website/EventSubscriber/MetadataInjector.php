@@ -49,7 +49,7 @@ class MetadataInjector implements EventSubscriberInterface
         if (!$page = $this->pageRepository->findByPath($path)) {
             // TODO: log the missing page and display a direct 
             //       link to create it via the administration
-            $this->logger->error(sprintf('Missing %s for path : "%s"', Page::class, $path));
+            $this->logger->error(sprintf('Path "%s" has been reached, but the Page does not exist.', $path));
             return;
         }
 
