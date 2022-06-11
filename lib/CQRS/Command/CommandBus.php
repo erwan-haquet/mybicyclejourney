@@ -26,7 +26,7 @@ class CommandBus
      * @param StampInterface[] $stamps
      * @throws Throwable
      */
-    public function dispatch(CommandInterface|Envelope $command, array $stamps = []): Envelope
+    public function handle(CommandInterface|Envelope $command, array $stamps = []): Envelope
     {
         try {
             return $this->commandBus->dispatch($command, $stamps);

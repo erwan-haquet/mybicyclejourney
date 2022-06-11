@@ -1,9 +1,7 @@
 {# @var metadata \App\ContentManagement\Ui\Website\Web\Dto\Metadata #}
 
 {% block metadata %}
-    {% block title %}
-        <title>{{ metadata.title ?? 'My Bicycle Journey' }}</title>
-    {% endblock %}
+    <title>{{ metadata.title }}</title>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,23 +10,18 @@
     <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" sizes="any">
     <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
     <link rel="canonical" href="{{ app.request.uri }}"/>
-
-    {% if metadata is defined %}
-        {{ _self.metadata_tags(metadata) }}
-    {% endif %}
-{% endblock %}
-
-{% macro metadata_tags(metadata) %}
+    
     <meta name="description" content="{{ metadata.description }}">
 
-    <meta name="robots" content="{{ metadata.noindex ? "noindex" : "index" }}, {{ metadata.nofollow ? "nofollow" : "follow" }}" />
+    <meta name="robots"
+          content="{{ metadata.noindex ? "noindex" : "index" }}, {{ metadata.nofollow ? "nofollow" : "follow" }}"/>
 
     {% for alternate in metadata.localeAlternates %}
         <link rel="alternate" hreflang="{{ alternate.locale }}" href="{{ alternate.url }}"/>
     {% endfor %}
 
     {{ _self.open_graph(metadata.openGraph, metadata.localeAlternates) }}
-{% endmacro %}
+{% endblock %}
 
 {% macro open_graph(og, localeAlternates) %}
     <meta property="og:type" content="website">
