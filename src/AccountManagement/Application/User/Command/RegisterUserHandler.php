@@ -34,8 +34,8 @@ class RegisterUserHandler implements CommandHandlerInterface
      */
     public function __invoke(RegisterUser $command): void
     {
-        $user = User::new(
-            userId: $command->id,
+        $user = new User(
+            id: $command->id,
             email: $command->email,
             username: $command->username
         );

@@ -34,18 +34,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    public static function new(
-        UserId $userId,
+    public function __construct(
+        UserId $id,
         string $email,
         string $username,
-    ): static
+    )
     {
-        $user = new self();
-        $user->id = $userId->toString();
-        $user->email = $email;
-        $user->username = $username;
-
-        return $user;
+        $this->id = $id->toString();
+        $this->email = $email;
+        $this->username = $username;
     }
 
     public function id(): UserId
@@ -92,7 +89,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->password;
     }
-    
+
     public function setPassword(string $encodedPassword): self
     {
         $this->password = $encodedPassword;

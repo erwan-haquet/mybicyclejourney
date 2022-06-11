@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class RegisterUser extends Command
 {
     public UserId $id;
-    
+
     /**
      * @Assert\NotBlank(message="account_management.register_user.email_is_blank")
      * @Assert\Email(message="account_management.register_user.email_is_invalid")
@@ -32,12 +32,12 @@ class RegisterUser extends Command
      *
      * @Assert\NotBlank(message="account_management.register_user.password_is_blank")
      * @Assert\Length(
-     *     min: 6,
-     *     minMessage="account_management.register_user.password_is_too_small"
-     *     min: 4096,
+     *     min=6,
+     *     minMessage="account_management.register_user.password_is_too_small",
+     *     max=4096
      * )
      */
-    public ?bool $plainPassword = null;
+    public ?string $plainPassword = null;
 
     /**
      * @Assert\IsTrue(message="account_management.register_user.not_agreed_terms")
