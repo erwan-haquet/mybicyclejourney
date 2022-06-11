@@ -6,15 +6,3 @@ mark {
 li:not(:last-child) {
   margin-bottom: 0.75rem;
 }
-
-a, a:active, a:hover, a:visited {
-  &:not(.btn) {
-    color: $link-color;
-  }
-}
-
-a:active, a:hover {
-  &:not(.btn) {
-    color: darken($link-color, 10%);
-  }
-}

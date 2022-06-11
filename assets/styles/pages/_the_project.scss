@@ -29,6 +29,7 @@
         filter: brightness(95%);
       }
       .title {
+        font-size: 3.5rem;
         top: -17rem;
       }
     }
@@ -43,13 +44,17 @@
 
   // PRESENTATION
   .presentation {
+    background-color: $body-bg-salmon;
     .container {
-      padding-top: 3rem;
+      padding: 3rem 0;
     }
 
     .section {
       text-align: justify;
-      margin-bottom: 3rem;
+      
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
 
       .title {
         margin-bottom: 1.5rem;
@@ -60,7 +65,7 @@
   // STAY TUNED 
   .stay-tuned {
     padding: 3rem;
-    background: darken($body-bg, 3%);
+    background: darken($body-bg-salmon, 4%);
     .title {
       margin-bottom: 1.5rem;
     }
