@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
     <head>
-        {% block metadata %}
-            {% include 'web/shared/_metadata.html.twig' %}
-        {% endblock %}
+        {% block metadata %}{% endblock %}
         
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}

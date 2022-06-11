@@ -17,9 +17,13 @@ framework:
         storage_factory_id: session.storage.factory.native
 
     #esi: true
-    #fragments: true
     php_errors:
         log: true
+    
+    # When using the controller() function, controllers are not accessed 
+    # using a regular Symfony route but through a special URL used exclusively
+    # to serve those template fragments.
+    fragments: { path: /_fragment }
 
 when@test:
     framework:

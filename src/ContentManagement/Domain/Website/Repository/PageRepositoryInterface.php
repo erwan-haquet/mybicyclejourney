@@ -28,6 +28,13 @@ interface PageRepositoryInterface
      * @return Page[]
      */
     public function findActives(): array;
+    
+    /**
+     * Finds locale alternatives for the given page, including the given page.
+     * 
+     * @return Page[]
+     */
+    public function findLocaleAlternates(PageId $id): array;
 
     /**
      * Generates a new id.
