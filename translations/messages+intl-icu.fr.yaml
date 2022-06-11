@@ -30,13 +30,13 @@ pages:
         stay_tuned_paragraph: "Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ? <br>Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne t'oubliera pas 😉"
 account_management:
     register_user:
-        agree_terms: "Accepter les conditions générales"
+        agree_terms: 'Accepter les conditions générales'
         register: "Let's go!"
         registered_with_success: 'Bienvenue à toi {username} !'
-        email_already_exists: "There is already an account with this email"
+        email_already_exists: 'There is already an account with this email'
         email_is_blank: "On ne pourra pas t'envoyer d'email sur ton adresse :("
         email_is_invalid: "On ne pourra pas t'envoyer d'email sur cette adresse :("
-        username_is_blank: "Tu ne voudrais pas trouver un petit nom pour ton compte ?"
-        password_is_blank: "Il te faudra aun mot de passe.. obligé :D"
+        username_is_blank: 'Tu ne voudrais pas trouver un petit nom pour ton compte ?'
+        password_is_blank: 'Il te faudra aun mot de passe.. obligé :D'
         password_is_too_small: "Il nous faut un mot de passe d'au moins {limit} caractères. s'il te plaît :)"
-        not_agreed_terms: "On en demande pas beaucoup, mais il faudra quand même accepter les conditions"
+        not_agreed_terms: 'On en demande pas beaucoup, mais il faudra quand même accepter les conditions'

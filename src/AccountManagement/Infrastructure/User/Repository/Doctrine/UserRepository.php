@@ -37,4 +37,9 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
     {
         return UserId::fromString(Uuid::v4());
     }
+
+    public function findById(UserId $id): ?User
+    {
+        return $this->find($id);
+    }
 }

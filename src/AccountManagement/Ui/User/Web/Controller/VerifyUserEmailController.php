@@ -21,7 +21,7 @@ class VerifyUserEmailController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
-    #[Route('/verify/email', name: 'app_verify_email')]
+    #[Route('/user/verify/email', name: 'verify_email')]
     public function __invoke(
         Request                $request,
         TranslatorInterface    $translator,

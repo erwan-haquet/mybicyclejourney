@@ -18,6 +18,11 @@ interface UserRepositoryInterface
     public function register(User $user): void;
 
     /**
+     * Finds a user by its id.
+     */
+    public function findById(UserId $id): ?User;
+
+    /**
      * Generates a new id.
      */
     public function nextIdentity(): UserId;

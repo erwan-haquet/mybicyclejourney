@@ -26,7 +26,7 @@ class EarlyBirdRegisteredAdminNotifier implements EventHandlerInterface
     public function __invoke(EarlyBirdRegistered $event): void
     {
         $earlyBird = $this->repository->findById($event->getEarlyBirdId());
-        Assert::notNull($earlyBird, sprintf('No early bird found for id: %s', $earlyBird->getId()));
+        Assert::notNull($earlyBird, sprintf('No early bird found for id: %s', $event->getEarlyBirdId()));
 
         $notification = (new Notification('Nouvel early bird', ['email']))
             ->content(sprintf(

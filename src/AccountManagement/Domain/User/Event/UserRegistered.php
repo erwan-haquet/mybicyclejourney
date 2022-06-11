@@ -14,9 +14,9 @@ class UserRegistered implements EventInterface
 {
     private string $userId;
 
-    public function __construct(User $user)
+    public function __construct(string $userId)
     {
-        $this->userId = $user->id()->toString();
+        $this->userId = $userId;
     }
 
     public function getUserId(): string

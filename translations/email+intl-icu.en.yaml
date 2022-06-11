@@ -1,12 +1,14 @@
 general:
-    say_hello: "Hi {name}!"
+    say_hello: 'Hi {name}!'
     say_bye: "See you soon,\nErwan\nhttps://mybicyclejourney.com"
 marketing_launch:
     early_bird_welcome:
+        subject: 'Welcome to My Bicycle Journey - Thanks for the follow !'
         good_to_see_you: "It's nice to know you're interested!"
-        join_us: "While waiting for it to progress, how about a quick talk together?"
-        feedback_requested: "I would like to have your opinion on the project, so if you like you can reply directly to this email ;)"
-account_management: 
-    email_confirmation: 
-        please_confirm_email: "Please confirm your email address by clicking the following link:"
-        link_expire_in: "This link will expire in {time}"
+        join_us: 'While waiting for it to progress, how about a quick talk together?'
+        feedback_requested: 'I would like to have your opinion on the project, so if you like you can reply directly to this email ;)'
+account_management:
+    email_confirmation:
+        subject: 'Welcome to My Bicycle Journey :)'
+        please_confirm_email: 'Please confirm your email address by clicking the following link:'
+        link_expire_in: 'This link will expire in {time}'
