@@ -4,6 +4,7 @@ namespace App\AccountManagement\Domain\User\Repository;
 
 use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegistered;
 use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegistered;
+use App\AccountManagement\Domain\User\Exception\UserNotFound;
 use App\AccountManagement\Domain\User\Model\User;
 use App\AccountManagement\Domain\User\Model\UserId;
 
@@ -16,6 +17,11 @@ interface UserRepositoryInterface
      * @throws UsernameIsAlreadyRegistered
      */
     public function register(User $user): void;
+
+    /**
+     * Update an existing user.
+     */
+    public function update(User $user): void;
 
     /**
      * Finds a user by its id.

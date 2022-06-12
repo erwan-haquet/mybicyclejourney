@@ -2,57 +2,47 @@
 
 namespace App\AccountManagement\Ui\User\Web\Controller;
 
-use App\AccountManagement\Domain\User\Model\User;
-use App\Security\EmailVerifier;
+use App\AccountManagement\Application\User\Command\VerifyUserEmail;
+use App\AccountManagement\Domain\User\Exception\CannotVerifyUserEmail;
+use App\AccountManagement\Domain\User\Exception\UserNotFound;
+use App\AccountManagement\Domain\User\Model\UserId;
 use Doctrine\ORM\EntityManagerInterface;
+use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Translation\TranslatableMessage;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class VerifyUserEmailController extends AbstractController
 {
-    private EmailVerifier $emailVerifier;
-
-    public function __construct(EmailVerifier $emailVerifier)
-    {
-        $this->emailVerifier = $emailVerifier;
-    }
-
-    #[Route('/user/verify/email', name: 'verify_email')]
+    #[Route('/verify-email', name: 'verify_email')]
     public function __invoke(
         Request                $request,
         TranslatorInterface    $translator,
+        CommandBus             $commandBus,
         EntityManagerInterface $manager
     ): Response
     {
-        $id = $request->get('id');
-
-        if (null === $id) {
+        if (!$id = $request->get('id')) {
             return $this->redirectToRoute('signup');
         }
 
-        $repository = $manager->getRepository(User::class);
-        $user = $repository->find($id);
-
-        if (null === $user) {
-            return $this->redirectToRoute('signup');
-        }
-
-        // validate email confirmation link, sets User::isVerified=true and persists
         try {
-            $this->emailVerifier->handleEmailConfirmation($request, $user);
-        } catch (VerifyEmailExceptionInterface $exception) {
-            $this->addFlash('verify_email_error', $translator->trans($exception->getReason(), [], 'VerifyEmailBundle'));
-
+            $command = new VerifyUserEmail([
+                'id' => UserId::fromString($id)
+            ]);
+            $commandBus->handle($command);
+        } catch (UserNotFound $exception) {
+            $this->addFlash('error', new TranslatableMessage('account_management.verify_user_email.user_not_found'));
+            return $this->redirectToRoute('signup');
+        } catch (CannotVerifyUserEmail $exception) {
+            $this->addFlash('error', new TranslatableMessage($exception->getMessage(), [], 'VerifyEmailBundle'));
             return $this->redirectToRoute('signup');
         }
 
-        // @TODO Change the redirect on success and handle or remove the flash message in your templates
-        $this->addFlash('success', 'Your email address has been verified.');
-
-        return $this->redirectToRoute('signup');
+        $this->addFlash('success', new TranslatableMessage('account_management.verify_user_email.email_verified'));
+        return $this->redirectToRoute('homepage');
     }
 }

@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class UsernameIsNotAlreadyRegistered extends Constraint
 {
-    public $message = 'account_management.register_user.error.username_already_exists';
+    public $message = 'account_management.register_user.username_already_exists';
 
     public function getTargets(): array|string
     {

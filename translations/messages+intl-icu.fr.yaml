@@ -33,3 +33,6 @@ account_management:
         agree_terms: 'Accepter les conditions générales'
         register: "Let's go!"
         registered_with_success: 'Bienvenue à toi {username} !'
+    verify_user_email:
+        user_not_found: "Oops, il semblerait qu'on ne puisse pas confirmer ton email :("
+        email_verified: 'Ton compte est désormais validé ✅'

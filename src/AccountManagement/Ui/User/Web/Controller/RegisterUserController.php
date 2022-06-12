@@ -32,6 +32,8 @@ class RegisterUserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $commandBus->handle($command);
+            
+            
 
             $this->addFlash('success', new TranslatableMessage(
                 'account_management.register_user.registered_with_success',
