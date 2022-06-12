@@ -24,7 +24,11 @@ framework:
     # using a regular Symfony route but through a special URL used exclusively
     # to serve those template fragments.
     fragments: { path: /_fragment }
-
+    
+    router:
+        utf8: true
+        default_uri: '%env(resolve:APP_DOMAIN)%'
+        
 when@test:
     framework:
         test: true
