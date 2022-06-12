@@ -31,7 +31,8 @@ class VerifyUserEmailController extends AbstractController
 
         try {
             $command = new VerifyUserEmail([
-                'id' => UserId::fromString($id)
+                'id' => UserId::fromString($id),
+                'uri' => $request->getUri()
             ]);
             $commandBus->handle($command);
         } catch (UserNotFound $exception) {
