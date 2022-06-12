@@ -2,6 +2,8 @@ form:
     label:
         first_name: Prénom
         email: Email
+        username: "Nom d'utilisateur"
+        password: 'Mot de passe'
 marketing:
     early_bird:
         register: 'Tiens moi au courant 🤙'
@@ -26,3 +28,11 @@ pages:
         available_at_presentation_paragraph: "Ca ne tient qu'à toi, enfin pas tout à fait, mais tu peux nous aider et t'investir dans le projet ! <br> <br> <strong>My Bicycle Project c'est un projet open source et collaboratif.</strong> <br> <br> Open source, si tu n'es pas encore familier avec le terme, ça veux dire que le code de l'application est libre, accessible sur <a href=\"https://github.com/erwan-haquet/mybicyclejourney\">Github -     MyBicycleProject</a> et que <mark>tout le monde peux y contribuer... oui oui même toi !</mark> <br> <br> C'est pas sorcier, alors si : <ul>     <li>         <strong>Tu n'as pas de connaissance technique 🤷</strong> : le code, c'est du mandarin pour toi,         mais         tu         as tout de même envie d'apporter ta pierre à l'édifice. Pas de problème, on va trouver         quelque         chose pour toi. Tu parles couramment le néerlandais ? Tu embarques ton Canon 600D à chacune         de         tes sorties ? Ton groupe de voyageurs à des idées pour améliorer l'outil ? ... Bref il y a         forcément quelque chose que tu peux faire ! Je te propose de le découvrir ensemble en         m'envoyant         un premier mail sur <a         href=\"mailto:erwan@mybicyclejourney.com\">erwan@mybicyclejourney.com</a>.     </li>     <li>         <strong>Tu es un codeur pro 👩🏻‍💻</strong> : \"github\", \"symfony\" et \"docker\" ça ne te fait pas         peur         ! Tu         veux         contribuer à un         projet qui te correspond ou bien développer tes compétences en collaborant sur un projet         Symfony         6         avec une architecture actuelle (CQRS, Architecture Hexagonal) et des challenges techniques         intéressants (ex\_: gestion de fichier <code>.gpx</code>, internationalisation, user         experience         first...).         Peut-importe la raison, si tu veux nous rejoindre rendez-vou sur le         <a href=\"https://github.com/erwan-haquet/mybicyclejourney\">Github de MyBicycleProject</a>     </li> </ul>"
         stay_tuned_title: 'On reste en contact ?'
         stay_tuned_paragraph: "Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ? <br>Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne t'oubliera pas 😉"
+account_management:
+    register_user:
+        agree_terms: 'Accepter les conditions générales'
+        register: "Let's go!"
+        registered_with_success: 'Bienvenue à toi {username} !'
+    verify_user_email:
+        user_not_found: "Oops, il semblerait qu'on ne puisse pas confirmer ton email :("
+        email_verified: 'Ton compte est désormais validé ✅'

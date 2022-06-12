@@ -9,6 +9,9 @@ use Library\Assert\Assert;
  */
 class Email
 {
+    /**
+     * The translated message.
+     */
     private string $subject;
 
     /**

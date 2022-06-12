@@ -35,6 +35,7 @@
         "symfony/validator": "~6.1.0",
         "symfony/webpack-encore-bundle": "~1.14",
         "symfony/yaml": "~6.1.0",
+        "symfonycasts/verify-email-bundle": "~1.10",
         "twig/cssinliner-extra": "~3.4",
         "twig/extra-bundle": "~3.4",
         "twig/inky-extra": "~3.4",
