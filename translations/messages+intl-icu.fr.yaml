@@ -3,7 +3,7 @@ form:
         first_name: Prénom
         email: Email
         username: "Nom d'utilisateur"
-        password: 'mot de passe'
+        password: 'Mot de passe'
 marketing:
     early_bird:
         register: 'Tiens moi au courant 🤙'
