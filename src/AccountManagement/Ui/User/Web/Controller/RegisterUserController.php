@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
 
-#[Route('/register', name: 'register')]
+#[Route('/signup', name: 'signup')]
 class RegisterUserController extends AbstractController
 {
     public function __invoke(

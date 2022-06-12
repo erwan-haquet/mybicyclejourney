@@ -33,11 +33,3 @@ account_management:
         agree_terms: 'Accepter les conditions générales'
         register: "Let's go!"
         registered_with_success: 'Bienvenue à toi {username} !'
-        email_already_exists: 'Un compte est déjà associé à cet email'
-        email_is_blank: "On ne pourra pas t'envoyer d'email sur ton adresse :("
-        email_is_invalid: "On ne pourra pas t'envoyer d'email sur cette adresse :("
-        username_is_blank: 'Tu ne voudrais pas trouver un petit nom pour ton compte ?'
-        username_already_exists: 'Ce nom d''utilisateur est déjà utilisé'
-        password_is_blank: 'Il te faudra aun mot de passe.. obligé :D'
-        password_is_too_small: "Il nous faut un mot de passe d'au moins {limit} caractères. s'il te plaît :)"
-        not_agreed_terms: 'On en demande pas beaucoup, mais il faudra quand même accepter les conditions'

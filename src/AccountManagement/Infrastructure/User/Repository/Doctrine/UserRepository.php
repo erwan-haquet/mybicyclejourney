@@ -33,12 +33,12 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
         $manager->flush();
     }
 
-    public function findByEmail(string $email): User
+    public function findByEmail(string $email): ?User
     {
         return $this->findOneBy(['email' => $email]);
     }
 
-    public function findByUsername(string $username): User
+    public function findByUsername(string $username): ?User
     {
         return $this->findOneBy(['username' => $username]);
     }

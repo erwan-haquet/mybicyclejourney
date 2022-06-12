@@ -42,7 +42,6 @@ class UsernameIsNotAlreadyRegisteredValidator extends ConstraintValidator
 
         $this->context->buildViolation($constraint->message)
             ->atPath('username')
-            ->setTranslationDomain('messages')
             ->addViolation();
     }
 }

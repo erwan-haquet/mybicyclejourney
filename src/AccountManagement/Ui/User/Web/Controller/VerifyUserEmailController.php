@@ -31,14 +31,14 @@ class VerifyUserEmailController extends AbstractController
         $id = $request->get('id');
 
         if (null === $id) {
-            return $this->redirectToRoute('register');
+            return $this->redirectToRoute('signup');
         }
 
         $repository = $manager->getRepository(User::class);
         $user = $repository->find($id);
 
         if (null === $user) {
-            return $this->redirectToRoute('register');
+            return $this->redirectToRoute('signup');
         }
 
         // validate email confirmation link, sets User::isVerified=true and persists
@@ -47,12 +47,12 @@ class VerifyUserEmailController extends AbstractController
         } catch (VerifyEmailExceptionInterface $exception) {
             $this->addFlash('verify_email_error', $translator->trans($exception->getReason(), [], 'VerifyEmailBundle'));
 
-            return $this->redirectToRoute('register');
+            return $this->redirectToRoute('signup');
         }
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
-        return $this->redirectToRoute('register');
+        return $this->redirectToRoute('signup');
     }
 }

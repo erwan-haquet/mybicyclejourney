@@ -285,3 +285,16 @@ Error: Erreur
     '': 'Veuillez sélectionner une plage valide.'
 'Please enter a valid week':
     '': 'Veuillez entrer une semaine valide.'
+account_management:
+    register_user:
+        error:
+            email_already_exists: 'Un compte est déjà associé à cet email'
+            email_is_blank: "On ne pourra pas t'envoyer d'email sur ton adresse :("
+            email_is_invalid: "On ne pourra pas t'envoyer d'email sur cette adresse :("
+            username_is_blank: 'Tu ne voudrais pas trouver un petit nom pour ton compte ?'
+            username_already_exists: "Ce nom d'utilisateur est déjà utilisé"
+            username_is_invalid: "Ton nom d'utilisateur doit comporter seulement des chiffres (0-9) et lettres (a-Z)"
+            password_is_blank: 'Il te faudra aun mot de passe.. obligé :D'
+            password_is_too_small: "Ton mot de passe doit comporter au minimum {{ limit }} caractères"
+            password_is_invalid: 'Ton mot de passe doit comporter au moins une lettre et un chiffre'
+            not_agreed_terms: 'On en demande pas beaucoup, mais il faudra quand même accepter les conditions'

@@ -42,7 +42,6 @@ class EmailIsNotAlreadyRegisteredValidator extends ConstraintValidator
 
         $this->context->buildViolation($constraint->message)
             ->atPath('email')
-            ->setTranslationDomain('messages')
             ->addViolation();
     }
 }
