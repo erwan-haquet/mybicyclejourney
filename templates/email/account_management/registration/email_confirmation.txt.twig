@@ -4,7 +4,7 @@
 
 {{ signedUrl }}
 {{ 'account_management.email_confirmation.link_expire_in' | trans({
-    'time': expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle')
+    'time': expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle', locale)
 }, 'email', locale) }}
   
 {{ 'general.say_bye' | trans({}, 'email', locale) | raw }}

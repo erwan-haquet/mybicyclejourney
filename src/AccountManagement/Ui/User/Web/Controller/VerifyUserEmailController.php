@@ -6,6 +6,7 @@ use App\AccountManagement\Application\User\Command\VerifyUserEmail;
 use App\AccountManagement\Domain\User\Exception\CannotVerifyUserEmail;
 use App\AccountManagement\Domain\User\Exception\UserNotFound;
 use App\AccountManagement\Domain\User\Model\UserId;
+use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,19 +24,20 @@ class VerifyUserEmailController extends AbstractController
         locale: "en"
     )]
     public function __invoke(
-        Request                $request,
-        TranslatorInterface    $translator,
-        CommandBus             $commandBus,
-        EntityManagerInterface $manager
+        UserRepositoryInterface $userRepository,
+        Request                 $request,
+        CommandBus              $commandBus
     ): Response
     {
         if (!$id = $request->get('id')) {
             return $this->redirectToRoute('signup');
         }
 
+        $id = UserId::fromString($id);
+
         try {
             $command = new VerifyUserEmail([
-                'id' => UserId::fromString($id),
+                'id' => $id,
                 'uri' => $request->getUri()
             ]);
             $commandBus->handle($command);
@@ -46,8 +48,12 @@ class VerifyUserEmailController extends AbstractController
             $this->addFlash('error', new TranslatableMessage($exception->getMessage(), [], 'VerifyEmailBundle'));
             return $this->redirectToRoute('signup');
         }
+        
+        $user = $userRepository->findById($id);
 
         $this->addFlash('success', new TranslatableMessage('account_management.verify_user_email.email_verified'));
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('homepage', [
+            '_locale' => $user->locale()
+        ]);
     }
 }
