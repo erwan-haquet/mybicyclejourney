@@ -37,6 +37,7 @@ account_management:
         email_is_blank: "We couldn't send you emails without your address :("
         email_is_invalid: "We definitively couldn't send you emails on this address :("
         username_is_blank: 'What is your little name ?'
+        username_already_exists: 'There is already an account with this username'
         password_is_blank: "You'll need a password, definitively :D"
         password_is_too_small: 'Your password must contains at least {limit} caractères. please :)'
         not_agreed_terms: "We don't ask too much, but we need you to agreed with the terms"

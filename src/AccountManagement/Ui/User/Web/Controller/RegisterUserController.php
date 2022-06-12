@@ -5,6 +5,7 @@ namespace App\AccountManagement\Ui\User\Web\Controller;
 use App\AccountManagement\Application\User\Command\RegisterUser;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
 use App\AccountManagement\Ui\User\Web\Form\RegisterUserType;
+use App\Supporting\Domain\I18n\Model\Locale;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,10 +23,11 @@ class RegisterUserController extends AbstractController
     ): Response
     {
         $command = new RegisterUser([
-            'id' => $repository->nextIdentity()
+            'id' => $repository->nextIdentity(),
+            'locale' => Locale::from($request->getLocale())
         ]);
         $form = $this->createForm(RegisterUserType::class, $command);
-
+        
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

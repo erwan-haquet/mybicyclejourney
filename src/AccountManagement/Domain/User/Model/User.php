@@ -2,8 +2,8 @@
 
 namespace App\AccountManagement\Domain\User\Model;
 
+use App\Supporting\Domain\I18n\Model\Locale;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -12,7 +12,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 #[ORM\Entity]
 #[ORM\Table(name: 'account_management_user')]
-#[UniqueEntity(fields: ['email'], message: 'account_management.registration.error.email_already_exists')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -34,15 +33,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
+    #[ORM\Embedded(class: Locale::class)]
+    private Locale $locale;
+
     public function __construct(
         UserId $id,
         string $email,
         string $username,
+        Locale $locale,
     )
     {
         $this->id = $id->toString();
         $this->email = $email;
         $this->username = $username;
+        $this->locale = $locale;
     }
 
     public function id(): UserId
@@ -58,6 +62,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function username(): string
     {
         return $this->username;
+    }
+
+    public function locale(): Locale
+    {
+        return $this->locale;
     }
 
     /**

@@ -37,7 +37,8 @@ class RegisterUserHandler implements CommandHandlerInterface
         $user = new User(
             id: $command->id,
             email: $command->email,
-            username: $command->username
+            username: $command->username,
+            locale: $command->locale
         );
 
         $encodedPassword = $this->passwordHasher->hashPassword($user, $command->plainPassword);

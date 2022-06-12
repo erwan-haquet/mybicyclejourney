@@ -4,17 +4,23 @@ namespace App\AccountManagement\Application\User\Command;
 
 use App\AccountManagement\Domain\User\Model\UserId;
 use App\Marketing\Domain\Launch\Model\EarlyBird;
+use App\Supporting\Domain\I18n\Model\Locale;
 use Library\CQRS\Command\Command;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\AccountManagement\Domain\User\Constraint as CustomAssert;
 
 /**
  * Register a new user.
  *
  * @see EarlyBird
+ * @CustomAssert\EmailIsNotAlreadyRegistered
+ * @CustomAssert\UsernameIsNotAlreadyRegistered
  */
 class RegisterUser extends Command
 {
     public UserId $id;
+
+    public Locale $locale;
 
     /**
      * @Assert\NotBlank(message="account_management.register_user.email_is_blank")

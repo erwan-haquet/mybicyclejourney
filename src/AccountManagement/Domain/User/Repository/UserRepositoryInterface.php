@@ -21,6 +21,16 @@ interface UserRepositoryInterface
      * Finds a user by its id.
      */
     public function findById(UserId $id): ?User;
+    
+    /**
+     * Finds a user by its username.
+     */
+    public function findByUsername(string $username): ?User;
+    
+    /**
+     * Finds a user by its email.
+     */
+    public function findByEmail(string $email): ?User;
 
     /**
      * Generates a new id.

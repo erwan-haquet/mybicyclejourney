@@ -20,17 +20,27 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
 
     public function register(User $user): void
     {
-        if ($this->findBy(['email' => $user->email()])) {
+        if ($this->findByEmail($user->email())) {
             throw new EmailIsAlreadyRegistered();
         }
 
-        if ($this->findBy(['username' => $user->username()])) {
+        if ($this->findByUsername($user->username())) {
             throw new UsernameIsAlreadyRegistered();
         }
 
         $manager = $this->getEntityManager();
         $manager->persist($user);
         $manager->flush();
+    }
+
+    public function findByEmail(string $email): User
+    {
+        return $this->findOneBy(['email' => $email]);
+    }
+
+    public function findByUsername(string $username): User
+    {
+        return $this->findOneBy(['username' => $username]);
     }
 
     public function nextIdentity(): UserId
