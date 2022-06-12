@@ -13,7 +13,7 @@
         "doctrine/doctrine-bundle": "~2.6",
         "doctrine/doctrine-migrations-bundle": "~3.2",
         "doctrine/orm": "~2.12",
-        "dusank/knapsack": "^10.0",
+        "dusank/knapsack": "~10.0",
         "league/commonmark": "~2.3",
         "sentry/sentry-symfony": "~4.3",
         "symfony/console": "~6.1.0",
@@ -101,7 +101,7 @@
         }
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.43",
+        "symfony/maker-bundle": "^~.43",
         "symfony/stopwatch": "~6.1.0",
         "symfony/web-profiler-bundle": "~6.1.0"
     }
