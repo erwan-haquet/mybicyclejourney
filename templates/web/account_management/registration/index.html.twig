@@ -1,0 +1,39 @@
+{% extends "web/layout.html.twig" %}
+
+{% block page_contents %}
+    <main id="register">
+        <div class="presentation">
+            <div class="container">
+                <h1>Register</h1>
+
+                {{ form_start(form) }}
+
+                {{ form_row(form.username, {
+                    label: "form.label.username",
+                    row_attr: {class: 'form-floating mb-3'}
+                }) }}
+
+                {{ form_row(form.email, {
+                    label: "form.label.email",
+                    row_attr: {class: 'form-floating mb-3'}
+                }) }}
+
+                {{ form_row(form.plainPassword, {
+                    label: "form.label.password",
+                    row_attr: {class: 'form-floating mb-3'}
+                }) }}
+
+                {{ form_row(form.agreeTerms, {
+                    label: "account_management.register_user.agree_terms",
+                    row_attr: {class: 'form-floating mb-3'}
+                }) }}
+
+                <button type="submit" class="btn">
+                    {{ "account_management.register_user.register"|trans }}
+                </button>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -285,3 +285,15 @@ Error: Error
     '': 'Please select a valid range.'
 'Please enter a valid week':
     '': 'Please enter a valid week.'
+account_management:
+    register_user:
+        email_already_exists: 'There is already an account with this email'
+        email_is_blank: "We couldn't send you emails without your address :("
+        email_is_invalid: "We definitively couldn't send you emails on this address :("
+        username_is_blank: 'What is your little name ?'
+        username_already_exists: 'There is already an account with this username'
+        username_is_invalid: 'Your username can only contain alphanumeric characters numbers (0-9) and letters (a-Z)'
+        password_is_blank: "You'll need a password, definitively :D"
+        password_is_too_small: 'Your password must contains at least {{ limit }} characters'
+        password_is_invalid: 'Your password must contains at least one lowercase (a-z), one uppercase (A-Z) and one number (0-9)'
+        not_agreed_terms: "We don't ask too much, but we need you to agreed with the terms"

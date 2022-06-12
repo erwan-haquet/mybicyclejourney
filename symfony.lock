@@ -515,6 +515,9 @@
     "symfony/yaml": {
         "version": "v6.0.3"
     },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.10.0"
+    },
     "tijsverkoyen/css-to-inline-styles": {
         "version": "2.2.4"
     },
