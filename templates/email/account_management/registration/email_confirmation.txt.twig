@@ -1,10 +1,10 @@
-{{ "general.say_hello" | trans({'name': name}, 'email') }}
+{{ "general.say_hello" | trans({'name': name}, 'email', locale) }}
 
-{{ 'account_management.email_confirmation.please_confirm_email' | trans({}, 'email') }}
+{{ 'account_management.email_confirmation.please_confirm_email' | trans({}, 'email', locale) }}
 
 {{ signedUrl }}
 {{ 'account_management.email_confirmation.link_expire_in' | trans({
     'time': expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle')
-}, 'email') }}
+}, 'email', locale) }}
   
-{{ 'general.say_bye' | trans({}, 'email') | raw }}
+{{ 'general.say_bye' | trans({}, 'email', locale) | raw }}

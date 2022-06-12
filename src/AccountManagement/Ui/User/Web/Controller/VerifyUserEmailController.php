@@ -17,7 +17,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class VerifyUserEmailController extends AbstractController
 {
-    #[Route('/verify-email', name: 'verify_email')]
+    #[Route('/verify-email',
+        name: 'verify_email',
+        requirements: ["_locale" => "en"],
+        locale: "en"
+    )]
     public function __invoke(
         Request                $request,
         TranslatorInterface    $translator,
