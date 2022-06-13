@@ -30,6 +30,9 @@ interface UserRepositoryInterface
     
     /**
      * Finds a user by its username.
+     * 
+     * Username is not case-sensitive :
+     * Erwan = erwan = ErWan
      */
     public function findByUsername(string $username): ?User;
     
