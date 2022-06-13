@@ -48,7 +48,14 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
 
     public function findByUsername(string $username): ?User
     {
-        return $this->findOneBy(['username' => $username]);
+        return $this
+            ->createQueryBuilder('user')
+            ->select('user')
+            ->where('LOWER(user.username) = :username')
+            ->setParameter('username', strtolower($username))
+            ->getQuery()
+            ->setMaxResults(1)
+            ->getOneOrNullResult();
     }
 
     public function nextIdentity(): UserId

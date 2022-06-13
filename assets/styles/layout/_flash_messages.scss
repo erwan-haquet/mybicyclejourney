@@ -1,8 +1,7 @@
 .flash-messages {
-  z-index: 1100;
   position: fixed;
-  bottom: 0;
-  padding: 1rem;
+  top: 5rem;
+  right: 1rem;
 
   .message {
     align-items: center;
@@ -11,13 +10,19 @@
 
     .body {
       font-size: 1rem;
+      line-height: 1.6rem;
       font-weight: bold;
     }
 
     button {
       margin: auto;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
     }
   }
+
+  @include media-breakpoint-down(sm) {
+    max-width: calc(100vw - 2rem);
+  }
 }
+

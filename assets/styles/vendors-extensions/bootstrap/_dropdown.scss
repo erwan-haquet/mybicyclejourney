@@ -1,0 +1,11 @@
+.dropdown {
+  .dropdown-toggle {
+    @include caret(end);
+    &::after {
+      font: var(--fa-font-solid);
+      content: "\f107";
+      border: 0;
+      vertical-align: 0;
+    }
+  }
+}
