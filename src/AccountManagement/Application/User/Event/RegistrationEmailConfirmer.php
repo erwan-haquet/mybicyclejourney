@@ -61,7 +61,8 @@ class RegistrationEmailConfirmer implements EventHandlerInterface
         $email = new Email(
             subject: $this->translator->trans(
                 id: "account_management.email_confirmation.subject",
-                domain: "email"
+                domain: "email",
+                locale: $user->locale()
             ),
             to: $user->email(),
             text: $this->twig->render('email/account_management/registration/email_confirmation.txt.twig', $context),
