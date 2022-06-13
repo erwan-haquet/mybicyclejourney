@@ -45,7 +45,8 @@ class EarlyBirdRegisteredUserNotifier implements EventHandlerInterface
         $email = new Email(
             subject: $this->translator->trans(
                 id: "marketing_launch.early_bird_welcome.subject",
-                domain: "email"
+                domain: "email",
+                locale: $earlyBird->getLocale()
             ),
             to: $earlyBird->getEmail(),
             text: $this->twig->render('email/marketing/launch/early_bird_welcome.txt.twig', $context),
