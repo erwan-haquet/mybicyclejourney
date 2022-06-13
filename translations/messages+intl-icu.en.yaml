@@ -32,7 +32,7 @@ account_management:
     register_user:
         agree_terms: 'Agree terms'
         register: "Let's go!"
-        registered_with_success: 'Welcome to you {username} !'
+        registered_with_success: 'Welcome in the community {username} !'
     verify_user_email:
         user_not_found: 'Oops, it seems like we cannot confirm your email :('
-        email_verified: 'Your account is now verified ✅'
+        email_verified: 'Welcome back, your account is now verified ✅'
