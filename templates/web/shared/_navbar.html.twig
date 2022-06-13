@@ -1,9 +1,21 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="{{ path('homepage') }}">🚴 My Bicycle Journey</a>
+        <a
+                class="navbar-brand fw-bold"
+                href="{{ path('homepage') }}"
+        >🚴
+            My Bicycle Journey
+        </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -22,15 +34,22 @@
     {% set params = route_params|merge(app.request.query.all) %}
 
     <li class="nav-item dropdown ms-md-auto">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown-language" role="button"
-           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="dropdown-language"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+        >
             {{ app.request.locale|locale_name(app.request.locale)|u.title }}
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-language">
             {% for locale in locales %}
                 {% if locale != app.request.locale %}
                     <li>
-                        <a class="dropdown-item" 
+                        <a class="dropdown-item "
                            href="{{ path(route, params|merge({ _locale: locale })) }}">
                             {{ locale|locale_name(app.request.locale)|u.title }}
                         </a>
