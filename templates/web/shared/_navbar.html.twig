@@ -7,24 +7,16 @@
             My Bicycle Journey
         </a>
 
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav w-100">
-                {{ _self.locale_selector() }}
-            </ul>
+        <!-- Left elements -->
+        <div class="navbar-nav me-auto mb-2 mb-lg-0">
         </div>
+        <!-- Left elements -->
 
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+            {{ _self.locale_selector() }}
+        </div>
+        <!-- Right elements -->
     </div>
 </nav>
 
@@ -33,30 +25,47 @@
     {% set route_params = app.request.attributes.get('_route_params') %}
     {% set params = route_params|merge(app.request.query.all) %}
 
-    <li class="nav-item dropdown ms-md-auto">
+    <div class="nav-item dropdown locale-selector">
         <a
-                class="nav-link dropdown-toggle"
+                class="text-reset nav-link dropdown-toggle"
                 href="#"
-                id="dropdown-language"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
+                id="dropdown-language"
         >
-            {{ app.request.locale|locale_name(app.request.locale)|u.title }}
+            <i class="m-0 flag flag-{{ app.request.locale|lower }}"></i>
         </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-language">
+        <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="dropdown-language"
+                data-popper-placement="null"
+                data-mdb-popper="none"
+        >
+            <li>
+                <a class="dropdown-item" href="#">
+                    <i class="flag-{{ app.request.locale|lower }} flag"></i>
+                    {{ app.request.locale|locale_name(app.request.locale)|u.title }}
+                    <i class="fa fa-check text-success ms-2"></i>
+                </a>
+            </li>
+            <li>
+                <hr class="dropdown-divider"/>
+            </li>
             {% for locale in locales %}
                 {% if locale != app.request.locale %}
                     <li>
-                        <a class="dropdown-item "
-                           href="{{ path(route, params|merge({ _locale: locale })) }}">
-                            {{ locale|locale_name(app.request.locale)|u.title }}
+                        <a class="dropdown-item"
+                           href="{{ path(route, params|merge({ _locale: locale })) }}"
+                        >
+                            <i class="flag flag-{{ locale|lower }}"></i>
+                            {{ locale|locale_name(locale)|u.title }}
                         </a>
                     </li>
                 {% endif %}
             {% endfor %}
         </ul>
-    </li>
+    </div>
 
 {% endmacro %}
