@@ -81,6 +81,7 @@
       padding: 1.5rem 3rem;
       box-shadow: 0 4px 16px 0 rgb(0 0 0 / 0.3);
       font-weight: bold;
+      font-size: 1.25rem;
     }
   }
 
@@ -98,13 +99,11 @@
       .title {
         font-size: 1.5rem;
         margin-bottom: 2rem;
-        text-align: center;
       }
 
       .paragraph {
         font-size: .9em;
         text-align: justify;
-        border-right: 1px solid $gray-400;
         padding-right: 2rem;
       }
 
@@ -119,7 +118,6 @@
   @include media-breakpoint-down(xl) {
     .stay-tuned .card .paragraph {
       margin-bottom: 3rem;
-      border: none;
     }
   }
 }

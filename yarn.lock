@@ -2807,6 +2807,11 @@ make-dir@^3.0.2, make-dir@^3.1.0:
   dependencies:
     semver "^6.0.0"
 
+mdb-ui-kit@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/mdb-ui-kit/-/mdb-ui-kit-4.2.0.tgz#ba748046b79ce8bd49d438fa117888fda1d9ccb6"
+  integrity sha512-qtgAGaQRyYwv3yISq6BcKLttfTHyLRMN8ulo8DA+sRC/iF3kaY3hlUUduPnQuciQxnejP2sNrwOyL5H/b2/+4g==
+
 mdn-data@2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
