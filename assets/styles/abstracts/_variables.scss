@@ -6,13 +6,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Code+Pro:wght@300;400;500;600&family=Raleway:wght@300;400;600;700&display=swap');
 $font-family-brand: "Source Code Pro", Menlo, Monaco, Consolas;
 
-$font-family-title: "Roboto", Menlo, Monaco, Consolas;
+$font-family-title: "Raleway", Menlo, Monaco, Consolas;
 $font-family-base:  "Raleway", sans-serif;
 /*< FONT */
 
 /*> COLORS */
-$body-bg:        #f9f9f9;
-$body-bg-salmon: #fff8f5;
+$body-bg:        #F5F5F5;
 $body-color:     #393c42;
 $link-color:     #d63384;
 
@@ -34,3 +33,12 @@ $theme-colors: (
     "danger":    $danger,
 );
 /*< COLORS */
+
+/*> CARDS */
+$card-border-radius: 0.25rem;
+/*< CARDS */
+
+/*> BUTTONS */
+$btn-border-radius-lg: 0.25rem;
+/*< BUTTONS */
+

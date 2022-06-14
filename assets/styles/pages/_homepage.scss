@@ -99,13 +99,11 @@
       .title {
         font-size: 1.5rem;
         margin-bottom: 2rem;
-        text-align: center;
       }
 
       .paragraph {
         font-size: .9em;
         text-align: justify;
-        border-right: 1px solid $gray-400;
         padding-right: 2rem;
       }
 
@@ -120,7 +118,6 @@
   @include media-breakpoint-down(xl) {
     .stay-tuned .card .paragraph {
       margin-bottom: 3rem;
-      border: none;
     }
   }
 }
