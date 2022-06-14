@@ -7,23 +7,28 @@
             My Bicycle Journey
         </a>
 
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav w-100">
-                {{ _self.locale_selector() }}
-            </ul>
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+            {{ _self.locale_selector() }}
         </div>
+        <!-- Right elements -->
+
+        {#        <button #}
+        {#                class="navbar-toggler" #}
+        {#                type="button" #}
+        {#                data-bs-toggle="collapse" #}
+        {#                data-bs-target="#navbarNavDropdown" #}
+        {#                aria-controls="navbarNavDropdown" #}
+        {#                aria-expanded="false" #}
+        {#                aria-label="Toggle navigation" #}
+        {#        > #}
+        {#            <span class="navbar-toggler-icon"></span> #}
+        {#        </button> #}
+
+        {#        <div class="collapse navbar-collapse" id="navbarNavDropdown"> #}
+        {#            <ul class="navbar-nav w-100"> #}
+        {#            </ul> #}
+        {#        </div> #}
 
     </div>
 </nav>
@@ -33,9 +38,9 @@
     {% set route_params = app.request.attributes.get('_route_params') %}
     {% set params = route_params|merge(app.request.query.all) %}
 
-    <li class="nav-item dropdown ms-md-auto">
+    <div class="dropdown locale-selector">
         <a
-                class="nav-link dropdown-toggle"
+                class="dropdown-toggle d-flex align-items-center hidden-arrow"
                 href="#"
                 id="dropdown-language"
                 role="button"
@@ -43,20 +48,24 @@
                 aria-haspopup="true"
                 aria-expanded="false"
         >
-            {{ app.request.locale|locale_name(app.request.locale)|u.title }}
+            <i class="flag flag-{{ app.request.locale|lower }}"></i>
+            <span>{{ app.request.locale|upper }}</span>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-language">
             {% for locale in locales %}
                 {% if locale != app.request.locale %}
                     <li>
-                        <a class="dropdown-item "
-                           href="{{ path(route, params|merge({ _locale: locale })) }}">
-                            {{ locale|locale_name(app.request.locale)|u.title }}
+                        <a
+                                class="dropdown-item"
+                                href="{{ path(route, params|merge({ _locale: locale })) }}"
+                        >
+                            <i class="flag flag-{{ locale|lower }}"></i>
+                            {{ locale|upper }}
                         </a>
                     </li>
                 {% endif %}
             {% endfor %}
         </ul>
-    </li>
+    </div>
 
 {% endmacro %}

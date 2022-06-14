@@ -7,7 +7,7 @@
 $font-family-brand: "Source Code Pro", Menlo, Monaco, Consolas;
 
 $font-family-title: "Roboto", Menlo, Monaco, Consolas;
-$font-family-sans-serif:  "Raleway", sans-serif;
+$font-family-base:  "Raleway", sans-serif;
 /*< FONT */
 
 /*> COLORS */
@@ -26,12 +26,11 @@ $warning:        #dfc713;
 $danger:         #eb1807;
 
 $theme-colors: (
-        "primary":   $primary,
-        "secondary": $secondary,
-        "success":   $success,
-        "info":      $info,
-        "warning":   $warning,
-        "danger":    $danger,
+    "primary":   $primary,
+    "secondary": $secondary,
+    "success":   $success,
+    "info":      $info,
+    "warning":   $warning,
+    "danger":    $danger,
 );
 /*< COLORS */
-
