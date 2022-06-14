@@ -1,9 +1,21 @@
-i.flag-en:before{
-  background-position:-36px -26px!important
+i.flag-en:before {
+  background-position: -36px -26px !important
 }
 
 .btn-xl {
-  padding: 0.8rem 1.25rem!important;
-  font-size: 1.25rem!important;
-  border-radius: 0.3rem!important;
+  padding: 0.8rem 1.25rem !important;
+  font-size: 1.25rem !important;
+  border-radius: 0.3rem !important;
 }
+
+.dropdown-menu[data-mdb-popper] {
+  top: 100%;
+  left: 0;
+  margin-top: 0.125rem;
+}
+
+.dropdown-menu-end[data-mdb-popper] {
+  right: 0;
+  left: auto;
+}
+
