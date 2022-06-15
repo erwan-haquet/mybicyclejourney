@@ -30,9 +30,10 @@ pages:
         stay_tuned_paragraph: "You already have all your next trips to prepare and you don't feel like contributing to the project?  <br>Would you still like to be informed of the progress? No problem, leave us your email and we won't forget you 😉"
 account_management:
     signup:
-        create_an_account: "Create my account"
-        agree_terms: 'Agree terms'
-        register: "Let's go!"
+        title: "Join the community"
+        description: "Holà young traveller ! You are about to share your adventure with your loved ones, you only have one click left and they will thank you."
+        privacy_policy: 'We care about your data, take a look at our <a href="{link}">Privacy&nbsp;Policy</a>.'
+        register: "Create my account"
         registered_with_success: 'Welcome in the community {username} !'
     verify_user_email:
         user_not_found: 'Oops, it seems like we cannot confirm your email :('

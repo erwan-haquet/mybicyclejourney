@@ -30,9 +30,10 @@ pages:
         stay_tuned_paragraph: "Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ? <br>Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne t'oubliera pas 😉"
 account_management:
     signup:
-        create_an_account: "Créer mon compte"
-        agree_terms: 'Accepter les conditions générales'
-        register: "Let's go!"
+        title: "Rejoins la communauté"
+        description: "Holà jeune voyageur ! tu es sur le point de faire profiter tes proches de ton aventure, il ne te reste plus qu'un clic et ils te diront merci."
+        privacy_policy: 'Chez My Bicycle Journey on respecte vos données. voir notre <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
+        register: "Créer mon compte"
         registered_with_success: 'Bienvenue dans la communauté {username} !'
     verify_user_email:
         user_not_found: "Oops, il semblerait qu'on ne puisse pas confirmer ton email :("

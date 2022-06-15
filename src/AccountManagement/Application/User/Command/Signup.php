@@ -52,9 +52,4 @@ class Signup extends Command
      * )
      */
     public ?string $plainPassword = null;
-
-    /**
-     * @Assert\IsTrue(message="account_management.signup.not_agreed_terms")
-     */
-    public ?bool $agreeTerms = null;
 }
