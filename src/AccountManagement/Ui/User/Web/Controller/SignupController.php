@@ -2,10 +2,10 @@
 
 namespace App\AccountManagement\Ui\User\Web\Controller;
 
-use App\AccountManagement\Application\User\Command\RegisterUser;
+use App\AccountManagement\Application\User\Command\Signup;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
 use App\AccountManagement\Infrastructure\User\Security\Authenticator;
-use App\AccountManagement\Ui\User\Web\Form\RegisterUserType;
+use App\AccountManagement\Ui\User\Web\Form\SignupType;
 use App\Supporting\Domain\I18n\Model\Locale;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,7 +16,7 @@ use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Component\Translation\TranslatableMessage;
 
 #[Route('/signup', name: 'signup')]
-class RegisterUserController extends AbstractController
+class SignupController extends AbstractController
 {
     public function __invoke(
         Request                    $request,
@@ -27,11 +27,11 @@ class RegisterUserController extends AbstractController
     ): Response
     {
         $id = $repository->nextIdentity();
-        $command = new RegisterUser([
+        $command = new Signup([
             'id' => $id,
             'locale' => Locale::from($request->getLocale())
         ]);
-        $form = $this->createForm(RegisterUserType::class, $command);
+        $form = $this->createForm(SignupType::class, $command);
 
         $form->handleRequest($request);
 
@@ -41,7 +41,7 @@ class RegisterUserController extends AbstractController
             $user = $repository->findById($id);
 
             $this->addFlash('success', new TranslatableMessage(
-                'account_management.register_user.registered_with_success',
+                'account_management.signup.registered_with_success',
                 ['username' => $command->username]
             ));
             
@@ -52,7 +52,7 @@ class RegisterUserController extends AbstractController
             );
         }
 
-        return $this->render('web/account_management/registration/index.html.twig', [
+        return $this->render('web/account_management/signup/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }

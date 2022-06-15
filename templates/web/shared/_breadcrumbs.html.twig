@@ -16,11 +16,24 @@
     </ol>
 </nav>
 
-{# Render the breadcrumbs based on given page #}
-{% macro current() %}
+{# Render the breadcrumbs as simple component #}
+{% macro component() %}
     {{ render(controller(
         'App\\ContentManagement\\Ui\\Website\\Web\\Controller\\BreadcrumbsController', {
             encodedPath: app.request.pathInfo|url_encode
         })) }}
+{% endmacro %}
+
+
+{# Render the breadcrumbs in a standard container row#}
+{% macro row() %}
+    <div class="breadcrumb-row">
+        <div class="container">
+            {{ render(controller(
+                'App\\ContentManagement\\Ui\\Website\\Web\\Controller\\BreadcrumbsController', {
+                    encodedPath: app.request.pathInfo|url_encode
+                })) }}
+        </div>
+    </div>
 {% endmacro %}
 
