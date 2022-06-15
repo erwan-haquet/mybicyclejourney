@@ -286,7 +286,7 @@ Error: Error
 'Please enter a valid week':
     '': 'Please enter a valid week.'
 account_management:
-    register_user:
+    signup:
         email_already_exists: 'There is already an account with this email'
         email_is_blank: "We couldn't send you emails without your address :("
         email_is_invalid: "We definitively couldn't send you emails on this address :("

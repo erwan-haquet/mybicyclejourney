@@ -2,7 +2,7 @@
 
 namespace App\AccountManagement\Domain\User\Constraint;
 
-use App\AccountManagement\Application\User\Command\RegisterUser;
+use App\AccountManagement\Application\User\Command\Signup;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Constraint;
@@ -28,8 +28,8 @@ class EmailIsNotAlreadyRegisteredValidator extends ConstraintValidator
             return;
         }
 
-        if (!$command instanceof RegisterUser) {
-            throw new UnexpectedValueException($command, RegisterUser::class);
+        if (!$command instanceof Signup) {
+            throw new UnexpectedValueException($command, Signup::class);
         }
         
         if (null === $command->email) {

@@ -16,23 +16,23 @@ use App\AccountManagement\Domain\User\Constraint as CustomAssert;
  * @CustomAssert\EmailIsNotAlreadyRegistered
  * @CustomAssert\UsernameIsNotAlreadyRegistered
  */
-class RegisterUser extends Command
+class Signup extends Command
 {
     public UserId $id;
 
     public Locale $locale;
 
     /**
-     * @Assert\NotBlank(message="account_management.register_user.email_is_blank")
-     * @Assert\Email(message="account_management.register_user.email_is_invalid")
+     * @Assert\NotBlank(message="account_management.signup.email_is_blank")
+     * @Assert\Email(message="account_management.signup.email_is_invalid")
      */
     public ?string $email = null;
 
     /**
-     * @Assert\NotBlank(message="account_management.register_user.username_is_blank")
+     * @Assert\NotBlank(message="account_management.signup.username_is_blank")
      * @Assert\Regex(
      *     pattern="/^[a-zA-Z0-9]*$/",
-     *     message="account_management.register_user.username_is_invalid"
+     *     message="account_management.signup.username_is_invalid"
      * )
      */
     public ?string $username = null;
@@ -40,21 +40,21 @@ class RegisterUser extends Command
     /**
      *  4096 is the max length allowed by Symfony for security reasons.
      *
-     * @Assert\NotBlank(message="account_management.register_user.password_is_blank")
+     * @Assert\NotBlank(message="account_management.signup.password_is_blank")
      * @Assert\Length(
      *     min=8,
-     *     minMessage="account_management.register_user.password_is_too_small",
+     *     minMessage="account_management.signup.password_is_too_small",
      *     max=4096
      * )
      * @Assert\Regex(
      *     pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/",
-     *     message="account_management.register_user.password_is_invalid"
+     *     message="account_management.signup.password_is_invalid"
      * )
      */
     public ?string $plainPassword = null;
 
     /**
-     * @Assert\IsTrue(message="account_management.register_user.not_agreed_terms")
+     * @Assert\IsTrue(message="account_management.signup.not_agreed_terms")
      */
     public ?bool $agreeTerms = null;
 }

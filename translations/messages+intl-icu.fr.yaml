@@ -29,7 +29,7 @@ pages:
         stay_tuned_title: 'On reste en contact ?'
         stay_tuned_paragraph: "Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ? <br>Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne t'oubliera pas 😉"
 account_management:
-    register_user:
+    signup:
         agree_terms: 'Accepter les conditions générales'
         register: "Let's go!"
         registered_with_success: 'Bienvenue dans la communauté {username} !'

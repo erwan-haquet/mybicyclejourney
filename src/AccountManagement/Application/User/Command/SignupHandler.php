@@ -11,7 +11,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Library\CQRS\Command\CommandHandlerInterface;
 use Library\CQRS\Event\EventBus;
 
-class RegisterUserHandler implements CommandHandlerInterface
+class SignupHandler implements CommandHandlerInterface
 {
     private UserRepositoryInterface $repository;
     private UserPasswordHasherInterface $passwordHasher;
@@ -32,7 +32,7 @@ class RegisterUserHandler implements CommandHandlerInterface
      * @throws EmailIsAlreadyRegistered
      * @throws UsernameIsAlreadyRegistered
      */
-    public function __invoke(RegisterUser $command): void
+    public function __invoke(Signup $command): void
     {
         $user = new User(
             id: $command->id,
