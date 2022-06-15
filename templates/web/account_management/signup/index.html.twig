@@ -1,20 +1,20 @@
 {% extends "web/layout.html.twig" %}
 
 {% block page_contents %}
-    <main id="register">
+    <main id="signup">
         {# Breadcrumbs section #}
         {% include "web/account_management/signup/_breadcrumbs.html.twig" %}
-        
-        <div class="presentation">
-            <div class="container">
-                <h1>Register</h1>
-                
-                {# Form #}
-                {% include "web/account_management/signup/_form.html.twig" %}
+
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    {# Form #}
+                    {% include "web/account_management/signup/_registration_form.html.twig" %}
+                </div>
             </div>
         </div>
-        
-
     </main>
 {% endblock %}
 
