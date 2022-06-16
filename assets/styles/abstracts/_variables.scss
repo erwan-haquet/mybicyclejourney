@@ -11,13 +11,10 @@ $font-family-base:  "Raleway", sans-serif;
 /*< FONT */
 
 /*> COLORS */
-$body-bg:        #fbfbfb;
-$body-color:     #393c42;
-$link-color:     #d63384;
-
-$light-color:    #d4d7e1;
-$dark-color:     #091328;
-$primary:        #203561;
+// Based on @see https://colors.muz.li/palette/f2eff1/22a492/172544/37d4a1/115041
+$light-color:    #f2eff1;
+$dark-color:     #172544;
+$primary:        #24AF98;
 $secondary:      #e11c56;
 $info:           #456ba9;
 $success:        #198754;
@@ -32,6 +29,10 @@ $theme-colors: (
     "warning":   $warning,
     "danger":    $danger,
 );
+
+$body-bg:        $light-color;
+$body-color:     $dark-color;
+$link-color:     #1068bf;
 /*< COLORS */
 
 /*> CARDS */

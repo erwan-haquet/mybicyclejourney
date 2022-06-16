@@ -4,6 +4,9 @@
   .navbar-brand {
     font-family: $font-family-brand;
     color: $dark-color !important;
+    &:hover {
+      text-decoration: none!important;
+    }
   }
 
   .navbar-collapse {

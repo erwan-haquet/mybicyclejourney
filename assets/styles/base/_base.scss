@@ -2,3 +2,7 @@ mark {
   background-color: rgb(255, 214, 99);
   color: darken($body-color, 20%);
 }
+
+a:hover {
+  text-decoration: underline;
+}
