@@ -1,15 +1,72 @@
 #signup {
+  background-color: #d3efea;
+  height: calc(100vh - 50px);
+
+  .container {
+    padding-top: 3rem;
+  }
+
+  // BACKGROUND ILLUSTRATION
+  .background-illustration {
+    overflow: hidden;
+    width: 100%;
+    height: calc(100vh - 50px);
+    position: absolute;
+
+    .inner {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 50px);
+
+      .image {
+        width: 100%;
+        height: calc(100vh - 50px);
+        object-fit: cover;
+        position: absolute;
+      }
+    }
+  }
+
+  // FORM 
   .registration-form {
-    .title {
-      font-size: 2.25rem;
+    .card {
+      border-radius: 20px  0;
+
+      .card-body {
+        padding: 4rem;
+
+        .title {
+          font-size: 2rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .description {
+          margin-bottom: 3rem;
+        }
+
+        form {
+          .row {
+            margin-bottom: 2rem;
+          }
+        }
+
+        .privacy-policy {
+          font-size: 0.9rem;
+        }
+      }
     }
-    
-    .description {
-      margin-bottom: 2.5rem;
-    }
-    
-    .privacy-policy {
-      font-size: 0.9rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    .registration-form {
+      .card {
+        .card-body {
+          padding: 2rem;
+          .title {
+            font-size: 1.75rem;
+          }
+        }
+      }
     }
   }
 }

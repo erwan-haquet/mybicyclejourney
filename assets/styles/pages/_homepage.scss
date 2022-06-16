@@ -3,7 +3,7 @@
   .hero-background {
     overflow: hidden;
     width: 100%;
-    height: calc(100vh - 49px);
+    height: calc(100vh - 50px);
     padding-bottom: 1.5rem;
     z-index: -1;
     position: absolute;
@@ -11,13 +11,13 @@
     .inner {
       position: relative;
       width: 100%;
-      height: calc(100vh - 49px);
+      height: calc(100vh - 50px);
       z-index: 0;
       overflow: hidden;
 
       .image {
         width: 100%;
-        height: calc(100vh - 49px);
+        height: calc(100vh - 50px);
         object-fit: cover;
         position: absolute;
       }
