@@ -2,14 +2,12 @@
 
 {% block page_contents %}
     <main id="signup">
-        {# Breadcrumbs section #}
-        {% include "web/account_management/signup/_breadcrumbs.html.twig" %}
 
-        <div class="container pt-5">
+        {% include "web/account_management/signup/_background_illustration.html.twig" %}
+
+        <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 offset-lg-6">
                     {# Form #}
                     {% include "web/account_management/signup/_registration_form.html.twig" %}
                 </div>
