@@ -5,6 +5,9 @@ i.flag-en:before {
 .btn-xl {
   padding: 0.8rem 1.25rem;
   font-size: 1.25rem;
+  &:hover {
+    text-decoration: none!important;
+  }
 }
 
 .dropdown-menu[data-mdb-popper] {
