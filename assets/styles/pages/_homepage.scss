@@ -102,7 +102,6 @@
       }
 
       .paragraph {
-        font-size: .9em;
         text-align: justify;
         padding-right: 2rem;
       }
@@ -120,5 +119,11 @@
       margin-bottom: 3rem;
     }
   }
+  @include media-breakpoint-down(sm) {
+    .stay-tuned .card .title {
+      font-size: 1.4rem;
+    }
+  }
+
 }
 

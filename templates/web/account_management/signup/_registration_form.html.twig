@@ -1,7 +1,7 @@
 <div class="registration-form">
     <div class="card">
         <div class="card-body">
-            <h1 class="card-title title text-center">{{ "account_management.signup.title"|trans }}</h1>
+            <h2 class="card-title title text-center">{{ "account_management.signup.title"|trans }}</h2>
             <p class="card-text text-muted text-center description">{{ "account_management.signup.description"|trans }}</p>
 
             {{ form_start(form) }}
@@ -28,9 +28,10 @@
             <p class="text-center text-muted privacy-policy">
                 {{ "account_management.signup.privacy_policy"|trans({'link': path('privacy_policy')})|raw }}
             </p>
+
+            {{ form_end(form) }}
         </div>
     </div>
 
 </div>
 
-{{ form_end(form) }}

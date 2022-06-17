@@ -1,8 +1,12 @@
 .breadcrumb {
   margin-bottom: 0;
-  
+
+  a {
+    @extend .link-primary;
+  }
+
   li {
-    margin: 0!important;
+    margin: 0 !important;
   }
 }
 

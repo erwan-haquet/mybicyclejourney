@@ -1,9 +1,14 @@
 #signup {
   background-color: #d3efea;
-  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
 
   .container {
     padding-top: 3rem;
+  }
+  @include media-breakpoint-down(md) {
+    .container {
+      padding-top: 1.5rem;
+    }
   }
 
   // BACKGROUND ILLUSTRATION
@@ -27,17 +32,41 @@
     }
   }
 
+  // HOOK
+  .hook {
+    position: relative;
+    color: $white;
+    font-weight: 900;
+    font-size: 5rem;
+    margin-top: 5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  @include media-breakpoint-down(lg) {
+    .hook {
+      font-size: 3rem;
+      margin-top: 0;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    .hook {
+      font-size: 2.5rem;
+    }
+  }
+
   // FORM 
   .registration-form {
     .card {
-      border-radius: 20px  0;
+      margin-top: 2rem;
+      border-radius: 25px;
 
       .card-body {
-        padding: 4rem;
+        padding: 3rem;
 
         .title {
           font-size: 2rem;
           margin-bottom: 1.5rem;
+          font-weight: 900;
         }
 
         .description {
@@ -60,8 +89,10 @@
   @include media-breakpoint-down(md) {
     .registration-form {
       .card {
+        margin-top: 1.5rem;
         .card-body {
           padding: 2rem;
+
           .title {
             font-size: 1.75rem;
           }

@@ -7,7 +7,11 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 offset-lg-6">
+                <div class="col-lg-6 col-xl-7 col-xxl-6">
+                    {# Form #}
+                    {% include "web/account_management/signup/_hook.html.twig" %}
+                </div>
+                <div class="col-lg-6 col-xl-5 offset-xxl-1">
                     {# Form #}
                     {% include "web/account_management/signup/_registration_form.html.twig" %}
                 </div>
