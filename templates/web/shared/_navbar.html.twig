@@ -1,23 +1,22 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white">
-    <div class="container-fluid">
-        <a
-                class="navbar-brand fw-bold"
-                href="{{ path('homepage') }}"
-        >🚴
-            My Bicycle Journey
-        </a>
+    <a
+            class="navbar-brand nav-link fw-bold"
+            href="{{ path('homepage') }}"
+    >
+        🚴 My Bicycle Journey
+    </a>
 
-        <!-- Left elements -->
-        <div class="navbar-nav me-auto mb-2 mb-lg-0">
-        </div>
-        <!-- Left elements -->
-
-        <!-- Right elements -->
-        <div class="d-flex align-items-center">
-            {{ _self.locale_selector() }}
-        </div>
-        <!-- Right elements -->
+    <!-- Left elements -->
+    <div class="navbar-nav me-auto mb-2 mb-lg-0">
     </div>
+    <!-- Left elements -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+        {{ _self.signup() }}
+        {{ _self.locale_selector() }}
+    </div>
+    <!-- Right elements -->
 </nav>
 
 {% macro locale_selector() %}
@@ -35,7 +34,7 @@
                 aria-expanded="false"
                 id="dropdown-language"
         >
-            <i class="m-0 flag flag-{{ app.request.locale|lower }}"></i>
+            <i class="m-0 fs-2 flag flag-{{ app.request.locale|lower }}"></i>
         </a>
         <ul
                 class="dropdown-menu dropdown-menu-end"
@@ -67,5 +66,12 @@
             {% endfor %}
         </ul>
     </div>
+{% endmacro %}
 
+{% macro signup() %}
+    <div class="nav-item">
+        <a href="{{ path('signup') }}" class="me-2 btn btn-lg btn-secondary fw-bold">
+            {{ 'global.signup'|trans }}
+        </a>
+    </div>
 {% endmacro %}

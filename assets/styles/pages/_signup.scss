@@ -1,6 +1,6 @@
 #signup {
   background-color: #d3efea;
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - $navbar-height);
 
   .container {
     padding-top: 3rem;
@@ -15,17 +15,17 @@
   .background-illustration {
     overflow: hidden;
     width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100vh - $navbar-height);
     position: absolute;
 
     .inner {
       position: relative;
       width: 100%;
-      height: calc(100vh - 50px);
+      height: calc(100vh - $navbar-height);
 
       .image {
         width: 100%;
-        height: calc(100vh - 50px);
+        height: calc(100vh - $navbar-height);
         object-fit: cover;
         position: absolute;
       }
