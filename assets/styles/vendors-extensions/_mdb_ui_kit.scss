@@ -3,12 +3,14 @@ i.flag-en:before {
 }
 
 .btn-xl {
-  padding: 0.8rem 1.25rem;
-  font-size: 1.25rem;
-  &:hover {
-    text-decoration: none!important;
-  }
+  @include button-size(
+    0.8rem,
+    1.25rem,
+    1.25rem,
+    $btn-border-radius-sm
+  );
 }
+
 
 .dropdown-menu[data-mdb-popper] {
   top: 100%;
@@ -21,3 +23,6 @@ i.flag-en:before {
   left: auto;
 }
 
+a.btn:hover {
+  text-decoration: none;
+}

@@ -1,25 +1,25 @@
 .navbar-light {
-  padding: 0.5rem 1rem;
+  padding: 1rem 0.5rem;
 
   .navbar-brand {
     font-family: $font-family-brand;
     color: $dark-color !important;
+
     &:hover {
-      text-decoration: none!important;
+      text-decoration: none !important;
     }
   }
 
-  .navbar-collapse {
-    transition: height 0ms ease;
-  }
-
-  .navbar-toggler {
-    border: none;
-    transition: none;
-
-    &:focus {
-      box-shadow: none;
+  @include media-breakpoint-down(sm) {
+    .signup {
+      @include button-size(
+        $btn-padding-y,
+        $btn-padding-x,
+        $btn-font-size,
+        $btn-border-radius
+      );
     }
   }
 }
+
 
