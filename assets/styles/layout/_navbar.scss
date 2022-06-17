@@ -1,5 +1,6 @@
 .navbar-light {
   padding: 1rem 0.5rem;
+  z-index: 100;
 
   .navbar-brand {
     font-family: $font-family-brand;
@@ -9,17 +10,7 @@
       text-decoration: none !important;
     }
   }
-
-  @include media-breakpoint-down(sm) {
-    .signup {
-      @include button-size(
-        $btn-padding-y,
-        $btn-padding-x,
-        $btn-font-size,
-        $btn-border-radius
-      );
-    }
-  }
+  
 }
 
 
