@@ -9,17 +9,7 @@
       text-decoration: none !important;
     }
   }
-
-  @include media-breakpoint-down(sm) {
-    .signup {
-      @include button-size(
-        $btn-padding-y,
-        $btn-padding-x,
-        $btn-font-size,
-        $btn-border-radius
-      );
-    }
-  }
+  
 }
 
 
