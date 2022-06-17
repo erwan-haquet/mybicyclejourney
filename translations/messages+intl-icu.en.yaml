@@ -33,7 +33,7 @@ pages:
 account_management:
     signup:
         hook_line1: "Join us,"
-        hook_line2: "Write your story!"
+        hook_line2: "Write your story."
         description: "Create your MBJ account in 5 seconds and start sharing your first trip with us, promise we will be your biggest fans 😍."
         privacy_policy: 'We care about your data, take a look at our <a href="{link}">Privacy&nbsp;Policy</a>.'
         register: "Create my account"

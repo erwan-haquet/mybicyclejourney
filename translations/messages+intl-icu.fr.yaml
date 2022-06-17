@@ -33,7 +33,7 @@ pages:
 account_management:
     signup:
         hook_line1: "Rejoins nous,"
-        hook_line2: "Écris ton histoire !"
+        hook_line2: "Écris ton histoire."
         description: "Crée ton compte MBJ en 5 secondes et commence à nous partager ton premier voyage, promis nous serons tes plus grands fans 😍."
         privacy_policy: 'Chez My Bicycle Journey on respecte vos données. voir notre <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
         register: "Créer mon compte"
