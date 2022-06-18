@@ -1,12 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white">
     <a
-            class="navbar-brand nav-link fw-bold "
+            class="navbar-brand nav-link "
             href="{{ path('homepage') }}"
     >
         <img alt="Brand logo"
-             class="image "
-             height="30px"
+             class="image"
+             height="25px"
              src="{{ asset('build/images/logo.png') }}">
+        <span class="name d-none d-sm-inline">
+            MY BICYCLE 
+            JOURNEY
+        </span>
+        <span class="name d-sm-none">MBJ</span>
     </a>
 
     <!-- Left elements -->
@@ -73,7 +78,7 @@
 
 {% macro signup() %}
     <div class="nav-item">
-        <a href="{{ path('signup') }}" class="me-2 signup btn btn-lg btn-outline-secondary fw-bold">
+        <a href="{{ path('signup') }}" class="signup btn btn-lg btn-link fw-bold">
             {{ 'global.signup'|trans }}
         </a>
     </div>
