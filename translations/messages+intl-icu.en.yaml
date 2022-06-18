@@ -1,4 +1,4 @@
-global: 
+global:
     signup: "Sign Up"
 form:
     label:
@@ -6,6 +6,8 @@ form:
         email: Email
         username: Username
         password: Password
+navbar:
+    signup: "Share my trip"
 marketing:
     early_bird:
         register: 'Keep me posted 🤙'

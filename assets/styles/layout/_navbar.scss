@@ -8,6 +8,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 18px;
+    margin-right: 0;
 
     .image {
       margin-right: 10px;
@@ -15,7 +16,6 @@
 
     .name {
       letter-spacing: 0.25rem;
-      margin-top: 4px;
     }
 
     &:hover {
@@ -23,14 +23,18 @@
     }
   }
 
-  .btn-link {
+  .nav-link {
     color: $dark-color;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.875rem;
   }
 
   .locale-selector {
-    text-decoration: none!important;
-    a:hover  {
-      text-decoration: none!important;
+    text-decoration: none !important;
+
+    a:hover {
+      text-decoration: none !important;
     }
   }
 }

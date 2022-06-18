@@ -6,6 +6,8 @@ form:
         email: Email
         username: "Nom d'utilisateur"
         password: 'Mot de passe'
+navbar:
+    signup: "Partager mon aventure"
 marketing:
     early_bird:
         register: 'Tiens moi au courant 🤙'
