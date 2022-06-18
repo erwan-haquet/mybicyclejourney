@@ -13,8 +13,7 @@ marketing:
         email_is_already_used: "You already registered, we won't forget you, promised 👊"
 pages:
     homepage:
-        hero_baseline: 'Share your greatest bicycle adventures, easier than never'
-        hero_hook: 'With your family, your friends, your colleagues, your dog and even Brad Pitt, why not ?'
+        hero_baseline: 'Share your trip,<br> easier than never.'
         stay_tuned_title: 'The story just begun... for us too !'
         stay_tuned_paragraph: 'MyBicycleJourney is brand new and we are not quite ready to hit the road.<br><br>In the meantime, if you want to be informed of progress, you can register here and you will be notified as soon as there is something new.'
         discover_the_project: 'Discover the project'

@@ -12,6 +12,7 @@ $font-family-base:  "Raleway", sans-serif;
 
 /*> COLORS */
 // Based on @see https://colors.muz.li/palette/f2eff1/22a492/172544/37d4a1/115041
+$white:          #ffffff;
 $light-color:    #f2eff1;
 $dark-color:     #172544;
 $primary:        #24AF98;
@@ -28,6 +29,8 @@ $theme-colors: (
   "info":      $info,
   "warning":   $warning,
   "danger":    $danger,
+  "white":     $white,
+  "light":     $light-color,
 );
 
 $body-bg:        $light-color;
