@@ -1,8 +1,13 @@
 <section class="header">
-    <h1 class="title">
-        {{ "pages.homepage.hero_baseline"|trans }}
-    </h1>
-    <h2 class="hook">
-        {{ "pages.homepage.hero_hook"|trans }}
-    </h2>
+    <div class="row">
+        <div class="col-xl-11 col-12">
+            <h1 class="title">
+                {{ "pages.homepage.hero_baseline"|trans|raw }}
+            </h1>
+            <a href="{{ path('the_project') }}"
+               class="btn btn-lg btn-white button">
+                {{ "pages.homepage.discover_the_project"|trans }}
+            </a>
+        </div>
+    </div>
 </section>
