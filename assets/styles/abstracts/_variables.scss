@@ -3,10 +3,10 @@
 // Some variables are directly extended from bootstrap to simplify overriding.
 
 /*> FONT */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Code+Pro:wght@300;400;500;600&family=Raleway:wght@300;400;600;700&display=swap');
-$font-family-brand: "Source Code Pro", Menlo, Monaco, Consolas;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600&family=Raleway:wght@300;400;600;700&display=swap');
+$font-family-brand: Roboto;
 
-$font-family-title: "Raleway", Menlo, Monaco, Consolas;
+$font-family-title: Roboto, Menlo, Monaco, Consolas;
 $font-family-base:  "Raleway", sans-serif;
 /*< FONT */
 
@@ -22,12 +22,12 @@ $warning:        #dfc713;
 $danger:         #eb1807;
 
 $theme-colors: (
-    "primary":   $primary,
-    "secondary": $secondary,
-    "success":   $primary,
-    "info":      $info,
-    "warning":   $warning,
-    "danger":    $danger,
+  "primary":   $primary,
+  "secondary": $secondary,
+  "success":   $primary,
+  "info":      $info,
+  "warning":   $warning,
+  "danger":    $danger,
 );
 
 $body-bg:        $light-color;
@@ -48,4 +48,4 @@ $input-bg: #ffffff;
 /*< FORMS */
 
 // Height of the navbar is used as constant to compute vh heights
-$navbar-height: 68px;
+$navbar-height: 54px;

@@ -1,16 +1,35 @@
 .navbar-light {
-  padding: 1rem 0.5rem;
+  padding: 0.5rem;
   z-index: 100;
 
   .navbar-brand {
     font-family: $font-family-brand;
     color: $dark-color !important;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+
+    .image {
+      margin-right: 10px;
+    }
+
+    .name {
+      letter-spacing: 0.25rem;
+    }
 
     &:hover {
       text-decoration: none !important;
     }
   }
-  
+
+  .btn-link {
+    color: $dark-color;
+  }
+
+  .locale-selector {
+    text-decoration: none!important;
+    a:hover  {
+      text-decoration: none!important;
+    }
+  }
 }
-
-
