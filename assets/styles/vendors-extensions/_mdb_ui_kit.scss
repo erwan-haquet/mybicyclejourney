@@ -20,7 +20,16 @@ i.flag-en:before {
 
 // Remove the hover on button text
 a.btn:hover {
-  text-decoration: none;
+  text-decoration: none!important;
+}
+
+.nav-tabs {
+  .active {
+    background-color: $white!important;
+  }
+  a:hover {
+    text-decoration: none!important;
+  }
 }
 
 // Dropdown menu customization

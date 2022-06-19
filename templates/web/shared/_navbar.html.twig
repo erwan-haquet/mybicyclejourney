@@ -20,9 +20,16 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
         {% if app.user %}
-            <button type="button" class="nav-link btn" disabled>
-                {{ 'global.coming_soon'|trans }}
-            </button>
+            <div class="nav-item">
+                <span data-mdb-toggle="tooltip" title="{{ 'global.coming_soon'|trans }}">
+                    <a href="#"
+                       class="signup nav-link text-muted"
+                       style="pointer-events: none;"
+                    >
+                        {{ 'global.my_account'|trans }}
+                    </a>
+                </span>
+            </div>
         {% else %}
             {{ _self.signup() }}
         {% endif %}
