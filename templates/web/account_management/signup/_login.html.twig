@@ -1,0 +1,55 @@
+<p class="card-text text-center text-muted description">{{ "account_management.login.description"|trans|raw }}</p>
+
+<form action="{{ path('login') }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-floating">
+                <input type="text"
+                       id="email"
+                       name="email"
+                       class="form-control"
+                       required
+                       value="{{ last_email }}"/>
+                <label for="email">
+                    {{ 'form.label.email'|trans }} :
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-floating">
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-control"
+                        required
+                />
+                <label for="password" class="form-label required">
+                    {{ 'form.label.password'|trans }} :
+                </label>
+            </div>
+        </div>
+    </div>
+
+    {% if error %}
+        <div class="row">
+            <div class="col-sm-12">
+                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-xl fw-bold btn-primary w-100 mb-3">
+                {{ "account_management.login.signin"|trans }}
+            </button>
+        </div>
+    </div>
+</form>
+ 

@@ -1,19 +1,7 @@
 #signup {
-  .container {
-    padding-top: 3rem;
-  }
-  
-  @include media-breakpoint-down(md) {
-    .container {
-      padding-top: 1rem;
-    }
-  }
-
   // FORM 
   .registration-form {
     .card {
-      margin-top: 2rem;
-
       .card-body {
         padding: 3rem;
 

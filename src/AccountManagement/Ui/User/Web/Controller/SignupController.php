@@ -53,6 +53,7 @@ class SignupController extends AbstractController
         }
 
         return $this->render('web/account_management/signup/index.html.twig', [
+            'context' => 'signup',
             'form' => $form->createView(),
         ]);
     }

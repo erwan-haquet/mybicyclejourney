@@ -21,10 +21,13 @@ class LoginController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return new Response('', Response::HTTP_INTERNAL_SERVER_ERROR);
 
         // TODO: implement login form
         // @see https://symfony.com/doc/current/security.html#form-login
-        // return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('web/account_management/signup/index.html.twig', [
+            'last_email' => $lastUsername,
+            'context' => 'login',
+            'error' => $error
+        ]);
     }
 }
