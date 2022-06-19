@@ -1,5 +1,7 @@
 global:
-    signup: "Sign Up"
+    signup: "Sign up"
+    signin: "Sign in"
+    coming_soon: "Coming soon"
 form:
     label:
         first_name: 'First name'
@@ -15,7 +17,7 @@ marketing:
         email_is_already_used: "You already registered, we won't forget you, promised 👊"
 pages:
     homepage:
-        hero_baseline: 'Share your trip,<br> easier than never.'
+        hero_baseline: 'Share your travel,<br> easier than never.'
         stay_tuned_title: 'The story just begun... for us too !'
         stay_tuned_paragraph: 'MyBicycleJourney is brand new and we are not quite ready to hit the road.<br><br>In the meantime, if you want to be informed of progress, you can register here and you will be notified as soon as there is something new.'
         discover_the_project: 'Discover the project'
@@ -33,10 +35,8 @@ pages:
         stay_tuned_paragraph: "You already have all your next trips to prepare and you don't feel like contributing to the project?  <br>Would you still like to be informed of the progress? No problem, leave us your email and we won't forget you 😉"
 account_management:
     signup:
-        hook_line1: "Join us,"
-        hook_line2: "Write your story."
-        description: "Create your MBJ account in 5 seconds and start sharing your first trip with us, promise we will be your biggest fans 😍."
-        privacy_policy: 'We care about your data, take a look at our <a href="{link}">Privacy&nbsp;Policy</a>.'
+        description: "Join us at My Bicycle Journey and share your bike trip, promise we will be your biggest fans 😍."
+        privacy_policy: 'We care about your data - <a href="{link}">Privacy&nbsp;Policy</a>.'
         register: "Create my account"
         registered_with_success: 'Welcome in the community {username} !'
     verify_user_email:

@@ -1,5 +1,7 @@
 global:
     signup: Inscription
+    signin: Connexion
+    coming_soon: "Bientôt disponible"
 form:
     label:
         first_name: Prénom
@@ -33,10 +35,8 @@ pages:
         stay_tuned_paragraph: "Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ? <br>Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne t'oubliera pas 😉"
 account_management:
     signup:
-        hook_line1: "Rejoins nous,"
-        hook_line2: "Écris ton histoire."
-        description: "Crée ton compte MBJ en 5 secondes et commence à nous partager ton premier voyage, promis nous serons tes plus grands fans 😍."
-        privacy_policy: 'Chez My Bicycle Journey on respecte vos données. voir notre <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
+        description: "Rejoins My Bicycle Journey et raconte nous ton voyage à vélo, promis nous serons tes plus grands fans 😍."
+        privacy_policy: 'On respecte vos données - <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
         register: "Créer mon compte"
         registered_with_success: 'Bienvenue dans la communauté {username} !'
     verify_user_email:
