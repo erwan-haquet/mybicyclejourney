@@ -12,36 +12,13 @@
                     <div class="registration-form mb-4">
                         <div class="card">
                             <div class="card-body">
-                                <h2 class="card-title title text-center">{{ "global.signup"|trans }}</h2>
-                                <p class="card-text text-muted description">{{ "account_management.signup.description"|trans|raw }}</p>
+                                {{ _self.navigation(context) }}
 
-                                {{ form_start(form) }}
-
-                                {{ form_row(form.username, {
-                                    label: "form.label.username",
-                                    row_attr: {class: 'form-floating'}
-                                }) }}
-
-                                {{ form_row(form.email, {
-                                    label: "form.label.email",
-                                    row_attr: {class: 'form-floating'}
-                                }) }}
-
-                                {{ form_row(form.plainPassword, {
-                                    label: "form.label.password",
-                                    row_attr: {class: 'form-floating'}
-                                }) }}
-
-                               
-                                <button type="submit" class="btn btn-xl fw-bold btn-primary w-100 mb-3">
-                                    {{ "account_management.signup.register"|trans }}
-                                </button>
-                                
-                                {{ form_end(form) }}
-
-                                <p class="text-end text-muted privacy-policy">
-                                    {{ "account_management.signup.privacy_policy"|trans({'link': path('privacy_policy')})|raw }}
-                                </p>
+                                {% if context == 'signup' %}
+                                    {% include "web/account_management/signup/_signup.html.twig" %}
+                                {% else %}
+                                    {% include "web/account_management/signup/_login.html.twig" %}
+                                {% endif %}
 
                             </div>
                         </div>
@@ -53,4 +30,34 @@
         </div>
     </main>
 {% endblock %}
+
+{% macro navigation(context) %}
+    <ul class="nav nav-tabs nav-fill mb-5" id="ex1" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a
+                    class="nav-link {{ context == 'signup' ? 'active' }}"
+                    id="ex2-tab-1"
+                    data-mdb-toggle="tab"
+                    href="{{ path('signup') }}"
+                    role="tab"
+                    aria-controls="ex2-tabs-1"
+                    aria-selected="true">
+                {{ 'global.signup'|trans }}
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a
+                    class="nav-link {{ context == 'login' ? 'active' }}"
+                    id="ex2-tab-2"
+                    data-mdb-toggle="tab"
+                    href="{{ path('login') }}"
+                    role="tab"
+                    aria-controls="ex2-tabs-2"
+                    aria-selected="false"
+            >
+                {{ 'global.login'|trans }}
+            </a>
+        </li>
+    </ul>
+{% endmacro %}
 

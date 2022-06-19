@@ -36,13 +36,14 @@ pages:
         stay_tuned_paragraph: "You already have all your next trips to prepare and you don't feel like contributing to the project?  <br>Would you still like to be informed of the progress? No problem, leave us your email and we won't forget you 😉"
 account_management:
     signup:
-        description: "Join us at My Bicycle Journey and share your bike trip, promise we will be your biggest fans 😍."
+        description: "Join us at My Bicycle Journey and share your bike trip,<br> promise we will be your biggest fans 😍."
         privacy_policy: 'We care about your data, see our <a href="{link}">Privacy&nbsp;Policy</a>.'
         register: "Create my account"
+        already_have_an_account: "I already have an account."
         registered_with_success: 'Welcome in the community {username} !'
     login:
+        description: "Welcome back, did we missed something 😃 ?"
         submit: "Login"
-        signup_redirect: 'New to My Bicycle Journey ? <a href="{link}">Sign up and join us!</a>'
         registered_with_success: 'Hi again {username}'
     verify_user_email:
         user_not_found: 'Oops, it seems like we cannot confirm your email :('

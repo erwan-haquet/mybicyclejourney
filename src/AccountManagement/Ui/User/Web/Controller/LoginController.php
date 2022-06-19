@@ -24,8 +24,9 @@ class LoginController extends AbstractController
 
         // TODO: implement login form
         // @see https://symfony.com/doc/current/security.html#form-login
-        return $this->render('web/account_management/login/index.html.twig', [
+        return $this->render('web/account_management/signup/index.html.twig', [
             'last_email' => $lastUsername,
+            'context' => 'login',
             'error' => $error
         ]);
     }
