@@ -1,7 +1,8 @@
 global:
     signup: "Sign up"
-    signin: "Sign in"
+    login: "Login"
     coming_soon: "Coming soon"
+    my_account: "My account"
 form:
     label:
         first_name: 'First name'
@@ -36,9 +37,13 @@ pages:
 account_management:
     signup:
         description: "Join us at My Bicycle Journey and share your bike trip, promise we will be your biggest fans 😍."
-        privacy_policy: 'We care about your data - <a href="{link}">Privacy&nbsp;Policy</a>.'
+        privacy_policy: 'We care about your data, see our <a href="{link}">Privacy&nbsp;Policy</a>.'
         register: "Create my account"
         registered_with_success: 'Welcome in the community {username} !'
+    login:
+        submit: "Login"
+        signup_redirect: 'New to My Bicycle Journey ? <a href="{link}">Sign up and join us!</a>'
+        registered_with_success: 'Hi again {username}'
     verify_user_email:
         user_not_found: 'Oops, it seems like we cannot confirm your email :('
         email_verified: 'Welcome back, your account is now verified ✅'

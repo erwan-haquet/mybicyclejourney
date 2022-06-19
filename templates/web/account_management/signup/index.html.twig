@@ -2,15 +2,52 @@
 
 {% block page_contents %}
     <main id="signup">
-        <div class="container">
+        <div class="container pt-5">
             <div class="row">
                 <div class="
                     col-12
                     col-md-8 offset-md-2
                     col-xl-6 offset-xl-3
                 ">
-                    {# Form #}
-                    {% include "web/account_management/signup/_registration_form.html.twig" %}
+                    <div class="registration-form mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title title text-center">{{ "global.signup"|trans }}</h2>
+                                <p class="card-text text-muted description">{{ "account_management.signup.description"|trans|raw }}</p>
+
+                                {{ form_start(form) }}
+
+                                {{ form_row(form.username, {
+                                    label: "form.label.username",
+                                    row_attr: {class: 'form-floating'}
+                                }) }}
+
+                                {{ form_row(form.email, {
+                                    label: "form.label.email",
+                                    row_attr: {class: 'form-floating'}
+                                }) }}
+
+                                {{ form_row(form.plainPassword, {
+                                    label: "form.label.password",
+                                    row_attr: {class: 'form-floating'}
+                                }) }}
+
+                               
+                                <button type="submit" class="btn btn-xl fw-bold btn-primary w-100 mb-3">
+                                    {{ "account_management.signup.register"|trans }}
+                                </button>
+                                
+                                {{ form_end(form) }}
+
+                                <p class="text-end text-muted privacy-policy">
+                                    {{ "account_management.signup.privacy_policy"|trans({'link': path('privacy_policy')})|raw }}
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>

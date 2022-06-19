@@ -14,6 +14,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            entry_point: App\AccountManagement\Infrastructure\User\Security\Authenticator
             lazy: true
             provider: app_user_provider
             custom_authenticator: App\AccountManagement\Infrastructure\User\Security\Authenticator
@@ -21,7 +22,11 @@ security:
                 path: logout
                 # where to redirect after logout
                 # target: app_any_route
-
+            form_login:
+                # "login" is the name of the route created previously
+                login_path: login
+                check_path: login
+                enable_csrf: true
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 

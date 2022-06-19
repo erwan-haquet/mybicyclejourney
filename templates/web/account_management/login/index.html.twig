@@ -1,0 +1,74 @@
+{% extends "web/layout.html.twig" %}
+
+{% block page_contents %}
+    <main id="signup">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="
+                    col-12
+                    col-md-8 offset-md-2
+                    col-xl-6 offset-xl-3
+                ">
+                    <div class="registration-form mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title title text-center">{{ "global.login"|trans }}</h2>
+                                <p class="card-text text-muted text-center description">{{ "account_management.login.signup_redirect"|trans({'link': path('signup')})|raw }}</p>
+
+                                {% if error %}
+                                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
+
+                                <form action="{{ path('login') }}" method="post">
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-floating">
+                                                <input type="text"
+                                                       id="email"
+                                                       name="email"
+                                                       class="form-control"
+                                                       required
+                                                       value="{{ last_email }}"/>
+                                                <label for="email">
+                                                    {{ 'form.label.email'|trans }} :
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-sm-12">
+                                            <div class="form-floating">
+                                                <input
+                                                        type="password"
+                                                        id="password"
+                                                        name="password"
+                                                        class="form-control"
+                                                        required
+                                                />
+                                                <label for="password" class="form-label required">
+                                                    {{ 'form.label.password'|trans }} :
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-xl fw-bold btn-primary w-100 mb-3">
+                                                {{ "account_management.login.submit"|trans }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+

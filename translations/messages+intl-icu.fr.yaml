@@ -1,7 +1,8 @@
 global:
     signup: Inscription
-    signin: Connexion
+    login: Connexion
     coming_soon: "Bientôt disponible"
+    my_account: "Mon compte"
 form:
     label:
         first_name: Prénom
@@ -36,9 +37,13 @@ pages:
 account_management:
     signup:
         description: "Rejoins My Bicycle Journey et raconte nous ton voyage à vélo, promis nous serons tes plus grands fans 😍."
-        privacy_policy: 'On respecte vos données - <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
+        privacy_policy: 'Nous respectons vos données, voir notre <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
         register: "Créer mon compte"
         registered_with_success: 'Bienvenue dans la communauté {username} !'
+    login:
+        signup_redirect: 'Nouveau sur My Bicycle Journey ? <a href="{link}">Inscris-toi et rejoins nous !</a>'
+        submit: "Connexion"
+        registered_with_success: 'Re bonjour {username}'
     verify_user_email:
         user_not_found: "Oops, il semblerait qu'on ne puisse pas confirmer ton email :("
         email_verified: 'Ton compte est désormais validé ✅'
