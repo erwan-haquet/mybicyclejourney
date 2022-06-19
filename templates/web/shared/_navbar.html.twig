@@ -18,7 +18,13 @@
 
     <!-- Right elements -->
     <div class="d-flex align-items-center">
-        {{ _self.signup() }}
+        {% if app.user %}
+            <button type="button" class="nav-link btn" disabled>
+                {{ 'global.coming_soon'|trans }}
+            </button>
+        {% else %}
+            {{ _self.signup() }}
+        {% endif %}
         {{ _self.locale_selector() }}
     </div>
     <!-- Right elements -->
