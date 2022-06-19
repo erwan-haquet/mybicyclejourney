@@ -12,17 +12,11 @@ class LoginController extends AbstractController
 {
     public function __invoke(AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
-
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-
-
-        // TODO: implement login form
+        
         // @see https://symfony.com/doc/current/security.html#form-login
         return $this->render('web/account_management/signup/index.html.twig', [
             'last_email' => $lastUsername,

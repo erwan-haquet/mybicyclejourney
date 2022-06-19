@@ -9,6 +9,8 @@ form:
         email: Email
         username: Username
         password: Password
+    helper:
+        username: 'Your nickname visible by the other users.'
 navbar:
     signup: "Share my trip"
 marketing:
