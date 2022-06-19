@@ -9,6 +9,8 @@ form:
         email: Email
         username: "Nom d'utilisateur"
         password: 'Mot de passe'
+    helper: 
+        username: 'Ton pseudo visible par les autres utilisateurs.'
 navbar:
     signup: "Partager mon aventure"
 marketing:
@@ -42,7 +44,7 @@ account_management:
         already_have_an_account: "J'ai déjà un compte."
         registered_with_success: 'Bienvenue dans la communauté {username} !'
     login:
-        description: "Re bienvenue, est-ce qu'on à loupé quelque chose 😃 ?"
+        description: "Re bienvenue, est-ce qu'on a loupé quelque chose 😃 ?"
         signin: "Connexion"
         registered_with_success: 'Re bonjour {username}'
     verify_user_email:

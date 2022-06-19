@@ -1,43 +1,11 @@
 #signup {
-  // FORM 
   .registration-form {
     .card {
       .card-body {
-        padding: 3rem;
-
-        .title {
-          font-size: 2rem;
-          margin-bottom: 1.5rem;
-          font-weight: 900;
-        }
-
-        .description {
-          margin-bottom: 3rem;
-        }
-
-        form {
-          .row {
-            margin-bottom: 1.25rem;
-          }
-        }
-
+        padding: 2rem 3rem;
+        
         .privacy-policy {
           font-size: 0.9rem;
-        }
-      }
-    }
-  }
-
-  @include media-breakpoint-down(md) {
-    .registration-form {
-      .card {
-        margin-top: 1.5rem;
-        .card-body {
-          padding: 2rem;
-
-          .title {
-            font-size: 1.75rem;
-          }
         }
       }
     }
