@@ -8,4 +8,9 @@ namespace App\ContentManagement\Domain\Website\Model\Page;
 enum Type: string
 {
     case Static = 'static';
+
+    /**
+     * Pages relative to the user security management, eg: signup, login, sign-out...
+     */
+    case Security = 'security';
 }
