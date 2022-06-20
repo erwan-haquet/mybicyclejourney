@@ -1,0 +1,9 @@
+Hi!
+
+To reset your password, please visit the following link
+
+{{ url('reset_password_reset', {token: resetToken.token}) }}
+
+This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}
+
+Cheers!

@@ -7,14 +7,12 @@ use App\AccountManagement\Domain\User\Exception\CannotVerifyUserEmail;
 use App\AccountManagement\Domain\User\Exception\UserNotFound;
 use App\AccountManagement\Domain\User\Model\UserId;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
-use Doctrine\ORM\EntityManagerInterface;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 class VerifyUserEmailController extends AbstractController
 {

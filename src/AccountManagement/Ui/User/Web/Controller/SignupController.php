@@ -5,7 +5,7 @@ namespace App\AccountManagement\Ui\User\Web\Controller;
 use App\AccountManagement\Application\User\Command\Signup;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
 use App\AccountManagement\Infrastructure\User\Security\Authenticator;
-use App\AccountManagement\Ui\User\Web\Form\SignupType;
+use App\AccountManagement\Ui\User\Web\Form\SignupFormType;
 use App\Supporting\Domain\I18n\Model\Locale;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,7 +31,7 @@ class SignupController extends AbstractController
             'id' => $id,
             'locale' => Locale::from($request->getLocale())
         ]);
-        $form = $this->createForm(SignupType::class, $command);
+        $form = $this->createForm(SignupFormType::class, $command);
 
         $form->handleRequest($request);
 
