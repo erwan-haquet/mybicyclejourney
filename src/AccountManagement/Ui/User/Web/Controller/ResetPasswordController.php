@@ -14,9 +14,6 @@ use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 
-/**
- * Validates and process the reset URL that the user clicked in their email.
- */
 #[Route('/reset-password/reset/{token}',
     name: 'reset_password_reset',
     requirements: ["_locale" => "en"],
@@ -25,7 +22,10 @@ use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 class ResetPasswordController extends AbstractController
 {
     use ResetPasswordControllerTrait;
-    
+
+    /**
+     * Validates and process the reset URL that the user clicked in their email.
+     */
     public function __invoke(
         Request $request, 
         UserPasswordHasherInterface $userPasswordHasher, 
@@ -39,7 +39,6 @@ class ResetPasswordController extends AbstractController
             // We store the token in session and remove it from the URL, to avoid the URL being
             // loaded in a browser and potentially leaking the token to 3rd party JavaScript.
             $this->storeTokenInSession($token);
-
             return $this->redirectToRoute('reset_password_reset');
         }
 
@@ -59,6 +58,8 @@ class ResetPasswordController extends AbstractController
 
             return $this->redirectToRoute('reset_password_request');
         }
+        
+        // TODO: create a command for the part above
 
         // The token is valid; allow the user to change their password.
         $form = $this->createForm(ChangePasswordFormType::class);
@@ -79,6 +80,8 @@ class ResetPasswordController extends AbstractController
 
             // The session is cleaned up after the password has been changed.
             $this->cleanSessionAfterReset();
+            
+            // TODO: authenticate before redirection
 
             return $this->redirectToRoute('homepage');
         }

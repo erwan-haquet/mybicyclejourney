@@ -1,6 +1,7 @@
 general:
-    say_hello: 'Salut {name} !'
-    say_bye: "À bientôt,\nErwan\nhttps://mybicyclejourney.com/fr"
+    say_hello_john: 'Salut {name} !'
+    say_hello: 'Hey !'
+    say_bye: "À bientôt,\nErwan de https://mybicyclejourney.com/fr"
 marketing_launch:
     early_bird_welcome:
         subject: 'Welcome to My Bicycle Journey - Content de te voir ici !'
@@ -11,4 +12,8 @@ account_management:
     email_confirmation:
         subject: 'Bienvenue sur My Bicycle Journey :)'
         please_confirm_email: 'Merci de confirmer ton email en cliquant sur le lien ci-dessous:'
+        link_expire_in: 'Ce lien expire dans {time}'
+    reset_password:
+        subject: 'Votre demande de réinitialisation de mot de passe - My Bicycle Journey'
+        follow_the_link: 'Pour réinitialiser votre mot de passe, clic sur le lien'
         link_expire_in: 'Ce lien expire dans {time}'

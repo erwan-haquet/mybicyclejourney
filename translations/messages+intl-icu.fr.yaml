@@ -1,18 +1,18 @@
 global:
     signup: Inscription
     login: Connexion
-    coming_soon: "Bientôt disponible"
-    my_account: "Mon compte"
+    coming_soon: 'Bientôt disponible'
+    my_account: 'Mon compte'
 form:
     label:
         first_name: Prénom
         email: Email
         username: "Nom d'utilisateur"
         password: 'Mot de passe'
-    helper: 
+    helper:
         username: 'Ton pseudo visible par les autres utilisateurs.'
 navbar:
-    signup: "Partager mon aventure"
+    signup: 'Partager mon aventure'
 marketing:
     early_bird:
         register: 'Tiens moi au courant 🤙'
@@ -38,14 +38,14 @@ pages:
         stay_tuned_paragraph: "Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ? <br>Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne t'oubliera pas 😉"
 account_management:
     signup:
-        description: "Rejoins My Bicycle Journey et raconte nous ton voyage à vélo,<br> promis nous serons tes plus grands fans 😍."
+        description: 'Rejoins My Bicycle Journey et raconte nous ton voyage à vélo,<br> promis nous serons tes plus grands fans 😍.'
         privacy_policy: 'Nous respectons tes données personnelles, voir notre <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
-        register: "Créer mon compte"
+        register: 'Créer mon compte'
         already_have_an_account: "J'ai déjà un compte."
         registered_with_success: 'Bienvenue dans la communauté {username} !'
     login:
         description: "Re bienvenue, est-ce qu'on a loupé quelque chose 😃 ?"
-        signin: "Connexion"
+        signin: Connexion
         registered_with_success: 'Re bonjour {username}'
     verify_user_email:
         user_not_found: "Oops, il semblerait qu'on ne puisse pas confirmer ton email :("
