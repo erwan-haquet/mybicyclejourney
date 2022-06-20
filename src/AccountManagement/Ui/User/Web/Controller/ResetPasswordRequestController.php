@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AccountManagement\Ui\User\Web\Controller\ResetPassword;
+namespace App\AccountManagement\Ui\User\Web\Controller;
 
 use App\AccountManagement\Domain\User\Model\User;
 use App\AccountManagement\Ui\User\Web\Form\ResetPasswordRequestFormType;
@@ -26,7 +26,7 @@ use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
     requirements: ["_locale" => "en"],
     locale: "en"
 )]
-class RequestController extends AbstractController
+class ResetPasswordRequestController extends AbstractController
 {
     use ResetPasswordControllerTrait;
 

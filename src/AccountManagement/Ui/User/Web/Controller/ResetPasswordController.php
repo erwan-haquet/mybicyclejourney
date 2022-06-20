@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AccountManagement\Ui\User\Web\Controller\ResetPassword;
+namespace App\AccountManagement\Ui\User\Web\Controller;
 
 use App\AccountManagement\Ui\User\Web\Form\ChangePasswordFormType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,14 +22,10 @@ use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
     requirements: ["_locale" => "en"],
     locale: "en"
 )]
-class ResetController extends AbstractController
+class ResetPasswordController extends AbstractController
 {
     use ResetPasswordControllerTrait;
-
-    /**
-     * Validates and process the reset URL that the user clicked in their email.
-     */
-    #[Route('/reset/{token}', name: 'reset_password_reset')]
+    
     public function __invoke(
         Request $request, 
         UserPasswordHasherInterface $userPasswordHasher, 
@@ -61,7 +57,7 @@ class ResetController extends AbstractController
                 $translator->trans($e->getReason(), [], 'ResetPasswordBundle')
             ));
 
-            return $this->redirectToRoute('forgot_password_request');
+            return $this->redirectToRoute('reset_password_request');
         }
 
         // The token is valid; allow the user to change their password.
