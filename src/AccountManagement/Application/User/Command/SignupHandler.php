@@ -7,9 +7,9 @@ use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegistered;
 use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegistered;
 use App\AccountManagement\Domain\User\Model\User;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Library\CQRS\Command\CommandHandlerInterface;
 use Library\CQRS\Event\EventBus;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class SignupHandler implements CommandHandlerInterface
 {

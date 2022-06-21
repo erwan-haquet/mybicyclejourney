@@ -4,7 +4,8 @@
             <div class="message toast bg-{{ label }}"
                  role="alert"
                  aria-live="assertive"
-                 aria-atomic="true" {{ stimulus_controller('toast') }}
+                 data-bs-autohide="false"
+                 aria-atomic="true"{{ stimulus_controller('toast') }}
             >
                 <div class="d-flex">
                     <div class="toast-body body">

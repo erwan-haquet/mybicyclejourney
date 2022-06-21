@@ -18,9 +18,8 @@ class LoginController extends AbstractController
         $lastUsername = $authenticationUtils->getLastUsername();
         
         // @see https://symfony.com/doc/current/security.html#form-login
-        return $this->render('web/account_management/signup/index.html.twig', [
+        return $this->render('web/account_management/user/login.html.twig', [
             'last_email' => $lastUsername,
-            'context' => 'login',
             'error' => $error
         ]);
     }
