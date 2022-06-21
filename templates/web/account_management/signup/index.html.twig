@@ -1,33 +1,15 @@
-{% extends "web/layout.html.twig" %}
+{% extends "web/account_management/signup/layout.html.twig" %}
 
 {% block page_contents %}
-    <main id="signup">
-        <div class="container pt-3 pt-lg-5">
-            <div class="row">
-                <div class="
-                    col-12
-                    col-md-8 offset-md-2
-                    col-xl-6 offset-xl-3
-                ">
-                    <div class="registration-form mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                {{ _self.navigation(context) }}
 
-                                {% if context == 'signup' %}
-                                    {% include "web/account_management/signup/_signup.html.twig" %}
-                                {% else %}
-                                    {% include "web/account_management/signup/_login.html.twig" %}
-                                {% endif %}
-                            </div>
-                        </div>
+    {{ _self.navigation(context) }}
 
-                    </div>
+    {% if context == 'signup' %}
+        {% include "web/account_management/signup/_signup.html.twig" %}
+    {% else %}
+        {% include "web/account_management/signup/_login.html.twig" %}
+    {% endif %}
 
-                </div>
-            </div>
-        </div>
-    </main>
 {% endblock %}
 
 {% macro navigation(context) %}

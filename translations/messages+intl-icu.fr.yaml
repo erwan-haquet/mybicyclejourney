@@ -55,3 +55,7 @@ account_management:
         email_verified: 'Ton compte est désormais validé ✅'
     change_password:
         passwords_does_not_match: "Les mots de passes ne correspondent pas."
+    password_reset:
+        reset_your_password: "Reset your password"
+        enter_your_email: "Enter your email address and we will send you a link to reset your password."
+        send_password_reset_email: "Send password reset email"

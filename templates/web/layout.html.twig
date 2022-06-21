@@ -2,14 +2,6 @@
 
 {% extends 'web/base.html.twig' %}
 
-{% block metadata %}
-    {{ render(controller(
-        'App\\ContentManagement\\Ui\\Website\\Web\\Controller\\MetadataController', {
-            encodedPath: app.request.pathInfo|url_encode
-        })) }}
-    {{ parent() }}
-{% endblock %}
-
 {% block content %}
     {% block page_contents %}{% endblock %}
 {% endblock %}

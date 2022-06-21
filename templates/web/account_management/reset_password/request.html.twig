@@ -1,25 +1,28 @@
-{% extends "web/layout.html.twig" %}
+{% extends "web/account_management/signup/layout.html.twig" %}
 
 {% block page_contents %}
+
+    <h1 class="card-title mb-5 fs-3">
+        {{ "account_management.password_reset.reset_your_password"|trans }}
+    </h1>
+
     {% for flash_error in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-    <h1>Reset your password</h1>
 
     {{ form_start(form) }}
-    
+
     {{ form_row(form.email, {
         label: "form.label.email",
-        attr: {autocomplete: 'email'}
+        row_attr: {class: 'form-floating mb-4'},
+        attr: {autocomplete: 'email'},
+        help: "account_management.password_reset.enter_your_email"
     }) }}
-    
-    <div>
-        <small>
-            Enter your email address and we will send you a
-            link to reset your password.
-        </small>
-    </div>
 
-    <button class="btn btn-primary">Send password reset email</button>
+
+    <button type="submit" class="btn btn-xl fw-bold btn-primary w-100 mb-3">
+        {{ "account_management.password_reset.send_password_reset_email"|trans }}
+    </button>
+
     {{ form_end(form) }}
 {% endblock %}

@@ -1,0 +1,26 @@
+{# The common layout used for signin / signup / reset password #}
+
+{% extends 'web/base.html.twig' %}
+
+{% block content %}
+    <main id="signup">
+        <div class="container pt-3 pt-lg-5">
+            <div class="row">
+                <div class="
+                    col-12
+                    col-md-8 offset-md-2
+                    col-xl-6 offset-xl-3
+                ">
+                    <div class="mb-4">
+                        <div class="card">
+                            <div class="card-body p-5">
+                                {% block page_contents %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

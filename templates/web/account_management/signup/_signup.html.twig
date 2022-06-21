@@ -30,6 +30,8 @@
     {{ "account_management.signup.already_have_an_account"|trans }}
 </a>
 
-<p class="text-end text-muted privacy-policy">
-    {{ "account_management.signup.privacy_policy"|trans({'link': path('privacy_policy')})|raw }}
+<p class="text-end text-muted">
+    <small>
+        {{ "account_management.signup.privacy_policy"|trans({'link': path('privacy_policy')})|raw }}
+    </small>
 </p>
