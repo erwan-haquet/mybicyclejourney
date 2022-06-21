@@ -10,11 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/reset-password',
-    name: 'reset_password_request',
-    requirements: ["_locale" => "en"],
-    locale: "en"
-)]
+#[Route('/reset-password', name: 'reset_password_request')]
 class ResetPasswordRequestController extends AbstractController
 {
     /**
@@ -31,11 +27,12 @@ class ResetPasswordRequestController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $commandBus->handle($command);
+            
             return $this->redirectToRoute('reset_password_check_email');
         }
 
         return $this->render('web/account_management/reset_password/request.html.twig', [
-            'requestForm' => $form->createView(),
+            'form' => $form->createView(),
         ]);
     }
 }

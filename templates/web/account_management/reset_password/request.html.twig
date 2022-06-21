@@ -6,9 +6,9 @@
     {% endfor %}
     <h1>Reset your password</h1>
 
-    {{ form_start(requestForm) }}
+    {{ form_start(form) }}
     
-    {{ form_row(requestForm.email, {
+    {{ form_row(form.email, {
         label: "form.label.email",
         attr: {autocomplete: 'email'}
     }) }}
@@ -21,5 +21,5 @@
     </div>
 
     <button class="btn btn-primary">Send password reset email</button>
-    {{ form_end(requestForm) }}
+    {{ form_end(form) }}
 {% endblock %}

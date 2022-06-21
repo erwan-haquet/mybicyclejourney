@@ -3,8 +3,17 @@
 {% block page_contents %}
     <h1>Reset your password</h1>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Reset password</button>
-    {{ form_end(resetForm) }}
+    {{ form_start(form) }}
+    {{ form_row(form.plainPassword.first, {
+        label: "form.label.new_password",
+        attr: {autocomplete: 'new-password'}
+    }) }}
+
+    {{ form_row(form.plainPassword.second, {
+        label: "form.label.repeat_password",
+        attr: {autocomplete: 'new-password'}
+    }) }}
+
+    <button class="btn btn-primary">Reset password</button>
+    {{ form_end(form) }}
 {% endblock %}

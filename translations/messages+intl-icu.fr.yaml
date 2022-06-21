@@ -9,6 +9,8 @@ form:
         email: Email
         username: "Nom d'utilisateur"
         password: 'Mot de passe'
+        new_password: "Nouveau mot de passe"
+        repeat_password: "Répéter le mot de passe"
     helper:
         username: 'Ton pseudo visible par les autres utilisateurs.'
 navbar:
@@ -50,3 +52,5 @@ account_management:
     verify_user_email:
         user_not_found: "Oops, il semblerait qu'on ne puisse pas confirmer ton email :("
         email_verified: 'Ton compte est désormais validé ✅'
+    change_password:
+      passwords_dont_match: "Les mots de passes ne correspondent pas."

@@ -2,23 +2,22 @@
 
 namespace App\AccountManagement\Ui\User\Web\Controller;
 
+use App\AccountManagement\Application\User\Command\ChangePassword;
+use App\AccountManagement\Domain\User\Model\User;
+use App\AccountManagement\Infrastructure\User\Security\Authenticator;
 use App\AccountManagement\Ui\User\Web\Form\ChangePasswordFormType;
-use Doctrine\ORM\EntityManagerInterface;
+use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 
-#[Route('/reset-password/reset/{token}',
-    name: 'reset_password_reset',
-    requirements: ["_locale" => "en"],
-    locale: "en"
-)]
+#[Route('/reset-password/reset/{token}', name: 'reset_password_reset')]
 class ResetPasswordController extends AbstractController
 {
     use ResetPasswordControllerTrait;
@@ -27,14 +26,14 @@ class ResetPasswordController extends AbstractController
      * Validates and process the reset URL that the user clicked in their email.
      */
     public function __invoke(
-        Request $request, 
-        UserPasswordHasherInterface $userPasswordHasher, 
-        TranslatorInterface $translator,
+        Request                      $request,
+        TranslatorInterface          $translator,
         ResetPasswordHelperInterface $resetPasswordHelper,
-        EntityManagerInterface $entityManager,
-        string $token = null
-    ): Response
-    {
+        CommandBus                   $commandBus,
+        UserAuthenticatorInterface   $authenticator,
+        Authenticator                $formAuthenticator,
+        string                       $token = null
+    ): Response {
         if ($token) {
             // We store the token in session and remove it from the URL, to avoid the URL being
             // loaded in a browser and potentially leaking the token to 3rd party JavaScript.
@@ -48,6 +47,7 @@ class ResetPasswordController extends AbstractController
         }
 
         try {
+            /** @var User $user */
             $user = $resetPasswordHelper->validateTokenAndFetchUser($token);
         } catch (ResetPasswordExceptionInterface $e) {
             $this->addFlash('reset_password_error', sprintf(
@@ -58,36 +58,27 @@ class ResetPasswordController extends AbstractController
 
             return $this->redirectToRoute('reset_password_request');
         }
-        
-        // TODO: create a command for the part above
 
         // The token is valid; allow the user to change their password.
+        $command = new ChangePassword([
+            'userId' => $user->id(),
+            'token' => $token
+        ]);
         $form = $this->createForm(ChangePasswordFormType::class);
+
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            // A password reset token should be used only once, remove it.
-            $resetPasswordHelper->removeResetRequest($token);
+            $commandBus->handle($command);
 
-            // Encode(hash) the plain password, and set it.
-            $encodedPassword = $userPasswordHasher->hashPassword(
+            return $authenticator->authenticateUser(
                 $user,
-                $form->get('plainPassword')->getData()
+                $formAuthenticator,
+                $request
             );
-
-            $user->setPassword($encodedPassword);
-            $entityManager->flush();
-
-            // The session is cleaned up after the password has been changed.
-            $this->cleanSessionAfterReset();
-            
-            // TODO: authenticate before redirection
-
-            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('web/account_management/reset_password/reset.html.twig', [
-            'resetForm' => $form->createView(),
+            'form' => $form->createView(),
         ]);
     }
 }

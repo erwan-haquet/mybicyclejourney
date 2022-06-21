@@ -8,11 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 
-#[Route('/reset-password/check-email',
-    name: 'reset_password_check_email',
-    requirements: ["_locale" => "en"],
-    locale: "en"
-)]
+#[Route('/reset-password/check-email', name: 'reset_password_check_email')]
 class ResetPasswordCheckEmailController extends AbstractController
 {
     use ResetPasswordControllerTrait;
