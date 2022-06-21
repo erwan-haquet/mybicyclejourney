@@ -43,9 +43,12 @@
                     {{ 'form.label.password'|trans }} :
                 </label>
             </div>
-            <a class="mt-1 d-inline-block" href="{{ path('request_password_reset') }}">
-                {{ "account_management.login.forgotten_password"|trans }}
-            </a>
+            <div class="text-end">
+                <a class="mt-1 d-inline-block" href="{{ path('request_password_reset') }}">
+                    {{ "account_management.login.forgot_password"|trans }}
+                </a>
+            </div>
+
         </div>
     </div>
 

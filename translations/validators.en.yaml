@@ -297,3 +297,5 @@ account_management:
         password_is_too_small: 'Your password must contains at least {{ limit }} characters'
         password_is_invalid: 'Your password must contains at least one lowercase (a-z), one uppercase (A-Z) and one number (0-9)'
         not_agreed_terms: "We don't ask too much, but we need you to agreed with the terms"
+    change_password:
+        passwords_does_not_match: "The password fields does not match."

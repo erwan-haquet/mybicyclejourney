@@ -1,19 +1,25 @@
 {% extends "web/account_management/signup/layout.html.twig" %}
 
 {% block page_contents %}
-    <h1>Reset your password</h1>
+    <h1 class="card-title mb-5 fs-3">
+        {{ "account_management.password_reset.reset_your_password"|trans }}
+    </h1>
 
     {{ form_start(form) }}
     {{ form_row(form.plainPassword.first, {
         label: "form.label.new_password",
+        row_attr: {class: 'form-floating mb-4'},
         attr: {autocomplete: 'new-password'}
     }) }}
 
     {{ form_row(form.plainPassword.second, {
         label: "form.label.repeat_password",
+        row_attr: {class: 'form-floating mb-4'},
         attr: {autocomplete: 'new-password'}
     }) }}
 
-    <button class="btn btn-primary">Reset password</button>
+    <button type="submit" class="btn btn-xl fw-bold btn-primary w-100 mb-3">
+        {{ "account_management.password_reset.reset_password"|trans }}
+    </button>
     {{ form_end(form) }}
 {% endblock %}

@@ -297,3 +297,5 @@ account_management:
         password_is_too_small: 'Ton mot de passe doit comporter au minimum {{ limit }} caractères'
         password_is_invalid: 'Ton mot de passe doit comporter au moins une minuscule (a-z), une majuscule (A-Z) et un chiffre (0-9)'
         not_agreed_terms: 'On en demande pas beaucoup, mais il faudra quand même accepter les conditions'
+    change_password:
+        passwords_does_not_match: "Les mots de passes ne correspondent pas."

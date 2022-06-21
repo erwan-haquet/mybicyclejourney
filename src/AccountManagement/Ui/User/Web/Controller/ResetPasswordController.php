@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
+use Symfony\Component\Translation\TranslatableMessage;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
@@ -64,11 +65,15 @@ class ResetPasswordController extends AbstractController
             'userId' => $user->id(),
             'token' => $token
         ]);
-        $form = $this->createForm(ChangePasswordFormType::class);
+        $form = $this->createForm(ChangePasswordFormType::class, $command);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $commandBus->handle($command);
+
+            $this->addFlash('success', new TranslatableMessage('global.welcome_back_john', [
+                'name' => $user->username()
+            ]));
 
             return $authenticator->authenticateUser(
                 $user,

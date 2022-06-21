@@ -1,21 +1,16 @@
 {% extends "web/account_management/signup/layout.html.twig" %}
 
 {% block page_contents %}
-    <main id="check-email">
-        <div class="container pt-3 pt-lg-5">
-            <div class="row">
-                <div class="
-                    col-12
-                    col-md-8 offset-md-2
-                    col-xl-6 offset-xl-3
-                ">
-                    <p>
-                        If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
-                        This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-                    </p>
-                    <p>If you don't receive an email please check your spam folder or <a href="{{ path('request_password_reset') }}">try again</a>.</p>
-                </div>
-            </div>
-        </div>
-    </main>
+
+    <h1 class="card-title mb-5 fs-3">
+        {{ "account_management.password_reset.check_your_emails"|trans }}
+    </h1>
+
+    <p class="card-text">
+        {{ "account_management.password_reset.we_have_send_you_an_email"|trans({
+            'expiresIn': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle'),
+            'link': path('request_password_reset')
+        })| raw }}
+    </p>
+
 {% endblock %}
