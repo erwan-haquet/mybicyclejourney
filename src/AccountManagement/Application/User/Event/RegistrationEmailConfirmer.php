@@ -10,8 +10,8 @@ use App\Supporting\Domain\Email\Model\Email;
 use Library\Assert\Assert;
 use Library\CQRS\Event\EventHandlerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Twig\Environment;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
+use Twig\Environment;
 
 class RegistrationEmailConfirmer implements EventHandlerInterface
 {

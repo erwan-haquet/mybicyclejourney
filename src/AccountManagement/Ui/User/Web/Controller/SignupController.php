@@ -4,7 +4,7 @@ namespace App\AccountManagement\Ui\User\Web\Controller;
 
 use App\AccountManagement\Application\User\Command\Signup;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
-use App\AccountManagement\Infrastructure\User\Security\Authenticator;
+use App\AccountManagement\Infrastructure\User\Security\LoginFormAuthenticator;
 use App\AccountManagement\Ui\User\Web\Form\SignupFormType;
 use App\Supporting\Domain\I18n\Model\Locale;
 use Library\CQRS\Command\CommandBus;
@@ -23,7 +23,7 @@ class SignupController extends AbstractController
         UserRepositoryInterface    $repository,
         CommandBus                 $commandBus,
         UserAuthenticatorInterface $authenticator,
-        Authenticator              $formAuthenticator
+        LoginFormAuthenticator $formAuthenticator
     ): Response
     {
         $id = $repository->nextIdentity();
@@ -52,7 +52,7 @@ class SignupController extends AbstractController
             );
         }
 
-        return $this->render('web/account_management/signup/index.html.twig', [
+        return $this->render('web/account_management/user/signup.html.twig', [
             'context' => 'signup',
             'form' => $form->createView(),
         ]);

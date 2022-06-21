@@ -31,7 +31,7 @@ class RequestPasswordResetController extends AbstractController
             return $this->redirectToRoute('reset_password_check_email');
         }
 
-        return $this->render('web/account_management/reset_password/request.html.twig', [
+        return $this->render('web/account_management/user/request_password.html.twig', [
             'form' => $form->createView(),
         ]);
     }

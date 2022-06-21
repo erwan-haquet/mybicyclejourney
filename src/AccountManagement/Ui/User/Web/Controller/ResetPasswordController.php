@@ -4,7 +4,7 @@ namespace App\AccountManagement\Ui\User\Web\Controller;
 
 use App\AccountManagement\Application\User\Command\ChangePassword;
 use App\AccountManagement\Domain\User\Model\User;
-use App\AccountManagement\Infrastructure\User\Security\Authenticator;
+use App\AccountManagement\Infrastructure\User\Security\LoginFormAuthenticator;
 use App\AccountManagement\Ui\User\Web\Form\ChangePasswordFormType;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,7 +32,7 @@ class ResetPasswordController extends AbstractController
         ResetPasswordHelperInterface $resetPasswordHelper,
         CommandBus                   $commandBus,
         UserAuthenticatorInterface   $authenticator,
-        Authenticator                $formAuthenticator,
+        LoginFormAuthenticator       $formAuthenticator,
         string                       $token = null
     ): Response {
         if ($token) {
@@ -51,7 +51,7 @@ class ResetPasswordController extends AbstractController
             /** @var User $user */
             $user = $resetPasswordHelper->validateTokenAndFetchUser($token);
         } catch (ResetPasswordExceptionInterface $e) {
-            $this->addFlash('reset_password_error', sprintf(
+            $this->addFlash('warning', sprintf(
                 '%s - %s',
                 $translator->trans(ResetPasswordExceptionInterface::MESSAGE_PROBLEM_VALIDATE, [], 'ResetPasswordBundle'),
                 $translator->trans($e->getReason(), [], 'ResetPasswordBundle')
@@ -60,7 +60,9 @@ class ResetPasswordController extends AbstractController
             return $this->redirectToRoute('request_password_reset');
         }
 
-        // The token is valid; allow the user to change their password.
+        // The token is now valid.
+        // Allow the user to change their password.
+        
         $command = new ChangePassword([
             'userId' => $user->id(),
             'token' => $token
@@ -82,7 +84,7 @@ class ResetPasswordController extends AbstractController
             );
         }
 
-        return $this->render('web/account_management/reset_password/reset.html.twig', [
+        return $this->render('web/account_management/user/reset_password.html.twig', [
             'form' => $form->createView(),
         ]);
     }
