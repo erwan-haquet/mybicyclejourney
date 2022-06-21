@@ -9,7 +9,12 @@
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/images/favicon-32x32.png') }}">
         <meta name="theme-color" content="#ffffff">
 
-        {% block metadata %}{% endblock %}
+        {% block metadata %}
+            {{ render(controller(
+                'App\\ContentManagement\\Ui\\Website\\Web\\Controller\\MetadataController', {
+                    encodedPath: app.request.pathInfo|url_encode
+                })) }}
+        {% endblock %}
         
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}

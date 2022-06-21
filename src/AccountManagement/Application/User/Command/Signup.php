@@ -2,12 +2,12 @@
 
 namespace App\AccountManagement\Application\User\Command;
 
+use App\AccountManagement\Domain\User\Constraint as CustomAssert;
 use App\AccountManagement\Domain\User\Model\User;
 use App\AccountManagement\Domain\User\Model\UserId;
 use App\Supporting\Domain\I18n\Model\Locale;
 use Library\CQRS\Command\Command;
 use Symfony\Component\Validator\Constraints as Assert;
-use App\AccountManagement\Domain\User\Constraint as CustomAssert;
 
 /**
  * Register a new user.
