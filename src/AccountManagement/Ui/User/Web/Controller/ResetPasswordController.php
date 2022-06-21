@@ -56,7 +56,7 @@ class ResetPasswordController extends AbstractController
                 $translator->trans($e->getReason(), [], 'ResetPasswordBundle')
             ));
 
-            return $this->redirectToRoute('reset_password_request');
+            return $this->redirectToRoute('request_password_reset');
         }
 
         // The token is valid; allow the user to change their password.

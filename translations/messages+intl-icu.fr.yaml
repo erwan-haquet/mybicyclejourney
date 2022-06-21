@@ -49,8 +49,9 @@ account_management:
         description: "Re bienvenue, est-ce qu'on a loupé quelque chose 😃 ?"
         signin: Connexion
         registered_with_success: 'Re bonjour {username}'
+        forgotten_password: 'Mot de passe oublié ?'
     verify_user_email:
         user_not_found: "Oops, il semblerait qu'on ne puisse pas confirmer ton email :("
         email_verified: 'Ton compte est désormais validé ✅'
     change_password:
-      passwords_dont_match: "Les mots de passes ne correspondent pas."
+        passwords_does_not_match: "Les mots de passes ne correspondent pas."

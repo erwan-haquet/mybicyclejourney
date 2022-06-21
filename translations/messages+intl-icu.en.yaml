@@ -49,8 +49,9 @@ account_management:
         description: "Welcome back, did we missed something 😃 ?"
         submit: "Login"
         registered_with_success: 'Hi again {username}'
+        forgotten_password: 'Forgot password ?'
     verify_user_email:
         user_not_found: 'Oops, it seems like we cannot confirm your email :('
         email_verified: 'Welcome back, your account is now verified ✅'
     change_password:
-        passwords_dont_match: "The password fields does not match."
+        passwords_does_not_match: "The password fields does not match."

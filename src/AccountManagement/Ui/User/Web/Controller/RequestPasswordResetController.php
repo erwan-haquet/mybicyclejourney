@@ -10,8 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/reset-password', name: 'reset_password_request')]
-class ResetPasswordRequestController extends AbstractController
+#[Route('/reset-password', name: 'request_password_reset')]
+class RequestPasswordResetController extends AbstractController
 {
     /**
      * Display & process form to request a password reset.

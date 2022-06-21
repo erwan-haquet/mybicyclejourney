@@ -16,7 +16,7 @@ class ChangePasswordFormType extends AbstractType
         $builder
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'account_management.change_password.passwords_dont_match',
+                'invalid_message' => 'account_management.change_password.passwords_does_not_match',
             ]);
     }
 
