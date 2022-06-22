@@ -1,4 +1,9 @@
+// Reset the absolute position set from MBBootstrap
 .invalid-feedback {
   position: inherit;
-  margin-bottom: 0.5rem;
+}
+
+// If a field have multiple invalid feedback, include a margin between them
+div .invalid-feedback:not(:last-child) {
+  margin-bottom: 0.75rem;
 }

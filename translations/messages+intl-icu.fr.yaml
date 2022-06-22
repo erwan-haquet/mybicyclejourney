@@ -59,7 +59,7 @@ account_management:
         reset_password: "Réinitialiser"
         reset_your_password: "Réinitialiser ton mot de passe"
         enter_your_email: "Saisie ton adresse email et tu recevras un lien permettant de réinitialiser ton mot de passe."
-        send_password_reset_email: "Envoyer un lien par email"
+        send_password_reset_email: "Envoyer l'email"
         check_your_emails: "Vérifies tes emails"
         we_have_send_you_an_email: '<p>Un email contenant un lien que tu pourras utiliser pour réinitialiser ton mot de passe vient de t''être envoyé, <strong>ce lien expire dans {expiresIn}</strong>.</p><p>L''email peut mettre quelques secondes à arriver, mais si tu ne reçois toujours rien d''ici là, vérifie dans tes spams ou bien <a href="{link}">demande un nouveau lien</a>.</p>'
         password_reset_with_success: 'Ton nouveau mot de passe est bien enregistré'

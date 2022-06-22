@@ -33,4 +33,5 @@ services:
             $dkimPk: '%env(default::DKIM_PRIVATE_KEY)%'
             $dkimDomain: '%env(default::DKIM_DOMAIN)%'
             $dkimSelector: '%env(default::DKIM_SELECTOR)%'
-            $sender: '%env(string:MAILER_SENDER)%'
+            $senderName: '%env(string:MAILER_SENDER_NAME)%'
+            $senderEmail: '%env(string:MAILER_SENDER_EMAIL)%'
