@@ -2,7 +2,10 @@
 
 {{ 'account_management.reset_password.follow_the_link' | trans({}, 'email', locale) }}
 
-{{ url('reset_password_reset', {token: resetToken.token}) }}
+{{ url('reset_password_reset', {
+    token: resetToken.token,
+    locale: locale
+}) }}
 
 {{ 'account_management.reset_password.link_expire_in' | trans({
     'time': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle', locale)
