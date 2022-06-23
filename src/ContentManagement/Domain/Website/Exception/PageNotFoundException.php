@@ -2,7 +2,7 @@
 
 namespace App\ContentManagement\Domain\Website\Exception;
 
-class PageNotFound extends \Exception
+class PageNotFoundException extends \Exception
 {
     public static function forPath(string $path): self
     {

@@ -3,8 +3,8 @@
 namespace App\AccountManagement\Ui\User\Web\Controller;
 
 use App\AccountManagement\Application\User\Command\VerifyUserEmail;
-use App\AccountManagement\Domain\User\Exception\CannotVerifyUserEmail;
-use App\AccountManagement\Domain\User\Exception\UserNotFound;
+use App\AccountManagement\Domain\User\Exception\CannotVerifyUserEmailException;
+use App\AccountManagement\Domain\User\Exception\UserNotFoundException;
 use App\AccountManagement\Domain\User\Model\UserId;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
 use Library\CQRS\Command\CommandBus;
@@ -39,10 +39,10 @@ class VerifyUserEmailController extends AbstractController
                 'uri' => $request->getUri()
             ]);
             $commandBus->handle($command);
-        } catch (UserNotFound $exception) {
+        } catch (UserNotFoundException $exception) {
             $this->addFlash('error', new TranslatableMessage('account_management.verify_user_email.user_not_found'));
             return $this->redirectToRoute('signup');
-        } catch (CannotVerifyUserEmail $exception) {
+        } catch (CannotVerifyUserEmailException $exception) {
             $this->addFlash('error', new TranslatableMessage($exception->getMessage(), [], 'VerifyEmailBundle'));
             return $this->redirectToRoute('signup');
         }

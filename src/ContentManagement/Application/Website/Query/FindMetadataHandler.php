@@ -2,10 +2,10 @@
 
 namespace App\ContentManagement\Application\Website\Query;
 
-use App\ContentManagement\Domain\Website\Exception\PageNotFound;
+use App\ContentManagement\Domain\Website\Exception\PageNotFoundException;
 use App\ContentManagement\Domain\Website\Factory\MetadataFactory;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
-use App\ContentManagement\Ui\Website\Web\Dto\Metadata\Metadata;
+use App\ContentManagement\Ui\Website\Web\Dto\Metadata\MetadataDto;
 use Library\CQRS\Query\QueryHandlerInterface;
 
 class FindMetadataHandler implements QueryHandlerInterface
@@ -23,12 +23,12 @@ class FindMetadataHandler implements QueryHandlerInterface
     }
 
     /**
-     * @throws PageNotFound
+     * @throws PageNotFoundException
      */
-    public function __invoke(FindMetadata $query): Metadata
+    public function __invoke(FindMetadata $query): MetadataDto
     {
         if (!$page = $this->pageRepository->findByPath($query->path)) {
-            throw PageNotFound::forPath($query->path);
+            throw PageNotFoundException::forPath($query->path);
         }
 
         return $this->metadataFactory->create($page);

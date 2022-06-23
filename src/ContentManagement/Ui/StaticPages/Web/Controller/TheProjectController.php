@@ -5,7 +5,7 @@ namespace App\ContentManagement\Ui\StaticPages\Web\Controller;
 use App\ContentManagement\Domain\Website\Factory\PageFactory;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
-use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
+use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegisteredException;
 use App\Marketing\Ui\Launch\Web\Form\RegisterEarlyBirdType;
 use App\Supporting\Domain\I18n\Model\Locale;
 use Library\CQRS\Command\CommandBus;
@@ -41,7 +41,7 @@ class TheProjectController extends AbstractController
                 $commandBus->handle($command);
                 $this->addFlash('success', new TranslatableMessage('marketing.early_bird.registered_with_success'));
                 return $this->redirectToRoute('the_project');
-            } catch (EmailIsAlreadyRegistered) {
+            } catch (EmailIsAlreadyRegisteredException) {
                 $this->addFlash('success', new TranslatableMessage('marketing.early_bird.email_is_already_used'));
             }
         }

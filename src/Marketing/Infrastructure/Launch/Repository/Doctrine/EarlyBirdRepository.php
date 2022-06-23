@@ -2,7 +2,7 @@
 
 namespace App\Marketing\Infrastructure\Launch\Repository\Doctrine;
 
-use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
+use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegisteredException;
 use App\Marketing\Domain\Launch\Model\EarlyBird;
 use App\Marketing\Domain\Launch\Repository\EarlyBirdRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -18,7 +18,7 @@ class EarlyBirdRepository extends ServiceEntityRepository implements EarlyBirdRe
     public function add(EarlyBird $earlyBird): void
     {
         if ($this->findBy(['email' => $earlyBird->getEmail()])) {
-            throw new EmailIsAlreadyRegistered();
+            throw new EmailIsAlreadyRegisteredException();
         }
 
         $manager = $this->getEntityManager();

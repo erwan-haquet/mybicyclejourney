@@ -2,8 +2,8 @@
 
 namespace App\AccountManagement\Domain\User\Repository;
 
-use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegistered;
-use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegistered;
+use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegisteredException;
+use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegisteredException;
 use App\AccountManagement\Domain\User\Model\User;
 use App\AccountManagement\Domain\User\Model\UserId;
 
@@ -12,8 +12,8 @@ interface UserRepositoryInterface
     /**
      * Register a new user.
      *
-     * @throws EmailIsAlreadyRegistered
-     * @throws UsernameIsAlreadyRegistered
+     * @throws EmailIsAlreadyRegisteredException
+     * @throws UsernameIsAlreadyRegisteredException
      */
     public function register(User $user): void;
 

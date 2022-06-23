@@ -1,6 +1,6 @@
 global:
     signup: "Sign up"
-    login: "Login"
+    signin: "Sign in"
     coming_soon: "Coming soon"
     my_account: "My account"
     welcome_back_john: "Welcome back {name}"
@@ -41,25 +41,26 @@ pages:
         stay_tuned_paragraph: "You already have all your next trips to prepare and you don't feel like contributing to the project?  <br>Would you still like to be informed of the progress? No problem, leave us your email and we won't forget you 😉"
 account_management:
     signup:
-        description: "Join us at My Bicycle Journey and share your bike trip,<br> promise we will be your biggest fans 😍."
+        description: "Join us at My Bicycle Journey and share your bike trip, promise we will be your first fans 😍."
         privacy_policy: 'We care about your data, see our <a href="{link}">Privacy&nbsp;Policy</a>.'
         register: "Create my account"
         already_have_an_account: "I already have an account."
         registered_with_success: 'Welcome in the community {username} !'
     login:
-        description: "Welcome back, did we missed something 😃 ?"
-        submit: "Login"
-        registered_with_success: 'Hi again {username}'
+        description: "Welcome back, did we missed something ?"
+        signin: "Log in"
+        registered_with_success: 'Hi again {username} 👋'
         forgot_password: 'Forgot password ?'
     verify_user_email:
         user_not_found: 'Oops, it seems like we cannot confirm your email :('
         email_verified: 'Welcome back, your account is now verified ✅'
     password_reset:
         forgot_password: 'Forgot password ?'
-        reset_password: "Reset password"
+        reset_password: "Save"
         reset_your_password: "Reset your password"
         enter_your_email: "Enter your email address and we will send you a link to reset your password."
         send_password_reset_email: "Send email"
-        check_your_emails: "Check your emails"
-        we_have_send_you_an_email: '<p>If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password. <strong>This link will expire in {expiresIn}</strong>.</p><p>If you don''t receive an email please check your spam folder or <a href="{link}">try again</a>.</p>'
+        check_your_emails: "Check your emails 📨"
+        we_have_send_you_an_email: 'If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password. <strong>This link will expire in {expiresIn}</strong>. If you don''t receive an email please check your spam folder or <a href="{link}">try again</a>.'
         password_reset_with_success: 'Your new password is saved'
+        inform_your_password: 'Enter your new password 🔑'
