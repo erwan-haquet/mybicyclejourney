@@ -5,7 +5,7 @@ namespace App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs;
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use Library\Utils\View;
 
-class Breadcrumbs extends View
+class BreadcrumbsDto extends View
 {
     public array $items = [];
 

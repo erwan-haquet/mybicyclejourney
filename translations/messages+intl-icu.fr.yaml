@@ -1,6 +1,6 @@
 global:
     signup: Inscription
-    login: Connexion
+    signin: Connexion
     coming_soon: 'Bientôt disponible'
     my_account: 'Mon compte'
     welcome_back_john: "Re bonjour {name}"
@@ -23,7 +23,7 @@ marketing:
         email_is_already_used: "Ton email est déjà enregistré, mais promis on ne t'oublie pas 👊"
 pages:
     homepage:
-        hero_baseline: 'Partage ton voyage,<br> en toute simplicité.'
+        hero_baseline: 'Partage ton aventure,<br> en toute simplicité.'
         stay_tuned_title: "L'aventure commence ici... pour nous aussi !"
         stay_tuned_paragraph: "MyBicycleJourney est tout nouveau et nous ne sommes pas tout à fait prêt à prendre la route.<br><br>En attendant, si tu souhaites être informé des avancées tu peux t'inscrire ici et tu seras averti dès qu'il y a du nouveau."
         discover_the_project: 'Découvrir le projet'
@@ -41,14 +41,14 @@ pages:
         stay_tuned_paragraph: "Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ? <br>Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne t'oubliera pas 😉"
 account_management:
     signup:
-        description: 'Rejoins My Bicycle Journey et raconte nous ton voyage à vélo,<br> promis nous serons tes plus grands fans 😍.'
+        description: 'Rejoins la communauté My Bicycle Journey et raconte-nous ton voyage à vélo, promis nous serons tes premiers fans 😍.'
         privacy_policy: 'Nous respectons tes données personnelles, voir notre <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
         register: 'Créer mon compte'
         already_have_an_account: "J'ai déjà un compte."
         registered_with_success: 'Bienvenue dans la communauté {username} !'
     login:
-        description: "Re bienvenue, est-ce qu'on a loupé quelque chose 😃 ?"
-        signin: Connexion
+        description: "Re ! On a loupé quelque chose ?"
+        signin: "Me connecter"
         registered_with_success: 'Re bonjour {username}'
         forgot_password: 'Mot de passe oublié ?'
     verify_user_email:
@@ -56,10 +56,11 @@ account_management:
         email_verified: 'Ton compte est désormais validé ✅'
     password_reset:
         forgot_password: 'Mot de passe oublié ?'
-        reset_password: "Réinitialiser"
-        reset_your_password: "Réinitialiser ton mot de passe"
-        enter_your_email: "Saisie ton adresse email et tu recevras un lien permettant de réinitialiser ton mot de passe."
+        reset_password: "Sauvegarder"
+        reset_your_password: "Réinitialise ton mot de passe"
+        enter_your_email: "Saisie ton adresse email pour recevoir un lien permettant de réinitialiser ton mot de passe."
         send_password_reset_email: "Envoyer l'email"
-        check_your_emails: "Vérifies tes emails"
-        we_have_send_you_an_email: '<p>Un email contenant un lien que tu pourras utiliser pour réinitialiser ton mot de passe vient de t''être envoyé, <strong>ce lien expire dans {expiresIn}</strong>.</p><p>L''email peut mettre quelques secondes à arriver, mais si tu ne reçois toujours rien d''ici là, vérifie dans tes spams ou bien <a href="{link}">demande un nouveau lien</a>.</p>'
+        check_your_emails: "Vérifies tes emails 📨"
+        we_have_send_you_an_email: 'Un email contenant un lien que tu pourras utiliser pour réinitialiser ton mot de passe vient de t''être envoyé, <strong>ce lien expire dans {expiresIn}</strong>. <br> <br> L''email peut mettre quelques secondes à arriver, mais si tu ne reçois toujours rien d''ici là, vérifie dans tes spams ou bien <a href="{link}">demande un nouveau lien</a>.'
         password_reset_with_success: 'Ton nouveau mot de passe est bien enregistré'
+        inform_your_password: 'Renseigne ton nouveau mot de passe 🔑'

@@ -2,7 +2,7 @@
 
 namespace App\ContentManagement\Application\Website\Query;
 
-use App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs;
+use App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\BreadcrumbsDto;
 use Library\CQRS\Query\Query;
 
 /**
