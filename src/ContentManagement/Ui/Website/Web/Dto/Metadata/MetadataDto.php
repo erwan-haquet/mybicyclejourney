@@ -7,7 +7,7 @@ use Library\Utils\View;
 /**
  * All the necessary data to render the meta tags.
  */
-class Metadata extends View
+class MetadataDto extends View
 {
     /**
      * Page title
@@ -36,7 +36,7 @@ class Metadata extends View
     /**
      * Other available locales for current page.
      *
-     * @var LocaleAlternate[]
+     * @var LocaleAlternateDto[]
      */
     public array $localeAlternates = [];
 
@@ -45,5 +45,5 @@ class Metadata extends View
      *
      * <meta property="og:x" content="x">
      */
-    public OpenGraph $openGraph;
+    public OpenGraphDto $openGraph;
 }

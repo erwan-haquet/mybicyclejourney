@@ -6,7 +6,7 @@ use App\ContentManagement\Domain\Website\Model\Page\Page;
 use Library\Assert\Assert;
 use Library\Utils\View;
 
-class Sitemap extends View
+class SitemapDto extends View
 {
     public array $urls = [];
 
@@ -19,7 +19,7 @@ class Sitemap extends View
         
         $sitemap = new self();
         foreach ($pages as $page) {
-            $sitemap->urls[] = Url::fromPage($page);
+            $sitemap->urls[] = UrlDto::fromPage($page);
         }
 
         return $sitemap;

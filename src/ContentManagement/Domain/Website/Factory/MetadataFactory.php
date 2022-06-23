@@ -4,9 +4,9 @@ namespace App\ContentManagement\Domain\Website\Factory;
 
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
-use App\ContentManagement\Ui\Website\Web\Dto\Metadata\LocaleAlternate;
-use App\ContentManagement\Ui\Website\Web\Dto\Metadata\Metadata;
-use App\ContentManagement\Ui\Website\Web\Dto\Metadata\OpenGraph;
+use App\ContentManagement\Ui\Website\Web\Dto\Metadata\LocaleAlternateDto;
+use App\ContentManagement\Ui\Website\Web\Dto\Metadata\MetadataDto;
+use App\ContentManagement\Ui\Website\Web\Dto\Metadata\OpenGraphDto;
 use DusanKasan\Knapsack\Collection;
 
 class MetadataFactory
@@ -18,15 +18,15 @@ class MetadataFactory
         $this->repository = $repository;
     }
     
-    public function create(Page $page): Metadata
+    public function create(Page $page): MetadataDto
     {
-        return new Metadata([
+        return new MetadataDto([
             'title' => $page->title(),
             'description' => $page->description(),
             'noindex' => !$page->seo()->shouldIndex(),
             'nofollow' => !$page->seo()->shouldIndex(),
             'localeAlternates' => $this->localeAlternates($page),
-            'openGraph' => new OpenGraph([
+            'openGraph' => new OpenGraphDto([
                 'title' => $page->social()->openGraph()->title(),
                 'description' => $page->social()->openGraph()->description(),
                 'image' => $page->social()->openGraph()->image(),
@@ -37,7 +37,7 @@ class MetadataFactory
     /**
      * Retrieves the alternate language pages based on the current one.
      *
-     * @return LocaleAlternate[]
+     * @return LocaleAlternateDto[]
      */
     private function localeAlternates(Page $page): array
     {
@@ -45,7 +45,7 @@ class MetadataFactory
 
         return Collection::from($pages)
             ->map(function (Page $page) {
-                return new LocaleAlternate([
+                return new LocaleAlternateDto([
                     'locale' => $page->locale(),
                     'url' => $page->url(),
                 ]);

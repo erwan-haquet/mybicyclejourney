@@ -17,7 +17,7 @@ class Breadcrumbs extends View
         $cursor = $page;
         $items = [];
         while (null !== $cursor) {
-            $item = new Item([
+            $item = new ItemDto([
                 'label' => $cursor->label(),
                 'url' => $cursor->url(),
             ]);

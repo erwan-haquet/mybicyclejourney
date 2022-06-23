@@ -65,7 +65,7 @@ class RegistrationEmailConfirmer implements EventHandlerInterface
                 locale: $user->locale()
             ),
             to: $user->email(),
-            text: $this->twig->render('email/account_management/registration/email_confirmation.txt.twig', $context),
+            text: $this->twig->render('email/account_management/user/signup_email_confirmation.txt.twig', $context),
         );
 
         $this->mailer->send($email);
