@@ -5,7 +5,7 @@ namespace App\ContentManagement\Ui\Website\Web\Dto\Sitemap;
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use Library\Utils\View;
 
-class Url extends View
+class UrlDto extends View
 {
     public string $loc;
 

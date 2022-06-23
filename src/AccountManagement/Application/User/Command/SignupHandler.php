@@ -3,8 +3,8 @@
 namespace App\AccountManagement\Application\User\Command;
 
 use App\AccountManagement\Domain\User\Event\UserRegistered;
-use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegistered;
-use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegistered;
+use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegisteredException;
+use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegisteredException;
 use App\AccountManagement\Domain\User\Model\User;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
 use Library\CQRS\Command\CommandHandlerInterface;
@@ -29,8 +29,8 @@ class SignupHandler implements CommandHandlerInterface
     }
 
     /**
-     * @throws EmailIsAlreadyRegistered
-     * @throws UsernameIsAlreadyRegistered
+     * @throws EmailIsAlreadyRegisteredException
+     * @throws UsernameIsAlreadyRegisteredException
      */
     public function __invoke(Signup $command): void
     {

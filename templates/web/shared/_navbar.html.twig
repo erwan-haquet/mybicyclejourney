@@ -1,16 +1,19 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white">
     <!-- Brand -->
     <a class="navbar-brand nav-link " href="{{ path('homepage') }}">
-        <img alt="Brand logo"
-             class="image"
-             height="20px"
-             width="24px"
-             src="{{ asset('build/images/logo.png') }}">
-        <span class="name d-none d-sm-inline">MY BICYCLE JOURNEY</span>
-        <span class="name d-sm-none">MBJ</span>
+        <picture>
+            <source srcset="{{ asset('build/images/logo/logo@1x.png') }}, 
+                            {{ asset('build/images/logo/logo@2x.png') }} 2x"
+                    media="(min-width: 576px)">
+
+            <img srcset="{{ asset('build/images/logo/logo_responsive@1x.png') }}, 
+                         {{ asset('build/images/logo/logo_responsive@2x.png') }} 2x"
+                 alt="Brand logo"
+                 height="22px"
+            >
+        </picture>
     </a>
     <!-- Left elements -->
-
 
     <!-- Left elements -->
     <div class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -20,16 +23,7 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
         {% if app.user %}
-            <div class="nav-item">
-                <span data-mdb-toggle="tooltip" title="{{ 'global.coming_soon'|trans }}">
-                    <a href="#"
-                       class="signup nav-link text-muted"
-                       style="pointer-events: none;"
-                    >
-                        {{ 'global.my_account'|trans }}
-                    </a>
-                </span>
-            </div>
+            {{ _self.my_account() }}
         {% else %}
             {{ _self.signup() }}
         {% endif %}
@@ -91,6 +85,18 @@
     <div class="nav-item">
         <a href="{{ path('signup') }}" class="signup nav-link">
             {{ 'navbar.signup'|trans }}
+        </a>
+    </div>
+{% endmacro %}
+
+{% macro my_account() %}
+    <div class="nav-item">
+        <a href="#"
+           class="signup nav-link text-muted"
+           style="pointer-events: none;"
+        >
+            <i class="fas fa-user-circle me-2"></i>
+            {{ 'global.coming_soon'|trans }}
         </a>
     </div>
 {% endmacro %}

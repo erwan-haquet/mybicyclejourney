@@ -2,8 +2,8 @@
 
 namespace App\AccountManagement\Application\User\Command;
 
-use App\AccountManagement\Domain\User\Exception\CannotVerifyUserEmail;
-use App\AccountManagement\Domain\User\Exception\UserNotFound;
+use App\AccountManagement\Domain\User\Exception\CannotVerifyUserEmailException;
+use App\AccountManagement\Domain\User\Exception\UserNotFoundException;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
 use Library\CQRS\Command\CommandHandlerInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
@@ -24,13 +24,13 @@ class VerifyUserEmailHandler implements CommandHandlerInterface
     }
 
     /**
-     * @throws CannotVerifyUserEmail
-     * @throws UserNotFound
+     * @throws CannotVerifyUserEmailException
+     * @throws UserNotFoundException
      */
     public function __invoke(VerifyUserEmail $command): void
     {
         if (!$user = $this->repository->findById($command->id)) {
-            throw new UserNotFound();
+            throw new UserNotFoundException();
         }
 
         try {
@@ -40,7 +40,7 @@ class VerifyUserEmailHandler implements CommandHandlerInterface
                 $user->email()
             );
         } catch (VerifyEmailExceptionInterface $exception) {
-            throw new CannotVerifyUserEmail($exception->getReason());
+            throw new CannotVerifyUserEmailException($exception->getReason());
         }
 
         $user->verify();

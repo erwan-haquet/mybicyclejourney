@@ -2,9 +2,9 @@
 
 namespace App\ContentManagement\Application\Website\Query;
 
-use App\ContentManagement\Domain\Website\Exception\PageNotFound;
+use App\ContentManagement\Domain\Website\Exception\PageNotFoundException;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
-use App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs;
+use App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\BreadcrumbsDto;
 use Library\CQRS\Query\QueryHandlerInterface;
 
 class FindBreadcrumbsHandler implements QueryHandlerInterface
@@ -17,14 +17,14 @@ class FindBreadcrumbsHandler implements QueryHandlerInterface
     }
 
     /**
-     * @throws PageNotFound
+     * @throws PageNotFoundException
      */
-    public function __invoke(FindBreadcrumbs $query): Breadcrumbs
+    public function __invoke(FindBreadcrumbs $query): BreadcrumbsDto
     {
         if (!$page = $this->pageRepository->findByPath($query->path)) {
-            throw PageNotFound::forPath($query->path);
+            throw PageNotFoundException::forPath($query->path);
         }
 
-        return Breadcrumbs::new($page);
+        return BreadcrumbsDto::new($page);
     }
 }

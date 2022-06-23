@@ -4,7 +4,7 @@ namespace App\ContentManagement\Ui\Website\Web\Dto\Metadata;
 
 use Library\Utils\View;
 
-class OpenGraph extends View
+class OpenGraphDto extends View
 {
     public ?string $title;
 

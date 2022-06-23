@@ -3,7 +3,7 @@
 namespace App\ContentManagement\Ui\Website\Web\Controller;
 
 use App\ContentManagement\Application\Website\Query\FindBreadcrumbs;
-use App\ContentManagement\Domain\Website\Exception\PageNotFound;
+use App\ContentManagement\Domain\Website\Exception\PageNotFoundException;
 use Library\CQRS\Query\QueryBus;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,7 +29,7 @@ class BreadcrumbsController extends AbstractController
 
         try {
             $breadcrumbs = $queryBus->query($query);
-        } catch (PageNotFound $exception) {
+        } catch (PageNotFoundException $exception) {
             $logger->error(sprintf(
                 'Tried to render breadcrumbs for path "%s", but the Page does not exists.',
                 $query->path

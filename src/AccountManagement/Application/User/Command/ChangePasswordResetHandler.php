@@ -2,7 +2,7 @@
 
 namespace App\AccountManagement\Application\User\Command;
 
-use App\AccountManagement\Domain\User\Exception\UserNotFound;
+use App\AccountManagement\Domain\User\Exception\UserNotFoundException;
 use App\AccountManagement\Infrastructure\User\Repository\Doctrine\UserRepository;
 use Library\CQRS\Command\CommandHandlerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -29,13 +29,13 @@ class ChangePasswordResetHandler implements CommandHandlerInterface
     }
 
     /**
-     * @throws UserNotFound
+     * @throws UserNotFoundException
      */
     public function __invoke(ChangePassword $command): void
     {
         // Do not reveal whether a user account was found or not.
         if (!$user = $this->userRepository->findById($command->userId)) {
-            throw new UserNotFound();
+            throw new UserNotFoundException();
         }
 
         // A password reset token should be used only once, remove it.

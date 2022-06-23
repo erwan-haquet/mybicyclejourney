@@ -4,6 +4,6 @@ namespace App\AccountManagement\Domain\User\Exception;
 
 use Exception;
 
-class EmailIsAlreadyRegistered extends Exception
+class UserNotFoundException extends Exception
 {
 }

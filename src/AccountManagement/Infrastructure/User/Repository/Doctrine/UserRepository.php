@@ -2,8 +2,8 @@
 
 namespace App\AccountManagement\Infrastructure\User\Repository\Doctrine;
 
-use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegistered;
-use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegistered;
+use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegisteredException;
+use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegisteredException;
 use App\AccountManagement\Domain\User\Model\User;
 use App\AccountManagement\Domain\User\Model\UserId;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
@@ -21,11 +21,11 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
     public function register(User $user): void
     {
         if ($this->findByEmail($user->email())) {
-            throw new EmailIsAlreadyRegistered();
+            throw new EmailIsAlreadyRegisteredException();
         }
 
         if ($this->findByUsername($user->username())) {
-            throw new UsernameIsAlreadyRegistered();
+            throw new UsernameIsAlreadyRegisteredException();
         }
 
         $manager = $this->getEntityManager();

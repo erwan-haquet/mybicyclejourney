@@ -5,7 +5,7 @@ namespace App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs;
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use Library\Utils\View;
 
-class Breadcrumbs extends View
+class BreadcrumbsDto extends View
 {
     public array $items = [];
 
@@ -17,7 +17,7 @@ class Breadcrumbs extends View
         $cursor = $page;
         $items = [];
         while (null !== $cursor) {
-            $item = new Item([
+            $item = new ItemDto([
                 'label' => $cursor->label(),
                 'url' => $cursor->url(),
             ]);

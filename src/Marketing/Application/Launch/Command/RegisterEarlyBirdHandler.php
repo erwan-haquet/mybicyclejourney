@@ -3,7 +3,7 @@
 namespace App\Marketing\Application\Launch\Command;
 
 use App\Marketing\Domain\Launch\Event\EarlyBirdRegistered;
-use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegistered;
+use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegisteredException;
 use App\Marketing\Domain\Launch\Model\EarlyBird;
 use App\Marketing\Domain\Launch\Repository\EarlyBirdRepositoryInterface;
 use Library\CQRS\Command\CommandHandlerInterface;
@@ -24,7 +24,7 @@ class RegisterEarlyBirdHandler implements CommandHandlerInterface
     }
 
     /**
-     * @throws EmailIsAlreadyRegistered
+     * @throws EmailIsAlreadyRegisteredException
      */
     public function __invoke(RegisterEarlyBird $command): void
     {
