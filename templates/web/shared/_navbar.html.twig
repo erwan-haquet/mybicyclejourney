@@ -27,16 +27,12 @@
         {% else %}
             {{ _self.signup() }}
         {% endif %}
-        {{ _self.locale_selector() }}
+        {{ _self.locale_switcher(mainRoute, mainParams) }}
     </div>
     <!-- Right elements -->
 </nav>
 
-{% macro locale_selector() %}
-    {% set route = app.request.attributes.get('_route') %}
-    {% set route_params = app.request.attributes.get('_route_params') %}
-    {% set params = route_params|merge(app.request.query.all) %}
-
+{% macro locale_switcher(route, params) %}
     <div class="nav-item dropdown locale-selector">
         <a
                 class="text-reset nav-link dropdown-toggle hidden-arrow"
