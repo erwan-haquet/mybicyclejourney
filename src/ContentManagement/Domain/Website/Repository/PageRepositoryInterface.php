@@ -23,11 +23,18 @@ interface PageRepositoryInterface
     public function findByPath(string $path): ?Page;
     
     /**
-     * Finds all actives pages.
+     * Finds all active / published pages.
      * 
      * @return Page[]
      */
     public function findActives(): array;
+    
+    /**
+     * Finds all indexable pages.
+     * 
+     * @return Page[]
+     */
+    public function findIndexables(): array;
     
     /**
      * Finds locale alternatives for the given page, including the given page.
