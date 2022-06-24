@@ -44,6 +44,4 @@ class MetadataController extends AbstractController
             'metadata' => $metadata
         ]);
     }
-
-
 }

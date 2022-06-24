@@ -7,3 +7,8 @@
 div .invalid-feedback:not(:last-child) {
   margin-bottom: 0.75rem;
 }
+
+.form-control:focus {
+  border-color: $primary;
+  box-shadow: inset 0 0 0 1px $primary;
+}
