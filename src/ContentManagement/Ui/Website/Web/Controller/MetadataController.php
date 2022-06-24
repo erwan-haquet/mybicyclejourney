@@ -7,6 +7,7 @@ use App\ContentManagement\Domain\Website\Exception\PageNotFoundException;
 use Library\CQRS\Query\QueryBus;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -20,6 +21,7 @@ class MetadataController extends AbstractController
     public function __invoke(
         string          $encodedPath,
         LoggerInterface $logger,
+        Request $request,
         QueryBus        $queryBus
     ): Response
     {
