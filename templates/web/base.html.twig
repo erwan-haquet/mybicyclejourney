@@ -11,7 +11,7 @@
 
         {% block metadata %}
             {{ render(controller(
-                'App\\ContentManagement\\Ui\\Website\\Web\\Controller\\MetadataController', {
+                'App\\ContentManagement\\Ui\\Components\\Web\\Controller\\MetadataController', {
                     encodedPath: app.request.pathInfo|url_encode
                 })) }}
         {% endblock %}
@@ -25,15 +25,15 @@
         {% endblock %}
         
         {% block third_party %}
-            {% include 'web/shared/_third_party.html.twig' %}
+            {% include 'web/shared/includes/_third_party.html.twig' %}
         {% endblock %}
     </head>
     <body>
-        {% include 'web/shared/_flash_messages.html.twig' %}
+        {% include 'web/shared/includes/_flash_messages.html.twig' %}
 
         <header>
             {% block navbar %}
-                {{ render(controller('App\\ContentManagement\\Ui\\Website\\Web\\Controller\\NavbarController')) }}
+                {{ render(controller('App\\ContentManagement\\Ui\\Components\\Web\\Controller\\NavbarController')) }}
             {% endblock %}
         </header>
 
