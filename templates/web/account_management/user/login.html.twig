@@ -5,8 +5,12 @@
     {% include "web/account_management/user/_navigation.html.twig" with {
         'context': 'login'
     } %}
+
+    <h1 class="card-title mb-4 mt-3 fs-3">
+        {{ "account_management.login.title"|trans }}
+    </h1>
     
-    <p class="card-text text-center text-muted mb-5">
+    <p class="card-text text-muted mb-5">
         {{ "account_management.login.description"|trans|raw }}
     </p>
 
