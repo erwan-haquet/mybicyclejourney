@@ -35,11 +35,6 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
         ]);
     }
 
-    public function nextIdentity(): PageId
-    {
-        return PageId::fromString(Uuid::v4());
-    }
-
     public function findLocaleAlternates(PageId $id): array
     {
         $currentPage = $this->find($id);
@@ -56,5 +51,17 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
     public function findActives(): array
     {
         return $this->findAll();
+    }
+
+    public function findIndexables(): array
+    {
+        return $this->findBy([
+            'seo.shouldIndex' => true
+        ]);
+    }
+
+    public function nextIdentity(): PageId
+    {
+        return PageId::fromString(Uuid::v4());
     }
 }

@@ -26,10 +26,13 @@ class MetadataFactory
             'noindex' => !$page->seo()->shouldIndex(),
             'nofollow' => !$page->seo()->shouldIndex(),
             'localeAlternates' => $this->localeAlternates($page),
+            'canonicalUrl' => $page->url(),
             'openGraph' => new OpenGraphDto([
                 'title' => $page->social()->openGraph()->title(),
                 'description' => $page->social()->openGraph()->description(),
                 'image' => $page->social()->openGraph()->image(),
+                'localeAlternates' => $this->localeAlternates($page),
+                'canonicalUrl' => $page->url(),
             ])
         ]);
     }

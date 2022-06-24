@@ -49,7 +49,7 @@ class Route
     }
 
     /**
-     * The relative url path to the page.
+     * The absolute url to the page.
      * Eg: `https://mybicyclejourney.com/blog/a-cool-article`
      */
     public function url(): string

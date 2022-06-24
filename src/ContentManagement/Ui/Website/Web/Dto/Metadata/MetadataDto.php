@@ -20,6 +20,11 @@ class MetadataDto extends View
     public string $description;
 
     /**
+     * The canonical url of the page.
+     */
+    public string $canonicalUrl;
+
+    /**
      * If set to true, the "nofollow" tag will be added.
      *
      * @see https://clutch.co/seo-firms/resources/meta-tags-that-improve-seo#Robots
