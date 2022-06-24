@@ -41,13 +41,15 @@ pages:
         stay_tuned_paragraph: "Tu as déjà tous tes prochains voyages à preparer et tu ne te sens pas de contribuer au projet ? <br>Tu voudrais quand même être au courant de l'avancé ? Pas de problème, laisse nous ton email et on ne t'oubliera pas 😉"
 account_management:
     signup:
+        title: "Rejoins-nous"
         description: 'Rejoins la communauté My Bicycle Journey et raconte-nous ton voyage à vélo, promis nous serons tes premiers fans 😍.'
         privacy_policy: 'Nous respectons tes données personnelles, voir notre <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
         register: 'Créer mon compte'
         already_have_an_account: "J'ai déjà un compte."
         registered_with_success: 'Bienvenue dans la communauté {username} !'
     login:
-        description: "Re ! On a loupé quelque chose ?"
+        title: "Connexion"
+        description: "Re, Tu nous as manqué !"
         signin: "Me connecter"
         registered_with_success: 'Re bonjour {username}'
         forgot_password: 'Mot de passe oublié ?'
