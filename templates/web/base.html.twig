@@ -33,6 +33,7 @@
 
         <header>
             {% block navbar %}
+                {{ render(controller('App\\ContentManagement\\Ui\\Website\\Web\\Controller\\NavbarController')) }}
                 {% include 'web/shared/_navbar.html.twig' %}
             {% endblock %}
         </header>
