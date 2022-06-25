@@ -10,7 +10,7 @@ class FindNavbarHandler implements QueryHandlerInterface
 {
     public function __invoke(FindNavbar $query): NavbarDto
     {
-        $routeParams = $query->request->attributes->get('_route_params');
+        $routeParams = $query->request->attributes->get('_route_params') ?? [];
         $queryParams = $query->request->query->all();
         
         return new NavbarDto([
