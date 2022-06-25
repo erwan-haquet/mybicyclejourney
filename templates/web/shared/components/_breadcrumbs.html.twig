@@ -1,0 +1,39 @@
+{# @var breadcrumbs \App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs #}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {% for item in breadcrumbs.items %}
+            {% if loop.last %}
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ item.label }}
+                </li>
+            {% else %}
+                <li class="breadcrumb-item">
+                    <a href="{{ item.url }}">{{ item.label }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</nav>
+
+{# Render the breadcrumbs as simple component #}
+{% macro component() %}
+    {{ render(controller(
+        'App\\ContentManagement\\Ui\\Components\\Web\\Controller\\BreadcrumbsController', {
+            encodedPath: app.request.pathInfo|url_encode
+        })) }}
+{% endmacro %}
+
+
+{# Render the breadcrumbs in a standard container row#}
+{% macro row() %}
+    <div class="breadcrumb-row">
+        <div class="container">
+            {{ render(controller(
+                'App\\ContentManagement\\Ui\\Components\\Web\\Controller\\BreadcrumbsController', {
+                    encodedPath: app.request.pathInfo|url_encode
+                })) }}
+        </div>
+    </div>
+{% endmacro %}
+

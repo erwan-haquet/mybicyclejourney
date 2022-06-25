@@ -27,6 +27,11 @@ pages:
         stay_tuned_title: 'The story just begun... for us too !'
         stay_tuned_paragraph: 'MyBicycleJourney is brand new and we are not quite ready to hit the road.<br><br>In the meantime, if you want to be informed of progress, you can register here and you will be notified as soon as there is something new.'
         discover_the_project: 'Discover the project'
+    404error:
+        title: 'Page not found - MyBicycleJourney'
+        oops: 'Oops! page not found'
+        page_not_found: 'We are sorry, but the page you requested was not found 🤷'
+        back_to_home: 'Back to homepage'
     the_project:
         banner_title: 'The project.'
         main_presentation_title: 'My Bicycle What ?'
