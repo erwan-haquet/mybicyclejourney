@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
     <head>
-        {% block metadata %}
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
-            <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/images/favicon-32x32.png') }}">
-            <meta name="theme-color" content="#ffffff">
-            
+        <link rel="apple-touch-icon" href="{{ asset('build/images/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/images/favicon-32x32.png') }}">
+        <meta name="theme-color" content="#ffffff">
+        
+        {% block metadata %}
             {{ render(controller(
                 'App\\ContentManagement\\Ui\\Components\\Web\\Controller\\MetadataController', {
                     encodedPath: app.request.pathInfo|url_encode
