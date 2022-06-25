@@ -27,6 +27,11 @@ pages:
         stay_tuned_title: "L'aventure commence ici... pour nous aussi !"
         stay_tuned_paragraph: "MyBicycleJourney est tout nouveau et nous ne sommes pas tout à fait prêt à prendre la route.<br><br>En attendant, si tu souhaites être informé des avancées tu peux t'inscrire ici et tu seras averti dès qu'il y a du nouveau."
         discover_the_project: 'Découvrir le projet'
+    404error:
+        title: 'Page introuvable - MyBicycleJourney'
+        oops: 'Oops! page introuvable'
+        page_not_found: 'Désolé, mais la page demandée n''a pas été trouvée 🤷'
+        back_to_home: 'Revenir à l''accueil'
     the_project:
         banner_title: 'Le projet.'
         main_presentation_title: 'My Bicycle What ?'
