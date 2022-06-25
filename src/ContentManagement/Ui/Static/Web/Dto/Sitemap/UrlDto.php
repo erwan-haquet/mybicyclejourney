@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ContentManagement\Ui\Pages\Web\Dto\Sitemap;
+namespace App\ContentManagement\Ui\Static\Web\Dto\Sitemap;
 
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use Library\Utils\View;

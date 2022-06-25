@@ -30,6 +30,7 @@ class MetadataAssembler
                 'title' => $page->social()->openGraph()->title(),
                 'description' => $page->social()->openGraph()->description(),
                 'image' => $page->social()->openGraph()->image(),
+                'localeAlternates' => $this->localeAlternates($page),
             ])
         ]);
     }

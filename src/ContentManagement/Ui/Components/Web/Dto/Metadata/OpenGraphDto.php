@@ -11,4 +11,11 @@ class OpenGraphDto extends View
     public ?string $description;
 
     public ?string $image;
+
+    /**
+     * Other available locales for current page.
+     *
+     * @var LocaleAlternateDto[]
+     */
+    public array $localeAlternates = [];
 }

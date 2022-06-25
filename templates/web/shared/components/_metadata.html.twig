@@ -1,41 +1,39 @@
 {# @var metadata \App\ContentManagement\Ui\Website\Web\Dto\Metadata #}
 
-{% block metadata %}
-    <title>{{ metadata.title }}</title>
+<title>{{ metadata.title }}</title>
+<meta name="description" content="{{ metadata.description }}">
 
-    <link rel="canonical" href="{{ app.request.uri }}"/>
-    
-    <meta name="description" content="{{ metadata.description }}">
+<meta name="robots"
+      content="{{ metadata.noindex ? "noindex" : "index" }}, 
+               {{ metadata.nofollow ? "nofollow" : "follow" }}"/>
 
-    <meta name="robots"
-          content="{{ metadata.noindex ? "noindex" : "index" }}, {{ metadata.nofollow ? "nofollow" : "follow" }}"/>
+{% for alternate in metadata.localeAlternates %}
+    <link rel="alternate"
+          hreflang="{{ alternate.locale }}"
+          href="{{ alternate.url }}"/>
+{% endfor %}
 
-    {% for alternate in metadata.localeAlternates %}
-        <link rel="alternate" hreflang="{{ alternate.locale }}" href="{{ alternate.url }}"/>
-    {% endfor %}
+{{ _self.open_graph(metadata.openGraph) }}
 
-    {{ _self.open_graph(metadata.openGraph, metadata.localeAlternates) }}
-{% endblock %}
-
-{% macro open_graph(og, localeAlternates) %}
+{% macro open_graph(openGraph) %}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="My Bicycle Journey">
     <meta property="og:url" content="{{ app.request.uri }}">
     <meta property="og:locale" content="{{ app.request.locale }}">
 
-    {% if og.title is not null %}
-        <meta property="og:title" content="{{ og.title }}">
+    {% if openGraph.title is not null %}
+        <meta property="og:title" content="{{ openGraph.title }}">
     {% endif %}
 
-    {% if og.description is not null %}
-        <meta property="og:description" content="{{ og.description }}">
+    {% if openGraph.description is not null %}
+        <meta property="og:description" content="{{ openGraph.description }}">
     {% endif %}
 
-    {% if og.image is not null %}
-        <meta property="og:image" content="{{ og.image }}">
+    {% if openGraph.image is not null %}
+        <meta property="og:image" content="{{ openGraph.image }}">
     {% endif %}
 
-    {% for alternate in localeAlternates %}
+    {% for alternate in openGraph.localeAlternates %}
         <meta property="og:locale:alternate" content="{{ alternate.locale }}">
     {% endfor %}
 {% endmacro %}

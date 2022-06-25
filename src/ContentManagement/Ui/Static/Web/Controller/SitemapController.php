@@ -1,9 +1,9 @@
 <?php
 
-namespace App\ContentManagement\Ui\Pages\Web\Controller;
+namespace App\ContentManagement\Ui\Static\Web\Controller;
 
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
-use App\ContentManagement\Ui\Pages\Web\Dto\Sitemap\SitemapDto;
+use App\ContentManagement\Ui\Static\Web\Dto\Sitemap\SitemapDto;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +15,7 @@ class SitemapController extends AbstractController
     {
         $pages = $pageRepository->findAll();
         
-        return $this->render('web/pages/sitemap.html.twig', [
+        return $this->render('web/content_management/static/sitemap.html.twig', [
             'sitemap' => SitemapDto::new($pages)
         ]);
     }
