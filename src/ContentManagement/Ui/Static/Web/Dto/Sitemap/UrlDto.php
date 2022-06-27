@@ -13,7 +13,7 @@ class UrlDto extends View
 
     public float $priority;
 
-    public static function fromPage(Page $page): static
+    public static function fromPage(Page $page): self
     {
         return new self([
             'loc' => $page->url(),

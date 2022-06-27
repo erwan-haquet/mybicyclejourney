@@ -12,7 +12,7 @@ class BreadcrumbsDto extends View
     /**
      * Build the breadcrumbs for the given page.
      */
-    public static function new(Page $page): static
+    public static function new(Page $page): self
     {
         $cursor = $page;
         $items = [];

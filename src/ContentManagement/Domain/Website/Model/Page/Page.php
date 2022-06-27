@@ -49,6 +49,7 @@ class Page
     #[ORM\ManyToOne(targetEntity: Page::class, inversedBy: "children")]
     private ?Page $parent;
 
+    /** @var Collection<Page> */
     #[ORM\OneToMany(mappedBy: "parent", targetEntity: Page::class)]
     private Collection $children;
 

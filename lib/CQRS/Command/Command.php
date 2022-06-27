@@ -9,6 +9,9 @@ use RuntimeException;
  */
 abstract class Command implements CommandInterface
 {
+    /**
+     * @param array<string, mixed> $data
+     */
     public function __construct(array $data = [])
     {
         foreach ($data as $key => $value) {
