@@ -1,49 +1,9 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Library\\\\CQRS\\\\Query\\\\Query\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: lib/CQRS/Query/Query.php
-
-		-
-			message: "#^Method Library\\\\CQRS\\\\Query\\\\QueryBus\\:\\:query\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: lib/CQRS/Query/QueryBus.php
-
-		-
-			message: "#^Method Library\\\\Utils\\\\View\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: lib/Utils/View.php
-
-		-
 			message: "#^Call to an undefined method Symfony\\\\Component\\\\Notifier\\\\NotifierInterface\\:\\:getAdminRecipients\\(\\)\\.$#"
 			count: 1
 			path: src/AccountManagement/Application/User/Event/UserRegisteredAdminNotifier.php
-
-		-
-			message: "#^Property App\\\\AccountManagement\\\\Domain\\\\User\\\\Constraint\\\\EmailIsNotAlreadyRegistered\\:\\:\\$message has no type specified\\.$#"
-			count: 1
-			path: src/AccountManagement/Domain/User/Constraint/EmailIsNotAlreadyRegistered.php
-
-		-
-			message: "#^Method App\\\\AccountManagement\\\\Domain\\\\User\\\\Constraint\\\\EmailIsNotAlreadyRegisteredValidator\\:\\:validate\\(\\) has parameter \\$command with no type specified\\.$#"
-			count: 1
-			path: src/AccountManagement/Domain/User/Constraint/EmailIsNotAlreadyRegisteredValidator.php
-
-		-
-			message: "#^Property App\\\\AccountManagement\\\\Domain\\\\User\\\\Constraint\\\\UsernameIsNotAlreadyRegistered\\:\\:\\$message has no type specified\\.$#"
-			count: 1
-			path: src/AccountManagement/Domain/User/Constraint/UsernameIsNotAlreadyRegistered.php
-
-		-
-			message: "#^Method App\\\\AccountManagement\\\\Domain\\\\User\\\\Constraint\\\\UsernameIsNotAlreadyRegisteredValidator\\:\\:validate\\(\\) has parameter \\$command with no type specified\\.$#"
-			count: 1
-			path: src/AccountManagement/Domain/User/Constraint/UsernameIsNotAlreadyRegisteredValidator.php
-
-		-
-			message: "#^Method App\\\\AccountManagement\\\\Domain\\\\User\\\\Model\\\\User\\:\\:eraseCredentials\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/AccountManagement/Domain/User/Model/User.php
 
 		-
 			message: "#^Property App\\\\AccountManagement\\\\Domain\\\\User\\\\Model\\\\User\\:\\:\\$password type mapping mismatch\\: property can contain string\\|null but database expects string\\.$#"
@@ -51,86 +11,11 @@ parameters:
 			path: src/AccountManagement/Domain/User/Model/User.php
 
 		-
-			message: "#^Property App\\\\AccountManagement\\\\Domain\\\\User\\\\Model\\\\User\\:\\:\\$roles type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/AccountManagement/Domain/User/Model/User.php
-
-		-
-			message: "#^Class App\\\\AccountManagement\\\\Infrastructure\\\\User\\\\Repository\\\\Doctrine\\\\UserRepository extends generic class Doctrine\\\\Bundle\\\\DoctrineBundle\\\\Repository\\\\ServiceEntityRepository but does not specify its types\\: TEntityClass$#"
-			count: 1
-			path: src/AccountManagement/Infrastructure/User/Repository/Doctrine/UserRepository.php
-
-		-
-			message: "#^Method App\\\\ContentManagement\\\\Domain\\\\Website\\\\Model\\\\Page\\\\Page\\:\\:children\\(\\) return type has no value type specified in iterable type iterable\\.$#"
-			count: 1
-			path: src/ContentManagement/Domain/Website/Model/Page/Page.php
-
-		-
 			message: "#^Property App\\\\ContentManagement\\\\Domain\\\\Website\\\\Model\\\\Page\\\\Page\\:\\:\\$children is never written, only read\\.$#"
 			count: 1
 			path: src/ContentManagement/Domain/Website/Model/Page/Page.php
 
 		-
-			message: "#^Property App\\\\ContentManagement\\\\Domain\\\\Website\\\\Model\\\\Page\\\\Page\\:\\:\\$children with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/ContentManagement/Domain/Website/Model/Page/Page.php
-
-		-
-			message: "#^Class App\\\\ContentManagement\\\\Infrastructure\\\\Website\\\\Repository\\\\Doctrine\\\\PageRepository extends generic class Doctrine\\\\Bundle\\\\DoctrineBundle\\\\Repository\\\\ServiceEntityRepository but does not specify its types\\: TEntityClass$#"
-			count: 1
-			path: src/ContentManagement/Infrastructure/Website/Repository/Doctrine/PageRepository.php
-
-		-
-			message: "#^Property App\\\\ContentManagement\\\\Ui\\\\Components\\\\Web\\\\Dto\\\\Breadcrumbs\\\\BreadcrumbsDto\\:\\:\\$items type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/ContentManagement/Ui/Components/Web/Dto/Breadcrumbs/BreadcrumbsDto.php
-
-		-
-			message: "#^Property App\\\\ContentManagement\\\\Ui\\\\Components\\\\Web\\\\Dto\\\\Navbar\\\\LocaleSwitcherDto\\:\\:\\$queryParams type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/ContentManagement/Ui/Components/Web/Dto/Navbar/LocaleSwitcherDto.php
-
-		-
-			message: "#^Method App\\\\ContentManagement\\\\Ui\\\\Static\\\\Web\\\\Dto\\\\Sitemap\\\\SitemapDto\\:\\:new\\(\\) has parameter \\$pages with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/ContentManagement/Ui/Static/Web/Dto/Sitemap/SitemapDto.php
-
-		-
-			message: "#^Property App\\\\ContentManagement\\\\Ui\\\\Static\\\\Web\\\\Dto\\\\Sitemap\\\\SitemapDto\\:\\:\\$urls type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/ContentManagement/Ui/Static/Web/Dto/Sitemap/SitemapDto.php
-
-		-
 			message: "#^Call to an undefined method Symfony\\\\Component\\\\Notifier\\\\NotifierInterface\\:\\:getAdminRecipients\\(\\)\\.$#"
 			count: 1
 			path: src/Marketing/Application/Launch/Event/EarlyBirdRegisteredAdminNotifier.php
-
-		-
-			message: "#^Class App\\\\Marketing\\\\Infrastructure\\\\Launch\\\\Repository\\\\Doctrine\\\\EarlyBirdRepository extends generic class Doctrine\\\\Bundle\\\\DoctrineBundle\\\\Repository\\\\ServiceEntityRepository but does not specify its types\\: TEntityClass$#"
-			count: 1
-			path: src/Marketing/Infrastructure/Launch/Repository/Doctrine/EarlyBirdRepository.php
-
-		-
-			message: "#^Method App\\\\Supporting\\\\Domain\\\\Email\\\\MailerInterface\\:\\:send\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Supporting/Domain/Email/MailerInterface.php
-
-		-
-			message: "#^Method App\\\\Supporting\\\\Domain\\\\Email\\\\Model\\\\Email\\:\\:__construct\\(\\) has parameter \\$attachments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Supporting/Domain/Email/Model/Email.php
-
-		-
-			message: "#^Method App\\\\Supporting\\\\Domain\\\\Email\\\\Model\\\\Email\\:\\:__construct\\(\\) has parameter \\$cc with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Supporting/Domain/Email/Model/Email.php
-
-		-
-			message: "#^Method App\\\\Supporting\\\\Domain\\\\Email\\\\Model\\\\Email\\:\\:__construct\\(\\) has parameter \\$to with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Supporting/Domain/Email/Model/Email.php
-
-		-
-			message: "#^Method App\\\\Supporting\\\\Infrastructure\\\\Email\\\\SymfonyMailer\\:\\:send\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Supporting/Infrastructure/Email/SymfonyMailer.php

@@ -1,6 +1,5 @@
-on: [push]
+on: [pull_request]
 name: Static analysis
-
 
 jobs:
   phpstan:
@@ -23,4 +22,3 @@ jobs:
           
       -   name: PHPStan
           run: php vendor/bin/phpstan analyze --no-progress --error-format=checkstyle | cs2pr
-

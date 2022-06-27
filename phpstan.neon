@@ -3,7 +3,7 @@ includes:
     # To regenerate the baseline, run `bin/phpstan analyse --generate-baseline`.
     - phpstan-baseline.neon
 parameters:
-	level: 6
+	level: 5
 	tmpDir: ./var/cache/dev/phpstan
 	paths:
 		- src
