@@ -1,0 +1,21 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Notifier\\\\NotifierInterface\\:\\:getAdminRecipients\\(\\)\\.$#"
+			count: 1
+			path: src/AccountManagement/Application/User/Event/UserRegisteredAdminNotifier.php
+
+		-
+			message: "#^Property App\\\\AccountManagement\\\\Domain\\\\User\\\\Model\\\\User\\:\\:\\$password type mapping mismatch\\: property can contain string\\|null but database expects string\\.$#"
+			count: 1
+			path: src/AccountManagement/Domain/User/Model/User.php
+
+		-
+			message: "#^Property App\\\\ContentManagement\\\\Domain\\\\Website\\\\Model\\\\Page\\\\Page\\:\\:\\$children is never written, only read\\.$#"
+			count: 1
+			path: src/ContentManagement/Domain/Website/Model/Page/Page.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Notifier\\\\NotifierInterface\\:\\:getAdminRecipients\\(\\)\\.$#"
+			count: 1
+			path: src/Marketing/Application/Launch/Event/EarlyBirdRegisteredAdminNotifier.php

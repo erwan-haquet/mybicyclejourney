@@ -31,7 +31,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password;
 
     #[ORM\Column(type: 'boolean')]
-    private $isVerified = false;
+    private bool $isVerified = false;
 
     #[ORM\Embedded(class: Locale::class)]
     private Locale $locale;
@@ -76,7 +76,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string)$this->email;
+        return $this->email;
     }
 
     /**
@@ -104,16 +104,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = $encodedPassword;
         return $this;
     }
-
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
-
+    
     public function isVerified(): bool
     {
         return $this->isVerified;
@@ -123,5 +114,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->isVerified = true;
         return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }

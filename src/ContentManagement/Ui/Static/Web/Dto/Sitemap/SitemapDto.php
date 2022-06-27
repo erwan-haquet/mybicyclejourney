@@ -13,7 +13,7 @@ class SitemapDto extends View
     /**
      * Build the sitemap with given pages.
      */
-    public static function new(array $pages): static
+    public static function new(array $pages): self
     {
         Assert::allIsInstanceOf($pages, Page::class);
         

@@ -18,8 +18,7 @@ class UserRegisteredAdminNotifier implements EventHandlerInterface
     public function __construct(
         UserRepositoryInterface $repository,
         NotifierInterface       $notifier,
-    )
-    {
+    ) {
         $this->repository = $repository;
         $this->notifier = $notifier;
     }
