@@ -50,7 +50,8 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,
-            "symfony/runtime": true
+            "symfony/runtime": true,
+            "phpstan/extension-installer": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
@@ -102,6 +103,10 @@
         }
     },
     "require-dev": {
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^1.7",
+        "phpstan/phpstan-doctrine": "^1.3",
+        "phpstan/phpstan-symfony": "^1.2",
         "symfony/maker-bundle": "~1.43",
         "symfony/stopwatch": "~6.1.0",
         "symfony/web-profiler-bundle": "~6.1.0"

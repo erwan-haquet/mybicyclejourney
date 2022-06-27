@@ -1,0 +1,28 @@
+# See https://www.jetbrains.com/help/phpstorm/using-phpstan.html for how to integrate this tool with PhpStorm
+includes:
+    # To regenerate the baseline, run `bin/phpstan analyse --generate-baseline`.
+    - phpstan-baseline.neon
+parameters:
+	level: 6
+	tmpDir: ./var/cache/dev/phpstan
+	paths:
+		- src
+		- lib
+		- migrations
+	excludePaths:
+	    - tests/**/*
+	    - vendor/**/*
+	    - translations/**/*
+	    - var/**/*
+	    - bin/**/*
+
+	# Symfony plugin configuration
+	symfony:
+	    containerXmlPath: ./var/cache/dev/App_KernelDevDebugContainer.xml
+	    constantHassers: false
+	scanDirectories:
+	    - ./var/cache/dev/Symfony/Config
+
+	# Doctrine plugin configuration
+	doctrine:
+	    objectManagerLoader: tests/object-manager.php
