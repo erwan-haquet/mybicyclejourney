@@ -9,11 +9,12 @@ jobs:
             postgres-test:
                 image: 'postgres:14.3-alpine'
                 env:
-                    POSTGRES_PASSWORD: "mysup3rs3cr3tpassw0rd"
-                    POSTGRES_USER: "symfony"
-                    POSTGRES_DB: "mybicyclejourney"
+                    POSTGRES_PASSWORD: postgres
+                    POSTGRES_USER: postgres
+                    POSTGRES_DB: postgres
                 ports:
                     - '5432:5432'
+                options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
         strategy:
             fail-fast: true
             matrix:
@@ -29,7 +30,8 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-versions }}
-                  extensions: intl, opcache, pdo, pdo_pgsql, pgsql, xsl, xml, dom
+                  tools: phpunit-bridge
+                  extensions: intl, opcache, pdo, pdo_pgsql, pgsql, xsl, xml, dom, mbstring, ctype, iconv
               env:
                   update: true
             
@@ -55,7 +57,9 @@ jobs:
             # We use the dev env here
             - name: Setup database (Drop, create and migrate)
               run: make init-test-db
-                  
+              env:
+                DATABASE_URL: postgres://postgres:postgres@127.0.0.1:${{ job.services.postgres.ports[5432] }}/postgres?charset=UTF-8
+                
             - name: Run functionnal and unit tests
               run: |
                   cp phpunit.xml.dist phpunit.xml
