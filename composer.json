@@ -1,4 +1,6 @@
 {
+    "name": "erwan-haquet/mybicyclejourney",
+    "description": "MyBicycleJourney",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
