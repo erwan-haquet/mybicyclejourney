@@ -64,8 +64,7 @@ jobs:
                 run: make install
             
             ## —— Tests ✅ ———————————————————————————————————————————————————————————
-            # We use the dev env here
-            -   name: Setup database (Drop, create and migrate)
+            -   name: Setup database
                 run: make init-test-db
                 env:
                     DATABASE_URL: postgres://postgres:postgres@127.0.0.1:${{ job.services.postgres.ports[5432] }}/postgres?charset=UTF-8
