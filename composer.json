@@ -62,6 +62,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
+            "Tests\\": "tests/",
             "Library\\": "lib/"
         }
     },
@@ -107,7 +108,11 @@
         "phpstan/phpstan": "^1.7",
         "phpstan/phpstan-doctrine": "^1.3",
         "phpstan/phpstan-symfony": "^1.2",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "~6.1.0",
+        "symfony/css-selector": "~6.1.0",
         "symfony/maker-bundle": "~1.43",
+        "symfony/phpunit-bridge": "^6.1",
         "symfony/stopwatch": "~6.1.0",
         "symfony/web-profiler-bundle": "~6.1.0"
     }
