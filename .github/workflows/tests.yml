@@ -35,43 +35,24 @@ jobs:
             - name: Check PHP Version
               run: php -v
             
-#            # https://github.com/zhulik/redis-action (community)
-#            - name: Setup Redis with zhulik/redis-action
-#              uses: zhulik/redis-action@1.1.0
-#              with:
-#                  redis version: '5'
-#            
-#            ## —— Yarn 🐱 ————————————————————————————————————————————————————————————
-#            - name: Yarn install
-#              uses: actions/setup-node@v2
-#              with:
-#                  node-version: '14'
-#                  #registry-url: npm.fontawesome.com
-#            - run: yarn install
-#                #env:
-#                #NODE_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
-#
-#            - name: Yarn build
-#              run: yarn run encore production
-#            
-#            # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
-#            - name: Validate composer.json and composer.lock
-#              run: composer validate
-#
-#            - name: Get composer cache directory
-#              id: composer-cache
-#              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-#
-#            - name: Cache composer dependencies
-#              uses: actions/cache@v1
-#              with:
-#                  path: ${{ steps.composer-cache.outputs.dir }}
-#                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-#                  restore-keys: ${{ runner.os }}-composer-
-#
-#            - name: Install Composer dependencies
-#              run: make install
-#            
+            # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
+            - name: Validate composer.json and composer.lock
+              run: composer validate
+
+            - name: Get composer cache directory
+              id: composer-cache
+              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            - name: Cache composer dependencies
+              uses: actions/cache@v1
+              with:
+                  path: ${{ steps.composer-cache.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: ${{ runner.os }}-composer-
+
+            - name: Install Composer dependencies
+              run: make install
+
 #            # —— Symfony 🎵 ——————————————————————————————————————————————————————————
 #            - name: Check Symfony requirements
 #              run: vendor/bin/requirements-checker
