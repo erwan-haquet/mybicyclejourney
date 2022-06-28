@@ -53,38 +53,21 @@ jobs:
             - name: Install Composer dependencies
               run: make install
 
-#            # —— Symfony 🎵 ——————————————————————————————————————————————————————————
-#            - name: Check Symfony requirements
-#              run: vendor/bin/requirements-checker
-#
-#            - name: Check the Symfony console
-#              run: |
-#                  bin/console about
-#                  bin/console strangebuzz:version
-#            
-#            ## —— Coding standards ✨ ————————————————————————————————————————————————
-#            - name: Coding standards checks (php_codesniffer + php-cs-fixer)
-#              run: make cs
-#              if: matrix.php-versions == '8.0'
-#            
-#            ## —— Static analysis ✨ —————————————————————————————————————————————————
-#            - name: Static analysis of PHP code (PHPStan)
-#              run: |
-#                  bin/console about --env=prod
-#                  make static-analysis
-#            
-#            ## —— JWT 💫 —————————————————————————————————————————————————————————————
-#            - name: Generate the SSL keys
-#              run: bin/console lexik:jwt:generate-keypair
-#            
-#            ## —— Tests ✅ ———————————————————————————————————————————————————————————
-#            # We use the dev env here
-#            - name: Load Doctrine fixtures and populate the Elasticsearch indexes
-#              run: |
-#                  make load-fixtures
-#                  make populate
-#
-#            - name: Run functionnal and unit tests
-#              run: |
-#                  cp phpunit.xml.ci phpunit.xml
-#                  make test-all
+            # —— Symfony 🎵 ——————————————————————————————————————————————————————————
+            - name: Check Symfony requirements
+              run: vendor/bin/requirements-checker
+
+            - name: Check the Symfony console
+              run: |
+                  bin/console about
+
+            ## —— Tests ✅ ———————————————————————————————————————————————————————————
+            # We use the dev env here
+            - name: Load Doctrine fixtures and populate the Elasticsearch indexes
+              run: |
+                  make init-test-db
+
+            - name: Run functionnal and unit tests
+              run: |
+                  cp phpunit.xml.dist phpunit.xml
+                  make test-all

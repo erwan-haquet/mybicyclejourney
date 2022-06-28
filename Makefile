@@ -75,6 +75,13 @@ console: ## Enter into the php console docker container
 commands: ## Display all commands in the project namespace
 	@$(SYMFONY) list $(PROJECT)
 
+init-test-db: ## Build the DB and control the schema validity
+	@$(SYMFONY) doctrine:cache:clear-metadata --env=test
+	@$(SYMFONY) doctrine:database:create --if-not-exists --env=test
+	@$(SYMFONY) doctrine:schema:drop --force --env=test
+	@$(SYMFONY) doctrine:schema:create --env=test
+	@$(SYMFONY) doctrine:schema:validate --env=test
+
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
 test: phpunit.xml check ## Run tests with optionnal suite and filter
 	@$(eval testsuite ?= 'all')
