@@ -8,7 +8,7 @@ class SeoFactory
 {
     public static function new(
         ?float $crawlPriority = null,
-        ?bool $shouldIndex = null,
+        ?bool $shouldIndex = true,
     ): Seo {
         return new Seo(
             crawlPriority: $crawlPriority,
