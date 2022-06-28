@@ -1,9 +1,9 @@
-name: Run tests
+name: Run application tests
 on: [pull_request]
                 
 jobs:
     tests:
-        name: Tests
+        name: Application tests
         runs-on: ubuntu-20.04
         services:
             postgres-test:
@@ -31,9 +31,6 @@ jobs:
                   php-version: ${{ matrix.php-versions }}
               env:
                   update: true
-
-            - name: Check PHP Version
-              run: php -v
             
             # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
             - name: Validate composer.json and composer.lock
@@ -52,21 +49,12 @@ jobs:
 
             - name: Install Composer dependencies
               run: make install
-
-            # —— Symfony 🎵 ——————————————————————————————————————————————————————————
-            - name: Check Symfony requirements
-              run: vendor/bin/requirements-checker
-
-            - name: Check the Symfony console
-              run: |
-                  bin/console about
-
+            
             ## —— Tests ✅ ———————————————————————————————————————————————————————————
             # We use the dev env here
-            - name: Load Doctrine fixtures and populate the Elasticsearch indexes
-              run: |
-                  make init-test-db
-
+            - name: Setup database (Drop, create and migrate)
+              run: make init-test-db
+                  
             - name: Run functionnal and unit tests
               run: |
                   cp phpunit.xml.dist phpunit.xml

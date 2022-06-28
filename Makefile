@@ -79,7 +79,7 @@ init-test-db: ## Build the DB and control the schema validity
 	@$(SYMFONY) doctrine:cache:clear-metadata --env=test
 	@$(SYMFONY) doctrine:database:create --if-not-exists --env=test
 	@$(SYMFONY) doctrine:schema:drop --force --env=test
-	@$(SYMFONY) doctrine:schema:create --env=test
+	@$(SYMFONY) doctrine:migration:migrate --no-interaction --env=test
 	@$(SYMFONY) doctrine:schema:validate --env=test
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
