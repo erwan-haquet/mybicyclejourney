@@ -14,6 +14,7 @@ use Symfony\Component\Uid\Uuid;
 class PageFactory
 {
     public static function new(
+        ?PageId $id = null,
         ?Type   $type = null,
         ?string $title = null,
         ?string $description = null,
@@ -26,7 +27,7 @@ class PageFactory
     ): Page {
 
         return new Page(
-            id: PageId::fromString(Uuid::v4()),
+            id: $id ?? PageId::fromString(Uuid::v4()),
             title: $title ?? "Default test title",
             description: $description ?? "A default test description",
             label: $label ?? "Homepage - test",

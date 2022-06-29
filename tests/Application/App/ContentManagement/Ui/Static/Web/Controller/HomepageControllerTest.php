@@ -12,6 +12,5 @@ class HomepageControllerTest extends WebTestCase
         $client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Share your travel, easier than never.');
     }
 }
