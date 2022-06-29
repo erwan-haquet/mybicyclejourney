@@ -83,13 +83,10 @@ init-test-db: ## Build the DB and control the schema validity
 	@$(SYMFONY) doctrine:schema:validate --env=test
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
-test: phpunit.xml check ## Run tests with optionnal suite and filter
+test: phpunit.xml ## Run tests with optionnal suite and filter
 	@$(eval testsuite ?= 'all')
 	@$(eval filter ?= '.')
 	@$(PHPUNIT) --testsuite=$(testsuite) --filter=$(filter) --stop-on-failure
-
-test-all: phpunit.xml ## Run all tests
-	@$(PHPUNIT) --stop-on-failure
 
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
 stan: ## Run PHPStan

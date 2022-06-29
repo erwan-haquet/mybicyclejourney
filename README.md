@@ -36,8 +36,8 @@ $ cp .env .env.local
 Construire les conteneurs docker et les lancer une première fois :
 
 ```bash
-$ docker compose build 
-$ docker compose up 
+$ make build 
+$ make up 
 ```
 
 Générer un certificat SSL :
@@ -47,13 +47,13 @@ $ ./scripts/generate-certs.sh
 
 Connecter vous au conteneur php :   
 ```bash
-$ ./scripts/run.sh console
+$ make console
 ```
 
 Puis installer les dépendances :
 ```bash
-$ composer install 
-$ yarn install
+$ make install # Install composer dependencies
+$ make dev     # Install yarn dependencies
 ```
 
 And voila !
@@ -63,14 +63,14 @@ And voila !
 Lancer tous les services :
 
 ```bash
-$ docker compose up
+$ make up 
 ```
 
 L'application est désormais accessible via [https://mybicyclejourney.tld/](https://mybicyclejourney.tld/).
 
 La console php est accessible via :   
 ```bash
-$ ./scripts/run.sh console
+$ make console
 ```
 
 Compiler les assets, depuis la console php :    

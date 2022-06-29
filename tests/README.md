@@ -10,5 +10,6 @@ $ bin/console doctrine:migration:migrate --env=test
 
 To run test :
 ```bash
-$ bin/phpunit
+$ make test                         # Run all tests
+$ make test --testsuite=application # Run application tests
 ```
