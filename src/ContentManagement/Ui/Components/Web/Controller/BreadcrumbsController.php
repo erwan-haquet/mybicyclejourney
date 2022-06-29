@@ -7,24 +7,30 @@ use App\ContentManagement\Domain\Website\Exception\PageNotFoundException;
 use Library\CQRS\Query\QueryBus;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * This controller does not expose any route, it is for internal use only.
- */
+#[Route(
+    '/components/breadcrumbs', 
+    name: 'components_breadcrumbs',
+    requirements: ['_locale' => 'en']
+)]
 class BreadcrumbsController extends AbstractController
 {
     /**
      * Render the breadcrumbs based on the given urlencoded path.
      */
     public function __invoke(
-        string          $encodedPath,
+        Request         $request,
         LoggerInterface $logger,
         QueryBus        $queryBus
     ): Response
     {
+        $path = $request->query->get('encodedPath');
+
         $query = new FindBreadcrumbs([
-            'path' => urldecode($encodedPath)
+            'path' => urldecode($path)
         ]);
 
         try {

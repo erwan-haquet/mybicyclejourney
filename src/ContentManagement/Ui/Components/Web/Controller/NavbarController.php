@@ -7,7 +7,13 @@ use Library\CQRS\Query\QueryBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
+#[Route(
+    '/components/navbar',
+    name: 'components_navbar',
+    requirements: ['_locale' => 'en']
+)]
 class NavbarController extends AbstractController
 {
     /**
@@ -16,8 +22,7 @@ class NavbarController extends AbstractController
     public function __invoke(
         QueryBus     $queryBus,
         RequestStack $requestStack
-    ): Response
-    {
+    ): Response {
         $query = new FindNavbar([
             'request' => $requestStack->getMainRequest()
         ]);
