@@ -34,8 +34,8 @@ class NavbarController extends AbstractController
         $route = $mainRequest->attributes->get('_route');
 
         $query = new BuildNavbar([
-            'queryParams' => $params ?? [],
-            'route' => $route ?? 'homepage'
+            'route' => $route ?? 'homepage',
+            'queryParams' => $params,
         ]);
         $navbar = $queryBus->query($query);
 
