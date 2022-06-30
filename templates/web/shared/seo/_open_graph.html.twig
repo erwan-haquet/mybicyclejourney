@@ -1,0 +1,22 @@
+{# @var og \App\ContentManagement\Domain\Seo\Model\Metadata\OpenGraph #}
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="My Bicycle Journey">
+<meta property="og:url" content="{{ og.url }}">
+<meta property="og:locale" content="{{ og.locale }}">
+
+{% if og.title is not null %}
+    <meta property="og:title" content="{{ og.title }}">
+{% endif %}
+
+{% if og.description is not null %}
+    <meta property="og:description" content="{{ og.description }}">
+{% endif %}
+
+{% if og.image is not null %}
+    <meta property="og:image" content="{{ og.image }}">
+{% endif %}
+
+{% for alternate in og.localeAlternates %}
+    <meta property="og:locale:alternate" content="{{ alternate.locale }}">
+{% endfor %}

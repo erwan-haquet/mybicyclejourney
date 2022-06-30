@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61c95cfa9d6129b334249f88086ebdc8",
+    "content-hash": "0bea43d6e7c329e10c99952f19f17b20",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1517,68 +1517,6 @@
             "time": "2022-05-23T21:33:49+00:00"
         },
         {
-            "name": "dusank/knapsack",
-            "version": "10.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DusanKasan/Knapsack.git",
-                "reference": "cc29a0bbaadbfcb958b98aa4fd69a4ad7d173bba"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DusanKasan/Knapsack/zipball/cc29a0bbaadbfcb958b98aa4fd69a4ad7d173bba",
-                "reference": "cc29a0bbaadbfcb958b98aa4fd69a4ad7d173bba",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "ciaranmcnulty/phpspec-typehintedmethods": "^1.0",
-                "henrikbjorn/phpspec-code-coverage": "^2.0",
-                "phpmd/phpmd": "^2.0",
-                "phpspec/phpspec": "^2.0",
-                "phpunit/phpunit": "^5.0",
-                "squizlabs/php_codesniffer": "^2.0",
-                "symfony/console": "^2.7"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/collection_functions.php",
-                    "src/utility_functions.php"
-                ],
-                "psr-4": {
-                    "DusanKasan\\Knapsack\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dusan Kasan",
-                    "email": "dusan@kasan.sk",
-                    "homepage": "http://kasan.sk",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Collection library for PHP",
-            "homepage": "https://github.com/DusanKasan/Knapsack",
-            "keywords": [
-                "collections",
-                "map",
-                "reduce",
-                "sequences"
-            ],
-            "support": {
-                "issues": "https://github.com/DusanKasan/Knapsack/issues",
-                "source": "https://github.com/DusanKasan/Knapsack/tree/master"
-            },
-            "time": "2017-04-24T22:52:29+00:00"
-        },
-        {
             "name": "egulias/email-validator",
             "version": "3.2.1",
             "source": {
@@ -2297,6 +2235,78 @@
                 }
             ],
             "time": "2021-08-14T12:15:32+00:00"
+        },
+        {
+            "name": "loophp/collection",
+            "version": "6.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/loophp/collection.git",
+                "reference": "7e22909259cd0804bc6e5be2754c7ff0c8ccb840"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/loophp/collection/zipball/7e22909259cd0804bc6e5be2754c7ff0c8ccb840",
+                "reference": "7e22909259cd0804bc6e5be2754c7ff0c8ccb840",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 7.4"
+            },
+            "require-dev": {
+                "amphp/parallel-functions": "^1",
+                "doctrine/collections": "^1.6",
+                "drupol/php-conventions": "^5",
+                "friends-of-phpspec/phpspec-code-coverage": "^6.1",
+                "infection/infection": "^0.23.0 || ^0.24.0",
+                "infection/phpspec-adapter": "^0.1.2",
+                "phpspec/phpspec": "^7.1",
+                "phpstan/phpstan-strict-rules": "^1.0",
+                "psr/cache": "^1.0",
+                "symfony/cache": "^5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "loophp\\collection\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pol Dellaiera",
+                    "email": "pol.dellaiera@protonmail.com",
+                    "homepage": "https://not-a-number.io",
+                    "role": "author"
+                }
+            ],
+            "description": "A (memory) friendly, easy, lazy and modular collection class.",
+            "homepage": "https://github.com/loophp/collection",
+            "keywords": [
+                "collection",
+                "generator",
+                "iterator",
+                "yield"
+            ],
+            "support": {
+                "docs": "https://loophp-collection.rtfd.io",
+                "issues": "https://github.com/loophp/collection/issues",
+                "source": "https://github.com/loophp/collection"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/drupol",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.paypal.me/drupol",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2021-12-11T18:10:52+00:00"
         },
         {
             "name": "lorenzo/pinky",

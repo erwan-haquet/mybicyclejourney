@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ContentManagement\Domain\Seo\Model;
+namespace App\ContentManagement\Domain\Seo\Model\Metadata;
 
 use Library\Utils\View;
 

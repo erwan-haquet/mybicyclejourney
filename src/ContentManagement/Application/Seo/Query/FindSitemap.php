@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ContentManagement\Application\Static\Query;
+namespace App\ContentManagement\Application\Seo\Query;
 
 use Library\CQRS\Query\Query;
 

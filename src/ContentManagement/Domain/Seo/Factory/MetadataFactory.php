@@ -2,12 +2,12 @@
 
 namespace App\ContentManagement\Domain\Seo\Factory;
 
-use App\ContentManagement\Domain\Seo\Model\LocaleAlternate;
-use App\ContentManagement\Domain\Seo\Model\Metadata;
-use App\ContentManagement\Domain\Seo\Model\OpenGraph;
+use App\ContentManagement\Domain\Seo\Model\Metadata\LocaleAlternate;
+use App\ContentManagement\Domain\Seo\Model\Metadata\Metadata;
+use App\ContentManagement\Domain\Seo\Model\Metadata\OpenGraph;
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
-use DusanKasan\Knapsack\Collection;
+use loophp\collection\Collection;
 
 class MetadataFactory
 {
@@ -21,12 +21,12 @@ class MetadataFactory
     public function buildFromPage(Page $page): Metadata
     {
         $localeAlternatePages = $this->repository->findLocaleAlternates($page->id());
-        $localeAlternates = Collection::from($localeAlternatePages)
+        $localeAlternates = Collection::fromIterable($localeAlternatePages)
             ->map(fn(Page $page) => new LocaleAlternate([
                 'locale' => $page->locale(),
                 'url' => $page->url(),
             ]))
-            ->toArray();
+            ->all();
 
         return new Metadata([
             'title' => $page->title(),

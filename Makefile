@@ -86,7 +86,7 @@ init-test-db: ## Build the DB and control the schema validity
 drop-test-db: 
 	@$(SYMFONY) doctrine:database:drop --if-exists --force --env=test
 
-test: phpunit.xml ## Run tests with optionnal suite and filter
+test: phpunit.xml ## Run tests with optional suite and filter
 	@$(eval testsuite ?= 'all')
 	@$(eval filter ?= '.')
 	@$(PHPUNIT) --testsuite=$(testsuite) --filter=$(filter) --stop-on-failure

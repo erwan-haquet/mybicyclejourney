@@ -25,13 +25,10 @@ class MetadataController extends AbstractController
             return new Response('Missing path', Response::HTTP_BAD_REQUEST);
         }
 
-        $query = new FindMetadata([
-            'path' => urldecode($path)
-        ]);
-
+        $query = new FindMetadata(['path' => urldecode($path)]);
         $metadata = $queryBus->query($query);
 
-        return $this->render('web/shared/components/_metadata.html.twig', [
+        return $this->render('web/shared/seo/_metadata.html.twig', [
             'metadata' => $metadata
         ]);
     }

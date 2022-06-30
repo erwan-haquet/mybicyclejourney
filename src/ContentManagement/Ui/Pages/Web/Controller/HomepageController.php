@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ContentManagement\Ui\Static\Web\Controller;
+namespace App\ContentManagement\Ui\Pages\Web\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,6 +11,6 @@ class HomepageController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return $this->render('web/content_management/static/homepage/index.html.twig');
+        return $this->render('web/content_management/pages/homepage/index.html.twig');
     }
 }

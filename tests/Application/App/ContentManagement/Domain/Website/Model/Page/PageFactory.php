@@ -25,11 +25,7 @@ class PageFactory
     {
         return new Page(
             id: $id ?? PageId::fromString(Uuid::v4()),
-            route: $route ?? new Route(
-                name: $name ?? "",
-                path: $path ?? "",
-                url: $url ?? ""
-            ),
+            route: $route ?? RouteFactory::new(),
             title: $title ?? "",
             description: $description ?? "",
             label: $label ?? "",

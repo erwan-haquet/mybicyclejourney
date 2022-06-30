@@ -1,11 +1,11 @@
 <?php
 
-namespace App\ContentManagement\Ui\Static\Web\Dto\Sitemap;
+namespace App\ContentManagement\Domain\Seo\Model\Sitemap;
 
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use Library\Utils\View;
 
-class UrlDto extends View
+class Url extends View
 {
     public string $loc;
     

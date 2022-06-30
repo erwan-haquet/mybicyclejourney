@@ -2,7 +2,7 @@
 
 namespace App\ContentManagement\Application\Seo\Query;
 
-use App\ContentManagement\Domain\Seo\Model\Metadata;
+use App\ContentManagement\Domain\Seo\Model\Metadata\Metadata;
 use Library\CQRS\Query\Query;
 
 /**

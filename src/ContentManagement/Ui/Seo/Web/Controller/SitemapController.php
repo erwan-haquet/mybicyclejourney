@@ -1,8 +1,8 @@
 <?php
 
-namespace App\ContentManagement\Ui\Static\Web\Controller;
+namespace App\ContentManagement\Ui\Seo\Web\Controller;
 
-use App\ContentManagement\Application\Static\Query\FindSitemap;
+use App\ContentManagement\Application\Seo\Query\FindSitemap;
 use Library\CQRS\Query\QueryBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +16,7 @@ class SitemapController extends AbstractController
         $query = new FindSitemap();
         $sitemap = $queryBus->query($query);
 
-        return $this->render('web/content_management/static/sitemap.html.twig', [
+        return $this->render('web/content_management/seo/sitemap.html.twig', [
             'sitemap' => $sitemap
         ]);
     }

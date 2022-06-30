@@ -3,7 +3,7 @@
 namespace App\ContentManagement\Application\Seo\Query;
 
 use App\ContentManagement\Domain\Seo\Factory\MetadataFactory;
-use App\ContentManagement\Domain\Seo\Model\Metadata;
+use App\ContentManagement\Domain\Seo\Model\Metadata\Metadata;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use Library\CQRS\Query\QueryHandlerInterface;
 use Psr\Log\LoggerInterface;
@@ -11,17 +11,17 @@ use Psr\Log\LoggerInterface;
 class FindMetadataHandler implements QueryHandlerInterface
 {
     private PageRepositoryInterface $pageRepository;
-    private MetadataFactory $factory;
+    private MetadataFactory $metadataFactory;
     private LoggerInterface $logger;
 
     public function __construct(
         PageRepositoryInterface $pageRepository,
-        MetadataFactory         $factory,
+        MetadataFactory         $metadataFactory,
         LoggerInterface         $logger
     )
     {
         $this->pageRepository = $pageRepository;
-        $this->factory = $factory;
+        $this->metadataFactory = $metadataFactory;
         $this->logger = $logger;
     }
 
@@ -33,9 +33,9 @@ class FindMetadataHandler implements QueryHandlerInterface
                 $query->path
             ));
 
-            return $this->factory->build404error();
+            return $this->metadataFactory->build404error();
         }
 
-        return $this->factory->buildFromPage($page);
+        return $this->metadataFactory->buildFromPage($page);
     }
 }

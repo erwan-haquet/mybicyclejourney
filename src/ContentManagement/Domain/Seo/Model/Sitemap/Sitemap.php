@@ -1,12 +1,12 @@
 <?php
 
-namespace App\ContentManagement\Ui\Static\Web\Dto\Sitemap;
+namespace App\ContentManagement\Domain\Seo\Model\Sitemap;
 
 use App\ContentManagement\Domain\Website\Model\Page\Page;
 use Library\Assert\Assert;
 use Library\Utils\View;
 
-class SitemapDto extends View
+class Sitemap extends View
 {
     public array $urls = [];
 
@@ -19,7 +19,7 @@ class SitemapDto extends View
         
         $sitemap = new self();
         foreach ($pages as $page) {
-            $sitemap->urls[] = UrlDto::fromPage($page);
+            $sitemap->urls[] = Url::fromPage($page);
         }
 
         return $sitemap;

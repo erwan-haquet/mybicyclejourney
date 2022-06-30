@@ -1,9 +1,9 @@
 <?php
 
-namespace App\ContentManagement\Application\Static\Query;
+namespace App\ContentManagement\Application\Seo\Query;
 
+use App\ContentManagement\Domain\Seo\Model\Sitemap\Sitemap;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
-use App\ContentManagement\Ui\Static\Web\Dto\Sitemap\SitemapDto;
 use Library\CQRS\Query\QueryHandlerInterface;
 
 class FindSitemapHandler implements QueryHandlerInterface
@@ -15,10 +15,10 @@ class FindSitemapHandler implements QueryHandlerInterface
         $this->pageRepository = $pageRepository;
     }
 
-    public function __invoke(FindSitemap $query): SitemapDto
+    public function __invoke(FindSitemap $query): Sitemap
     {
         $pages = $this->pageRepository->findIndexables();
         
-        return SitemapDto::new($pages);
+        return Sitemap::new($pages);
     }
 }

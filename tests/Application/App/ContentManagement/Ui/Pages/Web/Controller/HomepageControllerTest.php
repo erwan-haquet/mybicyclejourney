@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Application\App\ContentManagement\Ui\Static\Web\Controller;
+namespace Tests\Application\App\ContentManagement\Ui\Pages\Web\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class HomepageControllerTest extends WebTestCase
 {
-    public function testHomepageIsAvailable(): void
+    public function testHomepageShouldBeReachable(): void
     {
         $client = static::createClient();
         $client->request('GET', '/');

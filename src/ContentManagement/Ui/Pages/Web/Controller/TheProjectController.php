@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ContentManagement\Ui\Static\Web\Controller;
+namespace App\ContentManagement\Ui\Pages\Web\Controller;
 
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
@@ -44,7 +44,7 @@ class TheProjectController extends AbstractController
             }
         }
 
-        return $this->render('web/content_management/static/the_project/index.html.twig', [
+        return $this->render('web/content_management/pages/the_project/index.html.twig', [
             'form' => $form->createView()
         ]);
     }
