@@ -83,6 +83,9 @@ init-test-db: ## Build the DB and control the schema validity
 	@$(SYMFONY) doctrine:migration:migrate --no-interaction --env=test
 	@$(SYMFONY) doctrine:schema:validate --env=test
 
+drop-test-db: 
+	@$(SYMFONY) doctrine:database:drop --if-exists --force --env=test
+
 test: phpunit.xml ## Run tests with optionnal suite and filter
 	@$(eval testsuite ?= 'all')
 	@$(eval filter ?= '.')

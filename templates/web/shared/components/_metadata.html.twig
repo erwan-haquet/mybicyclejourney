@@ -1,8 +1,7 @@
-{# @var metadata \App\ContentManagement\Ui\Website\Web\Dto\Metadata #}
+{# @var metadata \App\ContentManagement\Domain\Seo\Model\Metadata #}
 
 <title>{{ metadata.title }}</title>
 <meta name="description" content="{{ metadata.description }}">
-<link rel="canonical" href="{{ metadata.canonicalUrl }}"/>
 <meta name="robots"
       content="{{ metadata.noindex ? "noindex" : "index" }}, {{ metadata.nofollow ? "nofollow" : "follow" }}"/>
 
@@ -12,7 +11,14 @@
           href="{{ alternate.url }}"/>
 {% endfor %}
 
-{{ _self.open_graph(metadata.openGraph) }}
+{% if metadata.canonicalUrl is not null %}
+    <link rel="canonical" href="{{ metadata.canonicalUrl }}"/>
+{% endif %}
+
+
+{% if metadata.openGraph is not null %}
+    {{ _self.open_graph(metadata.openGraph) }}
+{% endif %}
 
 {% macro open_graph(openGraph) %}
     <meta property="og:type" content="website">

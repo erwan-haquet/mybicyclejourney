@@ -1,13 +1,13 @@
 <?php
 
-namespace App\ContentManagement\Ui\Components\Web\Dto\Metadata;
+namespace App\ContentManagement\Domain\Seo\Model;
 
 use Library\Utils\View;
 
 /**
  * All the necessary data to render the meta tags.
  */
-class MetadataDto extends View
+class Metadata extends View
 {
     /**
      * Page title
@@ -22,7 +22,14 @@ class MetadataDto extends View
     /**
      * The canonical url of the page.
      */
-    public string $canonicalUrl;
+    public ?string $canonicalUrl = null;
+
+    /**
+     * Open graph meta.
+     *
+     * <meta property="og:x" content="x">
+     */
+    public ?OpenGraph $openGraph = null;
 
     /**
      * If set to true, the "nofollow" tag will be added.
@@ -41,14 +48,7 @@ class MetadataDto extends View
     /**
      * Other available locales for current page.
      *
-     * @var LocaleAlternateDto[]
+     * @var LocaleAlternate[]
      */
     public array $localeAlternates = [];
-
-    /**
-     * Open graph meta.
-     *
-     * <meta property="og:x" content="x">
-     */
-    public OpenGraphDto $openGraph;
 }

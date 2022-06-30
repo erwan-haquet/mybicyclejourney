@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Application\App\ContentManagement\Ui\Components\Web\Controller;
+namespace Tests\Application\App\ContentManagement\Ui\Seo\Web\Controller;
 
 use App\Supporting\Domain\I18n\Model\Locale;
 use Doctrine\ORM\EntityManagerInterface;
@@ -12,6 +12,8 @@ use Tests\Application\App\ContentManagement\Domain\Website\Model\Page\RouteFacto
 
 class MetadataControllerTest extends WebTestCase
 {
+    private const URI = '/_seo/metadata';
+    
     private ?EntityManagerInterface $entityManager;
     private ?KernelBrowser $client;
 
@@ -24,22 +26,21 @@ class MetadataControllerTest extends WebTestCase
             ->getManager();
     }
 
-    public function testMissingPathParameterShouldReturnNoContent(): void
+    public function testMissingPathShouldReturnHttpBadRequest(): void
     {
-        $this->client->request('GET', '/components/metadata');
+        $this->client->request('GET', self::URI);
 
-        $this->assertResponseIsSuccessful();
-        $this->assertResponseStatusCodeSame(Response::HTTP_NO_CONTENT);
+        $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
     }
 
-    public function testUnreachablePageShouldReturnNoContent(): void
+    public function testPageNotFoundShouldReturnHttpNotFound(): void
     {
-        $this->client->request('GET', '/components/metadata', [
+        $this->client->request('GET', self::URI, [
             'path' => urlencode('/definitely-not-a-page')
         ]);
 
         $this->assertResponseIsSuccessful();
-        $this->assertResponseStatusCodeSame(Response::HTTP_NO_CONTENT);
+        $this->assertPageTitleSame("Page not found - MyBicycleJourney");
     }
 
     public function testPageTitleShouldBeRendered(): void
@@ -54,7 +55,7 @@ class MetadataControllerTest extends WebTestCase
         $this->entityManager->persist($page);
         $this->entityManager->flush();
 
-        $this->client->request('GET', '/components/metadata', ['path' => urlencode('/')]);
+        $this->client->request('GET', self::URI, ['path' => urlencode('/')]);
         
         $this->assertPageTitleSame($title);
     }
@@ -71,7 +72,7 @@ class MetadataControllerTest extends WebTestCase
         $this->entityManager->persist($page);
         $this->entityManager->flush();
 
-        $this->client->request('GET', '/components/metadata', ['path' => urlencode('/')]);
+        $this->client->request('GET', self::URI, ['path' => urlencode('/')]);
         
         $metaDescription = $this->client->getCrawler()
             ->filter('meta[name="description"]')
@@ -104,7 +105,7 @@ class MetadataControllerTest extends WebTestCase
         $this->entityManager->persist($japan);
         $this->entityManager->flush();
 
-        $this->client->request('GET', '/components/metadata', ['path' => urlencode('/')]);
+        $this->client->request('GET', self::URI, ['path' => urlencode('/')]);
         
         $englishNode = $this->client->getCrawler()->filter('link[hreflang="EN"][href="https://localhost/"]');
         $this->assertEquals(1, $englishNode->count());
@@ -126,7 +127,7 @@ class MetadataControllerTest extends WebTestCase
         $this->entityManager->persist($page);
         $this->entityManager->flush();
 
-        $this->client->request('GET', '/components/metadata', [
+        $this->client->request('GET', self::URI, [
             'path' => urlencode('/fancy-path')
         ]);
 
@@ -149,7 +150,7 @@ class MetadataControllerTest extends WebTestCase
         $this->entityManager->persist($page);
         $this->entityManager->flush();
         
-        $this->client->request('GET', '/components/metadata', ['path' => urlencode('/nl/')]);
+        $this->client->request('GET', self::URI, ['path' => urlencode('/nl/')]);
 
         $language = $this->client->getCrawler()
             ->filter('meta[property="og:locale"]')

@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Library\Assert\Assert;
 
 /**
- * SEO concerns data.
+ * Robot crawling concerns.
  */
 #[ORM\Embeddable]
-class Seo
+class Crawl
 {
     /**
      * A value between 0.1 and 1 to indicate to the crawler how the page should
@@ -21,28 +21,44 @@ class Seo
      * @see https://seodesignchicago.com/seo-blog/6-sitemap-best-practices/#1_-_Prioritize_Your_Web_Pages
      */
     #[ORM\Column(type: 'integer')]
-    private int $crawlPriority;
+    private int $priority;
 
     /**
      * Indicate if the page should be indexed or not by search engines.
      */
     #[ORM\Column(type: 'boolean')]
-    private bool $shouldIndex = true;
+    private bool $shouldIndex;
 
     public function __construct(
-        ?float $crawlPriority = null,
-        ?bool  $shouldIndex = true,
+        float $priority = 0.5,
+        bool  $shouldIndex = true,
     )
     {
-        Assert::nullOrRange($crawlPriority, 0.1, 1);
-        $this->crawlPriority = $crawlPriority ? $crawlPriority * 10 : 5;
+        Assert::nullOrRange($priority, 0.1, 1);
+        $this->priority = $priority * 10;
 
         $this->shouldIndex = $shouldIndex;
     }
 
-    public function crawlPriority(): float
+    /**
+     * Default standard value.
+     */
+    public static function default(): self
     {
-        return $this->crawlPriority / 10;
+        return new self(
+            priority: 0.5,
+            shouldIndex: true
+        );
+    }
+
+    public function priority(): float
+    {
+        return $this->priority / 10;
+    }
+
+    public function setPriority(float $priority): float
+    {
+        return $this->priority = $priority * 10;
     }
 
     public function shouldIndex(): bool

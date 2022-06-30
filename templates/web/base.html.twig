@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#ffffff">
 
     {% block metadata %}
-        {{ render(path('components_metadata', {
+        {{ render(path('seo_metadata', {
             path: app.request.pathInfo|url_encode
         })) }}
     {% endblock %}

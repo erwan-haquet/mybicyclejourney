@@ -30,17 +30,17 @@ class Page
     #[ORM\Column(type: 'text')]
     private string $description;
 
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $imageUrl;
+
     #[ORM\Embedded(class: Locale::class)]
     private Locale $locale;
 
     #[ORM\Embedded(class: Route::class)]
     private Route $route;
 
-    #[ORM\Embedded(class: Seo::class)]
-    private Seo $seo;
-
-    #[ORM\Embedded(class: OpenGraph::class, columnPrefix: "social_open_graph_")]
-    private OpenGraph $openGraph;
+    #[ORM\Embedded(class: Crawl::class)]
+    private Crawl $crawl;
 
     #[ORM\ManyToOne(targetEntity: Page::class, inversedBy: "children")]
     private ?Page $parent;
@@ -50,30 +50,28 @@ class Page
     private Collection $children;
 
     public function __construct(
-        PageId     $id,
-        string     $title,
-        string     $description,
-        string     $label,
-        Locale     $locale,
-        Route      $route,
-        ?Page      $parent,
-        ?Seo       $seo,
-        ?OpenGraph $openGraph,
-    ) {
+        PageId  $id,
+        Route   $route,
+        string  $title,
+        string  $description,
+        string  $label,
+        ?string $imageUrl,
+        Locale  $locale,
+        ?Page   $parent,
+        ?Crawl  $crawl,
+    )
+    {
         $this->id = $id->toString();
         $this->title = $title;
         $this->description = $description;
         $this->label = $label;
+        $this->imageUrl = $imageUrl;
 
         $this->locale = $locale;
         $this->route = $route;
         $this->parent = $parent;
 
-        $this->seo = $seo ?? new Seo();
-        $this->openGraph = $openGraph ?? new OpenGraph(
-                title: $title,
-                description: $description,
-            );
+        $this->crawl = $crawl ?? Crawl::default();
     }
 
     public function id(): PageId
@@ -135,15 +133,15 @@ class Page
     {
         return $this->route->name();
     }
-    
+
     public function shouldIndex(): bool
     {
-        return $this->seo->shouldIndex();
+        return $this->crawl->shouldIndex();
     }
 
     public function crawlPriority(): float
     {
-        return $this->seo->crawlPriority();
+        return $this->crawl->priority();
     }
 
     public function language(): string
@@ -151,8 +149,12 @@ class Page
         return $this->locale->language();
     }
 
-    public function openGraph(): OpenGraph
+    /**
+     * An image URL which should represent your object within the graph.
+     * Format MUST be at least 1200 x 630, and respect the ratio.
+     */
+    public function imageUrl(): ?string
     {
-        return $this->openGraph;
+        return $this->imageUrl;
     }
 }

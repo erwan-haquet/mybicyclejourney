@@ -1,10 +1,10 @@
 <?php
 
-namespace App\ContentManagement\Ui\Components\Web\Dto\Metadata;
+namespace App\ContentManagement\Domain\Seo\Model;
 
 use Library\Utils\View;
 
-class OpenGraphDto extends View
+class OpenGraph extends View
 {
     public ?string $title;
     
@@ -17,7 +17,7 @@ class OpenGraphDto extends View
     /**
      * Other available locales for current page.
      *
-     * @var LocaleAlternateDto[]
+     * @var LocaleAlternate[]
      */
     public array $localeAlternates = [];
 

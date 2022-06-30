@@ -2,7 +2,6 @@
 
 namespace App\ContentManagement\Ui\Static\Web\Controller;
 
-use App\ContentManagement\Domain\Website\Factory\PageFactory;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use App\Marketing\Application\Launch\Command\RegisterEarlyBird;
 use App\Marketing\Domain\Launch\Exception\EmailIsAlreadyRegisteredException;
@@ -25,7 +24,6 @@ class TheProjectController extends AbstractController
     public function __invoke(
         Request                 $request,
         CommandBus              $commandBus,
-        PageFactory             $pageFactory,
         UrlHelper               $urlHelper,
         PageRepositoryInterface $pageRepository,
     ): Response

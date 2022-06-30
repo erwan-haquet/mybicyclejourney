@@ -1,14 +1,14 @@
 <?php
 
-namespace App\ContentManagement\Application\Components\Query;
+namespace App\ContentManagement\Application\Seo\Query;
 
-use App\ContentManagement\Ui\Components\Web\Dto\Metadata\MetadataDto;
+use App\ContentManagement\Domain\Seo\Model\Metadata;
 use Library\CQRS\Query\Query;
 
 /**
  * Finds the page metadata corresponding to given path.
  *
- * @see MetadataDto
+ * @see Metadata
  */
 class FindMetadata extends Query
 {
