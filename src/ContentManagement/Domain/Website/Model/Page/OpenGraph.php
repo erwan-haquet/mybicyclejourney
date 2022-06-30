@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ContentManagement\Domain\Website\Model\Page\Social;
+namespace App\ContentManagement\Domain\Website\Model\Page;
 
 use Doctrine\ORM\Mapping as ORM;
 

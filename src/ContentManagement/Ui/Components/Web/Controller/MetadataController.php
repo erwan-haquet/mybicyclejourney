@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route(
-    '/components/metadata', 
+    '/components/metadata',
     name: 'components_metadata',
     requirements: ['_locale' => 'en']
 )]
@@ -26,7 +26,7 @@ class MetadataController extends AbstractController
         Request         $request,
         QueryBus        $queryBus
     ): Response {
-        $path = $request->query->get('encodedPath');
+        $path = $request->query->get('path');
 
         $query = new FindMetadata([
             'path' => urldecode($path)

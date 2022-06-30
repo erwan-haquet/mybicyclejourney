@@ -2,11 +2,9 @@
 
 <title>{{ metadata.title }}</title>
 <meta name="description" content="{{ metadata.description }}">
-
 <link rel="canonical" href="{{ metadata.canonicalUrl }}"/>
 <meta name="robots"
-      content="{{ metadata.noindex ? "noindex" : "index" }}, 
-               {{ metadata.nofollow ? "nofollow" : "follow" }}"/>
+      content="{{ metadata.noindex ? "noindex" : "index" }}, {{ metadata.nofollow ? "nofollow" : "follow" }}"/>
 
 {% for alternate in metadata.localeAlternates %}
     <link rel="alternate"
@@ -20,7 +18,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="My Bicycle Journey">
     <meta property="og:url" content="{{ openGraph.url }}">
-    <meta property="og:locale" content="{{ app.request.locale }}">
+    <meta property="og:locale" content="{{ openGraph.locale }}">
 
     {% if openGraph.title is not null %}
         <meta property="og:title" content="{{ openGraph.title }}">

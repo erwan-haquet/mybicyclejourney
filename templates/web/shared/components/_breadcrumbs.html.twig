@@ -19,7 +19,7 @@
 {# Render the breadcrumbs as simple component #}
 {% macro component() %}
     {{ render(path('components_breadcrumbs', {
-        encodedPath: app.request.pathInfo|url_encode
+        path: app.request.pathInfo|url_encode
     })) }}
 {% endmacro %}
 

@@ -7,10 +7,12 @@ use Library\Utils\View;
 class OpenGraphDto extends View
 {
     public ?string $title;
-
+    
     public ?string $description;
 
     public ?string $image;
+
+    public ?string $locale;
 
     /**
      * Other available locales for current page.

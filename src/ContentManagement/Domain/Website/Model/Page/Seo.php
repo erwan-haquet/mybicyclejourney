@@ -30,8 +30,8 @@ class Seo
     private bool $shouldIndex = true;
 
     public function __construct(
-        float $crawlPriority = null,
-        bool  $shouldIndex = true,
+        ?float $crawlPriority = null,
+        ?bool  $shouldIndex = true,
     )
     {
         Assert::nullOrRange($crawlPriority, 0.1, 1);

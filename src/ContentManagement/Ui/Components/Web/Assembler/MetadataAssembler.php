@@ -23,14 +23,15 @@ class MetadataAssembler
         return new MetadataDto([
             'title' => $page->title(),
             'description' => $page->description(),
-            'noindex' => !$page->seo()->shouldIndex(),
-            'nofollow' => !$page->seo()->shouldIndex(),
+            'noindex' => !$page->shouldIndex(),
+            'nofollow' => !$page->shouldIndex(),
             'localeAlternates' => $this->localeAlternates($page),
             'canonicalUrl' => $page->url(),
             'openGraph' => new OpenGraphDto([
-                'title' => $page->social()->openGraph()->title(),
-                'description' => $page->social()->openGraph()->description(),
-                'image' => $page->social()->openGraph()->image(),
+                'title' => $page->openGraph()->title(),
+                'description' => $page->openGraph()->description(),
+                'locale' => $page->locale()->language(),
+                'image' => $page->openGraph()->image(),
                 'localeAlternates' => $this->localeAlternates($page),
                 'url' => $page->url(),
             ])

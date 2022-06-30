@@ -11,7 +11,7 @@
 
     {% block metadata %}
         {{ render(path('components_metadata', {
-            encodedPath: app.request.pathInfo|url_encode
+            path: app.request.pathInfo|url_encode
         })) }}
     {% endblock %}
 

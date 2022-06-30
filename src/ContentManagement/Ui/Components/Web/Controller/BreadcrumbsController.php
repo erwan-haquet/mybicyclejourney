@@ -27,7 +27,7 @@ class BreadcrumbsController extends AbstractController
         QueryBus        $queryBus
     ): Response
     {
-        $path = $request->query->get('encodedPath');
+        $path = $request->query->get('path');
 
         $query = new FindBreadcrumbs([
             'path' => urldecode($path)

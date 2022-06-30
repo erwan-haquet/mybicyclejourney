@@ -12,9 +12,9 @@ class RouteFactory
         ?string $url = null,
     ): Route {
         return new Route(
-            name: $name ?? "homepage",
-            path: $path ?? "/",
-            url: $url ?? "https://mybicyclejourney.com/"
+            name: $name ?? "",
+            path: $path ?? "",
+            url: $url ?? ""
         );
     }
 }
