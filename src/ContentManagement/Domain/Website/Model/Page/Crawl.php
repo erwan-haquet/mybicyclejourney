@@ -35,7 +35,7 @@ class Crawl
     )
     {
         Assert::nullOrRange($priority, 0.1, 1);
-        $this->priority = $priority * 10;
+        $this->setPriority($priority);
 
         $this->shouldIndex = $shouldIndex;
     }
@@ -58,7 +58,7 @@ class Crawl
 
     public function setPriority(float $priority): float
     {
-        return $this->priority = $priority * 10;
+        return $this->priority = (int)($priority * 10);
     }
 
     public function shouldIndex(): bool

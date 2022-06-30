@@ -8,10 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Brings together all the resources necessary to render a web page.
- * Metadata / Breadcrumbs ...
+ * Sitemap / Metadata / Breadcrumbs ...
  *
- * This model is designed for content management administration
- * therefor it should not include technical meanings.
+ * This model is designed for content management administration.
  */
 #[ORM\Entity]
 #[ORM\Table(name: "content_management_website_page")]

@@ -95,6 +95,9 @@ test: phpunit.xml ## Run tests with optional suite and filter
 stan: ## Run PHPStan
 	@$(PHPSTAN) analyse --memory-limit 1G
 
+baseline: ## Generate PHPStan baseline
+	@$(PHPSTAN) analyse --generate-baseline --memory-limit 1G
+
 ## —— Yarn 🐱 / JavaScript —————————————————————————————————————————————————————
 dev: ## Rebuild assets for the dev env
 	@$(YARN) install --check-files
