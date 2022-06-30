@@ -56,7 +56,7 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
     public function findIndexables(): array
     {
         return $this->findBy([
-            'seo.shouldIndex' => true
+            'crawl.shouldIndex' => true
         ]);
     }
 

@@ -1,11 +1,15 @@
-on: [pull_request]
 name: Static analysis
+on: [pull_request]
 
 jobs:
   phpstan:
     name: PHPStan
     runs-on: ubuntu-20.04
-    
+    strategy:
+        fail-fast: true
+        matrix:
+            php-versions: [ '8.1' ]
+            
     steps:
       -   name: Checkout code
           uses: actions/checkout@v2
@@ -13,7 +17,7 @@ jobs:
       -   name: Setup PHP
           uses: shivammathur/setup-php@v2
           with:
-            php-version: 8.1
+            php-version: ${{ matrix.php-versions }}
             coverage: none
             tools: phpstan:0.12.92, cs2pr
             

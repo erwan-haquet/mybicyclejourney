@@ -1,5 +1,4 @@
 {# @var breadcrumbs \App\ContentManagement\Ui\Website\Web\Dto\Breadcrumbs\Breadcrumbs #}
-
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         {% for item in breadcrumbs.items %}
@@ -18,10 +17,9 @@
 
 {# Render the breadcrumbs as simple component #}
 {% macro component() %}
-    {{ render(controller(
-        'App\\ContentManagement\\Ui\\Components\\Web\\Controller\\BreadcrumbsController', {
-            encodedPath: app.request.pathInfo|url_encode
-        })) }}
+    {{ render(path('components_breadcrumbs', {
+        path: app.request.pathInfo|url_encode
+    })) }}
 {% endmacro %}
 
 
@@ -29,10 +27,7 @@
 {% macro row() %}
     <div class="breadcrumb-row">
         <div class="container">
-            {{ render(controller(
-                'App\\ContentManagement\\Ui\\Components\\Web\\Controller\\BreadcrumbsController', {
-                    encodedPath: app.request.pathInfo|url_encode
-                })) }}
+            {{ _self.component() }}
         </div>
     </div>
 {% endmacro %}

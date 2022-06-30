@@ -7,34 +7,35 @@ use App\ContentManagement\Domain\Website\Exception\PageNotFoundException;
 use Library\CQRS\Query\QueryBus;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * This controller does not expose any route, it is for internal use only.
- */
+#[Route(
+    '/_components/breadcrumbs',
+    name: 'components_breadcrumbs',
+    requirements: ['_locale' => 'en']
+)]
 class BreadcrumbsController extends AbstractController
 {
     /**
-     * Render the breadcrumbs based on the given urlencoded path.
+     * Builds the breadcrumbs for given page path.
      */
     public function __invoke(
-        string          $encodedPath,
+        Request         $request,
         LoggerInterface $logger,
         QueryBus        $queryBus
     ): Response
     {
-        $query = new FindBreadcrumbs([
-            'path' => urldecode($encodedPath)
-        ]);
+        if (!$path = $request->query->get('path')) {
+            return new Response('Missing path', Response::HTTP_BAD_REQUEST);
+        }
+        
+        $query = new FindBreadcrumbs(['path' => urldecode($path)]);
 
         try {
             $breadcrumbs = $queryBus->query($query);
-        } catch (PageNotFoundException $exception) {
-            $logger->error(sprintf(
-                'Tried to render breadcrumbs for path "%s", but the Page does not exists.',
-                $query->path
-            ), ['exception' => $exception]);
-
+        } catch (PageNotFoundException) {
             return new Response('', Response::HTTP_NO_CONTENT);
         }
 

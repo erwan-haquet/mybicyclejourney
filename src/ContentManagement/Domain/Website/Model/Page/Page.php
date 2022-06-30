@@ -3,16 +3,14 @@
 namespace App\ContentManagement\Domain\Website\Model\Page;
 
 use App\Supporting\Domain\I18n\Model\Locale;
-use DateTimeImmutable;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Brings together all the resources necessary to render a web page.
- * Metadata / Breadcrumbs ...
- * 
- * This model is designed for content management administration
- * therefor it should not include technical meanings. 
+ * Sitemap / Metadata / Breadcrumbs ...
+ *
+ * This model is designed for content management administration.
  */
 #[ORM\Entity]
 #[ORM\Table(name: "content_management_website_page")]
@@ -22,29 +20,26 @@ class Page
     #[ORM\Column(type: 'uuid')]
     private string $id;
 
-    #[ORM\Column(type: 'string', enumType: Type::class)]
-    private Type $type;
+    #[ORM\Column(type: 'string')]
+    private string $label;
 
     #[ORM\Column(type: 'string')]
     private string $title;
-    
+
     #[ORM\Column(type: 'text')]
     private string $description;
 
-    #[ORM\Column(type: 'string')]
-    private string $label;
-    
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $imageUrl;
+
     #[ORM\Embedded(class: Locale::class)]
     private Locale $locale;
 
     #[ORM\Embedded(class: Route::class)]
     private Route $route;
 
-    #[ORM\Embedded(class: Seo::class)]
-    private Seo $seo;
-
-    #[ORM\Embedded(class: Social::class)]
-    private Social $social;
+    #[ORM\Embedded(class: Crawl::class)]
+    private Crawl $crawl;
 
     #[ORM\ManyToOne(targetEntity: Page::class, inversedBy: "children")]
     private ?Page $parent;
@@ -53,40 +48,29 @@ class Page
     #[ORM\OneToMany(mappedBy: "parent", targetEntity: Page::class)]
     private Collection $children;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    private DateTimeImmutable $createdAt;
-
-    #[ORM\Column(type: 'datetime_immutable')]
-    private DateTimeImmutable $updatedAt;
-
     public function __construct(
-        PageId $id,
-        string $title,
-        string $description,
-        string $label,
-        Locale $locale,
-        Type   $type,
-        Route  $route,
-        ?Page  $parent,
-        Seo    $seo,
-        Social $social,
+        PageId  $id,
+        Route   $route,
+        string  $title,
+        string  $description,
+        string  $label,
+        ?string $imageUrl,
+        Locale  $locale,
+        ?Page   $parent,
+        ?Crawl  $crawl,
     )
     {
         $this->id = $id->toString();
         $this->title = $title;
         $this->description = $description;
         $this->label = $label;
+        $this->imageUrl = $imageUrl;
 
         $this->locale = $locale;
-        $this->type = $type;
         $this->route = $route;
         $this->parent = $parent;
-        
-        $this->seo = $seo;
-        $this->social = $social;
 
-        $this->createdAt = new DateTimeImmutable();
-        $this->updatedAt = new DateTimeImmutable();
+        $this->crawl = $crawl ?? Crawl::default();
     }
 
     public function id(): PageId
@@ -119,24 +103,9 @@ class Page
         return $this->label;
     }
 
-    public function path(): string
+    public function locale(): Locale
     {
-        return $this->route->path();
-    }
-
-    public function url(): string
-    {
-        return $this->route->url();
-    }
-    
-    public function routeName(): string
-    {
-        return $this->route->name();
-    }
-
-    public function type(): Type
-    {
-        return $this->type;
+        return $this->locale;
     }
 
     public function parent(): ?Page
@@ -149,38 +118,42 @@ class Page
         return $this->children;
     }
 
-    public function createdAt(): DateTimeImmutable
+    public function path(): string
     {
-        return $this->createdAt;
+        return $this->route->path();
     }
 
-    public function updatedAt(): DateTimeImmutable
+    public function url(): string
     {
-        return $this->updatedAt;
+        return $this->route->url();
     }
 
-    public function seo(): Seo
+    public function routeName(): string
     {
-        return $this->seo;
+        return $this->route->name();
     }
-    
+
+    public function shouldIndex(): bool
+    {
+        return $this->crawl->shouldIndex();
+    }
+
     public function crawlPriority(): float
     {
-        return $this->seo->crawlPriority();
-    }
-    
-    public function social(): Social
-    {
-        return $this->social;
+        return $this->crawl->priority();
     }
 
-    public function locale(): Locale
-    {
-        return $this->locale;
-    }
-    
     public function language(): string
     {
         return $this->locale->language();
+    }
+
+    /**
+     * An image URL which should represent your object within the graph.
+     * Format MUST be at least 1200 x 630, and respect the ratio.
+     */
+    public function imageUrl(): ?string
+    {
+        return $this->imageUrl;
     }
 }

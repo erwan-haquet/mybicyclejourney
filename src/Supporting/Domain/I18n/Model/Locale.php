@@ -19,6 +19,9 @@ class Locale
 
     public function __construct(string $language)
     {
+        // Assert that language respect ISO 639-1 format.
+        Assert::length($language, 2);
+        
         $this->language = $language;
     }
 
@@ -29,9 +32,6 @@ class Locale
     {
         // If locale includes country we remove it.
         $pieces = explode("_", $locale);
-
-        // Assert that language respect ISO 639-1 format.
-        Assert::length($pieces[0], 2);
         
         return new self($pieces[0]);
     }
