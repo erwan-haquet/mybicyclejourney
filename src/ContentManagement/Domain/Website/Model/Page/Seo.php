@@ -35,7 +35,7 @@ class Seo
     )
     {
         Assert::nullOrRange($crawlPriority, 0.1, 1);
-        $this->crawlPriority = $crawlPriority ? $crawlPriority * 10 : 3;
+        $this->crawlPriority = $crawlPriority ? $crawlPriority * 10 : 5;
 
         $this->shouldIndex = $shouldIndex;
     }

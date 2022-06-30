@@ -8,16 +8,13 @@ use Library\Utils\View;
 class UrlDto extends View
 {
     public string $loc;
-
-    public string $lastmod;
-
+    
     public float $priority;
 
     public static function fromPage(Page $page): self
     {
         return new self([
             'loc' => $page->url(),
-            'lastmod' => $page->updatedAt()->format("Y-m-d"),
             'priority' => $page->crawlPriority(),
         ]);
     }
