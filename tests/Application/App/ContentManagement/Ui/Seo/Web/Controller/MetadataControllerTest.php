@@ -107,13 +107,13 @@ class MetadataControllerTest extends WebTestCase
 
         $this->client->request('GET', self::URI, ['path' => urlencode('/')]);
         
-        $englishNode = $this->client->getCrawler()->filter('link[hreflang="EN"][href="https://localhost/"]');
+        $englishNode = $this->client->getCrawler()->filter('link[hreflang="en"][href="https://localhost/"]');
         $this->assertEquals(1, $englishNode->count());
         
-        $japanNode = $this->client->getCrawler()->filter('link[hreflang="JP"][href="https://localhost/jp/"]');
+        $japanNode = $this->client->getCrawler()->filter('link[hreflang="jp"][href="https://localhost/jp/"]');
         $this->assertEquals(1, $japanNode->count());
         
-        $frenchNode = $this->client->getCrawler()->filter('link[hreflang="FR"][href="https://localhost/fr/"]');
+        $frenchNode = $this->client->getCrawler()->filter('link[hreflang="fr"][href="https://localhost/fr/"]');
         $this->assertEquals(1, $frenchNode->count());
     }
 
