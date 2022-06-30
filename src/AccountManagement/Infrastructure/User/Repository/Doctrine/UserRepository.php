@@ -3,7 +3,6 @@
 namespace App\AccountManagement\Infrastructure\User\Repository\Doctrine;
 
 use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegisteredException;
-use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegisteredException;
 use App\AccountManagement\Domain\User\Model\User;
 use App\AccountManagement\Domain\User\Model\UserId;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
@@ -23,11 +22,7 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
         if ($this->findByEmail($user->email())) {
             throw new EmailIsAlreadyRegisteredException();
         }
-
-        if ($this->findByUsername($user->username())) {
-            throw new UsernameIsAlreadyRegisteredException();
-        }
-
+        
         $manager = $this->getEntityManager();
         $manager->persist($user);
         $manager->flush();
@@ -43,18 +38,6 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
     public function findByEmail(string $email): ?User
     {
         return $this->findOneBy(['email' => $email]);
-    }
-
-    public function findByUsername(string $username): ?User
-    {
-        return $this
-            ->createQueryBuilder('user')
-            ->select('user')
-            ->where('LOWER(user.username) = :username')
-            ->setParameter('username', strtolower($username))
-            ->getQuery()
-            ->setMaxResults(1)
-            ->getOneOrNullResult();
     }
 
     public function nextIdentity(): UserId

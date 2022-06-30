@@ -8,12 +8,9 @@ form:
     label:
         first_name: Prénom
         email: Email
-        username: "Nom d'utilisateur"
         password: 'Mot de passe'
         new_password: "Nouveau mot de passe"
         repeat_password: "Répéter le mot de passe"
-    helper:
-        username: 'Ton pseudo visible par les autres utilisateurs.'
 navbar:
     signup: 'Partager mon aventure'
 marketing:
@@ -51,15 +48,15 @@ account_management:
         privacy_policy: 'Nous respectons tes données personnelles, voir notre <a href="{link}">Politique&nbsp;de&nbsp;confidentialité</a>.'
         register: 'Créer mon compte'
         already_have_an_account: "J'ai déjà un compte."
-        registered_with_success: 'Bienvenue dans la communauté {username} !'
+        registered_with_success: 'Bienvenue dans la communauté !'
     login:
         title: "Connexion"
         description: "Re, Tu nous as manqué !"
         signin: "Me connecter"
-        registered_with_success: 'Re bonjour {username}'
+        registered_with_success: 'Re bonjour !'
         forgot_password: 'Mot de passe oublié ?'
     verify_user_email:
-        user_not_found: "Oops, il semblerait qu'on ne puisse pas confirmer ton email :("
+        cannot_verify: "Oops, il semblerait qu'on ne puisse pas confirmer ton email :("
         email_verified: 'Ton compte est désormais validé ✅'
     password_reset:
         forgot_password: 'Mot de passe oublié ?'

@@ -2,7 +2,7 @@
 
 namespace App\ContentManagement\Ui\Components\Web\Controller;
 
-use App\ContentManagement\Application\Components\Query\FindBreadcrumbs;
+use App\ContentManagement\Application\Components\Query\BuildBreadcrumbs;
 use App\ContentManagement\Domain\Website\Exception\PageNotFoundException;
 use Library\CQRS\Query\QueryBus;
 use Psr\Log\LoggerInterface;
@@ -31,7 +31,7 @@ class BreadcrumbsController extends AbstractController
             return new Response('Missing path', Response::HTTP_BAD_REQUEST);
         }
         
-        $query = new FindBreadcrumbs(['path' => urldecode($path)]);
+        $query = new BuildBreadcrumbs(['path' => urldecode($path)]);
 
         try {
             $breadcrumbs = $queryBus->query($query);

@@ -8,7 +8,7 @@ use Library\CQRS\Query\Query;
  * Finds the breadcrumbs corresponding to given page path.
  * @see Breadcrumbs
  */
-class FindBreadcrumbs extends Query
+class BuildBreadcrumbs extends Query
 {
     public string $path;
 }
