@@ -24,7 +24,7 @@ class MetadataControllerTest extends WebTestCase
             ->getManager();
     }
 
-    public function testMissingPathParameterReturnsNoContent(): void
+    public function testMissingPathParameterShouldReturnNoContent(): void
     {
         $this->client->request('GET', '/components/metadata');
 
@@ -32,7 +32,7 @@ class MetadataControllerTest extends WebTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_NO_CONTENT);
     }
 
-    public function testUnreachablePageReturnsNoContent(): void
+    public function testUnreachablePageShouldReturnNoContent(): void
     {
         $this->client->request('GET', '/components/metadata', [
             'path' => urlencode('/definitely-not-a-page')
@@ -42,7 +42,7 @@ class MetadataControllerTest extends WebTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_NO_CONTENT);
     }
 
-    public function testTitleIsRendered(): void
+    public function testPageTitleShouldBeRendered(): void
     {
         $title = "A super basic title";
         
@@ -59,7 +59,7 @@ class MetadataControllerTest extends WebTestCase
         $this->assertPageTitleSame($title);
     }
 
-    public function testMetaDescriptionIsRendered(): void
+    public function testMetaDescriptionShouldBeRendered(): void
     {
         $description = "A super basic description";
         
@@ -81,7 +81,7 @@ class MetadataControllerTest extends WebTestCase
         $this->assertEquals($description, $metaDescription);
     }
 
-    public function testLocalAlternatesAreRenderedBasedOnTheRouteName(): void
+    public function testLocalAlternatesShouldBeRenderedBasedOnRouteName(): void
     {
         $routeName = "homepage";
         
@@ -116,7 +116,7 @@ class MetadataControllerTest extends WebTestCase
         $this->assertEquals(1, $frenchNode->count());
     }
 
-    public function testOpenGraphUrlIsSameHasCanonicalUrl(): void
+    public function testOpenGraphUrlShouldBeSameAsCanonicalUrl(): void
     {
         $url = "https://localhost/a-fancy-url";
         
@@ -138,7 +138,7 @@ class MetadataControllerTest extends WebTestCase
         $this->assertEquals($url, $ogUrl);
     }
 
-    public function testOpenGraphLocaleIsSameHasPage(): void
+    public function testOpenGraphLocaleShouldBeSameAsPageLocale(): void
     {
         $locale = Locale::from('NL');
         
