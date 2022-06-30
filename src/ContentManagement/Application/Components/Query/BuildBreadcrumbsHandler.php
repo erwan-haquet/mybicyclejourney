@@ -7,7 +7,7 @@ use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
 use App\ContentManagement\Ui\Components\Web\Dto\Breadcrumbs\BreadcrumbsDto;
 use Library\CQRS\Query\QueryHandlerInterface;
 
-class FindBreadcrumbsHandler implements QueryHandlerInterface
+class BuildBreadcrumbsHandler implements QueryHandlerInterface
 {
     private PageRepositoryInterface $pageRepository;
 
@@ -19,7 +19,7 @@ class FindBreadcrumbsHandler implements QueryHandlerInterface
     /**
      * @throws PageNotFoundException
      */
-    public function __invoke(FindBreadcrumbs $query): BreadcrumbsDto
+    public function __invoke(BuildBreadcrumbs $query): BreadcrumbsDto
     {
         if (!$page = $this->pageRepository->findByPath($query->path)) {
             throw PageNotFoundException::forPath($query->path);

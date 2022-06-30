@@ -10,7 +10,7 @@ services:
             tags: [{ name: messenger.message_handler, bus: query.bus }]
         Library\CQRS\Event\EventHandlerInterface:
             tags: [{ name: messenger.message_handler, bus: event.bus }]
-
+                
     Library\CQRS\:
         resource: './'
 

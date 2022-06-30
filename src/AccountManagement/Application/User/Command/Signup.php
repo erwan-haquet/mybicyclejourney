@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @see User
  * @CustomAssert\EmailIsNotAlreadyRegistered
- * @CustomAssert\UsernameIsNotAlreadyRegistered
  */
 class Signup extends Command
 {
@@ -27,15 +26,6 @@ class Signup extends Command
      * @Assert\Email(message="account_management.signup.email_is_invalid")
      */
     public ?string $email = null;
-
-    /**
-     * @Assert\NotBlank(message="account_management.signup.username_is_blank")
-     * @Assert\Regex(
-     *     pattern="/^[a-zA-Z0-9]*$/",
-     *     message="account_management.signup.username_is_invalid"
-     * )
-     */
-    public ?string $username = null;
 
     /**
      *  4096 is the max length allowed by Symfony for security reasons.

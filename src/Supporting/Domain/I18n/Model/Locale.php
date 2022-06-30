@@ -7,7 +7,7 @@ use Library\Assert\Assert;
 
 /**
  * The user locale for translation / internationalization.
- * 
+ *
  * In this application, we are using only the language to localize.
  * This means that country code is dropped.
  */
@@ -21,8 +21,8 @@ class Locale
     {
         // Assert that language respect ISO 639-1 format.
         Assert::length($language, 2);
-        
-        $this->language = $language;
+
+        $this->language = strtolower($language);
     }
 
     /**
@@ -32,7 +32,7 @@ class Locale
     {
         // If locale includes country we remove it.
         $pieces = explode("_", $locale);
-        
+
         return new self($pieces[0]);
     }
 
@@ -45,7 +45,7 @@ class Locale
     {
         return $this->language;
     }
-    
+
     public function __toString(): string
     {
         return $this->language;

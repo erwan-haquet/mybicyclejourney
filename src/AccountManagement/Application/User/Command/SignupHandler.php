@@ -4,7 +4,6 @@ namespace App\AccountManagement\Application\User\Command;
 
 use App\AccountManagement\Domain\User\Event\UserRegistered;
 use App\AccountManagement\Domain\User\Exception\EmailIsAlreadyRegisteredException;
-use App\AccountManagement\Domain\User\Exception\UsernameIsAlreadyRegisteredException;
 use App\AccountManagement\Domain\User\Model\User;
 use App\AccountManagement\Domain\User\Repository\UserRepositoryInterface;
 use Library\CQRS\Command\CommandHandlerInterface;
@@ -30,14 +29,12 @@ class SignupHandler implements CommandHandlerInterface
 
     /**
      * @throws EmailIsAlreadyRegisteredException
-     * @throws UsernameIsAlreadyRegisteredException
      */
     public function __invoke(Signup $command): void
     {
         $user = new User(
             id: $command->id,
             email: $command->email,
-            username: $command->username,
             locale: $command->locale
         );
 
