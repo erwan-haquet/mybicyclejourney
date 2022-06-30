@@ -23,7 +23,7 @@ class SignupController extends AbstractController
         UserRepositoryInterface    $repository,
         CommandBus                 $commandBus,
         UserAuthenticatorInterface $authenticator,
-        LoginFormAuthenticator $formAuthenticator
+        LoginFormAuthenticator     $formAuthenticator
     ): Response
     {
         $id = $repository->nextIdentity();
@@ -34,20 +34,18 @@ class SignupController extends AbstractController
         $form = $this->createForm(SignupFormType::class, $command);
 
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            $commandBus->handle($command);
 
-            $user = $repository->findById($id);
+            $commandBus->handle($command);
 
             $this->addFlash('success', new TranslatableMessage(
                 'account_management.signup.registered_with_success',
                 ['username' => $command->username]
             ));
-            
+
             return $authenticator->authenticateUser(
-                $user, 
-                $formAuthenticator, 
+                $repository->findById($id),
+                $formAuthenticator,
                 $request
             );
         }

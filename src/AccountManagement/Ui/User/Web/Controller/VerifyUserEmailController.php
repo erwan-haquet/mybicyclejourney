@@ -39,8 +39,8 @@ class VerifyUserEmailController extends AbstractController
                 'uri' => $request->getUri()
             ]);
             $commandBus->handle($command);
-        } catch (UserNotFoundException $exception) {
-            $this->addFlash('error', new TranslatableMessage('account_management.verify_user_email.user_not_found'));
+        } catch (UserNotFoundException) {
+            $this->addFlash('error', new TranslatableMessage('account_management.verify_user_email.cannot_verify'));
             return $this->redirectToRoute('signup');
         } catch (CannotVerifyUserEmailException $exception) {
             $this->addFlash('error', new TranslatableMessage($exception->getMessage(), [], 'VerifyEmailBundle'));
