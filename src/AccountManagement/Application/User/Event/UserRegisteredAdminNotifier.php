@@ -32,8 +32,7 @@ class UserRegisteredAdminNotifier implements EventHandlerInterface
 
         $notification = (new Notification('Nouvel utilisateur', ['email']))
             ->content(sprintf(
-                "%s vient de s'inscrire avec l'email: %s",
-                $user->username(),
+                "Nouvel utilisateur avec l'email, inscrit avec :  %s",
                 $user->email()
             ));
 

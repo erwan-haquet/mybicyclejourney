@@ -4,17 +4,21 @@ namespace App\ContentManagement\Application\Components\Query;
 
 use App\ContentManagement\Ui\Components\Web\Dto\Navbar\NavbarDto;
 use Library\CQRS\Query\Query;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Finds the necessary resources to build the navbar.
+ * Build the navbar.
  *
  * @see NavbarDto
  */
-class FindNavbar extends Query
+class BuildNavbar extends Query
 {
     /**
-     * The current page request.
+     * The current request route name.
      */
-    public Request $request;
+    public string $route;
+    
+    /**
+     * The current request query params.
+     */
+    public array $queryParams;
 }

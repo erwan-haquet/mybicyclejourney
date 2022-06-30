@@ -8,12 +8,9 @@ form:
     label:
         first_name: 'First name'
         email: Email
-        username: Username
         password: Password
         new_password: "New password"
         repeat_password: "Repeat Password"
-    helper:
-        username: 'Your nickname visible by the other users.'
 navbar:
     signup: "Share my trip"
 marketing:
@@ -51,12 +48,12 @@ account_management:
         privacy_policy: 'We care about your data, see our <a href="{link}">Privacy&nbsp;Policy</a>.'
         register: "Create my account"
         already_have_an_account: "I already have an account."
-        registered_with_success: 'Welcome in the community {username} !'
+        registered_with_success: 'Welcome in the community !'
     login:
         title: "Sign in"
         description: "Welcome back, we missed you !"
         signin: "Log in"
-        registered_with_success: 'Hi again {username} 👋'
+        registered_with_success: 'Hi again 👋'
         forgot_password: 'Forgot password ?'
     verify_user_email:
         cannot_verify: 'Oops, it seems like we cannot confirm your email :('

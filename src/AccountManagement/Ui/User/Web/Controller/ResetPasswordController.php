@@ -73,9 +73,7 @@ class ResetPasswordController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $commandBus->handle($command);
 
-            $this->addFlash('success', new TranslatableMessage('global.welcome_back_john', [
-                'name' => $user->username()
-            ]));
+            $this->addFlash('success', new TranslatableMessage('global.welcome_back'));
 
             return $authenticator->authenticateUser(
                 $user,

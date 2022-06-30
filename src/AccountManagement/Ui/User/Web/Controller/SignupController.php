@@ -38,10 +38,7 @@ class SignupController extends AbstractController
 
             $commandBus->handle($command);
 
-            $this->addFlash('success', new TranslatableMessage(
-                'account_management.signup.registered_with_success',
-                ['username' => $command->username]
-            ));
+            $this->addFlash('success', new TranslatableMessage('account_management.signup.registered_with_success'));
 
             return $authenticator->authenticateUser(
                 $repository->findById($id),

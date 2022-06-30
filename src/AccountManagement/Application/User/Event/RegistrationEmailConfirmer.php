@@ -51,7 +51,6 @@ class RegistrationEmailConfirmer implements EventHandlerInterface
         );
 
         $context = [
-            'name' => $user->username(),
             'locale' => $user->locale(),
             'signedUrl' => $signatureComponents->getSignedUrl(),
             'expiresAtMessageKey' => $signatureComponents->getExpirationMessageKey(),

@@ -21,9 +21,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private string $email;
 
-    #[ORM\Column(type: 'string', length: 36, unique: true)]
-    private string $username;
-
     #[ORM\Column(type: 'json')]
     private array $roles = [];
 
@@ -39,13 +36,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct(
         UserId $id,
         string $email,
-        string $username,
         Locale $locale,
     )
     {
         $this->id = $id->toString();
         $this->email = $email;
-        $this->username = $username;
         $this->locale = $locale;
     }
 
@@ -57,11 +52,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function email(): string
     {
         return $this->email;
-    }
-
-    public function username(): string
-    {
-        return $this->username;
     }
 
     public function locale(): Locale
