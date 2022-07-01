@@ -32,7 +32,7 @@ class Signup extends Command
      *
      * @Assert\NotBlank(message="account_management.signup.password_is_blank")
      * @Assert\Length(
-     *     min=8,
+     *     min=6,
      *     minMessage="account_management.signup.password_is_too_small",
      *     max=4096
      * )
