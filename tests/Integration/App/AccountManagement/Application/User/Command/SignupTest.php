@@ -10,7 +10,7 @@ use Symfony\Component\Messenger\Exception\ValidationFailedException;
 use Symfony\Component\Uid\Uuid;
 use Tests\Fixtures\App\AccountManagement\Application\User\Command\SignupFactory;
 
-class SignupCommandTest extends KernelTestCase
+class SignupTest extends KernelTestCase
 {
     private ?UserRepositoryInterface $userRepository;
     private ?CommandBus $commandBus;
@@ -39,7 +39,7 @@ class SignupCommandTest extends KernelTestCase
         $this->assertNotNull($user);
     }
     
-    public function testICanNotRegisterWithAlreadyExistingEmail(): void
+    public function testICanNotSignupWithAlreadyExistingEmail(): void
     {
         $email = 'erwan@mybicyclejourney.com';
 
