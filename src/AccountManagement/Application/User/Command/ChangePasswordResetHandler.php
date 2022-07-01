@@ -14,18 +14,15 @@ class ChangePasswordResetHandler implements CommandHandlerInterface
     private UserRepository $userRepository;
     private UserPasswordHasherInterface $userPasswordHasher;
     private ResetPasswordHelperInterface $resetPasswordHelper;
-    private RequestStack $requestStack;
 
     public function __construct(
         UserRepository               $userRepository,
         UserPasswordHasherInterface  $userPasswordHasher,
-        ResetPasswordHelperInterface $resetPasswordHelper,
-        RequestStack                 $requestStack,
+        ResetPasswordHelperInterface $resetPasswordHelper
     ) {
         $this->userRepository = $userRepository;
         $this->resetPasswordHelper = $resetPasswordHelper;
         $this->userPasswordHasher = $userPasswordHasher;
-        $this->requestStack = $requestStack;
     }
 
     /**
@@ -49,11 +46,5 @@ class ChangePasswordResetHandler implements CommandHandlerInterface
 
         $user->setPassword($encodedPassword);
         $this->userRepository->update($user);
-
-        // The session is cleaned up after the password has been changed.
-        $session = $this->requestStack->getSession();
-        $session->remove('ResetPasswordPublicToken');
-        $session->remove('ResetPasswordCheckEmail');
-        $session->remove('ResetPasswordToken');
     }
 }

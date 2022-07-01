@@ -73,6 +73,5 @@ class RequestPasswordResetHandler implements CommandHandlerInterface
         $this->requestStack
             ->getSession()
             ->set('ResetPasswordToken', $resetToken);
-
     }
 }

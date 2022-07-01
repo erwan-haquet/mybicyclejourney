@@ -51,7 +51,7 @@ account_management:
         registered_with_success: 'Bienvenue dans la communauté !'
     login:
         title: "Connexion"
-        description: "Re, Tu nous as manqué !"
+        description: "Re, tu nous as manqué !"
         signin: "Me connecter"
         registered_with_success: 'Re bonjour !'
         forgot_password: 'Mot de passe oublié ?'
