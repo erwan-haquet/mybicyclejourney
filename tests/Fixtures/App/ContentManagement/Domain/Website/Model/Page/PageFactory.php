@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Application\App\ContentManagement\Domain\Website\Model\Page;
+namespace Tests\Fixtures\App\ContentManagement\Domain\Website\Model\Page;
 
 use App\ContentManagement\Domain\Website\Model\Page\Crawl;
 use App\ContentManagement\Domain\Website\Model\Page\Page;

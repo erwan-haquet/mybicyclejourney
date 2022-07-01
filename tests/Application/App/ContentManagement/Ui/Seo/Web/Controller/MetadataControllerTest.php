@@ -7,8 +7,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
-use Tests\Application\App\ContentManagement\Domain\Website\Model\Page\PageFactory;
-use Tests\Application\App\ContentManagement\Domain\Website\Model\Page\RouteFactory;
+use Tests\Fixtures\App\ContentManagement\Domain\Website\Model\Page\PageFactory;
+use Tests\Fixtures\App\ContentManagement\Domain\Website\Model\Page\RouteFactory;
 
 class MetadataControllerTest extends WebTestCase
 {
