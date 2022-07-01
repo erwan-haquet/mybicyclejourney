@@ -9,6 +9,7 @@ use App\AccountManagement\Ui\User\Web\Form\ChangePasswordFormType;
 use Library\CQRS\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
@@ -33,8 +34,10 @@ class ResetPasswordController extends AbstractController
         CommandBus                   $commandBus,
         UserAuthenticatorInterface   $authenticator,
         LoginFormAuthenticator       $formAuthenticator,
+        RequestStack                 $requestStack,
         string                       $token = null
-    ): Response {
+    ): Response
+    {
         if ($token) {
             // We store the token in session and remove it from the URL, to avoid the URL being
             // loaded in a browser and potentially leaking the token to 3rd party JavaScript.
@@ -62,7 +65,7 @@ class ResetPasswordController extends AbstractController
 
         // The token is now valid.
         // Allow the user to change their password.
-        
+
         $command = new ChangePassword([
             'userId' => $user->id(),
             'token' => $token
@@ -72,9 +75,15 @@ class ResetPasswordController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $commandBus->handle($command);
-
+            
             $this->addFlash('success', new TranslatableMessage('global.welcome_back'));
 
+            // The session is cleaned up after the password has been changed.
+            $session = $requestStack->getSession();
+            $session->remove('ResetPasswordPublicToken');
+            $session->remove('ResetPasswordCheckEmail');
+            $session->remove('ResetPasswordToken');
+            
             return $authenticator->authenticateUser(
                 $user,
                 $formAuthenticator,
