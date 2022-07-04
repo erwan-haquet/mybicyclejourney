@@ -1,5 +1,4 @@
 general:
-    say_hello_john: 'Salut {name} !'
     say_hello: 'Hey !'
     say_bye: "À bientôt,\nErwan de https://mybicyclejourney.com/fr"
 marketing_launch:

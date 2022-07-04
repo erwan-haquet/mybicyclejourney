@@ -3,7 +3,7 @@ on: [ pull_request ]
 
 jobs:
     tests:
-        name: Run all tests
+        name: All tests
         runs-on: ubuntu-20.04
         services:
             postgres-test:
@@ -61,17 +61,22 @@ jobs:
                     restore-keys: ${{ runner.os }}-composer-
 
             -   name: Install Composer dependencies
-                run: make install
+                run: composer install --no-progress --prefer-dist --optimize-autoloader
             
             ## —— Tests ✅ ———————————————————————————————————————————————————————————
             -   name: Setup database
-                run: make init-test-db
+                run: |
+                    php bin/console doctrine:cache:clear-metadata --env=test
+                    php bin/console doctrine:database:create --if-not-exists --env=test
+                    php bin/console doctrine:schema:drop --force --env=test
+                    php bin/console doctrine:migration:migrate --no-interaction --env=test
+                    php bin/console doctrine:schema:validate --env=test
                 env:
                     DATABASE_URL: postgres://postgres:postgres@127.0.0.1:${{ job.services.postgres.ports[5432] }}/postgres?charset=UTF-8
 
             -   name: Run application, integration and unit tests
                 run: |
                     cp phpunit.xml.dist phpunit.xml
-                    make test
+                    php bin/phpunit --testsuite='all' --stop-on-failure
                 env:
                     DATABASE_URL: postgres://postgres:postgres@127.0.0.1:${{ job.services.postgres.ports[5432] }}/postgres?charset=UTF-8

@@ -3,7 +3,6 @@ global:
     signin: "Sign in"
     coming_soon: "Coming soon"
     my_account: "My account"
-    welcome_back_john: "Welcome back {name}"
 form:
     label:
         first_name: 'First name'
@@ -14,6 +13,8 @@ form:
 navbar:
     login: "Login"
     signup: "Register"
+    logout: "Logout"
+    account: "My account"
 marketing:
     early_bird:
         register: 'Keep me posted 🤙'
