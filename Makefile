@@ -3,31 +3,34 @@
 # https://speakerdeck.com/mykiwi/outils-pour-ameliorer-la-vie-des-developpeurs-symfony?slide=47
 # https://blog.theodo.fr/2018/05/why-you-need-a-makefile-on-your-project/
 # https://github.com/mykiwi/symfony-bootstrapped/blob/master/Makefile
+# https://www.strangebuzz.com/en/snippets/the-perfect-makefile-for-symfony
 # Setup ————————————————————————————————————————————————————————————————————————
 
+# Import .env variables
+include .env
+export
+
 # Parameters
-SHELL         = sh
-PROJECT       = mybicyclejourney
-GIT_AUTHOR    = erwan-haquet
+SHELL            = sh
+PROJECT          = mybicyclejourney
+GIT_AUTHOR       = erwan-haquet
 
 # Executables
-EXEC_PHP      = php
-COMPOSER      = composer
-GIT           = git
-YARN          = yarn
+PHP              = $(DOCKER_CONSOLE) php
+COMPOSER         = $(DOCKER_CONSOLE) composer
+YARN             = $(DOCKER_CONSOLE) yarn
+GIT              = git
 
 # Alias
-SYMFONY       = $(EXEC_PHP) bin/console
-# if you use Docker you can replace with: "docker-compose exec my_php_container $(EXEC_PHP) bin/console"
-
-# Executables: vendors
-PHPUNIT       = ./vendor/bin/phpunit
-PHPSTAN       = ./vendor/bin/phpstan
+SYMFONY          = $(PHP) bin/console
+PHPUNIT          = $(PHP) bin/phpunit
+PHPSTAN          = $(PHP) bin/phpstan
 
 # Executables: local only
-SYMFONY_BIN   = symfony
-DOCKER        = docker
-DOCKER_COMP   = docker compose
+SYMFONY_BIN      = symfony
+DOCKER           = docker
+DOCKER_COMP      = docker compose
+DOCKER_CONSOLE   = @$(DOCKER) exec -it ${COMPOSE_PROJECT_NAME}-php-1
 
 # Misc
 .DEFAULT_GOAL = help
@@ -38,25 +41,9 @@ DOCKER_COMP   = docker compose
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
-## —— Composer 🧙‍♂️ ————————————————————————————————————————————————————————————
-install: composer.lock ## Install vendors according to the current composer.lock file
-	@$(COMPOSER) install --no-progress --prefer-dist --optimize-autoloader
-
-## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
-sf: ## List all Symfony commands
-	@$(SYMFONY)
-
-cc: ## Clear the cache. DID YOU CLEAR YOUR CACHE????
-	@$(SYMFONY) c:cl
-
-warmup: ## Warmup the cache
-	@$(SYMFONY) cache:warmup
-
-fix-perms: ## Fix permissions of all var files
-	@chmod -R 777 var/*
-
-purge: ## Purge cache and logs
-	@rm -rf var/cache/* var/logs/*
+## —— GIT —————————————————————————————————————————————————————
+remove-branches: ## Remove already merged branch
+	$(GIT) branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
 
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
 up: ## Start the docker hub 
@@ -71,9 +58,30 @@ down: ## Stop the docker hub
 console: ## Enter into the php console docker container
 	./scripts/run.sh console
 
-## —— Project 🐝 ———————————————————————————————————————————————————————————————
-commands: ## Display all commands in the project namespace
-	@$(SYMFONY) list $(PROJECT)
+## —— Composer 🧙‍♂️ ————————————————————————————————————————————————————————————
+install: composer.lock ## Install vendors according to the current composer.lock file
+	@$(COMPOSER) install --no-progress --prefer-dist --optimize-autoloader
+
+update: composer.lock ## Update composer dependencies
+	@$(COMPOSER) update --no-progress --prefer-dist --optimize-autoloader
+
+## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
+cc: ## Clear the cache. DID YOU CLEAR YOUR CACHE????
+	@$(eval env ?= 'dev')
+	@$(SYMFONY) cache:clear --env=$(env)
+
+warmup: ## Warmup the cache
+	@$(eval env ?= 'dev')
+	@$(SYMFONY) cache:warmup --env=$(env)
+
+dmm: ## Migrate the database schema according to migrations
+	@$(SYMFONY) doctrine:migration:migrate
+
+dmd: ## Generate migration file
+	@$(SYMFONY) doctrine:migration:diff
+
+purge: ## Purge cache and logs
+	@rm -rf var/cache/* var/logs/*
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
 init-test-db: ## Build the DB and control the schema validity
@@ -90,6 +98,12 @@ test: phpunit.xml ## Run tests with optional suite and filter
 	@$(eval testsuite ?= 'all')
 	@$(eval filter ?= '.')
 	@$(PHPUNIT) --testsuite=$(testsuite) --filter=$(filter) --stop-on-failure
+
+full-test: ## Setup project for test and run them all
+	@make drop-test-db
+	@make init-test-db
+	@make install
+	@make test
 
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
 stan: ## Run PHPStan

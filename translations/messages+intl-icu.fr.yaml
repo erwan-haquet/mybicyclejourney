@@ -12,7 +12,8 @@ form:
         new_password: "Nouveau mot de passe"
         repeat_password: "Répéter le mot de passe"
 navbar:
-    signup: 'Partager mon aventure'
+    login: "Se connecter"
+    signup: "S'inscrire"
 marketing:
     early_bird:
         register: 'Tiens moi au courant 🤙'
