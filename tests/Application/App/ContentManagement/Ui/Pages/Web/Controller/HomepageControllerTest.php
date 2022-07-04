@@ -11,6 +11,6 @@ class HomepageControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/');
 
-        $this->expectExceptionCode('400');
+        $this->assertResponseIsSuccessful();
     }
 }
