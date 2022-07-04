@@ -61,17 +61,17 @@ jobs:
                     restore-keys: ${{ runner.os }}-composer-
 
             -   name: Install Composer dependencies
-                run: make install
+                run: make ci-install
             
             ## —— Tests ✅ ———————————————————————————————————————————————————————————
             -   name: Setup database
-                run: make init-test-db
+                run: make ci-init-test-db
                 env:
                     DATABASE_URL: postgres://postgres:postgres@127.0.0.1:${{ job.services.postgres.ports[5432] }}/postgres?charset=UTF-8
 
             -   name: Run application, integration and unit tests
                 run: |
                     cp phpunit.xml.dist phpunit.xml
-                    make test
+                    make ci-test
                 env:
                     DATABASE_URL: postgres://postgres:postgres@127.0.0.1:${{ job.services.postgres.ports[5432] }}/postgres?charset=UTF-8

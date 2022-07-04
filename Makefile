@@ -26,8 +26,7 @@ SYMFONY          = $(PHP) bin/console
 PHPUNIT          = $(PHP) bin/phpunit
 PHPSTAN          = $(PHP) bin/phpstan
 
-# Executables: local only
-SYMFONY_BIN      = symfony
+# Executables 
 DOCKER           = docker
 DOCKER_COMP      = docker compose
 DOCKER_CONSOLE   = @$(DOCKER) exec -it ${COMPOSE_PROJECT_NAME}-php-1
@@ -84,15 +83,15 @@ purge: ## Purge cache and logs
 	@rm -rf var/cache/* var/logs/*
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
+drop-test-db: 
+	@$(SYMFONY) doctrine:database:drop --if-exists --force --env=test
+	
 init-test-db: ## Build the DB and control the schema validity
 	@$(SYMFONY) doctrine:cache:clear-metadata --env=test
 	@$(SYMFONY) doctrine:database:create --if-not-exists --env=test
 	@$(SYMFONY) doctrine:schema:drop --force --env=test
 	@$(SYMFONY) doctrine:migration:migrate --no-interaction --env=test
 	@$(SYMFONY) doctrine:schema:validate --env=test
-
-drop-test-db: 
-	@$(SYMFONY) doctrine:database:drop --if-exists --force --env=test
 
 test: phpunit.xml ## Run tests with optional suite and filter
 	@$(eval testsuite ?= 'all')
@@ -122,3 +121,20 @@ watch: ## Watch files and build assets when needed for the dev env
 
 encore: ## Build assets for production
 	@$(YARN) run encore production
+
+## —— Github - CI —————————————————————————————————————————————————————
+## Special actions to be executed in github workflow context @see .github/workflows
+ci-install: composer.lock ## Install vendors according to the current composer.lock file
+
+	@composer install --no-progress --prefer-dist --optimize-autoloader
+ci-init-test-db: ## Build the DB and control the schema validity
+	@php bin/console doctrine:cache:clear-metadata --env=test
+	@php bin/console doctrine:database:create --if-not-exists --env=test
+	@php bin/console doctrine:schema:drop --force --env=test
+	@php bin/console doctrine:migration:migrate --no-interaction --env=test
+	@php bin/console doctrine:schema:validate --env=test
+
+ci-test: phpunit.xml ## Run tests with optional suite and filter
+	@$(eval testsuite ?= 'all')
+	@$(eval filter ?= '.')
+	@$(PHPUNIT) --testsuite=$(testsuite) --filter=$(filter) --stop-on-failure
