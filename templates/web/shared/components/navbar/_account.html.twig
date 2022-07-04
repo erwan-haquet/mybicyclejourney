@@ -12,23 +12,55 @@
 {% endmacro %}
 
 {% macro my_account(user) %}
-    <div class="nav-item">
-        <a href="#"
-           class="nav-link text-muted"
-           style="pointer-events: none;"
+    <div class="my-account nav-item dropdown me-3">
+        <a class="text-reset nav-link dropdown-toggle hidden-arrow d-flex align-items-center p-0"
+           href="#"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false"
+           id="dropdown-account"
         >
-            <i class="fas fa-user-circle me-2"></i>
-            {{ 'global.coming_soon'|trans }}
+            <i class="fa fa-2x fa-circle-user me-2"></i>
+            <span>
+                {{ 'global.my_account'|trans }}
+            </span>
         </a>
+        <ul
+                class="dropdown-menu dropdown-menu-end mt-2"
+                aria-labelledby="dropdown-account"
+                data-popper-placement="null"
+                data-mdb-popper="none"
+        >
+            <li>
+
+                <a href="#"
+                   class="dropdown-item text-muted"
+                   style="pointer-events: none;"
+                >
+                    <i class="fa-solid fa-user me-2"></i>
+                    {{ 'global.coming_soon'|trans }}
+                </a>
+            </li>
+            <li>
+                <hr class="dropdown-divider"/>
+            </li>
+            <li>
+                <a href="{{ path('logout') }}" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt me-2"></i>
+                    {{ 'navbar.logout'|trans }}
+                </a>
+            </li>
+        </ul>
     </div>
 {% endmacro %}
 
 {% macro authentication_desktop() %}
     <div class="nav-item me-3">
-        <a href="{{ path('login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
+        <a href="{{ path('signup') }}" class="nav-btn btn btn-secondary">{{ 'navbar.signup'|trans }}</a>
     </div>
     <div class="nav-item me-3">
-        <a href="{{ path('signup') }}" class="nav-btn btn btn-secondary">{{ 'navbar.signup'|trans }}</a>
+        <a href="{{ path('login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
     </div>
 {% endmacro %}
 

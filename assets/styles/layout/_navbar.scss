@@ -28,7 +28,7 @@ $navbar-height: 49px;
 
   .nav-link {
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.875rem;
     color: $dark-color;
     
@@ -39,12 +39,11 @@ $navbar-height: 49px;
 
   .nav-btn {
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.875rem;
   }
-  
 
-  .locale-selector {
+  .my-account, .locale-selector {
     text-decoration: none !important;
 
     a:hover {

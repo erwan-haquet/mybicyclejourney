@@ -1,5 +1,4 @@
 general:
-    say_hello_john: 'Hi {name}!'
     say_hello: 'Hi !'
     say_bye: "See you soon,\nErwan from https://mybicyclejourney.com"
 marketing_launch:
