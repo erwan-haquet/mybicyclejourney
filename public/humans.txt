@@ -1,0 +1,3 @@
+My Bicycle Journey is an open source project, find us on https://github.com/erwan-haquet/mybicyclejourney.
+
+Creator: https://github.com/erwan-haquet

@@ -25,10 +25,10 @@
 
 {% macro authentication_desktop() %}
     <div class="nav-item me-3">
-        <a href="{{ path('login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
+        <a href="{{ path('signup') }}" class="nav-btn btn btn-secondary">{{ 'navbar.signup'|trans }}</a>
     </div>
     <div class="nav-item me-3">
-        <a href="{{ path('signup') }}" class="nav-btn btn btn-secondary">{{ 'navbar.signup'|trans }}</a>
+        <a href="{{ path('login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
     </div>
 {% endmacro %}
 
