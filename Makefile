@@ -125,8 +125,8 @@ encore: ## Build assets for production
 ## —— Github - CI —————————————————————————————————————————————————————
 ## Special actions to be executed in github workflow context @see .github/workflows
 ci-install: composer.lock ## Install vendors according to the current composer.lock file
-
 	@composer install --no-progress --prefer-dist --optimize-autoloader
+	
 ci-init-test-db: ## Build the DB and control the schema validity
 	@php bin/console doctrine:cache:clear-metadata --env=test
 	@php bin/console doctrine:database:create --if-not-exists --env=test
@@ -137,4 +137,4 @@ ci-init-test-db: ## Build the DB and control the schema validity
 ci-test: phpunit.xml ## Run tests with optional suite and filter
 	@$(eval testsuite ?= 'all')
 	@$(eval filter ?= '.')
-	@$(PHPUNIT) --testsuite=$(testsuite) --filter=$(filter) --stop-on-failure
+	@php bin/phpunit --testsuite=$(testsuite) --filter=$(filter) --stop-on-failure
