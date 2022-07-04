@@ -74,6 +74,12 @@ warmup: ## Warmup the cache
 	@$(eval env ?= 'dev')
 	@$(SYMFONY) cache:warmup --env=$(env)
 
+dmm: ## Migrate the database schema according to migrations
+	@$(SYMFONY) doctrine:migration:migrate
+
+dmd: ## Generate migration file
+	@$(SYMFONY) doctrine:migration:diff
+
 purge: ## Purge cache and logs
 	@rm -rf var/cache/* var/logs/*
 
@@ -98,7 +104,6 @@ full-test: ## Setup project for test and run them all
 	@make init-test-db
 	@make install
 	@make test
-
 
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
 stan: ## Run PHPStan
