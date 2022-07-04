@@ -1,9 +1,9 @@
 global:
     signup: Inscription
     signin: Connexion
+    logout: Déconnexion
     coming_soon: 'Bientôt disponible'
     my_account: 'Mon compte'
-    welcome_back_john: "Re bonjour {name}"
 form:
     label:
         first_name: Prénom
@@ -14,6 +14,8 @@ form:
 navbar:
     login: "Se connecter"
     signup: "S'inscrire"
+    logout: "Se déconnecter"
+    account: "Mon compte"
 marketing:
     early_bird:
         register: 'Tiens moi au courant 🤙'
