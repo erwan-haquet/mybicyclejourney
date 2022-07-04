@@ -1,0 +1,64 @@
+{% macro render(user) %}
+    {% if user %}
+        {{ _self.my_account(user) }}
+    {% else %}
+        <div class="d-none d-sm-flex">
+            {{ _self.authentication_desktop() }}
+        </div>
+        <div class="d-sm-none">
+            {{ _self.authentication_mobile() }}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro my_account(user) %}
+    <div class="nav-item">
+        <a href="#"
+           class="nav-link text-muted"
+           style="pointer-events: none;"
+        >
+            <i class="fas fa-user-circle me-2"></i>
+            {{ 'global.coming_soon'|trans }}
+        </a>
+    </div>
+{% endmacro %}
+
+{% macro authentication_desktop() %}
+    <div class="nav-item me-3">
+        <a href="{{ path('login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
+    </div>
+    <div class="nav-item me-3">
+        <a href="{{ path('signup') }}" class="nav-btn btn btn-secondary">{{ 'navbar.signup'|trans }}</a>
+    </div>
+{% endmacro %}
+
+{% macro authentication_mobile() %}
+    <div class="nav-item dropdown me-3">
+        <a class="text-reset nav-link p-0 dropdown-toggle hidden-arrow"
+           href="#"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false"
+           id="dropdown-account"
+        >
+            <i class="fa fa-2x fa-circle-user ms-2"></i>
+        </a>
+        <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="dropdown-account"
+                data-popper-placement="null"
+                data-mdb-popper="none"
+        >
+            <li>
+                <a href="{{ path('signup') }}" class="link-secondary nav-link">{{ 'navbar.signup'|trans }}</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider"/>
+            </li>
+            <li>
+                <a href="{{ path('login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
+            </li>
+        </ul>
+    </div>
+{% endmacro %}

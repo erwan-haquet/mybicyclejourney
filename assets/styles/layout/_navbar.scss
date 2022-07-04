@@ -27,11 +27,22 @@ $navbar-height: 49px;
   }
 
   .nav-link {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.875rem;
     color: $dark-color;
+    
+    &.link-secondary {
+      color: $secondary;
+    }
+  }
+
+  .nav-btn {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 0.875rem;
   }
+  
 
   .locale-selector {
     text-decoration: none !important;

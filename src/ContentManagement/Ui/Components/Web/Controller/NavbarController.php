@@ -39,7 +39,7 @@ class NavbarController extends AbstractController
         ]);
         $navbar = $queryBus->query($query);
 
-        return $this->render('web/shared/components/_navbar.html.twig', [
+        return $this->render('web/shared/components/navbar/index.html.twig', [
             'navbar' => $navbar
         ]);
     }
