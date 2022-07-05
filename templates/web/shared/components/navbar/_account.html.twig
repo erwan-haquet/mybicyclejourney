@@ -33,13 +33,9 @@
                 data-mdb-popper="none"
         >
             <li>
-
-                <a href="#"
-                   class="dropdown-item text-muted"
-                   style="pointer-events: none;"
-                >
-                    <i class="fa-solid fa-user me-2"></i>
-                    {{ 'global.coming_soon'|trans }}
+                <a href="{{ path('dashboard') }}" class="dropdown-item">
+                    <i class="fas fa-tachometer-alt me-2"></i>
+                    {{ 'global.dashboard'|trans }}
                 </a>
             </li>
             <li>

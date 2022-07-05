@@ -17,6 +17,7 @@
         "doctrine/orm": "~2.12",
         "league/commonmark": "~2.3",
         "loophp/collection": "^6.0",
+        "sensio/framework-extra-bundle": "^6.2",
         "sentry/sentry-symfony": "~4.3",
         "symfony/console": "~6.1.0",
         "symfony/doctrine-messenger": "~6.1.0",

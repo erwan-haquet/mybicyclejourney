@@ -41,18 +41,18 @@ help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
 ## —— GIT —————————————————————————————————————————————————————
-remove-branches: ## Remove already merged branch
-	$(GIT) branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
+git-clean: ## Remove already merged branch
+	@$(GIT) branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
 
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
 up: ## Start the docker hub 
-	$(DOCKER_COMP) up --remove-orphans
+	@$(DOCKER_COMP) up --remove-orphans
 
 build: ## Builds the images (php + caddy)
-	$(DOCKER_COMP) build --pull --no-cache
+	@$(DOCKER_COMP) build --pull --no-cache
 
 down: ## Stop the docker hub
-	$(DOCKER_COMP) down --remove-orphans
+	@$(DOCKER_COMP) down --remove-orphans
 
 console: ## Enter into the php console docker container
 	./scripts/run.sh console

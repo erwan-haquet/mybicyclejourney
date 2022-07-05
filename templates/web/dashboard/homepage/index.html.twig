@@ -1,0 +1,7 @@
+{% extends "web/dashboard/layout.html.twig" %}
+
+{% block page_contents %}
+    <main id="dashboard-homepage" class="container-fluid p-5">
+        <h1>{{ 'global.welcome'|trans }} {{ user.email }}</h1>
+    </main>
+{% endblock %}
