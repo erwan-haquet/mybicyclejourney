@@ -91,7 +91,7 @@ class ResetPasswordController extends AbstractController
             );
         }
 
-        return $this->render('web/account_management/user/reset_password.html.twig', [
+        return $this->render('web/user/resetting//reset_password.html.twig', [
             'form' => $form->createView(),
         ]);
     }

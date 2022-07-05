@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ContentManagement\Ui\Seo\Web\Controller;
+namespace App\ContentManagement\Ui\Pages\Web\Controller;
 
 use App\ContentManagement\Application\Seo\Query\FindSitemap;
 use Library\CQRS\Query\QueryBus;
@@ -16,7 +16,7 @@ class SitemapController extends AbstractController
         $query = new FindSitemap();
         $sitemap = $queryBus->query($query);
 
-        return $this->render('web/content_management/seo/sitemap.html.twig', [
+        return $this->render('web/pages/sitemap/index.html.twig', [
             'sitemap' => $sitemap
         ]);
     }

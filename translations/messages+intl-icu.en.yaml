@@ -1,8 +1,11 @@
 global:
     signup: "Sign up"
     signin: "Sign in"
+    logout: Logout
     coming_soon: "Coming soon"
     my_account: "My account"
+    dashboard: Dashboard
+    welcome: "Welcome"
 form:
     label:
         first_name: 'First name'

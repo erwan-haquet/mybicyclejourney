@@ -4,6 +4,8 @@ global:
     logout: Déconnexion
     coming_soon: 'Bientôt disponible'
     my_account: 'Mon compte'
+    dashboard: 'Tableau de bord'
+    welcome: "Bienvenue"
 form:
     label:
         first_name: Prénom

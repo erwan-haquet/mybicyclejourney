@@ -1,0 +1,27 @@
+#dashboard {
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: $navbar-height 0 0; /* Height of navbar */
+    box-shadow: $navbar-box-shadow;
+    width: 250px;
+    z-index: 80;
+  }
+  
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+  
+  .page-content {
+    position: relative;
+    left: 250px;
+  }
+}
