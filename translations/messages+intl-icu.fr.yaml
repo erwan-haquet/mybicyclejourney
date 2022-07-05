@@ -73,3 +73,5 @@ account_management:
         we_have_send_you_an_email: 'Un email contenant un lien que tu pourras utiliser pour réinitialiser ton mot de passe vient de t''être envoyé, <strong>ce lien expire dans {expiresIn}</strong>. <br> <br> L''email peut mettre quelques secondes à arriver, mais si tu ne reçois toujours rien d''ici là, vérifie dans tes spams ou bien <a href="{link}">demande un nouveau lien</a>.'
         password_reset_with_success: 'Ton nouveau mot de passe est bien enregistré'
         inform_your_password: 'Renseigne ton nouveau mot de passe 🔑'
+dashboard: 
+    introduction: "Le tableau de bord n'est pas tout à fait prêt, mais c'est ici que tu pourras écrire ton récit et retrouver facilement celui de tes amis ! <br> <br> On te tiens au courant quand c'est prêt 😉"

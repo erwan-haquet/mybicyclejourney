@@ -73,3 +73,5 @@ account_management:
         we_have_send_you_an_email: 'If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password. <strong>This link will expire in {expiresIn}</strong>. If you don''t receive an email please check your spam folder or <a href="{link}">try again</a>.'
         password_reset_with_success: 'Your new password is saved'
         inform_your_password: 'Enter your new password 🔑'
+dashboard:
+    introduction: "The dashboard is not totally ready, but it's here where you will be able to write your story and find those related by your friends ! <br> <br> We keep you in touch 😉"
