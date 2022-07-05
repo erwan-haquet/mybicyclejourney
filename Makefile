@@ -24,7 +24,7 @@ GIT              = git
 # Alias
 SYMFONY          = $(PHP) bin/console
 PHPUNIT          = $(PHP) bin/phpunit
-PHPSTAN          = $(PHP) bin/phpstan
+PHPSTAN          = $(PHP) vendor/bin/phpstan
 
 # Executables 
 DOCKER           = docker
