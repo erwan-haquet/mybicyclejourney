@@ -14,13 +14,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
 
+#[Route('/verify-email',
+    name: 'verify_email',
+    requirements: ["_locale" => "en"],
+    locale: "en"
+)]
 class VerifyUserEmailController extends AbstractController
 {
-    #[Route('/verify-email',
-        name: 'verify_email',
-        requirements: ["_locale" => "en"],
-        locale: "en"
-    )]
     public function __invoke(
         UserRepositoryInterface $userRepository,
         Request                 $request,
