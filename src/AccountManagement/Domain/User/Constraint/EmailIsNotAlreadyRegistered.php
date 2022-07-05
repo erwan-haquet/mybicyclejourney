@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class EmailIsNotAlreadyRegistered extends Constraint
 {
-    public $message = 'account_management.signup.email_already_exists';
+    public $message = 'user.signup.email_already_exists';
 
     public function getTargets(): array|string
     {

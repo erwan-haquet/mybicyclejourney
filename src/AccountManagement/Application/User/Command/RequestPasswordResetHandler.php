@@ -58,12 +58,12 @@ class RequestPasswordResetHandler implements CommandHandlerInterface
 
         $email = new Email(
             subject: $this->translator->trans(
-                id: "account_management.reset_password.subject",
+                id: "user.reset_password.subject",
                 domain: "email",
                 locale: $user->locale()
             ),
             to: $user->email(),
-            text: $this->twig->render('email/account_management/user/reset_password.txt.twig', $context),
+            text: $this->twig->render('email/user/reset_password.txt.twig', $context),
         );
 
         $this->mailer->send($email);

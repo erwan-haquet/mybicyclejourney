@@ -1,15 +1,23 @@
-#dashboard {
-  /* Sidebar */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    padding: $navbar-height 0 0; /* Height of navbar */
-    box-shadow: $navbar-box-shadow;
-    width: 250px;
-    z-index: 80;
+$dashboard-sidebar-width: 200px;
+
+@include media-breakpoint-up(md) {
+  .page-content {
+    position: relative;
+    overflow-wrap: break-word;
+    left: $dashboard-sidebar-width;
+    max-width: calc(100vw - $dashboard-sidebar-width);
   }
+}
+
+#desktop-dashboard-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: $navbar-height 0 0; /* Height of navbar */
+  box-shadow: $navbar-box-shadow;
+  width: $dashboard-sidebar-width;
+  z-index: 80;
   
   .sidebar-sticky {
     position: relative;
@@ -19,9 +27,13 @@
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   }
+}
+
+#mobile-dashboard-nav {
+  z-index: 80;
+  padding: 1rem;
   
-  .page-content {
-    position: relative;
-    left: 250px;
+  .list-group-item {
+    padding: 0;
   }
 }

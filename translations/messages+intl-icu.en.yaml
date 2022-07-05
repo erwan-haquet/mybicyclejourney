@@ -46,7 +46,7 @@ pages:
         available_at_presentation_paragraph: 'It''s up to you, well not quite, but you can help us and invest in the project! <br> <br> <strong>My Bicycle Project is an open source and collaborative project.</strong> <br> <br> Open source, if you are not familiar with the term yet, it means that the code of the application is free, accessible on <a href="https://github.com/erwan-haquet/mybicyclejourney">Github - MyBicycleProject</a> and that and that everyone can contribute to it... yes yes even you! <br> <br> It''s not rocket science, so if : <ul>     <li>         <strong>You don''t have any technical knowledge 🤷</strong> : code is Mandarin for you, but you still want to contribute. No problem, we''ll find something for you. Are you fluent in Dutch? Do you take your Canon 600D on every trip? Your travel group has ideas to improve the tool? In short, there is something you can do! I suggest you to discover it together by sending me a first mail on <a href="mailto:erwan@mybicyclejourney.com">erwan@mybicyclejourney.com</a>.     </li>     <li>         <strong>You are a pro coder 👩🏻‍💻</strong> : "github", "symfony" and "docker" it doesn''t scare you! You want to contribute to a project that suits you or develop your skills by collaborating on a Symfony 6 project with a current architecture (CQRS, Hexagonal Architecture) and interesting technical challenges (ex: <code>.gpx</code> file management, internationalization, user experience first...). Whatever the reason, if you want to join us, go to the       <a href="https://github.com/erwan-haquet/mybicyclejourney">Github of MyBicycleProject</a> </li> </ul>'
         stay_tuned_title: 'We keep in touch ?'
         stay_tuned_paragraph: "You already have all your next trips to prepare and you don't feel like contributing to the project?  <br>Would you still like to be informed of the progress? No problem, leave us your email and we won't forget you 😉"
-account_management:
+user:
     signup:
         title: "Join us"
         description: "Join the My Bicycle Journey community and share your bike trip, promise we will be your first fans 😍."
@@ -73,3 +73,5 @@ account_management:
         we_have_send_you_an_email: 'If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password. <strong>This link will expire in {expiresIn}</strong>. If you don''t receive an email please check your spam folder or <a href="{link}">try again</a>.'
         password_reset_with_success: 'Your new password is saved'
         inform_your_password: 'Enter your new password 🔑'
+dashboard:
+    introduction: "The dashboard is not totally ready, but it's here where you will be able to write your story and find those related by your friends ! <br> <br> We keep you in touch 😉"
