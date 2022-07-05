@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class RequestPasswordReset extends Command
 {
     /**
-     * @Assert\NotBlank(message="account_management.password_reset.email_is_blank")
+     * @Assert\NotBlank(message="user.password_reset.email_is_blank")
      */
     public ?string $email;
 }

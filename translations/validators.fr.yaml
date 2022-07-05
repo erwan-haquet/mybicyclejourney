@@ -285,7 +285,7 @@ Error: Erreur
     '': 'Veuillez sélectionner une plage valide.'
 'Please enter a valid week':
     '': 'Veuillez entrer une semaine valide.'
-account_management:
+user:
     signup:
         email_already_exists: 'Un compte est déjà associé à cet email'
         email_is_blank: "On ne pourra pas t'envoyer d'email sur ton adresse :("

@@ -1,9 +1,9 @@
 {{ "general.say_hello" | trans({}, 'email', locale) }}
 
-{{ 'account_management.email_confirmation.please_confirm_email' | trans({}, 'email', locale) }}
+{{ 'user.email_confirmation.please_confirm_email' | trans({}, 'email', locale) }}
 
 {{ signedUrl }}
-{{ 'account_management.email_confirmation.link_expire_in' | trans({
+{{ 'user.email_confirmation.link_expire_in' | trans({
     'time': expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle', locale)
 }, 'email', locale) }}
   

@@ -40,7 +40,7 @@ class VerifyUserEmailController extends AbstractController
             ]);
             $commandBus->handle($command);
         } catch (UserNotFoundException) {
-            $this->addFlash('error', new TranslatableMessage('account_management.verify_user_email.cannot_verify'));
+            $this->addFlash('error', new TranslatableMessage('user.verify_user_email.cannot_verify'));
             return $this->redirectToRoute('signup');
         } catch (CannotVerifyUserEmailException $exception) {
             $this->addFlash('error', new TranslatableMessage($exception->getMessage(), [], 'VerifyEmailBundle'));
@@ -49,7 +49,7 @@ class VerifyUserEmailController extends AbstractController
         
         $user = $userRepository->findById($id);
 
-        $this->addFlash('success', new TranslatableMessage('account_management.verify_user_email.email_verified'));
+        $this->addFlash('success', new TranslatableMessage('user.verify_user_email.email_verified'));
         return $this->redirectToRoute('homepage', [
             '_locale' => $user->locale()
         ]);
