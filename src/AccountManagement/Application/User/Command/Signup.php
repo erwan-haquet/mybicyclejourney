@@ -22,23 +22,23 @@ class Signup extends Command
     public Locale $locale;
 
     /**
-     * @Assert\NotBlank(message="account_management.signup.email_is_blank")
-     * @Assert\Email(message="account_management.signup.email_is_invalid")
+     * @Assert\NotBlank(message="user.signup.email_is_blank")
+     * @Assert\Email(message="user.signup.email_is_invalid")
      */
     public ?string $email = null;
 
     /**
      *  4096 is the max length allowed by Symfony for security reasons.
      *
-     * @Assert\NotBlank(message="account_management.signup.password_is_blank")
+     * @Assert\NotBlank(message="user.signup.password_is_blank")
      * @Assert\Length(
      *     min=6,
-     *     minMessage="account_management.signup.password_is_too_small",
+     *     minMessage="user.signup.password_is_too_small",
      *     max=4096
      * )
      * @Assert\Regex(
      *     pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/",
-     *     message="account_management.signup.password_is_invalid"
+     *     message="user.signup.password_is_invalid"
      * )
      */
     public ?string $plainPassword = null;

@@ -24,7 +24,7 @@ GIT              = git
 # Alias
 SYMFONY          = $(PHP) bin/console
 PHPUNIT          = $(PHP) bin/phpunit
-PHPSTAN          = $(PHP) bin/phpstan
+PHPSTAN          = $(PHP) vendor/bin/phpstan
 
 # Executables 
 DOCKER           = docker
@@ -42,7 +42,7 @@ help: ## Outputs this help screen
 
 ## —— GIT —————————————————————————————————————————————————————
 git-clean: ## Remove already merged branch
-	@$(GIT) branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
+	@$(GIT) branch --merged | egrep -v "(^\*|main|dev)" | xargs git branch -d
 
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
 up: ## Start the docker hub 

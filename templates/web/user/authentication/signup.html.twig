@@ -7,11 +7,11 @@
     } %}
 
     <h1 class="card-title mb-4 mt-3 fs-3">
-        {{ "account_management.signup.title"|trans }}
+        {{ "user.signup.title"|trans }}
     </h1>
 
     <p class="card-text text-muted mb-5">
-        {{ "account_management.signup.description"|trans|raw }}
+        {{ "user.signup.description"|trans|raw }}
     </p>
 
     {{ form_start(form) }}
@@ -29,18 +29,18 @@
 
 
     <button type="submit" class="btn btn-xl fw-bold btn-primary w-100 mb-3">
-        {{ "account_management.signup.register"|trans }}
+        {{ "user.signup.register"|trans }}
     </button>
 
     {{ form_end(form) }}
 
     <a href="{{ path('login') }}" class="btn btn-lg btn-link btn-link w-100 mb-3">
-        {{ "account_management.signup.already_have_an_account"|trans }}
+        {{ "user.signup.already_have_an_account"|trans }}
     </a>
 
     <p class="text-end text-muted">
         <small>
-            {{ "account_management.signup.privacy_policy"|trans({'link': path('privacy_policy')})|raw }}
+            {{ "user.signup.privacy_policy"|trans({'link': path('privacy_policy')})|raw }}
         </small>
     </p>
 {% endblock %}
