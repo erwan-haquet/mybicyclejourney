@@ -1,0 +1,17 @@
+{# The common layout used for signin / signup / reset password #}
+
+{% extends 'web/base.html.twig' %}
+
+{% block content %}
+    <div id="dashboard">
+        <header>
+           {% include('web/dashboard/layout/sidebar/index.html.twig') %}
+        </header>
+
+        <div class="page-content">
+            {% block page_contents %}
+
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

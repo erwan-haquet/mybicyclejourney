@@ -2,7 +2,7 @@
 
 namespace App\Web\Application\Shared\Query;
 
-use App\Web\Ui\Shared\Dto\Metadata\Metadata;
+use App\Web\Ui\Shared\Seo\Dto\Metadata\Metadata;
 use Library\CQRS\Query\Query;
 
 /**

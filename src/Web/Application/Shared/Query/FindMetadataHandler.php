@@ -3,8 +3,8 @@
 namespace App\Web\Application\Shared\Query;
 
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
-use App\Web\Ui\Shared\Assembler\MetadataAssembler;
-use App\Web\Ui\Shared\Dto\Metadata\Metadata;
+use App\Web\Ui\Shared\Seo\Assembler\MetadataAssembler;
+use App\Web\Ui\Shared\Seo\Dto\Metadata\Metadata;
 use Library\CQRS\Query\QueryHandlerInterface;
 use Psr\Log\LoggerInterface;
 

@@ -16,7 +16,7 @@ class SitemapController extends AbstractController
         $query = new BuildSitemap();
         $sitemap = $queryBus->query($query);
 
-        return $this->render('web/pages/sitemap/index.html.twig', [
+        return $this->render('web/public/pages/sitemap/index.html.twig', [
             'sitemap' => $sitemap
         ]);
     }

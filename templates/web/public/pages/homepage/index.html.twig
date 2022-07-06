@@ -1,0 +1,13 @@
+{% extends "web/public/pages/layout.html.twig" %}
+
+{% block page_contents %}
+    <main id="homepage">
+        {# Background hero image #}
+        {% include "web/public/pages/homepage/_hero_background.html.twig" %}
+
+        <div class="container">
+            {# Two lines teaser & button #}
+            {% include "web/public/pages/homepage/_header.html.twig" %}
+        </div>
+    </main>
+{% endblock %}

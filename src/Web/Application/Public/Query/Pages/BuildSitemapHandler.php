@@ -2,8 +2,8 @@
 
 namespace App\Web\Application\Public\Query\Pages;
 
-use App\ContentManagement\Domain\Seo\Model\Sitemap\Sitemap;
 use App\ContentManagement\Domain\Website\Repository\PageRepositoryInterface;
+use App\Web\Ui\Public\Pages\Dto\Sitemap\Sitemap;
 use Library\CQRS\Query\QueryHandlerInterface;
 
 class BuildSitemapHandler implements QueryHandlerInterface
