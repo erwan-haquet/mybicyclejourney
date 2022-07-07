@@ -5,7 +5,6 @@ namespace App\AccountManagement\Application\User\Command;
 use App\AccountManagement\Domain\User\Exception\UserNotFoundException;
 use App\AccountManagement\Infrastructure\User\Repository\Doctrine\UserRepository;
 use Library\CQRS\Command\CommandHandlerInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 

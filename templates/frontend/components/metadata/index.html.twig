@@ -1,0 +1,23 @@
+{# @var metadata \App\ContentManagement\Domain\Seo\Model\Metadata #}
+
+<title>{{ metadata.title }}</title>
+
+<meta name="description" content="{{ metadata.description }}">
+<meta name="robots" content="{{ metadata.noindex ? "noindex" : "index" }}, 
+                             {{ metadata.nofollow ? "nofollow" : "follow" }}"/>
+
+{% for alternate in metadata.localeAlternates %}
+    <link rel="alternate"
+          hreflang="{{ alternate.locale }}"
+          href="{{ alternate.url }}"/>
+{% endfor %}
+
+{% if metadata.canonicalUrl is not null %}
+    <link rel="canonical" href="{{ metadata.canonicalUrl }}"/>
+{% endif %}
+
+{% if metadata.openGraph is not null %}
+    {% include "frontend/components/metadata/_open_graph.html.twig" with {
+        'og': metadata.openGraph
+    } %}
+{% endif %}

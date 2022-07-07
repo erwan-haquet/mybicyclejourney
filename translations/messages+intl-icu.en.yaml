@@ -1,4 +1,6 @@
 global:
+    brand: "My Bicycle Journey"
+    brand_initials: "MBJ"
     signup: "Sign up"
     signin: "Sign in"
     logout: Logout
@@ -6,6 +8,7 @@ global:
     my_account: "My account"
     dashboard: Dashboard
     welcome: "Welcome"
+    back_to_frontend: "Back to website"
 form:
     label:
         first_name: 'First name'

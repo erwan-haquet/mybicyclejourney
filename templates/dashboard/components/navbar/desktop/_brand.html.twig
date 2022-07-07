@@ -1,0 +1,11 @@
+{% macro render() %}
+    <a class="navbar-brand nav-link justify-content-center" href="{{ path('dashboard_homepage') }}">
+        <img alt="brand logo"
+             src="{{ asset('build/images/dashboard/logo/logo@1x.png') }}"
+             class="me-2"
+             loading="lazy"
+             width="22px"
+        />
+        {{ 'global.brand_initials'|trans }}
+    </a>
+{% endmacro %}
