@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/reset-password', name: 'request_password_reset')]
+#[Route('/reset-password', name: 'frontend_request_password_reset')]
 class RequestPasswordResetController extends AbstractController
 {
     /**
@@ -28,7 +28,7 @@ class RequestPasswordResetController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $commandBus->handle($command);
             
-            return $this->redirectToRoute('reset_password_check_email');
+            return $this->redirectToRoute('frontend_reset_password_check_email');
         }
 
         return $this->render('frontend/security/resetting/request_password.html.twig', [

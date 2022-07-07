@@ -19,7 +19,7 @@ use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 
-#[Route('/reset-password/reset/{token}', name: 'reset_password_reset')]
+#[Route('/reset-password/reset/{token}', name: 'frontend_reset_password_reset')]
 class ResetPasswordController extends AbstractController
 {
     use ResetPasswordControllerTrait;
@@ -42,7 +42,7 @@ class ResetPasswordController extends AbstractController
             // We store the token in session and remove it from the URL, to avoid the URL being
             // loaded in a browser and potentially leaking the token to 3rd party JavaScript.
             $this->storeTokenInSession($token);
-            return $this->redirectToRoute('reset_password_reset');
+            return $this->redirectToRoute('frontend_reset_password_reset');
         }
 
         $token = $this->getTokenFromSession();
@@ -60,7 +60,7 @@ class ResetPasswordController extends AbstractController
                 $translator->trans($e->getReason(), [], 'ResetPasswordBundle')
             ));
 
-            return $this->redirectToRoute('request_password_reset');
+            return $this->redirectToRoute('frontend_request_password_reset');
         }
 
         // The token is now valid.

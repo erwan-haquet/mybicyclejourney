@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Component\Translation\TranslatableMessage;
 
-#[Route('/signup', name: 'signup')]
+#[Route('/signup', name: 'frontend_signup')]
 class SignupController extends AbstractController
 {
     public function __invoke(

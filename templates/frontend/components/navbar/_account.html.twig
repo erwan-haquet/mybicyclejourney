@@ -33,7 +33,7 @@
                 data-mdb-popper="none"
         >
             <li>
-                <a href="{{ path('dashboard') }}" class="dropdown-item">
+                <a href="{{ path('dashboard_homepage') }}" class="dropdown-item">
                     <i class="fas fa-tachometer-alt me-2"></i>
                     {{ 'global.dashboard'|trans }}
                 </a>
@@ -42,7 +42,7 @@
                 <hr class="dropdown-divider"/>
             </li>
             <li>
-                <a href="{{ path('logout') }}" class="dropdown-item">
+                <a href="{{ path('frontend_logout') }}" class="dropdown-item">
                     <i class="fas fa-sign-out-alt me-2"></i>
                     {{ 'navbar.logout'|trans }}
                 </a>
@@ -53,10 +53,10 @@
 
 {% macro authentication_desktop() %}
     <div class="nav-item me-3">
-        <a href="{{ path('signup') }}" class="nav-btn btn btn-secondary">{{ 'navbar.signup'|trans }}</a>
+        <a href="{{ path('frontend_signup') }}" class="nav-btn btn btn-secondary">{{ 'navbar.signup'|trans }}</a>
     </div>
     <div class="nav-item me-3">
-        <a href="{{ path('login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
+        <a href="{{ path('frontend_login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
     </div>
 {% endmacro %}
 
@@ -79,13 +79,13 @@
                 data-mdb-popper="none"
         >
             <li>
-                <a href="{{ path('signup') }}" class="link-secondary nav-link">{{ 'navbar.signup'|trans }}</a>
+                <a href="{{ path('frontend_signup') }}" class="link-secondary nav-link">{{ 'navbar.signup'|trans }}</a>
             </li>
             <li>
                 <hr class="dropdown-divider"/>
             </li>
             <li>
-                <a href="{{ path('login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
+                <a href="{{ path('frontend_login') }}" class="nav-link">{{ 'navbar.login'|trans }}</a>
             </li>
         </ul>
     </div>

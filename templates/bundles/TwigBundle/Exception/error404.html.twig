@@ -1,4 +1,4 @@
-{% extends '../../../frontend' %}
+{% extends 'frontend/base.html.twig' %}
 
 {% block body %}
     <div id="notfound">
@@ -12,7 +12,7 @@
             </h2>
 
             <a class="btn btn-primary btn-xl fw-bold px-5 py-3"
-               href="{{ path('homepage') }}">
+               href="{{ path('frontend_homepage') }}">
                 {{ 'pages.404error.back_to_home'|trans }}
             </a>
         </div>

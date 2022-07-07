@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
 
 #[Route('/verify-email',
-    name: 'verify_email',
+    name: 'frontend_verify_email',
     requirements: ["_locale" => "en"],
     locale: "en"
 )]
@@ -28,7 +28,7 @@ class VerifyUserEmailController extends AbstractController
     ): Response
     {
         if (!$id = $request->get('id')) {
-            return $this->redirectToRoute('signup');
+            return $this->redirectToRoute('frontend_signup');
         }
 
         $id = UserId::fromString($id);
@@ -41,10 +41,10 @@ class VerifyUserEmailController extends AbstractController
             $commandBus->handle($command);
         } catch (UserNotFoundException) {
             $this->addFlash('error', new TranslatableMessage('user.verify_user_email.cannot_verify'));
-            return $this->redirectToRoute('signup');
+            return $this->redirectToRoute('frontend_signup');
         } catch (CannotVerifyUserEmailException $exception) {
             $this->addFlash('error', new TranslatableMessage($exception->getMessage(), [], 'VerifyEmailBundle'));
-            return $this->redirectToRoute('signup');
+            return $this->redirectToRoute('frontend_signup');
         }
         
         $user = $userRepository->findById($id);

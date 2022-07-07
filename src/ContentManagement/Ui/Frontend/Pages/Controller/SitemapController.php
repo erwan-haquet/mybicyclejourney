@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/sitemap.xml', name: 'sitemap', defaults: ['_format' => 'xml'])]
+#[Route('/sitemap.xml', name: 'frontend_sitemap', defaults: ['_format' => 'xml'])]
 class SitemapController extends AbstractController
 {
     public function __invoke(PageRepositoryInterface $pageRepository): Response

@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#ffffff">
 
     {% block metadata %}
-        {{ render(path('seo_metadata', {
+        {{ render(path('frontend_components_metadata', {
             path: app.request.pathInfo|url_encode
         })) }}
     {% endblock %}
@@ -34,7 +34,7 @@
 
 <header>
     {% block navbar %}
-        {{ render(path('components_navbar')) }}
+        {{ render(path('frontend_components_navbar')) }}
     {% endblock %}
 </header>
 

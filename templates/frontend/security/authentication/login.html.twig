@@ -14,7 +14,7 @@
         {{ "user.login.description"|trans|raw }}
     </p>
 
-    <form action="{{ path('login') }}" method="post">
+    <form action="{{ path('frontend_login') }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         {% if error %}
@@ -58,7 +58,7 @@
                     </label>
                 </div>
                 <div class="text-end">
-                    <a class="mt-1 d-inline-block" href="{{ path('request_password_reset') }}">
+                    <a class="mt-1 d-inline-block" href="{{ path('frontend_request_password_reset') }}">
                         {{ "user.login.forgot_password"|trans }}
                     </a>
                 </div>

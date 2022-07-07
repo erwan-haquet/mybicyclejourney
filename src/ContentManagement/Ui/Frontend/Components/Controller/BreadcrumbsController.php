@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 #[Route(
     '/_components/breadcrumbs',
-    name: 'components_breadcrumbs',
+    name: 'frontend_components_breadcrumbs',
     requirements: ['_locale' => 'en']
 )]
 class BreadcrumbsController extends AbstractController

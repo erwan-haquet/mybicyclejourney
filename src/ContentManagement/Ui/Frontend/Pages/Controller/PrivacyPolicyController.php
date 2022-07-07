@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route([
     'en' => '/privacy-policy',
     'fr' => '/politique-de-confidentialite',
-], name: 'privacy_policy')]
+], name: 'frontend_privacy_policy')]
 class PrivacyPolicyController extends AbstractController
 {
     public function __invoke(): Response

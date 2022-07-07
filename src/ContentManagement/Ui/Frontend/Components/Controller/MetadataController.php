@@ -10,8 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route(
-    '/_seo/metadata',
-    name: 'seo_metadata',
+    '/_components/metadata',
+    name: 'frontend_components_metadata',
     requirements: ['_locale' => 'en']
 )]
 class MetadataController extends AbstractController

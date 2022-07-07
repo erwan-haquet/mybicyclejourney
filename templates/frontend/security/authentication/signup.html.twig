@@ -34,13 +34,13 @@
 
     {{ form_end(form) }}
 
-    <a href="{{ path('login') }}" class="btn btn-lg btn-link btn-link w-100 mb-3">
+    <a href="{{ path('frontend_login') }}" class="btn btn-lg btn-link btn-link w-100 mb-3">
         {{ "user.signup.already_have_an_account"|trans }}
     </a>
 
     <p class="text-end text-muted">
         <small>
-            {{ "user.signup.privacy_policy"|trans({'link': path('privacy_policy')})|raw }}
+            {{ "user.signup.privacy_policy"|trans({'link': path('frontend_privacy_policy')})|raw }}
         </small>
     </p>
 {% endblock %}

@@ -18,7 +18,7 @@ use Symfony\Component\Translation\TranslatableMessage;
 #[Route([
     'en' => '/the-project',
     'fr' => '/le-projet',
-], name: 'the_project')]
+], name: 'frontend_the_project')]
 class TheProjectController extends AbstractController
 {
     public function __invoke(
@@ -38,7 +38,7 @@ class TheProjectController extends AbstractController
             try {
                 $commandBus->handle($command);
                 $this->addFlash('success', new TranslatableMessage('marketing.early_bird.registered_with_success'));
-                return $this->redirectToRoute('the_project');
+                return $this->redirectToRoute('frontend_the_project');
             } catch (EmailIsAlreadyRegisteredException) {
                 $this->addFlash('success', new TranslatableMessage('marketing.early_bird.email_is_already_used'));
             }

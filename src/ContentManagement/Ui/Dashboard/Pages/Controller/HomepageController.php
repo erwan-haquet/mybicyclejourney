@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route([
     'en' => '/dashboard',
     'fr' => '/tableau-de-bord',
-], name: 'dashboard')]
+], name: 'dashboard_homepage')]
 class HomepageController extends AbstractController
 {
     /**

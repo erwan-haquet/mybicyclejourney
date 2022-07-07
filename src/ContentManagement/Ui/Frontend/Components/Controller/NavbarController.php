@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 #[Route(
     '/_components/navbar',
-    name: 'components_navbar',
+    name: 'frontend_components_navbar',
     requirements: ['_locale' => 'en']
 )]
 class NavbarController extends AbstractController

@@ -17,7 +17,7 @@
 
 {# Render the breadcrumbs as simple component #}
 {% macro component() %}
-    {{ render(path('components_breadcrumbs', {
+    {{ render(path('frontend_components_breadcrumbs', {
         path: app.request.pathInfo|url_encode
     })) }}
 {% endmacro %}
