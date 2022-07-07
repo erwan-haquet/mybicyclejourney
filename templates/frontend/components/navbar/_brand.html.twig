@@ -1,14 +1,13 @@
-{% macro render(user) %}
+{% macro render() %}
     <a class="navbar-brand nav-link " href="{{ path('frontend_homepage') }}">
         <picture>
-            <source srcset="{{ asset('build/images/logo/logo@1x.png') }}, 
-                            {{ asset('build/images/logo/logo@2x.png') }} 2x"
+            <source srcset="{{ asset('build/images/frontend/logo/logo@1x.png') }}, 
+                            {{ asset('build/images/frontend/logo/logo@2x.png') }} 2x"
                     media="(min-width: 576px)">
 
-            <img srcset="{{ asset('build/images/logo/logo_responsive@1x.png') }}, 
-                         {{ asset('build/images/logo/logo_responsive@2x.png') }} 2x"
+            <img srcset="{{ asset('build/images/frontend/logo/logo_responsive@1x.png') }}, 
+                         {{ asset('build/images/frontend/logo/logo_responsive@2x.png') }} 2x"
                  alt="Brand logo"
-                 height="22px"
             >
         </picture>
     </a>

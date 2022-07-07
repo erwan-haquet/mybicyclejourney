@@ -1,0 +1,44 @@
+{% macro render(localeSwitcher) %}
+    <div class="nav-item dropdown locale-selector">
+        <a
+                class="text-reset nav-link dropdown-toggle hidden-arrow"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                id="dropdown-language"
+        >
+            <i class="m-0 fs-2 flag flag-{{ app.request.locale|lower }}"></i>
+        </a>
+        <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="dropdown-language"
+                data-popper-placement="null"
+                data-mdb-popper="none"
+        >
+            <li>
+                <a class="dropdown-item" href="#">
+                    <i class="flag-{{ app.request.locale|lower }} flag"></i>
+                    {{ app.request.locale|locale_name(app.request.locale)|u.title }}
+                    <i class="fa fa-check text-success ms-2"></i>
+                </a>
+            </li>
+            <li>
+                <hr class="dropdown-divider"/>
+            </li>
+            {% for locale in locales %}
+                {% if locale != app.request.locale %}
+                    <li>
+                        <a class="dropdown-item"
+                           href="{{ path(localeSwitcher.route, localeSwitcher.queryParams|merge({ _locale: locale })) }}"
+                        >
+                            <i class="flag flag-{{ locale|lower }}"></i>
+                            {{ locale|locale_name(locale)|u.title }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}

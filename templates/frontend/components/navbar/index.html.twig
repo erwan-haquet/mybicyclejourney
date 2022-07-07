@@ -2,9 +2,9 @@
 {% import "frontend/components/navbar/_account.html.twig" as Account %}
 {% import "frontend/components/navbar/_locale_switcher.html.twig" as LocalSwitcher %}
 
-<nav class="navbar navbar-expand-md navbar-light bg-white">
+<nav class="navbar navbar-frontend navbar-expand-md navbar-light bg-white">
     <!-- Brand -->
-    {{ Brand.render(app.user) }}
+    {{ Brand.render() }}
 
     <!-- Left elements -->
     <div class="navbar-nav me-auto mb-2 mb-lg-0">

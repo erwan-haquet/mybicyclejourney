@@ -1,0 +1,29 @@
+$dashboard-desktop-sidebar-width: 200px;
+
+@include media-breakpoint-up(md) {
+  .page-content {
+    position: relative;
+    overflow-wrap: break-word;
+    left: $dashboard-desktop-sidebar-width;
+    max-width: calc(100vw - $dashboard-desktop-sidebar-width);
+  }
+}
+
+#desktop-dashboard-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: $navbar-box-shadow;
+  width: $dashboard-desktop-sidebar-width;
+  z-index: 80;
+}
+
+#mobile-dashboard-nav {
+  z-index: 80;
+  padding: 1rem;
+  
+  .list-group-item {
+    padding: 0;
+  }
+}
