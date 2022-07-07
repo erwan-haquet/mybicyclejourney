@@ -35,7 +35,7 @@ class BreadcrumbsController extends AbstractController
             return new Response('', Response::HTTP_NO_CONTENT);
         }
 
-        return $this->render('web/shared/components/_breadcrumbs.html.twig', [
+        return $this->render('frontend/components/breadcrumbs/index.html.twig', [
             'breadcrumbs' => Breadcrumbs::new($page)
         ]);
     }

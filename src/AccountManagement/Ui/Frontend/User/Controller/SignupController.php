@@ -47,7 +47,7 @@ class SignupController extends AbstractController
             );
         }
 
-        return $this->render('web/user/authentication/signup.html.twig', [
+        return $this->render('frontend/security/authentication/signup.html.twig', [
             'form' => $form->createView(),
         ]);
     }

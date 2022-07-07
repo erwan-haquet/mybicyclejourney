@@ -14,6 +14,6 @@ class PrivacyPolicyController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return $this->render('web/pages/privacy_policy/index.html.twig');
+        return $this->render('frontend/pages/privacy_policy/index.html.twig');
     }
 }

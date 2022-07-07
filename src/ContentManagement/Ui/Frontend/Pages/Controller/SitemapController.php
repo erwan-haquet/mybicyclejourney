@@ -15,7 +15,7 @@ class SitemapController extends AbstractController
     {
         $pages = $pageRepository->findIndexables();
 
-        return $this->render('web/pages/sitemap/index.html.twig', [
+        return $this->render('frontend/pages/sitemap/index.html.twig', [
             'sitemap' => Sitemap::new($pages)
         ]);
     }

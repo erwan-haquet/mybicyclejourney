@@ -28,7 +28,7 @@ class MetadataController extends AbstractController
         $query = new BuildMetadata(['path' => urldecode($path)]);
         $metadata = $queryBus->query($query);
 
-        return $this->render('web/shared/seo/_metadata.html.twig', [
+        return $this->render('frontend/components/metadata/index.html.twig', [
             'metadata' => $metadata
         ]);
     }

@@ -18,7 +18,7 @@ class HomepageController extends AbstractController
      */
     public function __invoke(): Response
     {
-        return $this->render('web/dashboard/homepage/index.html.twig', [
+        return $this->render('dashboard/pages/homepage/index.html.twig', [
             'user' => $this->getUser()
         ]);
     }

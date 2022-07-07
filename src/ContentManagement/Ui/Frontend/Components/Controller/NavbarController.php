@@ -33,7 +33,7 @@ class NavbarController extends AbstractController
         $params = array_merge($routeParams, $queryParams);
         $route = $mainRequest->attributes->get('_route');
 
-        return $this->render('web/shared/components/navbar/index.html.twig', [
+        return $this->render('frontend/components/navbar/index.html.twig', [
             'navbar' => new Navbar([
                 'localeSwitcher' => new LocaleSwitcher([
                     'route' => $route,

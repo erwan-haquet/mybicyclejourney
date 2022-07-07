@@ -1,0 +1,22 @@
+<div class="flash-messages toast-container">
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="message toast bg-{{ label }}"
+                 role="alert"
+                 aria-live="assertive"
+                 data-bs-autohide="true"
+                 aria-atomic="true"{{ stimulus_controller('toast') }}
+            >
+                <div class="d-flex">
+                    <div class="toast-body body">
+                        {{ message|trans|raw }}
+                    </div>
+                    <button type="button"
+                            class="btn-close btn-close-white ms-auto"
+                            data-bs-dismiss="toast" aria-label="Close">
+                    </button>
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
