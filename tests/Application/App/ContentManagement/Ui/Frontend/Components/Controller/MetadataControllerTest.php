@@ -12,7 +12,7 @@ use Tests\Fixtures\App\ContentManagement\Domain\Website\Model\Page\RouteFactory;
 
 class MetadataControllerTest extends WebTestCase
 {
-    private const URI = '/_seo/metadata';
+    private const URI = '/_components/metadata';
     
     private ?EntityManagerInterface $entityManager;
     private ?KernelBrowser $client;
