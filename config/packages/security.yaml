@@ -19,13 +19,13 @@ security:
             provider: app_user_provider
             custom_authenticator: App\AccountManagement\Infrastructure\User\Security\LoginFormAuthenticator
             logout:
-                path: logout
+                path: frontend_logout
                 # where to redirect after logout
                 # target: app_any_route
             form_login:
                 # "login" is the name of the route created previously
-                login_path: login
-                check_path: login
+                login_path: frontend_login
+                check_path: frontend_login
                 enable_csrf: true
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

@@ -1,0 +1,29 @@
+{% import "dashboard/components/navbar/desktop/_locale_switcher.html.twig" as LocalSwitcher %}
+{% import "dashboard/components/navbar/mobile/_brand.html.twig" as Brand %}
+
+{# MOBILE NAVIGATION #}
+<nav id="mobile-dashboard-nav" class="navbar bg-white navbar-light sticky-top">
+    <div class="container-fluid">
+        {{ Brand.render() }}
+        
+        <!-- Left elements -->
+        <ul class="list-group list-group-horizontal me-auto">
+            <li class="list-group-item">
+                <a href="{{ path('dashboard_homepage') }}" class="nav-link">
+                    <i class="fas fa-tachometer-alt fa-fw"></i>
+                    <span class="ms-2">{{ 'global.dashboard'|trans }}</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Left elements -->
+
+        <!-- Right elements -->
+        {{ LocalSwitcher.render(navbar.localeSwitcher) }}
+        <div class="d-flex align-items-center">
+            <a href="{{ path('frontend_homepage') }}" class="nav-link">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </div>
+        <!-- Right elements -->
+    </div>
+</nav>

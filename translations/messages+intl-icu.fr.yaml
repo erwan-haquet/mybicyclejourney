@@ -6,6 +6,7 @@ global:
     my_account: 'Mon compte'
     dashboard: 'Tableau de bord'
     welcome: "Bienvenue"
+    back_to_frontend: "Retour au site"
 form:
     label:
         first_name: Prénom

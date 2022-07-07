@@ -1,7 +1,7 @@
 // Height of the navbar is used as constant to compute vh heights
 $navbar-height: 49px;
 
-.navbar-light {
+.navbar-frontend {
   padding: 0.5rem;
   z-index: 100;
 
@@ -30,7 +30,6 @@ $navbar-height: 49px;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 0.875rem;
-    color: $dark-color;
     
     &.link-secondary {
       color: $secondary;
@@ -43,7 +42,7 @@ $navbar-height: 49px;
     font-size: 0.875rem;
   }
 
-  .my-account, .locale-selector {
+  .my-account {
     text-decoration: none !important;
 
     a:hover {

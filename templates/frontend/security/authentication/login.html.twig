@@ -1,0 +1,77 @@
+{% extends "frontend/security/layout.html.twig" %}
+
+{% block page_contents %}
+
+    {% include "frontend/security/authentication/_navigation.html.twig" with {
+        'context': 'login'
+    } %}
+
+    <h1 class="card-title mb-4 mt-3 fs-3">
+        {{ "user.login.title"|trans }}
+    </h1>
+    
+    <p class="card-text text-muted mb-5">
+        {{ "user.login.description"|trans|raw }}
+    </p>
+
+    <form action="{{ path('frontend_login') }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        {% if error %}
+            <div class="row mb-3">
+                <div class="col-sm-12">
+                    <div class="alert alert-danger">
+                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="row mb-3">
+            <div class="col-sm-12">
+                <div class="form-floating">
+                    <input type="text"
+                           id="email"
+                           name="email"
+                           class="form-control"
+                           required
+                           value="{{ last_email }}"/>
+                    <label for="email">
+                        {{ 'form.label.email'|trans }} :
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-12">
+                <div class="form-floating">
+                    <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            required
+                    />
+                    <label for="password" class="form-label required">
+                        {{ 'form.label.password'|trans }} :
+                    </label>
+                </div>
+                <div class="text-end">
+                    <a class="mt-1 d-inline-block" href="{{ path('frontend_request_password_reset') }}">
+                        {{ "user.login.forgot_password"|trans }}
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-xl fw-bold btn-primary w-100 mb-3">
+                    {{ "user.login.signin"|trans }}
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
